@@ -1,3 +1,3 @@
 ---
-title: Dangau Suluah
+title: Dangau-Suluah
 ---
