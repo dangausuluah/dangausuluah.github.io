@@ -1,7 +1,7 @@
 ---
 title: Dangau Suluah
 ---
-Halo
+Halo 2
 <ul>
   {% for post in site.posts %}
     <li>
