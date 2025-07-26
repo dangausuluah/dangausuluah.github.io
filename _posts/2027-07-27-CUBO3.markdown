@@ -1,0 +1,6 @@
+---
+layout: post
+title: "CUBO3"
+date: 2025-07-27
+---
+CUBO3
