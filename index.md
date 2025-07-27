@@ -1,9 +1,8 @@
 ---
 title: Dangau Suluah
 ---
-Halo 13
+Halo 16
 
-$A = \pi$
 
 <ul>
   {% for post in site.posts %}
