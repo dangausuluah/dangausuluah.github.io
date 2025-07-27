@@ -1,7 +1,7 @@
 ---
 title: Dangau Suluah
 ---
-Halo 6
+Halo 7
 
 $A = \pi$
 
