@@ -1,7 +1,14 @@
-<script type="text/x-mathjax-config">
-MathJax.Hub.Register.StartupHook("HTML-CSS Jax Startup") {
-    var HTMLCSS = MathJax.OutputJax["HTML-CSS"];
-    HTMLCSS.Font.timout = (MathJax.Hub.Browser.isMobile ? 10 : 4) * 1000;
-}
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [ ['$', '$'], ['\\(', '\\)'] ]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
 </script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full"></script>
+<script
+  type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
