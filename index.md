@@ -2,7 +2,7 @@
 title: Dangau Suluah
 ---
 Halo 5
-\\(A = \pi\\)
+$$A = \pi$$
 <ul>
   {% for post in site.posts %}
     <li>
