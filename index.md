@@ -3,7 +3,7 @@ title: Dangau Suluah
 ---
 Halo 9
 
-$$A = \pi$$
+$A = \pi$
 
 <ul>
   {% for post in site.posts %}
