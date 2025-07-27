@@ -4,6 +4,8 @@ layout: default
 ---
 Halo 15
 
+$A = \pi$
+
 <ul>
   {% for post in site.posts %}
     <li>
