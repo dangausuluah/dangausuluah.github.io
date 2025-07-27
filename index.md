@@ -1,5 +1,6 @@
 ---
 title: Dangau Suluah
+layout: default
 ---
 Halo 16
 
