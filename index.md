@@ -2,8 +2,7 @@
 title: Dangau Suluah
 layout: default
 ---
-Halo 16
-
+Halo 15
 
 <ul>
   {% for post in site.posts %}
