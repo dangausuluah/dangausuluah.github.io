@@ -3,7 +3,7 @@ layout: post
 title: "Hello World!"
 date: 2023-01-08
 ---
-    <script>
+<script>
       // Dat GUI
       var gui = new dat.GUI();
       var props = {
@@ -340,4 +340,4 @@ date: 2023-01-08
           background: "#000000",
           zIndex: 2,
         });
-    </script>
+</script>
