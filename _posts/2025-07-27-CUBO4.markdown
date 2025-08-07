@@ -35,7 +35,7 @@ CUBO4
         });
 
       var rez = 10;
-      view.volume({
+      view.sphere({
         id: "volume",
         width: rez,
         height: rez,
