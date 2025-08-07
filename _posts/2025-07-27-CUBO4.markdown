@@ -47,7 +47,7 @@ CUBO4
           emit(x, y, 0, 1);
         },
       });
-      view.line({
+      view.area({
         // The neat trick: use the same data for position and for color!
         // We don't actually need to specify the points source since we just defined them
         // but it emphasizes what's going on.
