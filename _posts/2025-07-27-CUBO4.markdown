@@ -44,7 +44,7 @@ CUBO4
         channels: 4,
         live: false,
         expr: function (emit, x, y, z) {
-          emit(x, 0, 0, 1);
+          emit(x, y, 0, 1);
         },
       });
       view.point({
