@@ -36,7 +36,7 @@ CUBO4
 
       var rez = 10;
       view.area({
-        id: "volume",
+        id: "area",
         width: rez,
         height: rez,
         depth: rez,
@@ -52,8 +52,8 @@ CUBO4
         // We don't actually need to specify the points source since we just defined them
         // but it emphasizes what's going on.
         // The w component 1 is ignored as a position but used as opacity as a color.
-        points: "#volume",
-        colors: "#volume",
+        points: "#area",
+        colors: "#area",
         // Multiply every color component in [0..1] by 255
         color: 0xffffff,
         size: 20,
