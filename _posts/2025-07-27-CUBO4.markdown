@@ -5,76 +5,83 @@ date: 2025-07-20
 ---
 CUBO4
 
-<script>
-      // Color Cube by Max Goldstein, CC-BY
-      mathbox = MathBox.mathBox({
-        plugins: ["core", "controls", "cursor"],
-        controls: {
-          klass: THREE.OrbitControls,
-        },
-        camera: {},
-      });
+<div id="math-container"></div>
 
-      three = mathbox.three;
-      three.controls.maxDistance = 4;
-      three.camera.position.set(2.5, 1, 2.5);
-      three.renderer.setClearColor(new THREE.Color(0xeeeeee), 1.0);
+  <script>
+    // Initialize MathBox
+    const mathbox = MathBox.mathBox({
+      plugins: ['core', 'controls', 'cursor'],
+      controls: {
+        klass: THREE.OrbitControls
+      },
+      element: document.getElementById("math-container"),
+      camera: {
+        near: 0.1,
+        far: 100
+      }
+    });
 
-      view = mathbox
-        .set({
-          scale: 720,
-          focus: 1,
-        })
-        .cartesian({
-          range: [[-1.5, 1.5], [-1.5, 1.5], [-1.5, 1.5]],
+    if (mathbox.fallback) throw "WebGL not supported";
+
+    const three = mathbox.three;
+    three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
+
+    // Set up the 3D Cartesian view
+    const view = mathbox.cartesian({
+      range: [[-1.5, 1.5], [-1.5, 1.5], [-1.5, 1.5]],
       scale: [1, 1, 1],
-        });
+    });
 
-      // Add a time-uniform rotation transform (Y-axis rotation)
-const time = mathbox.clock({ pace: 1 }); // real-time clock
+    // Draw axes
+    view.axis({ axis: 1, color: 'red' });
+    view.axis({ axis: 2, color: 'green' });
+    view.axis({ axis: 3, color: 'blue' });
 
-const rotation = mathbox
-  .text({
-    live: true,
-    width: 1,
-    data: [[1, 0, 0, 0, 1, 0, 0, 0, 1]], // 3x3 matrix
-    expr: (emit, t) => {
-      const angle = t * 0.5; // speed scale
-      emit(
-        Math.cos(angle), 0, Math.sin(angle),
-        0, 1, 0,
-       -Math.sin(angle), 0, Math.cos(angle)
-      );
-    }
-  })
-  .matrix({ channels: 9 });
+    // Add clock for time-dependent animation
+    const time = mathbox.clock({ pace: 1 }); // Real-time
 
-      const rotating = view
-  .transform({ matrix: rotation }); // apply dynamic rotation matrix
+    // Define a dynamic rotation matrix (Y-axis rotation)
+    const rotationMatrix = mathbox
+      .text({
+        live: true,
+        width: 1,
+        data: [[1, 0, 0, 0, 1, 0, 0, 0, 1]],
+        expr: (emit, t) => {
+          const angle = t * 0.5; // Rotation speed
+          emit(
+            Math.cos(angle), 0, Math.sin(angle),
+            0, 1, 0,
+           -Math.sin(angle), 0, Math.cos(angle)
+          );
+        }
+      })
+      .matrix({ channels: 9 });
 
-      rotating
-  .area({
-    width: 64,
-    height: 32,
-    expr: (emit, u, v) => {
-      const theta = u * Math.PI;
-      const phi = v * 2 * Math.PI;
-      const r = 1;
+    // Apply the rotation to a subview
+    const rotating = view.transform({ matrix: rotationMatrix });
 
-      const x = r * Math.sin(theta) * Math.cos(phi);
-      const y = r * Math.sin(theta) * Math.sin(phi);
-      const z = r * Math.cos(theta);
+    // Draw the sphere under the rotating transform
+    rotating
+      .area({
+        width: 64,
+        height: 32,
+        expr: (emit, u, v) => {
+          const theta = u * Math.PI;
+          const phi = v * 2 * Math.PI;
+          const r = 1;
 
-      emit(x, y, z);
-    }
-  })
-  .surface({
-    color: 0x6699ff,
-    shaded: true,
-    opacity: 0.8,
-    lineX: true,
-    lineY: true
-  });
+          const x = r * Math.sin(theta) * Math.cos(phi);
+          const y = r * Math.sin(theta) * Math.sin(phi);
+          const z = r * Math.cos(theta);
 
-
-    </script>
+          emit(x, y, z);
+        }
+      })
+      .surface({
+        color: 0x6699ff,
+        shaded: true,
+        opacity: 0.9,
+        lineX: true,
+        lineY: true
+      });
+  </script>
