@@ -105,7 +105,7 @@ CUBO4
       view
       .interval({
         expr: function (emit, x, i, t) {
-          emit(Math.cos(t), Math.sin(t), Math.sin(t));
+          emit(Math.cos(t)+Math.cos(2*t), Math.sin(t), Math.sin(t));
         },
         width: 1,
         channels: 3,
