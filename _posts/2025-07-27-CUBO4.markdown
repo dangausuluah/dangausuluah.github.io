@@ -34,28 +34,27 @@ CUBO4
           scale: [1, 1, 1],
         });
 
-      var rez = 10;
-      view.volume({
-        id: "volume",
-        width: rez,
-        height: rez,
-        depth: rez,
-        items: 1,
-        channels: 4,
-        live: false,
-        expr: function (emit, x, y, z) {
-          emit(x, y, 0, 1);
-        },
-      });
-      view.area({
-        // The neat trick: use the same data for position and for color!
-        // We don't actually need to specify the points source since we just defined them
-        // but it emphasizes what's going on.
-        // The w component 1 is ignored as a position but used as opacity as a color.
-        points: "#volume",
-        colors: "#volume",
-        // Multiply every color component in [0..1] by 255
-        color: 0xffffff,
-        size: 20,
+          view
+      .area({
+        width: 64,
+        height: 32,
+        expr: (emit, u, v, t) => {
+          const theta = u * Math.PI;       // [0, π]
+          const phi = v * 2 * Math.PI;     // [0, 2π]
+          const r = 1;
+
+          const x = r * Math.sin(theta) * Math.cos(phi);
+          const y = r * Math.sin(theta) * Math.sin(phi);
+          const z = r * Math.cos(theta);
+
+          emit(x, y, z);
+        }
+      })
+      .surface({
+        color: 0x6699ff,
+        shaded: true,
+        opacity: 0.8,
+        lineX: true,
+        lineY: true
       });
     </script>
