@@ -121,10 +121,10 @@ CUBO4
       view
       .interval({
         expr: function (emit, x, i, t) {
-          emit(0, 0);
+          emit(0, 0, Math.sin(t));
         },
         width: 1,
-        channels: 2,
+        channels: 3,
       });
 
       var points3 =
