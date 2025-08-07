@@ -91,7 +91,7 @@ CUBO4
         expr: function (emit, x, i, t) {
           emit(x, Math.sin(x + t));
         },
-        width: 1,
+        width: 2,
         channels: 2,
       });
 
