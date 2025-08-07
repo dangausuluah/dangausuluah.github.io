@@ -5,84 +5,79 @@ date: 2025-07-20
 ---
 CUBO4
 
- <div id="math-container"></div>
+ <div id="mathbox"></div>
 
-  <script>
-    // Initialize MathBox
-    const mathbox = MathBox.mathBox({
-      plugins: ['core', 'controls', 'cursor'],
-      controls: {
-        klass: THREE.OrbitControls
-      },
-      element: document.getElementById("math-container"),
-      camera: {
-        near: 0.1,
-        far: 100
+<script>
+  // Initialize MathBox
+  const mathbox = MathBox.mathBox({
+    plugins: ['core', 'controls', 'cursor'],
+    controls: {
+      klass: THREE.OrbitControls,
+    },
+    element: document.getElementById('mathbox'),
+    camera: {
+      near: 0.01,
+      far: 100,
+    },
+  });
+
+  if (mathbox.fallback) throw "WebGL not supported";
+
+  const three = mathbox.three;
+  three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
+
+  // View
+  const view = mathbox.cartesian({
+    range: [[-2, 2], [-2, 2], [-2, 2]],
+    scale: [1, 1, 1],
+  });
+
+  view.axis({ axis: 1, color: 'red' });
+  view.axis({ axis: 2, color: 'green' });
+  view.axis({ axis: 3, color: 'blue' });
+
+  // Create live rotation matrix using clock
+  const time = mathbox.clock({ pace: 1 });
+
+  const rotation = mathbox
+    .text({
+      live: true,
+      width: 1,
+      channels: 9,
+      expr: (emit, t) => {
+        const a = t * 0.7;
+        emit(
+          Math.cos(a), 0, Math.sin(a),
+          0, 1, 0,
+          -Math.sin(a), 0, Math.cos(a)
+        );
       }
+    })
+    .matrix({ channels: 9 });
+
+  const rotating = view.transform({ matrix: rotation });
+
+  // Sphere surface
+  rotating
+    .area({
+      width: 64,
+      height: 32,
+      expr: (emit, u, v) => {
+        const theta = u * Math.PI;
+        const phi = v * 2 * Math.PI;
+        const r = 1;
+        const x = r * Math.sin(theta) * Math.cos(phi);
+        const y = r * Math.sin(theta) * Math.sin(phi);
+        const z = r * Math.cos(theta);
+        emit(x, y, z);
+      },
+    })
+    .surface({
+      color: 0x3399ff,
+      shaded: true,
+      opacity: 0.9,
+      lineX: true,
+      lineY: true,
     });
 
-    if (mathbox.fallback) throw "WebGL not supported";
-
-    const three = mathbox.three;
-    three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
-
-    // Set up the 3D Cartesian view
-    const view = mathbox.cartesian({
-      range: [[-1.5, 1.5], [-1.5, 1.5], [-1.5, 1.5]],
-      scale: [1, 1, 1],
-    });
-
-    // Add axis
-    view.axis({ axis: 1, color: 'red' });
-    view.axis({ axis: 2, color: 'green' });
-    view.axis({ axis: 3, color: 'blue' });
-
-    // Declare time dependency
-    const time = mathbox.select('time');
-
-    // Create a time-dependent rotation matrix
-    const rotationMatrix = mathbox
-      .text({
-        live: true,
-        width: 1,
-        channels: 9,
-        expr: (emit, t) => {
-          const angle = t * 0.8;  // Rotation speed
-          emit(
-            Math.cos(angle), 0, Math.sin(angle),
-            0, 1, 0,
-           -Math.sin(angle), 0, Math.cos(angle)
-          );
-        },
-        inputs: [time]  // <-- Make time an active input
-      })
-      .matrix({ channels: 9 });
-
-    // Apply the rotation to a transform node
-    const rotating = view.transform({ matrix: rotationMatrix });
-
-    // Draw the rotating sphere
-    rotating
-      .area({
-        width: 64,
-        height: 32,
-        expr: (emit, u, v) => {
-          const theta = u * Math.PI;
-          const phi = v * 2 * Math.PI;
-          const r = 1;
-
-          const x = r * Math.sin(theta) * Math.cos(phi);
-          const y = r * Math.sin(theta) * Math.sin(phi);
-          const z = r * Math.cos(theta);
-
-          emit(x, y, z);
-        }
-      })
-      .surface({
-        color: 0x6699ff,
-        shaded: true,
-        opacity: 0.9,
-        lineX: true,
-        lineY: true
-      });
-  </script>
+</script>
