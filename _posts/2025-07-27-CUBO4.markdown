@@ -101,6 +101,22 @@ CUBO4
     color: '#50A000',
   });
 
+      var data2 =
+      view
+      .interval({
+        expr: function (emit, x, i, t) {
+          emit(0, Math.sin(0 + t));
+        },
+        width: 1,
+        channels: 2,
+      });
+
+      var points2 =
+  view.point({
+    size: 8,
+    color: '#50A000',
+  });
+  
   /*
       var vector =
   view.interval({
