@@ -5,79 +5,133 @@ date: 2025-07-20
 ---
 CUBO4
 
- <div id="mathbox"></div>
+ <script>
+      var mathbox = MathBox.mathBox({
+        plugins: ["core", "controls", "cursor", "mathbox"],
+        controls: {
+          // Orbit controls, i.e. Euler angles, with gimbal lock
+          klass: THREE.OrbitControls,
 
-<script>
-  // Initialize MathBox
-  const mathbox = MathBox.mathBox({
-    plugins: ['core', 'controls', 'cursor'],
-    controls: {
-      klass: THREE.OrbitControls,
-    },
-    element: document.getElementById('mathbox'),
-    camera: {
-      near: 0.01,
-      far: 100,
-    },
+          // Trackball controls, i.e. Free quaternion rotation
+          //klass: THREE.TrackballControls,
+        },
+      });
+      if (mathbox.fallback) throw "WebGL not supported";
+
+      var three = mathbox.three;
+      three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
+  
+      var camera =
+      mathbox
+      .camera({
+        proxy: true,
+        position: [0, 0, 3],
+      });
+
+          // 2D cartesian
+    var view =
+      mathbox
+      .cartesian({
+        range: [[-2, 2], [-1, 1]],
+        scale: [2, 1],
+      });
+
+    // Axes + grid
+    view
+      .axis({
+        axis: 1,
+        width: 3,
+      })
+      .axis({
+        axis: 2,
+        width: 3,
+      })
+      .grid({
+        width: 2,
+        divideX: 20,
+        divideY: 10,
+      });
+
+      // Make axes black
+    mathbox.select('axis').set('color', 'black');
+
+      // Calibrate focus distance for units
+    mathbox.set('focus', 3);
+
+      // Add some data
+    var data =
+      view
+      .interval({
+        expr: function (emit, x, i, t) {
+          emit(x, Math.sin(x + t));
+        },
+        width: 64,
+        channels: 2,
+      });
+
+    // Draw a curve
+    var curve =
+      view
+      .line({
+        width: 5,
+        color: '#3090FF',
+      });
+
+      var points =
+  view.point({
+    size: 8,
+    color: '#3090FF',
   });
 
-  if (mathbox.fallback) throw "WebGL not supported";
-
-  const three = mathbox.three;
-  three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
-
-  // View
-  const view = mathbox.cartesian({
-    range: [[-2, 2], [-2, 2], [-2, 2]],
-    scale: [1, 1, 1],
+      var vector =
+  view.interval({
+    expr: function (emit, x, i, t) {
+      emit(x, 0);
+      emit(x, -Math.sin(x + t));
+    },
+    width: 64,
+    channels: 2,
+    items: 2,
+  })
+  .vector({
+    end: true,
+    width: 5,
+    color: '#50A000',
   });
 
-  view.axis({ axis: 1, color: 'red' });
-  view.axis({ axis: 2, color: 'green' });
-  view.axis({ axis: 3, color: 'blue' });
+      var scale =
+  view.scale({
+    divide: 10,
+  });
 
-  // Create live rotation matrix using clock
-  const time = mathbox.clock({ pace: 1 });
+      var ticks =
+  view.ticks({
+    width: 5,
+    size: 15,
+    color: 'black',
+  });
 
-  const rotation = mathbox
-    .text({
-      live: true,
-      width: 1,
-      channels: 9,
-      expr: (emit, t) => {
-        const a = t * 0.7;
-        emit(
-          Math.cos(a), 0, Math.sin(a),
-          0, 1, 0,
-          -Math.sin(a), 0, Math.cos(a)
-        );
-      }
-    })
-    .matrix({ channels: 9 });
+      var format =
+  view.format({
+    digits: 2,
+    weight: 'bold',
+  });
 
-  const rotating = view.transform({ matrix: rotation });
+      var labels =
+  view.label({
+    color: 'red',
+    zIndex: 1,
+  });
 
-  // Sphere surface
-  rotating
-    .area({
-      width: 64,
-      height: 32,
-      expr: (emit, u, v) => {
-        const theta = u * Math.PI;
-        const phi = v * 2 * Math.PI;
-        const r = 1;
-        const x = r * Math.sin(theta) * Math.cos(phi);
-        const y = r * Math.sin(theta) * Math.sin(phi);
-        const z = r * Math.cos(theta);
-        emit(x, y, z);
-      },
-    })
-    .surface({
-      color: 0x3399ff,
-      shaded: true,
-      opacity: 0.9,
-      lineX: true,
-      lineY: true,
-    });
-
+      var play = mathbox.play({
+  target: 'cartesian',
+  pace: 5,
+  to: 2,
+  loop: true,
+  script: [
+    {props: {range: [[-2, 2], [-1, 1]]}},
+    {props: {range: [[-4, 4], [-2, 2]]}},
+    {props: {range: [[-2, 2], [-1, 1]]}},
+  ]
+});
 </script>
