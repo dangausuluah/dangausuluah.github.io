@@ -119,4 +119,28 @@ CUBO4
   });
 */
 
+       var scale =
+  view.scale({
+    divide: 10,
+  });
+
+      var ticks =
+  view.ticks({
+    width: 5,
+    size: 15,
+    color: 'black',
+  });
+
+      var format =
+  view.format({
+    digits: 2,
+    weight: 'bold',
+  });
+
+      var labels =
+  view.label({
+    color: 'red',
+    zIndex: 1,
+  });
+
 </script>
