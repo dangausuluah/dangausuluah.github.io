@@ -5,7 +5,7 @@ date: 2025-07-20
 ---
 CUBO4
 
-<div id="math-container"></div>
+ <div id="math-container"></div>
 
   <script>
     // Initialize MathBox
@@ -32,35 +32,36 @@ CUBO4
       scale: [1, 1, 1],
     });
 
-    // Draw axes
+    // Add axis
     view.axis({ axis: 1, color: 'red' });
     view.axis({ axis: 2, color: 'green' });
     view.axis({ axis: 3, color: 'blue' });
 
-    // Add clock for time-dependent animation
-    const time = mathbox.clock({ pace: 1 }); // Real-time
+    // Declare time dependency
+    const time = mathbox.select('time');
 
-    // Define a dynamic rotation matrix (Y-axis rotation)
+    // Create a time-dependent rotation matrix
     const rotationMatrix = mathbox
       .text({
         live: true,
         width: 1,
-        data: [[1, 0, 0, 0, 1, 0, 0, 0, 1]],
+        channels: 9,
         expr: (emit, t) => {
-          const angle = t * 0.5; // Rotation speed
+          const angle = t * 0.8;  // Rotation speed
           emit(
             Math.cos(angle), 0, Math.sin(angle),
             0, 1, 0,
            -Math.sin(angle), 0, Math.cos(angle)
           );
-        }
+        },
+        inputs: [time]  // <-- Make time an active input
       })
       .matrix({ channels: 9 });
 
-    // Apply the rotation to a subview
+    // Apply the rotation to a transform node
     const rotating = view.transform({ matrix: rotationMatrix });
 
-    // Draw the sphere under the rotating transform
+    // Draw the rotating sphere
     rotating
       .area({
         width: 64,
