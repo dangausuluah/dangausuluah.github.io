@@ -58,6 +58,7 @@ CUBO4
       // Calibrate focus distance for units
     mathbox.set('focus', 3);
 
+  /*
       // Add some data
     var data =
       view
@@ -82,7 +83,25 @@ CUBO4
     size: 8,
     color: '#3090FF',
   });
+*/
 
+    var data1 =
+      view
+      .interval({
+        expr: function (emit, x, i, t) {
+          emit(x, Math.sin(x + t));
+        },
+        width: 1,
+        channels: 2,
+      });
+
+      var points1 =
+  view.point({
+    size: 8,
+    color: '#50A000',
+  });
+
+  /*
       var vector =
   view.interval({
     expr: function (emit, x, i, t) {
@@ -98,40 +117,6 @@ CUBO4
     width: 5,
     color: '#50A000',
   });
+*/
 
-      var scale =
-  view.scale({
-    divide: 10,
-  });
-
-      var ticks =
-  view.ticks({
-    width: 5,
-    size: 15,
-    color: 'black',
-  });
-
-      var format =
-  view.format({
-    digits: 2,
-    weight: 'bold',
-  });
-
-      var labels =
-  view.label({
-    color: 'red',
-    zIndex: 1,
-  });
-
-      var play = mathbox.play({
-  target: 'cartesian',
-  pace: 5,
-  to: 2,
-  loop: true,
-  script: [
-    {props: {range: [[-2, 2], [-1, 1]]}},
-    {props: {range: [[-4, 4], [-2, 2]]}},
-    {props: {range: [[-2, 2], [-1, 1]]}},
-  ]
-});
 </script>
