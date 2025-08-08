@@ -24,7 +24,7 @@ CUBO3
             // Dat GUI
       var gui = new dat.GUI();
       var props = {
-        n: 1,
+        n: 2,
         l: 0,
         m: 0,
       };
@@ -272,7 +272,7 @@ var data =
       .interval({
         expr: function (emit, x, i, t) {
               if (x > 0) {
-          emit(x, Math.sin(x + t));
+          emit(x, props.n*Math.sin(x + t));
         }
           //emit(x, Math.sin(x + t));
         },
