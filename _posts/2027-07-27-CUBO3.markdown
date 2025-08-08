@@ -101,6 +101,7 @@ CUBO3
     color: '#50A000',
   });
 
+      /*
       var data2 =
       view
       .interval({
@@ -175,6 +176,7 @@ CUBO3
     size: 8,
     color: '#50A000',
   });
+*/
   
   /*
       var vector =
