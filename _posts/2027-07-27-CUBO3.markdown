@@ -72,7 +72,7 @@ CUBO3
 let L_value = 15;
 // factor: how many points per 1 unit distance
 let factor = 4;
-let n_value = props.n;
+let n_value = 2;
 let l_value = 1;
 let m_value = 0;
       
@@ -212,7 +212,7 @@ var data =
   let minimum = 1;
         let percent =
           waveFunction(
-            n_value,
+            props.n,
             l_value,
             m_value,
             radius(x, y, z),
