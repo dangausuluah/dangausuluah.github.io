@@ -157,7 +157,7 @@ CUBO4
       var points5 =
   view.point({
     size: 8,
-    color: #50A000,
+    color: '#50A000',
   });
 
         var data3 =
