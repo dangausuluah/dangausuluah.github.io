@@ -139,7 +139,7 @@ CUBO4
           var data5 =
       view
       .area({
-        expr: function (emit, x, y, i, j, t) {
+        expr: function (emit, u, v, i, j, t) {
           const theta = u * Math.PI;       // [0, π]
           const phi = v * 2 * Math.PI;     // [0, 2π]
           const r = 1;
