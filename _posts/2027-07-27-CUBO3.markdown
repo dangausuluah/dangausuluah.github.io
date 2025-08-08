@@ -278,23 +278,17 @@ var data =
         expr: function (emit, x,y,z) {
             let maximum = 0;
   let minimum = 1;
-  let i = -1 * L_value * factor;
-  while (i < L_value * factor) {
-    let t = -1 * L_value * factor;
-    while (t < L_value * factor) {
-      let s = -1 * L_value * factor;
-      while (s < L_value * factor) {
         let percent =
           waveFunction(
             n_value,
             l_value,
             m_value,
-            radius(i / factor, t / factor, s / factor),
-            theta(i / factor, t / factor, s / factor),
-            phi(t / factor, i / factor)
+            radius(x, y, z),
+            theta(x, y, z),
+            phi(y, x)
           ) ** 2;
         if (percent > minimum_percent) {
-          emit(i / factor, t / factor, s / factor);
+          emit(x, y, z);
         }
         if (percent > maximum) {
           maximum = percent;
@@ -302,12 +296,6 @@ var data =
         if (percent < minimum && percent !== 0) {
           minimum = percent;
         }
-        s += 1;
-      }
-      t += 1;
-    }
-    i += 1;
-  }
         },
         width: 15,
         height: 15,
