@@ -272,8 +272,21 @@ var layout = {
 Plotly.newPlot(graphDiv, [newTrace()], layout);
 }
 
+var data =
+      view
+      .interval({
+        expr: function (emit, x, i, t) {
+          emit(x, Math.sin(x + t));
+        },
+        width: 64,
+        channels: 2,
+      });
 
-      
+      var points =
+  view.point({
+    size: 8,
+    color: '#3090FF',
+  });
   /*
       // Add some data
     var data =
