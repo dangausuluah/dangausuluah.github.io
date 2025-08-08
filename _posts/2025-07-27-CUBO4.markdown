@@ -105,9 +105,10 @@ CUBO4
       view
       .interval({
         expr: function (emit, x, i, t) {
-          emit(1/3*Math.cos(t)+1/3*Math.cos(2*t)+1/3*Math.cos(3*t), Math.sin(t), 0);
+         const phi = x * 2 * Math.PI;
+          emit(Math.cos(t+phi), Math.sin(t+phi), 0);
         },
-        width: 1,
+        width: 64,
         channels: 3,
       });
 
