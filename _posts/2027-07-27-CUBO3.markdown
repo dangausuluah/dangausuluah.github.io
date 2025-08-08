@@ -20,6 +20,17 @@ CUBO3
 
       var three = mathbox.three;
       three.renderer.setClearColor(new THREE.Color(0xffffff), 1.0);
+
+            // Dat GUI
+      var gui = new dat.GUI();
+      var props = {
+        n: 1,
+        l: 0,
+        m: 0,
+      };
+      gui.add(props, "n").min(1).max(4).step(1);
+      gui.add(props, "l").min(0).max(3).step(1);
+      gui.add(props, "x").min(-3).max(3).step(1);
   
       var camera =
       mathbox
