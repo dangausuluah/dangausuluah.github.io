@@ -213,8 +213,8 @@ var data =
         let percent =
           waveFunction(
             props.n,
-            l_value,
-            m_value,
+            props.l,
+            props.m,
             radius(x, y, z),
             theta(x, y, z),
             phi(y, x)
