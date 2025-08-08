@@ -149,8 +149,8 @@ CUBO4
           const z = r * Math.cos(theta);
           emit(x, y, z);
         },
-        width: 64,
-        height: 32,
+        width: 32,
+        height: 16,
         channels: 3,
       });
 
