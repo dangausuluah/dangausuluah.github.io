@@ -136,6 +136,29 @@ CUBO4
     color: '#50A000',
   });
 
+          var data5 =
+      view
+      .area({
+        expr: function (emit, x, y, i, j, t) {
+          const theta = u * Math.PI;       // [0, π]
+          const phi = v * 2 * Math.PI;     // [0, 2π]
+          const r = 1;
+
+          const x = r * Math.sin(theta) * Math.cos(phi+t);
+          const y = r * Math.sin(theta) * Math.sin(phi+t);
+          const z = r * Math.cos(theta);
+          emit(x, y, z);
+        },
+        width: 64,
+        height: 32,
+        channels: 3,
+      });
+
+      var points5 =
+  view.point({
+    size: 8,
+    color: '#50A000',
+  });
 
         var data3 =
       view
