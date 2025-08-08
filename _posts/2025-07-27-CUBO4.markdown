@@ -157,18 +157,18 @@ CUBO4
   
 // Colors: all green except one red
 const colorArray = [];
-for (let j = 0; j < height; j++) {
-  for (let i = 0; i < width; i++) {
+for (let j = 0; j < 16; j++) {
+  for (let i = 0; i < 32; i++) {
     if (i === 8 && j === 4) {
-      colorArray.push(1, 0, 0); // red
+      colorArray.push(#50A000); // red
     } else {
-      colorArray.push(0.3, 0.8, 0.3); // green
+      colorArray.push(#50A0AA); // green
     }
   }
 }
 
 const colors = mathbox.array({
-  width: width * height,
+  width: 32 * 16,
   channels: 3,
   items: 1,
   data: colorArray,
