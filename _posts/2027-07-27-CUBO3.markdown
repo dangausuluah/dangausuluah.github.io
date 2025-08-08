@@ -61,8 +61,8 @@ CUBO3
 let L_value = 15;
 // factor: how many points per 1 unit distance
 let factor = 4;
-let n_value = 4;
-let l_value = 2;
+let n_value = 2;
+let l_value = 1;
 let m_value = 0;
       
 let minimum_percent = 0.00001;
@@ -192,85 +192,6 @@ const theta = (x, y, z) => {
 const phi = (y, x) => {
   return Math.atan(y / x);
 };
-
-// creates points from [-L,-L,-L] to [L,L,L]
-const getTrace = () => {
-  let data = {
-    x: [],
-    y: [],
-    z: []
-  };
-  let maximum = 0;
-  let minimum = 1;
-  let i = -1 * L_value * factor;
-  while (i < L_value * factor) {
-    let t = -1 * L_value * factor;
-    while (t < L_value * factor) {
-      let s = -1 * L_value * factor;
-      while (s < L_value * factor) {
-        let percent =
-          waveFunction(
-            n_value,
-            l_value,
-            m_value,
-            radius(i / factor, t / factor, s / factor),
-            theta(i / factor, t / factor, s / factor),
-            phi(t / factor, i / factor)
-          ) ** 2;
-        if (percent > minimum_percent) {
-          data.x.push(i / factor);
-          data.y.push(t / factor);
-          data.z.push(s / factor);
-        }
-        if (percent > maximum) {
-          maximum = percent;
-        }
-        if (percent < minimum && percent !== 0) {
-          minimum = percent;
-        }
-        s += 1;
-      }
-      t += 1;
-    }
-    i += 1;
-  }
-
-  return data;
-};
-
-const newTrace = () => {
-  let object_data = getTrace();
-  let x_data = object_data.x;
-  let y_data = object_data.y;
-  let z_data = object_data.z;
-  return {
-    x: x_data,
-    y: y_data,
-    z: z_data,
-    mode: "markers",
-    marker: {
-      color: "rgb(66, 135, 245)",
-      size: 1,
-      symbol: "circle",
-      opacity: 0.6
-    },
-    type: "scatter3d"
-  };
-};
-
-let graphDiv = document.getElementById("graph");
-
-function loadGraph() {
-var layout = {
-  margin: {
-    l: 0,
-    r: 0,
-    b: 0,
-    t: 0
-  }
-};
-Plotly.newPlot(graphDiv, [newTrace()], layout);
-}
 
 var data =
       view
