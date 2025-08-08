@@ -33,7 +33,7 @@ CUBO3
       mathbox
       .cartesian({
         range: [[-15, 15], [-15, 15], [-15, 15]],
-        scale: [2, 1, 1],
+        scale: [1, 1, 1],
       });
 
     // Axes + grid
