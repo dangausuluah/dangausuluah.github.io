@@ -29,7 +29,7 @@ CUBO3
         m: 0,
       };
       gui.add(props, "n").min(1).max(4).step(1);
-      gui.add(props, "l").min(0).max(props.n-1).step(1);
+      gui.add(props, "l").min(0).max(3).step(1);
       gui.add(props, "m").min(-3).max(3).step(1);
   
       var camera =
@@ -72,7 +72,7 @@ CUBO3
 let L_value = 15;
 // factor: how many points per 1 unit distance
 let factor = 4;
-let n_value = 2;
+let n_value = props.n;
 let l_value = 1;
 let m_value = 0;
       
