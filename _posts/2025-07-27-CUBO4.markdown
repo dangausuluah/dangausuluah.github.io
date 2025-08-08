@@ -154,10 +154,30 @@ CUBO4
         channels: 3,
       });
 
+  
+// Colors: all green except one red
+const colorArray = [];
+for (let j = 0; j < height; j++) {
+  for (let i = 0; i < width; i++) {
+    if (i === 8 && j === 4) {
+      colorArray.push(1, 0, 0); // red
+    } else {
+      colorArray.push(0.3, 0.8, 0.3); // green
+    }
+  }
+}
+
+const colors = mathbox.array({
+  width: width * height,
+  channels: 3,
+  items: 1,
+  data: colorArray,
+});
+
       var points5 =
   view.point({
     size: 8,
-    color: '#50A000',
+    color: colors,
   });
 
         var data3 =
