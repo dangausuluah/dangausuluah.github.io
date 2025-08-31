@@ -2,9 +2,7 @@
 title: Dangau Suluah
 layout: default
 ---
-Halo 15
-
-$A = \pi$
+"Satitiak jadikan lauik, sakapa jadikan gunuang."
 
 <ul>
   {% for post in site.posts %}
