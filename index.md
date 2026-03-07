@@ -2,7 +2,7 @@
 title: Dangau Suluah
 layout: default
 ---
-"Satitiak jadikan lauik, sakapa jadikan gunuang."
+"Lauikkan titiak, gunuangkan kapa."
 
 <ul>
   {% for post in site.posts %}
