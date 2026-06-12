@@ -22,5 +22,5 @@ Peluang untuk mendapatkan hasil pengukuran 0 atau 1 ditentukan oleh kuadrat dari
 
 - $\|\alpha\|^2$ adalah peluang untuk mendapatkan hasil 0.
 - $\|\beta\|^2$ adalah peluang untuk mendapatkan hasil 1.
-- Berlaku normalisasi untuk tetap konsisten dengan teori peluang, $|\alpha|^2 + |\beta|^2 = 1$.
+- Berlaku normalisasi untuk tetap konsisten dengan teori peluang, $\|\alpha\|^2 + \|\beta\|^2 = 1$.
 
