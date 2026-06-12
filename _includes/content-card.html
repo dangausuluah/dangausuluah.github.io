@@ -1,0 +1,15 @@
+<a class="card" href="{{ include.item.url | relative_url }}">
+  <div>
+    {% if include.item.level %}
+      <span class="tag">{{ include.item.level }}</span>
+    {% endif %}
+
+    <h3>{{ include.item.title }}</h3>
+
+    <p>
+      {{ include.item.excerpt }}
+    </p>
+  </div>
+
+  <div class="read-more">Read full content →</div>
+</a>
