@@ -8,7 +8,7 @@ permalink: /
   <div class="hero-card">
     <div class="eyebrow">DangauSuluah</div>
 
-    <h1>Pandangan<strong>abal-abal</strong>tentang sedikit hal.</h1>
+    <h1>Pandangan <strong>abal-abal</strong> tentang sedikit hal.</h1>
 
     <p class="lead">
       Kumpulan pandangan, catatan, tutorial, dll terhadap informasi kuantum.
