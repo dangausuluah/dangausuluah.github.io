@@ -1,1 +1,9 @@
-theme:minima
+title: Quantum Information Science
+description: Notes, visual explanations, and resources on quantum information science.
+
+collections:
+  contents:
+    output: true
+    permalink: /contents/:name/
+
+markdown: kramdown
