@@ -1,0 +1,26 @@
+<header>
+  <div class="container nav">
+    <a class="logo" href="{{ '/' | relative_url }}">
+      Quantum<span>Info</span>.Science
+    </a>
+
+    <nav class="tabs" aria-label="Main navigation">
+      {% for item in site.data.nav %}
+        {% assign is_active = false %}
+
+        {% if item.url == "/" and page.url == "/" %}
+          {% assign is_active = true %}
+        {% elsif item.url != "/" and page.url contains item.url %}
+          {% assign is_active = true %}
+        {% endif %}
+
+        <a
+          class="tab-btn {% if is_active %}active{% endif %}"
+          href="{{ item.url | relative_url }}"
+        >
+          {{ item.title }}
+        </a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>
