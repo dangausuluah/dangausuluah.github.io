@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Quantum Information Science</title>
+
+  <style>
+    :root {
+      --red: #EA0003;
+      --yellow: #FBC306;
+      --black: #050505;
+      --dark: #101010;
+      --dark-2: #181818;
+      --text: #f4f4f4;
+      --muted: #b8b8b8;
+      --border: rgba(255, 255, 255, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(234, 0, 3, 0.18), transparent 35%),
+        radial-gradient(circle at top right, rgba(251, 195, 6, 0.14), transparent 30%),
+        var(--black);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(5, 5, 5, 0.86);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 74px;
+      gap: 24px;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1.25rem;
+    }
+
+    .logo span {
+      color: var(--yellow);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid transparent;
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .tab-btn.active {
+      color: var(--black);
+      background: var(--yellow);
+      border-color: var(--yellow);
+    }
+
+    main {
+      padding: 56px 0 80px;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 54px;
+    }
+
+    .hero-card {
+      padding: 38px;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      box-shadow: 0 20px 80px rgba(0,0,0,0.35);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--yellow);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.07em;
+      margin-bottom: 22px;
+    }
+
+    h1 strong {
+      color: var(--red);
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: white;
+      border-color: var(--red);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(234, 0, 3, 0.25);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    .side-card {
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 26px;
+      background: var(--dark);
+    }
+
+    .side-card h3 {
+      color: var(--yellow);
+      margin-bottom: 14px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .stats {
+      display: grid;
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 16px;
+      background: var(--dark-2);
+      border-radius: 18px;
+      border-left: 4px solid var(--red);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.45rem;
+      color: white;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .section-title {
+      margin-bottom: 22px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.045);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      transition: 0.2s ease;
+      cursor: pointer;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(251, 195, 6, 0.55);
+      background: rgba(255,255,255,0.075);
+    }
+
+    .tag {
+      display: inline-flex;
+      width: fit-content;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(251, 195, 6, 0.13);
+      color: var(--yellow);
+      border: 1px solid rgba(251, 195, 6, 0.3);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .read-more {
+      margin-top: 18px;
+      color: var(--yellow);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .content-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .content-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      border-radius: 20px;
+      padding: 20px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .content-item:hover {
+      border-color: var(--yellow);
+      transform: translateX(3px);
+    }
+
+    .content-item h3 {
+      margin-bottom: 4px;
+    }
+
+    .content-item p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .content-meta {
+      color: var(--yellow);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .article-viewer {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      border-radius: 28px;
+      padding: 34px;
+      max-width: 900px;
+    }
+
+    .article-viewer h2 {
+      font-size: 2.2rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .article-viewer .article-type {
+      color: var(--yellow);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      margin-bottom: 18px;
+    }
+
+    .article-viewer p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .article-viewer ul {
+      padding-left: 22px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .concept-box {
+      padding: 24px;
+      border-radius: 22px;
+      background: var(--dark);
+      border: 1px solid var(--border);
+    }
+
+    .concept-box h3 {
+      color: var(--yellow);
+      margin-bottom: 8px;
+    }
+
+    .concept-box p {
+      color: var(--muted);
+    }
+
+    .resource-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .resource {
+      padding: 20px;
+      border-radius: 18px;
+      background: var(--dark);
+      border-left: 4px solid var(--red);
+    }
+
+    .resource h3 {
+      margin-bottom: 5px;
+    }
+
+    .resource p {
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      padding: 28px 0;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 850px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .concept-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .content-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">Quantum<span>Info</span>.Science</div>
+
+      <nav class="tabs">
+        <button class="tab-btn active" data-tab="home">Home</button>
+        <button class="tab-btn" data-tab="contents">Contents</button>
+        <button class="tab-btn" data-tab="concepts">Concepts</button>
+        <button class="tab-btn" data-tab="resources">Resources</button>
+        <button class="tab-btn" data-tab="about">About</button>
+        <button class="tab-btn" data-tab="article">Read</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HOME -->
+    <section id="home" class="tab-panel active">
+      <div class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Quantum Information Science</div>
+
+          <h1>Notes on <strong>qubits</strong>, information, and quantum systems.</h1>
+
+          <p class="lead">
+            A curated collection of explanations, visual notes, tutorials, and references on quantum information science:
+            from basic qubits and measurement to entanglement, quantum channels, and quantum communication.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="openTab('contents')">Browse Contents</button>
+            <button class="btn btn-secondary" onclick="openTab('concepts')">Explore Concepts</button>
+          </div>
+        </div>
+
+        <aside class="side-card">
+          <h3>Site Focus</h3>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>Qubits</strong>
+              <span>States, gates, and measurement</span>
+            </div>
+
+            <div class="stat">
+              <strong>Entanglement</strong>
+              <span>Correlations beyond classical systems</span>
+            </div>
+
+            <div class="stat">
+              <strong>Channels</strong>
+              <span>Noise, decoherence, and communication</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="section-title">
+        <h2>Featured Content</h2>
+        <p>Click a preview to open the full content.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card" onclick="openArticle('qubit')">
+          <div>
+            <span class="tag">Beginner</span>
+            <h3>What is a Qubit?</h3>
+            <p>
+              A short introduction to quantum states, amplitudes, normalization, and the difference between bits and qubits.
+            </p>
+          </div>
+          <div class="read-more">Read full content →</div>
+        </article>
+
+        <article class="card" onclick="openArticle('measurement')">
+          <div>
+            <span class="tag">Core Concept</span>
+            <h3>Quantum Measurement</h3>
+            <p>
+              Why measurement is not just observation, and how probabilities emerge from quantum amplitudes.
+            </p>
+          </div>
+          <div class="read-more">Read full content →</div>
+        </article>
+
+        <article class="card" onclick="openArticle('entanglement')">
+          <div>
+            <span class="tag">Intermediate</span>
+            <h3>Entanglement</h3>
+            <p>
+              A conceptual explanation of entangled states, nonclassical correlation, and why tensor products matter.
+            </p>
+          </div>
+          <div class="read-more">Read full content →</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTENTS -->
+    <section id="contents" class="tab-panel">
+      <div class="section-title">
+        <h2>List of Contents</h2>
+        <p>Organize the site as a readable knowledge base, not only as a blog archive.</p>
+      </div>
+
+      <div class="content-list">
+        <div class="content-item" onclick="openArticle('qubit')">
+          <div>
+            <h3>What is a Qubit?</h3>
+            <p>Basic definition, state vector, superposition, and normalization.</p>
+          </div>
+          <div class="content-meta">Beginner →</div>
+        </div>
+
+        <div class="content-item" onclick="openArticle('measurement')">
+          <div>
+            <h3>Quantum Measurement</h3>
+            <p>Born rule, probability, measurement basis, and state collapse.</p>
+          </div>
+          <div class="content-meta">Core →</div>
+        </div>
+
+        <div class="content-item" onclick="openArticle('entanglement')">
+          <div>
+            <h3>Entanglement</h3>
+            <p>Composite systems, Bell states, and nonclassical correlation.</p>
+          </div>
+          <div class="content-meta">Intermediate →</div>
+        </div>
+
+        <div class="content-item" onclick="openArticle('channels')">
+          <div>
+            <h3>Quantum Channels</h3>
+            <p>Noise, decoherence, Kraus operators, and communication models.</p>
+          </div>
+          <div class="content-meta">Advanced →</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCEPTS -->
+    <section id="concepts" class="tab-panel">
+      <div class="section-title">
+        <h2>Concept Map</h2>
+        <p>A structured path for readers who are new to quantum information science.</p>
+      </div>
+
+      <div class="concept-grid">
+        <div class="concept-box">
+          <h3>1. State Space</h3>
+          <p>Qubits, Hilbert spaces, state vectors, normalization, global phase, and Bloch sphere geometry.</p>
+        </div>
+
+        <div class="concept-box">
+          <h3>2. Quantum Operations</h3>
+          <p>Unitary gates, circuits, rotations, Pauli gates, Hadamard gates, and controlled operations.</p>
+        </div>
+
+        <div class="concept-box">
+          <h3>3. Measurement</h3>
+          <p>Born rule, measurement basis, projectors, probability distributions, and post-measurement states.</p>
+        </div>
+
+        <div class="concept-box">
+          <h3>4. Composite Systems</h3>
+          <p>Tensor products, separability, entanglement, Bell states, and reduced density matrices.</p>
+        </div>
+
+        <div class="concept-box">
+          <h3>5. Noise and Channels</h3>
+          <p>Density matrices, decoherence, depolarizing noise, amplitude damping, and quantum channels.</p>
+        </div>
+
+        <div class="concept-box">
+          <h3>6. Quantum Communication</h3>
+          <p>Teleportation, QKD, covert communication, bosonic channels, and information-theoretic security.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="resources" class="tab-panel">
+      <div class="section-title">
+        <h2>Resources</h2>
+        <p>Recommended materials to support the content on this site.</p>
+      </div>
+
+      <div class="resource-list">
+        <div class="resource">
+          <h3>Books</h3>
+          <p>Quantum Computation and Quantum Information by Nielsen and Chuang; Quantum Information Theory by Mark Wilde.</p>
+        </div>
+
+        <div class="resource">
+          <h3>Software</h3>
+          <p>Qiskit, PennyLane, QuTiP, Cirq, and Python-based visualization tools.</p>
+        </div>
+
+        <div class="resource">
+          <h3>Topics to Add Later</h3>
+          <p>Bloch sphere visualizations, quantum circuit demos, density matrix examples, and quantum channel simulations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="tab-panel">
+      <div class="section-title">
+        <h2>About</h2>
+        <p>A concise identity statement makes the site more credible.</p>
+      </div>
+
+      <div class="article-viewer">
+        <h2>About This Site</h2>
+
+        <p>
+          This page is a personal knowledge base for quantum information science. It collects explanations,
+          visual notes, references, and computational examples related to qubits, measurement, entanglement,
+          quantum communication, and quantum information theory.
+        </p>
+
+        <p>
+          The goal is to make technical material easier to navigate without oversimplifying the mathematical structure.
+        </p>
+
+        <p>
+          Add your GitHub, Google Scholar, ORCID, email, or research lab link here.
+        </p>
+      </div>
+    </section>
+
+    <!-- ARTICLE VIEWER -->
+    <section id="article" class="tab-panel">
+      <div id="article-container" class="article-viewer">
+        <div class="article-type">Select content</div>
+        <h2>No article selected</h2>
+        <p>Choose one item from Home or Contents.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Quantum Information Science. Built with GitHub Pages.
+    </div>
+  </footer>
+
+  <script>
+    const articles = {
+      qubit: {
+        type: "Beginner",
+        title: "What is a Qubit?",
+        body: `
+          <p>
+            A qubit is the basic unit of quantum information. Unlike a classical bit, which has value 0 or 1,
+            a qubit is represented by a quantum state that can be written as a superposition of basis states.
+          </p>
+
+          <p>
+            A general pure qubit state is usually written as |ψ⟩ = α|0⟩ + β|1⟩, where α and β are complex amplitudes.
+            The probabilities of measuring 0 or 1 are determined by the squared magnitudes of these amplitudes.
+          </p>
+
+          <ul>
+            <li>|α|² gives the probability of observing 0.</li>
+            <li>|β|² gives the probability of observing 1.</li>
+            <li>The normalization condition is |α|² + |β|² = 1.</li>
+          </ul>
+
+          <p>
+            The important point is that the qubit is not merely “both 0 and 1.” It is a vector in a complex state space,
+            and measurement extracts classical information from that state.
+          </p>
+        `
+      },
+
+      measurement: {
+        type: "Core Concept",
+        title: "Quantum Measurement",
+        body: `
+          <p>
+            Quantum measurement converts a quantum state into a classical outcome. The probabilities of outcomes are
+            determined by the Born rule.
+          </p>
+
+          <p>
+            Measurement depends on the chosen basis. Measuring the same quantum state in different bases can produce
+            different probability distributions.
+          </p>
+
+          <ul>
+            <li>Before measurement, the system is described by a quantum state.</li>
+            <li>During measurement, one classical outcome is obtained.</li>
+            <li>After measurement, the state is updated according to the observed outcome.</li>
+          </ul>
+
+          <p>
+            This makes measurement one of the central differences between quantum and classical information.
+          </p>
+        `
+      },
+
+      entanglement: {
+        type: "Intermediate",
+        title: "Entanglement",
+        body: `
+          <p>
+            Entanglement appears in composite quantum systems. A two-qubit state is entangled when it cannot be written
+            as a simple product of two individual qubit states.
+          </p>
+
+          <p>
+            Entanglement produces correlations that cannot be fully explained by classical shared randomness.
+            This makes it a key resource in quantum information science.
+          </p>
+
+          <ul>
+            <li>Quantum teleportation uses entanglement as a communication resource.</li>
+            <li>Quantum key distribution can use entangled states for security.</li>
+            <li>Bell inequalities reveal the nonclassical character of entangled systems.</li>
+          </ul>
+
+          <p>
+            The mathematical structure behind entanglement is the tensor product of Hilbert spaces.
+          </p>
+        `
+      },
+
+      channels: {
+        type: "Advanced",
+        title: "Quantum Channels",
+        body: `
+          <p>
+            A quantum channel describes how a quantum state changes when it passes through a physical process.
+            This process may include noise, loss, decoherence, or interaction with an environment.
+          </p>
+
+          <p>
+            Quantum channels are essential for studying quantum communication, quantum error correction, and realistic
+            quantum computing systems.
+          </p>
+
+          <ul>
+            <li>Depolarizing channels model randomization of the quantum state.</li>
+            <li>Amplitude damping channels model energy loss.</li>
+            <li>Phase damping channels model loss of coherence without energy loss.</li>
+          </ul>
+
+          <p>
+            In practical quantum systems, channels connect abstract quantum theory to real physical limitations.
+          </p>
+        `
+      }
+    };
+
+    function openTab(tabId) {
+      document.querySelectorAll(".tab-panel").forEach(panel => {
+        panel.classList.remove("active");
+      });
+
+      document.querySelectorAll(".tab-btn").forEach(button => {
+        button.classList.remove("active");
+      });
+
+      document.getElementById(tabId).classList.add("active");
+
+      const activeButton = document.querySelector(`[data-tab="${tabId}"]`);
+      if (activeButton) {
+        activeButton.classList.add("active");
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function openArticle(articleId) {
+      const article = articles[articleId];
+
+      if (!article) return;
+
+      const container = document.getElementById("article-container");
+
+      container.innerHTML = `
+        <div class="article-type">${article.type}</div>
+        <h2>${article.title}</h2>
+        ${article.body}
+      `;
+
+      openTab("article");
+    }
+
+    document.querySelectorAll(".tab-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        openTab(button.dataset.tab);
+      });
+    });
+  </script>
+</body>
+</html>
