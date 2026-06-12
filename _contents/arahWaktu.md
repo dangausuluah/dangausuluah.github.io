@@ -1,0 +1,179 @@
+---
+layout: article
+title: Waktu Kemana Kau Kini
+category: Entah
+level: Mengawang
+order: 1
+featured: true
+excerpt: Sedikit pembahasan mengawang tentang arah jalannya waktu.
+---
+
+Manusia tentu tidaklah lagi asing dengan konsep ruang dan waktu, yang tanpanya tentu hidup manusia di bumi akan sangat membingungkan untuk dijalani. Ruang terasa lebih familiar oleh manusia, bisa dilihat dengan mata, bisa dijengkal dengan tangan; manusia bisa berpindah dari tempat A ke tempat B dan balik lagi ke A. Waktu terasa lebih misterius, tak terlihat, tak bisa diraba; ketika ia telah pergi tak kan pernah lagi kembali (terdengar seperti doi). Bahkan, jalannya waktu menurut setiap orang berbeda-beda; setiap orang memiliki, menjalani waktunya sendiri, berbeda sama sekali dengan orang lain. Menurut si A, bisa jadi kejadian C lebih dahulu terjadi daripada D; lain dengan si B yang melihat kejadian D yang lebih dahulu. Bisa sangat membingungkan mana yang sebenarnya lebih dahulu. Yang bingung tentulah hanya manusia; batu, pohon, gunung tentu tidak peduli mana yang lebih dahulu terjadi; tetumbuhan sibuk menikmati matahari; hewan hanya ingin memenuhi perut hari ini. Dengan begitu, jelaslah semesta ini sangat kasih dan sayang akan manusia, tidak hanya waktu berdatangan silih berganti, satu per satu, karena memang otak manusia hanya bisa memproses sesuatu dalam satu waktu; semesta ingin memastikan bahwa waktu hanya berjalan satu arah, setidaknya dari sudut padang manusia. Saking inginnya semesta memastikan hal itu, kesearahan waktu ini harus dipastikan bahkan pada tingkat atom sekalipun. Atom bisa saja dari tempat A ke tempat B, balik lagi ke A, dan kembali lagi ke B, begitu seterusnya berbolak balik selamanya; hanya saja, di dunia yang seperti ini akan sangat sulit menentukan mana yang lebih dahulu, atom di A atau atom di B, sangat sulit untuk diputuskan; di dunia ini, secara prinsip, tidak ada yang mengharuskan untuk waktu berjalan maju atau mundur, sah-sah saja keduanya, tapi pastilah sangat membingungkan untuk manusia. Namun, dengan kasih dan sayangnya semesta, ia ingin memastikan ini tidak terjadi, ada saatnya ketika atom berada di posisi B, tidak boleh lagi balik ke A, dengan ini semesta memberikan kata putus, manusia bisa memastikan dari posisi B, atom ini pasti akan ke A, tak bisa lagi berbalik ke B, hanya bisa berjalan satu arah saja. Hal ini dipastikan terjadi oleh semesta bahkan jika tidak ada benda lain yang bisa berinteraksi dengan atom tersebut, walaupun atom itu hanya tinggal sendiri di semesta ini, berada ditengah-tengah kevakuman, hal ini tetap akan terjadi; begitulah semesta, mengeruk sehabis gaung, mengawai sehabis rasa. Lepaslah manusia dari potensi kebingungan, bisalah manusia menentukan mana yang lebih dahulu terjadi dengan tiada perdebatan.
+
+Apa yang terjadi di dunia makroskopik, di dunia yang manusia tinggali sehari-hari, di pengalaman manusia selama ini, sangat ditentukan oleh apa yang terjadi di tingkat mikroskopik setingkat atom; karena semua benda, termasuk manusia, terbentuk dari atom. Walaupun ada fenomena yang dapat dijelaskan dengan keabaian terhadap perilaku atom, penjelasannya biasanya hanyalah trik belaka, pendekatan saja, tidak kebenaran seutuhnya. Manusia tentu ingin mendekat sedekat mungkin dengan kebenaran, untuk itu haruslah manusia mempelajari apa yang terjadi di dunia mikroskopik, bukan hanya di dunia makroskopik saja. Pengalaman tentang dunia mikroskopik ini telah dimulai sejak kira-kira seratus tahun kebelakang oleh para ilmuwan, ilmu-pengetahuan-alam-wan; eksperimen demi eksperimen dilakukan, hipotesis demi hipotesis diketengahkan, beriya bertidak, mencari bulat segolong, pipih selayang. Namun, sepandai-pandai seorang ilmuwan dalam merancang eksperimen, selihai-lihai seorang ilmuwan dalam mengembang hipotesis, sudah beriya bertidak, sudah disilangkan kayu, dihidupkan api, tapi yang api tiadalah bisa dilihat dekat-dekat sekali, hanya bisa digunakan untuk menanak nasi, menjerang air, menghangatkan badan; metode ilmiah yang dipakai tiadalah bisa untuk mencari kebenaran yang utuh, kebeneran yang sebenar-benar kebenaran, kebenaran yang berdiri sendiri itu. Jika jika A maka B, maka diujilah B; jika B dapat dikonfirmasi oleh eksperimen bahwa ia benar, maka kemungkinan A memang benar; tapi tiadalah bisa dibilang A memanglah benar yang sebenar-benar benar, yang hanya bisa dipastikan dengan pasti adalah jika B dapat dikonfirmasi oleh eksperimen bahwa ia salah, maka tentulah A juga salah. Jadi tiada bisalah metode ilmiah ini dipakai untuk mencari kebenaran, hanya bisa dipakai untuk mencari kesalahan. Namun, walaupun teori yang dilahirkan belum tentu kebenaran, teori tersebut memiliki kekuatan prediksi yang kuat, bisa memprediksi berbagai hal, dan sangat berguna untuk keberlangsungan teknologi yang dapat dinikmati manusia. Dengan teori ini, walaupun tidak bisa dipakai untuk melihat bentuk rupa dari kebenaran, setidaknya bisa digunakan untuk melihat bayangan dari kebenaran itu; dengan bayangan ini diharapkan bisa menerka bentuk rupa dari kebenaran. Karenanya, masih berguna juga untuk melihat bayangan ini, masih berguna juga untuk mempelajari teori yang dilahirkan oleh para ilmuwan. 
+
+Menurut cerita yang sering terdengar, teori tentang dunia miskroskopik ini mulai dijajaki oleh Tuan Planck disekitar awal-awal abad ke 20, dimana dia mengajukan gagasan bahwa energi dari radiasi sebuah benda yang dipanaskan datang berupa tumpukan-tumpukan energi yang bersangkut paut dengan frekuensi dari radiasi cahayanya, $\omega$. Persisnya, satu tumpuk energi, $E_1$, itu besarnya sama dengan suatu konstanta $\hbar$ dikalikan dengan frekuensinya $\omega$, sehingga $E_1 = \hbar \omega$. Kalau rata-rata radiasi cahaya yang terpancar ada sebanyak $r$ tumpuk, maka total dari energi dari semua tumpukan itu $E_r$ adalah $r$ kali energi satu tumpuk $E_1$, sehingga dapat ditulis
+
+$$
+\begin{align}
+E_r &= r E_1 \\
+&= r \hbar \omega.
+\label{eq:GP}
+\end{align}
+$$
+
+Dengan ini, terjawablah sudah oleh Tuan Planck warisan permasalahan yang diturunkan gurunya selama berdekade-dekade itu; terjawablah sudah kebingungan mengapa tidak terjadi katastropi ultraviolet sebagaimana yang diprediksi oleh teori gelombang dari radiasi yang mengikuti persamaan Tuan Maxwell itu. Teori gelombang dari radiasi cahaya ini sudah sangat termasyhur, sudah sangat diterima, telah dikonfirmasi oleh banyak eksperimen; bagaimana mungkin cahaya terpancar dalam bentuk tumpukan-tumpukan energi seperti partikel sedangkan dia memiliki sifat gelombang yang dapat dilihat jelas oleh mata, dapat diukur jelas oleh alat-alat dalam eksperimen. Walaupun ide dari Tuan Planck ini bisa memprediksi energi dari radiasi itu dengan sangat akurat, namun hanya dipandang sebagai trik matematika belaka. Tapi, ini berangsur-angsur berubah, Tuan Einstein meminjam ide dari Tuan Planck ini, bahwa cahaya memang terdiri dari tumpukan-tumpukan energi untuk menjelaskan efek dari eksperimen fotolistrik yang, lagi-lagi, tidak bisa dijelaskan dengan menganggap radiasi cahaya sebagai gelombang. Ketika cahaya yang berenergi tinggi, lebih tinggi dari nilai tertentu, ditembakan ke sebuah logam, maka cahaya tersebut dapat memutuskan ikatan elektron dari logam tersebut; energi dari cahaya itu akan disalurkan kepada elektron. Namun energi elektron ini tidak ditentukan oleh intensitas dari cahaya itu, sebagaimana yang diprediksi oleh sekte yang memuja cahaya itu sebagai gelombang. Tuan Einstein meminjam ide dari Tuan Planck dan memprediksi kalau energi elektron itu akan ditentukan oleh frekuensi cahaya tersebut, sebagaimana yang Tuan Planck katakan, bahwa semakin tinggi frekuensi sebuah cahaya akan semakin tinggi pula energinya; energi yang tersimpan di frekuensi inilah yang nanti akan disalurkan kepada elektron yang terlempar itu. Jika kuatnya ikatan elektron pada logam itu sebesar $W$, dan cahaya yang ditembakkan memiliki frekuensi $\omega$, maka Tuan Einstein memprediksi bahwa energi yang tersalurkan ke elektron, $E_e$, sebesar
+
+$$
+\begin{align}
+E_e = \hbar \omega - W.
+\end{align}
+$$
+
+Seperti yang telah didoktrinkan oleh metode ilmiah, prediksi hanya akan menjadi prediksi tanpa dikonfirmasi oleh eksperimen; jika jika A maka B, maka diujilah B, jika B benar maka ilmuwan akan mengatakan A itu juga benar, bahkan bisa dijadikan teori; namun seperti yang telah diketengahkan diatas, metode semacam ini tidaklah dengan pasti memberikan predikat kebenaran terhadap A, hanya saja A belum dibuktikan salah; balik lagi, walaupun A tidak sebenarnya benar, A masih tetap berguna untuk manusia. Maka, untuk meyakinkan para ilmuwan apakah memang benar energi cahaya itu datangnya bertumpuk-tumpuk, tidak sekedar hanya metode matematika yang dianjurkan oleh Tuan Planck saja, tidak sekedar hanya imajinasi Tuan Einstein belaka, Tuan Millikan melakukan eksperimen untuk mengkonfirmasi prediksi Tuan Einstein tersebut. Tuan Millikan adalah salah seorang fisikawan eksperimental senior yang piawai, dapat merancang eksperimen yang memberikan hasil sangat akurat; dan benar saja, gayung bersambut, tepuk berbalas, predikai Tuan Einstein dikonfirmasi oleh eksperimennya Tuan Millikan yang piawai itu; semakin yakin lah para ilmuwan bahwa energi cahaya itu datangnya bertumpuk-tumpuk sebagaimana partikel, bukan seperti gelombang.
+Konsep energi datang bertumpuk-tumpuk ini semakin terkenal saja, tidak mau ketinggalan dalam revolusi ilmu pengetahuan ini, Tuan Bohr juga mengetengahkan gagasannya tentang tumpukan energi. Sekarang tidak lagi cahaya, tapi atom pun punya tingkat-tingkat energi tertentu, begitulah konon kata Tuan Bohr ini. Dengan gagasan ini, Tuan Bohr berhasil merekonstruksi spektrum, rentang frekuensi, cahaya yang dipancarkan oleh atom hidrogen; dia bisa memunculkan kontanta Tuan Rydberg, $R$, dengan hipotesisnya ini, yang mana konstanta itu dahulu kala hanya berdasarkan data empiris saja. Konon, kata Tuan Bohr, energi cahaya yang dipancarkan oleh atom hidrogen merupakan hasil energi yang dilepaskan ketika elektron berpindah dari tingkat energi $m$ ke tingkat energi $n$ dengan besar energi $E_{mn}$ sebesar
+
+$$
+\begin{align}
+E_{mn} = \hbar \omega_{mn} = R \left( \frac{1}{n^2} - \frac{1}{m^2} \right).
+\end{align}
+$$
+
+Konsep cahaya yang semula dikira gelombang dan ternyata memiliki sifat partikel ini tidak lagi ditolak secara mentah-mentah, sudah berangsur diterima oleh orang-orang; lalu apakah sebuah partikel juga memiliki sifat gelombang? tanya Tuan de Broglie. Dia yang bertanya, dia pula yang mencoba menjawab; Tuan de Broglie mengajukan gagasan bahwa partikel juga memiliki sifat gelombang, gelombang ini menuntun jalannya sebuah partikel, dia bilang; momentum sebuah partikel, $p$, bersangkut paut dengan panjang gelombang, $\lambda$, dari gelombang yang menuntun jalannya partikel itu; dan lagi, kebersangkutan ini diselesaikan oleh konstanta yang sama yang mempertautkan energi dan frekuensi, ialah $\hbar$, sehingga
+
+$$
+\begin{align}
+p = \hbar \frac{2\pi}{\lambda} = \hbar k.
+\label{eq:PG}
+\end{align}
+$$
+
+Prediksi ini juga memberikan sejumlah penerangan tentang asal dari tebakan Tuan Bohr; sekarang, apa yang dikatakan Tuan Bohr tidak hanya lagi sekedar tebakan, ada sedikit landasan. Prediksi ini juga tidak lupa dikonfirmasi dengan eksperimen; melalui eksperimen menembakkan elektron melalui celah ganda, nampaklah pola interfensi dari elektron ini, yang dapat di jelaskan jika elektron memiliki sifat gelombang; tidak hanya yang sekecil elektron, bahkan sekarang sudah dicoba dengan menembakkan molekul melalui celah ganda, masih juga nampak pola interferensi ini. Jelaslah sudah, bahwa gelombang memiliki sifat partikel, partikel memiliki sifat gelombang, keduanya saling bersangkut paut, tidak bisa dipisahkan keduanya, seperti pedang bermata dua, seperti koin berdua sisi. Orang masih mengira-ngira apakah dunia ini tercipta dari gelombang yang merambat, semakin jauh dari pusatnya semakin rendah frekuensinya dan terciptalah partikel disana; ataukah dunia ini asalnya memang dari partikel yang mana partikel ini mengeluarkan sifat gelombang; barangkali manusia tidak pernah tau pastinya, barangkali kebanyakan manusia tidak beruntung untuk bisa pernah tau pastinya. Apakah pikiran datang kepada otak manusia atau apakah otak manusia yang mendatangkan pikiran itu; barangkali manusia tidak pernah tau pastinya, barangkali kebanyakan manusia tidak beruntung untuk bisa pernah tau pastinya. Apapun itu konsep dualisme partikel-gelombang ini masih diterima, masih dipakai hingga saat ini oleh manusia.
+
+Walau sudah sukses prediksi Tuan de Broglie ini, sudah dikonfirmasi pula oleh eksperimen, tapi masih belum lengkap lagi sahut Tuan Debye. Barangkali Tuan Debye ini teringat juga kata orang tua-tua dahulu, melihat tuah ke yang menang, melihat contoh ke yang sudah; dari yang sudah-sudah, gelombang itu ada persamaannya, yang mana tidak diberikan oleh Tuan de Broglie. Sehingga untuk menyambung yang sayup, mengulas yang singkat, dimandatkanlah ke Tuan Schrodinger untuk melanjutkan apa yang dimulai oleh Tuan de Broglie ini, untuk mencari persamaan dari gelombang yang diketengahkannya.  Persamaan ini dibangun dari pondasi yang telah diletakkan oleh tuan-tuan yang datang sebelumnya, persamaan ini harus mengandung kebersangkut pautan partikel dan gelombang sebagai mana yang diberikan oleh persamaan $\eqref{eq:GP}$ dan $\eqref{eq:PG}$.
+Kalau partikel itu bergerak berdasarkan gelombang, $\psi$, yang berosilasi di ruang ($x$) dan waktu ($t$) sebagaimana
+
+$$
+\psi = e^{-\imath \left(\omega t - kx\right)}.
+$$
+
+Ketika dihitung turunan dari gelombang ini terhadap waktu maka didapat
+
+$$
+\frac{\partial}{\partial t} \psi = -\imath \omega \psi.
+$$
+
+Sehingga jika sama-sama dikalikan dengan $\imath \hbar$ di ruas kiri dan di ruas kanan maka didapat
+
+$$
+\begin{align*}
+\imath \hbar \frac{\partial}{\partial t} \psi &= \hbar \omega \psi \\
+&= E \psi.
+\end{align*}
+$$
+
+Maka, dengan analogi dapat disimpulkan $\imath \hbar \frac{\partial}{\partial t} = E$. Begitu pula, dapat dihitung turunan gelombang tersebut terhadap ruang dan didapat
+
+$$
+\frac{\partial}{\partial x} \psi = \imath k \psi.
+$$
+
+Ketika dikali kedua sisi dengan $-\imath \hbar$ maka didapat
+
+$$
+\begin{align*}
+-\imath \hbar \frac{\partial}{\partial x} \psi &= \hbar k \psi \\
+&= p \psi.
+\end{align*}
+$$
+
+Sehingga dengan analogi pula didapat $-\imath \hbar \frac{\partial}{\partial x} = p$. Dari keterpautan energi dan momentum didapat pula
+
+$$
+\begin{align}
+E &= \frac{p^2}{2m}  \\
+&= - \frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2}
+\label{eq:E}
+\end{align}
+$$
+
+Didapatlah persamaan gelombang dari $\psi$ seperti
+
+$$
+\imath \hbar \frac{\partial}{\partial t} \psi = - \frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} \psi.
+$$
+
+Untuk melengkapi persamaan diatas perlulah ditambah energi potensial, $V(x)$, ke energi yang sudah ada sehingga didapatkan energi total sebagaimana yang ada di persamaan Tuan Schrodinger yang sangat masyhur itu, yang mana
+
+$$
+\imath \hbar \frac{\partial}{\partial t} \psi = \left(- \frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} + V(x) \right) \psi.
+$$
+
+Sebelum lanjut berjalan perlulah dibahas sedikit detil yang sangat penting, yang membedakan teori tentang tumpukan energi ini dengan teori yang biasanya, yang klasik. Sebenarnya ada sedikit sumbang yang dilakukan diatas guna tidak jatuh ke pembahasan yang terlalu mendetil, agar mulus sampai ke tujuan walau agak menyimpang sedikit, yang penting sampai dulu. Karena sudah sampai, bisa diintip kembali ke belakang, agar bisa tau jalan yang sebenarnya. Menurut doktrin teori ini, $\imath \hbar \frac{\partial}{\partial t}$ tidaklah sama dengan $E$, alih alih, ketika $\imath \hbar \frac{\partial}{\partial t}$ "beraksi" (ini adalah jargon teknis yang kalau tidak salah dipakai oleh orang banyak jika membahas teori tumpukan ini) terhadap gelombang $\psi$, yang ditulis seperti $\imath \hbar \frac{\partial}{\partial t} \psi$ akan menghasilkan $E \psi$, tidak mesti $\imath \hbar \frac{\partial}{\partial t} = E$. Objek matematika seperti $\imath \hbar \frac{\partial}{\partial t}$ biasa disebut sebagai "operator" yang "beraksi" terhadap "fungsi" gelombang $\psi$. Karena operator $\imath \hbar \frac{\partial}{\partial t}$ bersangkut paut dengan energi maka biasa disebut operator dari energi dan biasa ditulis dengan topi diatasnya, $\hat{E}$; dan $E$ disebut sebagai nilai "eigen" dari operator energi, $\hat{E}$, itu. Begitu pula dengan momentum, dia punya operator juga dan nilai eigen, sejalan dengan operator energi, operator momentum adalah $\hat{p}=-\imath \hbar \frac{\partial}{\partial x}$ dan nilai eigennya adalah $p$ dan beraksi terhadap $\psi$ seperti $\hat{p} \psi = p \psi$. Sehingga didapatkan revolusi dari teori klasik ke teori tumpukan ini, yang biasa juga disebut sebagai teori kuantum, dengan perubahan $E \rightarrow \hat{E}$ dan $p \rightarrow \hat{p}$ pada persamaan $\eqref{eq:E}$, sehingga didapat
+
+$$
+E = \frac{p^2}{2m} + V \rightarrow \hat{E} = \frac{\hat{p}^2}{2m} + \hat{V}.
+$$
+
+Karena suatu dan lain hal, operator energi ini juga biasa ditulis $\hat{H}$, sehingga dapat ditulis kembali persamaan Tuan Schrodinger yang masyhur itu seperti
+
+$$
+\begin{align}
+\imath \hbar \frac{\partial}{\partial t} \psi &= \left(- \frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} + \hat{V}(x) \right) \psi \\
+&= \hat{H} \psi.
+\label{eq:S}
+\end{align}
+$$
+
+Fungsi gelombang $\psi$ merupakan fungsi dari ruang, $x$, yang mana mempunyai banyak sekali komponen, tak hingga banyaknya; untuk awal-awal ini alangkah bagusnya jika tidak berurusan dengan banyak komponen ini; namun jika tidak ada komponen, tidak ada yang bisa dikaji; kalau cuma ada satu komponen, cepat sekali nanti sampai kajinya; sistem yang memiliki dua komponen ternyata cukup sederhana untuk dikaji, dan memiliki banyak sekali kegunaan; karenanya bisa dicoba kaji sistem dengan dua komponen ini, semoga bisa juga nanti dilautkan yang setitik itu, digunungkan yang sekepal itu. Untuk itu, bisalah dianggap dulu dunia ini cuma ada dua tempat, yaitu $x=0$ dan $x=1$. Supaya lebih mulus jalannya kedepan bagus juga agaknya kalau diikuti notasi yang sering dipakai oleh para ilmuwan yang meniliti bidang ini, dimana bumi dipijak tentu disana pula langit dijunjung; notasi ini dianjurkan oleh Tuan Dirac yang cerdik pandai itu, dimana kalau atom itu berada di posisi $x=0$ dilabelkan dengan $\ket{0}$, seroman dengan itu, ketika atom itu berada di posisi $x=1$ dilabelkan dengan $\ket{1}$. Konon, kata matematikawan, ketika $\ket{0}$ menyelesaikan persamaan semacam persamaa Tuan Schrodinger itu, $\eqref{eq:S}$ dan $\ket{1}$ juga menyelesaikan persamaan $\eqref{eq:S}$, maka mereka berdua ($\ket{0}$ dan $\ket{1}$) bisa seiring sejalan menyelesaikan persamaan $\eqref{eq:S}$, sehingga atom yang berada di posisi 
+
+$$
+\ket{\psi} = \alpha \ket{0} + \beta \ket{1}
+$$
+
+juga menyelesaikan persamaan $\eqref{eq:S}$, dimana $\alpha, \beta$ adalah bilangan kompleks $\mathbb{C}$; karena persamaan $\eqref{eq:S}$ lahir dengan bilangan kompleks, perlulah juga pengali, koefisien, $\alpha, \beta$ merupakan bilangan kompleks. Kalau dilihat dipandang-padang, dari yang tampak bentuk rupa $\ket{\psi}$, ada dia berposisi $\ket{0}$, juga dia ada berposisi $\ket{1}$; lalu dimana dia sebenarnya? ada didua posisi sekaligus? tentu dalam pandangan sebuah partikel tidak mungkin itu terjadi, tak bisa dia ada di dua posisi sekaligus; namun, kalau mau menurut kepada teori tumpukan ini, begitulah katanya; disinilah muncul sifat gelombang dari partikel itu. Lalu dimana letak sifat partikelnya? Rupa-rupanya, sifat partikel ini baru keluar ketika manusia hendak melihat dimana sebenarnya letak partikel itu, ketika dilihat oleh manusia tiada bisa lagi atom itu berada pada posisi $\ket{0}$ dan $\ket{1}$ sekaligus; haruslah dipilihnya salah satu, dimana yang dia mau, di posisi $\ket{0}$ atau $\ket{1}$. Diulang lagi kaji diatas, dengan segenap kasih sayang semesta, dilumatkan dulu biar tidak payah ditelan, dipilihkan biar tidak payah manusia paham, biar tidak bingung manusia melihat semua benda berada disemua tempat dalam waktu bersamaan, walaupun sejatinya semua benda berada disemua tempat dalam waktu bersamaan, ketika dilihat oleh manusia, yang tampak hanyalah disatu tempat saja, disatu posisi saja. Kalau ditulis dalam bahasa matematika, dalam notasi Tuan Dirac, ketika melihat ke posisi $\ket{0}$($\ket{1}$) maka ditulis $\ket{0}\braket{0\|\psi}$($\ket{1}\braket{1\|\psi}$); kalau nampak dia diposisi $\ket{0}$($\ket{1}$) maka diposisi itulah dia terus lagi, berubahlah posisi atom itu yang semula berada disemua posisi menjadi posisi dimana dia terlihat. Lalu apakah peran koefisien $\alpha, \beta$ yang ada di $\ket{\psi}$ itu? Kalau menurut Tuan Born, magnituda dari bilangan kompleks $\alpha$($\beta$) ini yang menentukan kemungkinan atom itu akan terlihat di posisi $\ket{0}$($\ket{1}$), sehingga atom akan terlihat di posisi $\ket{0}$($\ket{1}$) dengan kemungkin $\alpha^* \alpha = \|\alpha\|^2$($\beta^* \beta = \|\beta\|^2$). Jadi jika atom berada di posisi $\ket{\psi}= \left(\ket{0}+\ket{1}\right)/\sqrt{2}$, atom bisa terlihat di posisi $\ket{0}$ atau $\ket{1}$ dengan kemungkinan masing-masing $50\%$ atau $50$~persen. Dengan mengikuti doktrin dari teori kemungkinan, maka nilai dari magnituda bilangan kompleks $\alpha$($\beta$) harus ada dibatas tertentu yakni $\alpha, \beta \geq 0$ dan $\|\alpha\|^2 + \|\beta\|^2 = 1$. Tentu ada juga terbit sedikit pertanyaan, yang berevolusi, yang gelombangnya adalah bilangan kompleks $\alpha, \beta$ tetapi yang bisa manusia tahu hanya magnitudanya saja. Apa arti gelombang itu sebenarnya, iya ada juga gunanya untuk menentukan dimana kemungkinan atom itu akan terlihat nanti, tapi yang artinya sekali masih belum bisa dikatakan lagi; mungkin tak ada yang kan pernah tau, tapi tentu bisa juga dikira-kira. Dengan menuruti perkataan Tuan Born, dapat dilihat kalau memang gelombang itu hidup dia disebuah dunia yang berbentuk objek geometri yang sederhana, yang punya banyak simetri, yang gampang bagi semesta untuk berpindah-pindah posisi, sangat mulus jalannya, tak berawal tak berakhir, tak berpangkal tak berujung; sejauh apapun pergi, selama apapun berjalan, nanti akan balik lagi ke posisi awal; semakin jauh pergi, semakin lama berjalan, nilai ekspektasi dari posisinya akan semakin acak, menambah entropi.
+
+Sejauh ini, bisalah direkap, bahwa atom itu asalnya ialah gelombang,bukan gelombang semacam gelombang air laut, bukan gelombang semacam udara yang dapat dilihat dan dirasa manusia secara utuh, melainkan ia gelombang kemungkinan, yang biasa disebut oleh orang barat sebagai wave of probability, probability wave, yang bisa berada dalam superposisi, dan bisa juga berinterferensi; namun ketika dilihat manusia akan berubah ia menjadi partikel, runtuh kesuperiorannya, dari superposisi hanya tinggal di satu posisi saja lagi; yang keruntuhannya diatur oleh amplituda kemungkinannya ialah bilangan kompleks $\alpha, \beta$, dimana runtuh ke posisi $\ket{0}$($\ket{1}$) dengan kemungkinan $\|\alpha\|^2$($\|\beta\|^2$). Kalau diterjemahkan ke bahasa matematika, untuk mendapatkan amplituda kemungkinan, $\ket{\psi}$ dioperasikan dengan $\bra{0}$($\bra{1}$) dari kiri sehingga didapat
+
+$$
+\begin{align*}
+\bra{0} \ket{\psi} &= \braket{0|\psi} = \alpha \\
+\bra{1} \ket{\psi} &= \braket{1|\psi} = \beta.
+\end{align*}
+$$
+
+Lalu bagaimana cara menulis operator $\hat{H}$ dalam notasi Tuan Dirac? Tiap-tiap posisi $\ket{0}$($\ket{1}$) memiliki energi $E_0$($E_1$), sehingga jika ditulis
+
+$$
+\hat{H} = E_0 \ket{0}\bra{0} + E_1 \ket{1}\bra{1}
+$$
+
+maka didapat
+
+$$
+\begin{align*}
+\hat{H} \ket{0} &= E_0 \ket{0} \\
+\hat{H} \ket{1} &= E_1 \ket{1}
+\end{align*}
+$$
+
+sebagaimana yang diinginkan, ketika operator energi $\hat{H}$ beraksi pada atom dengan posisi $\ket{0}$ akan mengeluarkan energi $E_0$; namun, jika dimasukkan ke persamaan $\eqref{eq:S}$ maka tidak akan merubah posisi atom tersebut karena evolusinya terhadap waktu akan menjadi $e^{-\imath \frac{E_0}{\hbar} t} \ket{0}$. Ketika dicari berapa amplituda kemungkinannya untuk runtuh ke posisi $\ket{0}$, ialah $\alpha = e^{-\imath \frac{E_0}{\hbar} t}$, sehingga didapatlah kemungkinannya runtuh ke posisi $\ket{0}$ ialah $\|\alpha\|^2= \alpha \cdot \alpha^*  = e^{-\imath \frac{E_0}{\hbar}} e^{\imath \frac{E_0}{\hbar}}=1$. Jelaslah sudah kalau pasti runtuhnya ke posisi $\ket{0}$ dan tak mungkin ke posisi $\ket{1}$. Begitulah, atom yang berada di posisi $\ket{0}$ tidak mungkin tiba-tiba ke posisi $\ket{1}$ begitu juga sebaliknya, bahkan dengan evolusi yang melibatkan operator $\hat{H}$. Fenomena ini diringkas dengan bahasa matematika berbentuk
+
+$$
+\begin{align*}
+\braket{0|0} &= \bra{0} \ket{0} = 1 \\
+\braket{0|1} &= \bra{0} \ket{1} = 0 \\
+\braket{1|0} &= \bra{1} \ket{0} = 0\\
+\braket{1|1} &= \bra{1} \ket{1} = 1.
+\end{align*}
+$$
+
+Lalu, bagaimakah gerangan untuk memindahkan posisi atom, seperti dari $\ket{0}$ ke $\ket{1}$? Untuk itu perlulah sebuah operator yang berbentuk $\ket{1}\bra{0}$, agar ketika dioperasikan ke $\ket{0}$ didapat $\ket{1}\bra{0} \ket{0} = \ket{1}$. Namun, operator energi $\hat{H}$ tidak boleh hanya berbentuk $\ket{1}\bra{0}$ saja karena tidak memiliki nilai eigen yang merupakan bilangan real, nilai eigen ini akan merepresentasikan energi sehingga dibutuhkan untuak ia menjadi bilangan real. Untuk melewati masalah ini, cukuplah ditambahkan satu suku lagi, yaitu $\ket{0}\bra{1}$ sehinggan didapat $\hat{H} = \ket{1}\bra{0} + \ket{0}\bra{1}$. Untuk mempermudah mencari bagaimana atom akan berevolusi dengan operator $\hat{H}$, sangat membantu kalau dicari dahulu eigen posisi dari operator tersebut. Ketika posisinya berada di superposisi yang seimbang, dimana $\ket{\psi_+} = (\ket{0} + \ket{1})/\sqrt{2}$, maka didapatkan 
+
+$$
+\begin{align*}
+\hat{H} \ket{\psi_+} &= (\ket{1}\bra{0} + \ket{0}\bra{1})  (\ket{0} + \ket{1})/\sqrt{2} \\
+&= \frac{1}{\sqrt{2}}(\ket{1}\bra{0} \ket{0} + ket{1}\bra{0} \ket{1} + \ket{0}\bra{1}\ket{0} + \ket{0}\bra{1} \ket{1}) \\
+&= \frac{1}{\sqrt{2}} (\ket{1} + \ket{0}) = \ket{\psi_+}.
+\end{align*}
+$$
