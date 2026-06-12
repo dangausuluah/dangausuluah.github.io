@@ -1,11 +1,11 @@
 ---
 layout: article
-title: What is a Qubit?
+title: Apa itu Kubit (Qubit)?
 category: Foundations
 level: Fondasi
 order: 1
 featured: true
-excerpt: Pengenalan singkat kondisi kuantum (en: quantum state), amplituda peluang (en: probability amplitude), kubit (en: qubit), dll.
+excerpt: | Pengenalan singkat kondisi kuantum (en: quantum state), amplituda peluang (en: probability amplitude), kubit (en: qubit), dll.
 ---
 
 Kuantum bit (kubit; en: qubit) adalah unit informasi dasar sistem kuantum. Berbeda dengan bit klasik yang hanya memiliki nilai 0 atau 1, kubit bisa berada dalam keadaan superposisi antara kondisi (en: state) 0 dan 1.
