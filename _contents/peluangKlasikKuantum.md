@@ -1,0 +1,74 @@
+---
+layout: article
+title: Peluang Klasik dan Kuantum
+category: Foundations
+level: Inti
+order: 2
+date: 2026-06-12
+updated: 2026-06-12
+featured: true
+excerpt: Sedikit pembahasan mengawang tentang arah jalannya waktu.
+---
+
+Ada sebuah kotak. Kotak ini berisi bola hijau dan bola merah. Jika banyaknya bola hijau adalah satu dan banyaknya bola merah juga satu, maka perbandingan banyaknya bola hijau dengan banyaknya total bola adalah satu berbanding dua, biasa ditulis 1:2. Dalam bahasa matematika biasa ditulis banyak bolah hijau dibagi dengan jumlah banyak bola hijau dan banyak bola merah:
+
+$$
+\frac{\mathrm{Banyak\,bola\,hijau}}{\mathrm{Banyak\,bola\,hijau + Banyak\,bola\,merah}}= \frac{1}{2}.
+$$
+
+Jika jumlah bola hijau adalah satu dan jumlah bolah merah adalah dua, maka perbandingan banyak bola hijau dengan banyak total bola adalah 1:3,
+
+$$
+\frac{\mathrm{Banyak\,bola\,hijau}}{\mathrm{Banyak\,bola\,hijau + Banyak\,bola\,merah}}=\frac{1}{3}.
+$$
+
+Jika ada orang yang tidak boleh melihat kedalam kotak dan harus menebak berapa perbandingan banyak bola hijau dengan banyak total bola, bisakah? berapa kemungkinan dia benar? Kalau tak ada mendapat informasi apapun mengenai isi kotak itu tentu akan sangat sulit menebak dengan benar perbandingannya. Untuk mempermudah orang itu untuk menebak, dengan acak satu bola dapat dikeluarkan dalam satu waktu, setelah dilihat orang itu warna bolanya, merah atau hijau, bola itu dimasukkan kembali kedalam kotak itu. Proses ini bisa diulang berkali-kali. Dari semua hasil pengamatan terhadap warna dari bola-bola yang dilihatnya, bagaimana cara orang itu menebak perbandingan banyak bola hijau dengan banyak total bola didalam kotak itu?
+
+Sebagai contoh nyata, misalkan kotak itu berisi satu bola hijau dan satu bola merah. Dengan acak, diambillah satu bola dan diperlihatkan kepada orang itu, misalnya terambil bola hijau, bola ini dimasukkan kembali ke dalam kotak. Lalu, dengan acak, diambil lagi satu bola dan diperlihatkan ke orang itu, misalnya terambil lagi bola hijau, lalu dimasukkan kembali bola itu ke dalam kotak. Dilakukan lagi semacam itu, sekarang terambil bola merah. Dilakukan lagi, terambil bola hijau. Dilakukan lagi, terambil bola hijau. Sejauh ini, sudah lima kali ambil, dan bola-bola yang terambil adalah
+
+$$
+\mathrm{Hijau,\,Hijau,\,Merah,\,Hijau,\,Hijau}.
+$$
+
+Dengan informasi seperti diatas yang didapat orang itu, bagaimana dia menebak berapa perbandingan jumlah bola hijau dengan jumlah total bola didalam kotak tersebut? Salah satu caranya adalah dengan menjumlahkan berapa jumlah bola yang orang itu lihat, lalu dari semua bola yang sudah dilihat itu, dihitung pula jumlah bola hijau yang terlihat. Dengan informasi ini, orang itu bisa memberikan tebakan berupa jumlah bola hijau yang terlihat dibagi dengan jumlah semua bola yang sudah dilihat, dalam contoh diatas tebakannya adalah 4:5, karena ada empat kali bola hijau yang terambil, dan total bola yang terambil adalah lima.
+
+Proses pengambilan lima bila berturut-turut ini bisa diulang kembali, maka hasil yang didapat bisa jadi berbeda, bisa didapat hasil 
+
+$$
+\mathrm{Merah,\,Hijau,\,Merah,\,Merah,\,Hijau}.
+$$
+
+Dalah hal ini orang itu akan menebak 2:5. Memang tak ada tebakan yang tepat, apalagi dalam kasus pengambilan bola lima kali dan perbandingan bola hijau dengan jumlah bola didalam kotak adalah 1:2, tak mungkin akan tepat tebakan orang itu, karena untuk tepat haruslah terambil dua setengah bola hijau dalam lima kali pengambilan, tapi tak ada setengah bola hijau, setiap bola utuh, tak berbagi. Namun proses penebakan semacam ini, yang menghitung berapa kali bola hijau terambil dan membaginya dengan jumlah total bola yang terambil, adalah cara penebakan yang bagus, hanya saja proses pengambilan haruslah banyak-banyak, tak bisa hanya lima saja.
+
+Kedua data pengambilan lima bola diatas bisa digabung sehingga bisa dilihat bahwa total pengambilan bola ada sepuluh kali dengan hasil
+
+$$
+\mathrm{Hijau,\,Hijau,\,Merah,\,Hijau,\,Hijau,\,Merah,\,Hijau,\,Merah,\,Merah,\,Hijau}.
+$$
+
+Sehingga dengan data ini, orang itu akan menebak 6:10, yang mana sama dengan 3:5. Jika pengambilan bola ditambah lagi, seratus misalnya, maka kemungkinan tebakan orang itu akan semakin dekat dengan nilai aslinya 1:2 akan semakin tinggi. Bisa jadi dalam seratus pengambilan ada 45 bola hijau yang terambil, sehingga tebakannya 45:100, yang mana semakin dekat dengan 1:2, karena 1:2 sama dengan 50:100, dan 6:10 sama dengan 60:100, sehingga 45:100 lebih dekat ke 50:100 dibanding 60:100 (45 berjarak 5 poin dari 50, sedangkan 60 berjarak 10 poin dari 50).
+
+Proses semacam diatas bisa disimulasikan dengan komputer yang mungkin akan dilampirkan dikemudian hari.
+
+Konsep jarak ini penting juga sepertinya, jadi agak bagus rasanya kalau dilihat lebih dalam, terlebih dalam bahasa matematika agar bisa dihitung lebih sistematis. Biasanya jarak dari $A$ ke $B$ biasa ditulis sebagai
+
+$$
+|A-B|,
+$$
+
+dimana dua garis tegak yang mengapit pengurangan antara $A$ dan $B$, yakni $A-B$, adalah tanda untuk mengatakan kalau hasil pengurangannya negatif, maka dihilangkan negatifnya, diambil yang positifnya saja (karena memang kadang kita sebaiknya mengambil hal-hal positif), karena memang jarak itu selalu positif. Misal dalam kasus seratus kali pengambilan bola, jarak dari 45 ke 50 bisa ditulis $\|45-50\|$ yang mana sama dengan $\|-5\|$, karena hasil pengurangannya negatif, maka dua garis tegak yang mengapit nilai negatif ini akan menghilangkan negatif nya sehingga didapat $\|45-50\|=\|-5\|=5$. Sehingga didapatkan jarak dari 45 ke 50 adalah 5.
+
+
+Ada lagi cara lain yang bisa digunakan untuk mendapatkan nilai positif dari sesuatu yang negatif, dan cara lain itu, yang akan dibahas dibawah ini, bisa juga nanti berguna untuk memberikan sensasi jarak antara dua objek, yang rupa-rupanya sangat berguna diberbagai kasus. Cara itu ialah dengan mengalikan suatu bilangan dengan dirinya sendiri (jika bilangan itu negatif, lalu berkaca dia, melihat dirinya sendiri, boleh jadi menjadi positif dia), dimana suatu bilangan $A$, jika dikalikan dengan dirinya sendiri $A \times A$, biasa ditulis juga $A^2$ (biasa disebut $A$ kuadrat atau $A$ pangkat dua) atau $AA$, yakni $A^2=AA=A\times A$ selalu lebih besar dari pada $0$, yang biasa ditulis $A^2 \geq 0$, yang mana adalah definisi bilangan positif (suatu bilangan disebut positif, atau mungkin lebih tepat non negatif, tapi disini akan disebut positif saja, kalau dia lebih besar atau sama dengan $0$). Seperti $-5$ dikali dengan dirinya sendiri menjadi $-5\times -5=25$ yang mana lebih besar dari $0$, sehingga disebut positif.
+
+Ada juga sangkut paut antara menghilanhkan tanda negatif disuatu bilangan menggunakan apitan dua garis tegak ($\|A\|$) dengan pemangkat-duaan bilangan ($A^2$), yang kebersangkutan ini sangat berguna juga ketika pembahasan telah jatuh ke bilangan kompleks (bilangan yang memakai bilangan imajiner $\imath$ yakni akar kuadrat dari bilangan $-1$, sehingga $\imath = \sqrt{-1}$, lebih lanjut tentang bilangan kompleks barangkali akan dibahas dikemudian paragraf). Kebersangkut pautan ini dihubungkan oleh akar kuadrat, yang biasa ditulis menggunakan simbol $\sqrt{}$. Definisi dari akar kuadrat kalau tidak salah adalah sebagai berikut, akar kuadrat dari bilangan $A$, yakni ditulis $\sqrt{A}$, ialah suatu bilangan $B$ yang memenuhi persamaan $B^2 = A$, sehingga bisa juga ditulis $\sqrt{A}=B$. Sebagai contoh, bilangan $5$ adalah akar kuadrat dari bilangan $25$ karena $5 \times 5=5^2=25$, sehingga bisa juga ditulis $\sqrt{25}=5$. Tapi ada sedikit masalah, karena $-5\times -5$ juga bernilai $25$, sehingga $-5$ juga bisa menjadi akar kuadrat dari $25$, namun secara konvensi, yang diambil iala yang positifnya (karena memang kadang kita sebaiknya mengambil hal-hal positif), biasanya bahasa yang lebih presisi menyebutkan kalau $5$ adalah akar kuadrat prinsipil dari $25$, namun disini akan disebut akar kuadrat saja yang ditulis menggunakan simbol $\sqrt{}$. Sehingga dengan konvensi ini jelaslah hubungan dari apitan garis tegak tadi, yang disini akan disebut sebagai magnituda atau amplituda karena alasan kenyamanan untuk bahasan yang akan datang, sehingga dibahasakan magnituda atau amplituda dari $A$ adalah $\|A\|$; dengan akar kuadrat dimana
+
+$$
+|A| = \sqrt{A^2}.
+$$
+
+Definisi semacam ini bisa memberikan motivasi pemakaian notasi ini saat membahas magnituda dari bilangan kompleks. 
+
+$\mathrm{Hijau}$ dan $\mathrm{Merah}$ ialah merupakan warna, tiada bisa digunakan untuk berhitung, sehingga tidak bisa menerapkan trik matematika terhadapnya. Hal ini mengurangi potensi untuk melakukan analisis lanjutan terhadap penebakan perbandingan jumlah bola hijau dengan jumlah total bola didalam kotak. Padahal bisa dilihat bahwa, orang itu akan menebak lebih gampang jika semua bola didalam kotak berwarna hijau, karena tidak ada keacakan terhadap warna apa yang akan terambil karena memang semua bola adalah berwarna hijau, setiap bola yang terambil akan berwarna hijau, sehingga berapa kali pun bola diambil, tebakan si penebak pasti akan selalu benar. Begitu juga halnya jika semua bola didalam kotak berwarna merah. Namun seperti yang telah dibahas diatas, jika ada satu bola hijau dan satu bola merah didalam kotak, tebakan sipenebak tidak selalu benar, sehingga dapat ditarik kesimpulan bahwa tingkat keberhasilan penebak bergantung pada jumlah perbandingan warna yang ada didalam kotak. Bagaimana menangkap fenomena ini dengan matematika? Sebenarnya Tuan Shannon sudah memberikan resep yang teruji untuk melakukan hal ini, bisa dilakukan walaupun menggunakan warna sekalipun karena dia tidak bergantung terhadap jenis objeknya, apakah warna atau angka, hanya bergantung pada nilai perbandingan yang akan ditebak itu; namun resepnya agak sedikit rumit. Jalan yang relatif lebih mulus barangkali adalah dengan mengasosiasikan angka kepada warna bola yang ada didalam kotak itu, teknik ini biasa disebut dengan nama Variabel Acak, atau kalau orang bule menyebutnya Random Variable. 
+
+Angka apa yang harus diasosiasikan kepada warna bola itu? Tentu akan bagus agaknya kalau angkanya mudah untuk dimanipulasi, dilakukan operasi matematika. Jika diikuti doktrin Variabel Acak itu, cara ortodoksnya adalah mengasosiasikan angka $1$ terhadap warna $\mathrm{Hijau}$ dan angka $0$ terhadap warna $\mathrm{Merah}$. Angka $1$ dan $0$ tentu sangat familiar dan sangat mudah dimanipulasi, dan secara implisit pengasosiasian ini telah dilakukan pula dalam proses penebakan yamg telah dilakukan diatas. Bisa juga dibayangkan kalau yang terambil bola hijau, orang itu diberi uang $1$ rupiah, kalau yang terambil bola merah orang itu tak diberi uang, alias diberi $0$ rupiah.
