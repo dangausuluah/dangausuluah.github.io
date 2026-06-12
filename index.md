@@ -22,21 +22,21 @@ permalink: /
 
   <aside class="side-card">
     <h3>Topik Utama</h3>
-
+  
     <div class="stats">
       <div class="stat">
-        <strong>Kubit (Qubit)</strong>
-        <span>Kondisi (state), gerbang (gate), pengukuran (measurement)</span>
+        <strong>Keterikatan</strong>
+        <span>Korelasi kuantum nonklasik</span>
       </div>
-
+  
       <div class="stat">
-        <strong>Keterikatan (Entanglement)</strong>
-        <span>Korelasi yang melampaui sistem klasik</span>
+        <strong>Evolusi</strong>
+        <span>Dinamika perubahan keadaan kuantum</span>
       </div>
-
+  
       <div class="stat">
-        <strong>Kanal (Channel)</strong>
-        <span>Noise, dekoherensi, dan komunikasi</span>
+        <strong>Pengukuran</strong>
+        <span>Ekstraksi informasi keadaan kuantum</span>
       </div>
     </div>
   </aside>
