@@ -5,58 +5,58 @@ permalink: /concepts/
 ---
 
 <div class="section-title">
-  <h1>Concept Map</h1>
-  <p>A structured path for readers who are new to quantum information science.</p>
+  <h1>Peta Konsep</h1>
+  <p>Alur belajar terstruktur bagi pembaca yang baru mengenal sains informasi kuantum.</p>
 </div>
 
 <div class="content-list">
 
   <div class="content-item">
     <div>
-      <h3>1. State Space</h3>
-      <p>Qubits, Hilbert spaces, state vectors, normalization, global phase, and Bloch sphere geometry.</p>
+      <h3>1. Ruang Keadaan</h3>
+      <p>Qubit, ruang Hilbert, vektor keadaan, normalisasi, fase global, dan geometri bola Bloch.</p>
     </div>
-    <div class="content-meta">Foundations</div>
+    <div class="content-meta">Fondasi</div>
   </div>
 
   <div class="content-item">
     <div>
-      <h3>2. Quantum Operations</h3>
-      <p>Unitary gates, circuits, rotations, Pauli gates, Hadamard gates, and controlled operations.</p>
+      <h3>2. Operasi Kuantum</h3>
+      <p>Gerbang uniter, rangkaian kuantum, rotasi, gerbang Pauli, gerbang Hadamard, dan operasi terkontrol.</p>
     </div>
-    <div class="content-meta">Circuits</div>
+    <div class="content-meta">Rangkaian</div>
   </div>
 
   <div class="content-item">
     <div>
-      <h3>3. Measurement</h3>
-      <p>Born rule, measurement basis, projectors, probability distributions, and post-measurement states.</p>
+      <h3>3. Pengukuran</h3>
+      <p>Aturan Born, basis pengukuran, proyektor, distribusi probabilitas, dan keadaan setelah pengukuran.</p>
     </div>
-    <div class="content-meta">Core</div>
+    <div class="content-meta">Inti</div>
   </div>
 
   <div class="content-item">
     <div>
-      <h3>4. Composite Systems</h3>
-      <p>Tensor products, separability, entanglement, Bell states, and reduced density matrices.</p>
+      <h3>4. Sistem Komposit</h3>
+      <p>Produk tensor, separabilitas, entanglement, keadaan Bell, dan matriks densitas tereduksi.</p>
     </div>
-    <div class="content-meta">Intermediate</div>
+    <div class="content-meta">Menengah</div>
   </div>
 
   <div class="content-item">
     <div>
-      <h3>5. Noise and Channels</h3>
-      <p>Density matrices, decoherence, depolarizing noise, amplitude damping, and quantum channels.</p>
+      <h3>5. Noise dan Kanal</h3>
+      <p>Matriks densitas, dekoherensi, noise depolarisasi, amplitude damping, dan kanal kuantum.</p>
     </div>
-    <div class="content-meta">Advanced</div>
+    <div class="content-meta">Lanjutan</div>
   </div>
 
   <div class="content-item">
     <div>
-      <h3>6. Quantum Communication</h3>
-      <p>Teleportation, QKD, covert communication, bosonic channels, and information-theoretic security.</p>
+      <h3>6. Komunikasi Kuantum</h3>
+      <p>Teleportasi, QKD, komunikasi terselubung, kanal bosonik, dan keamanan berbasis teori informasi.</p>
     </div>
-    <div class="content-meta">Applications</div>
+    <div class="content-meta">Aplikasi</div>
   </div>
 
 </div>
