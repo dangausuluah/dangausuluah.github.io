@@ -1,0 +1,476 @@
+---
+layout: article
+title: Sistem Dua Tingkat
+category: Foundations
+level: Fundamental
+order: 3
+date: 2026-06-12
+updated: 2026-06-12
+featured: true
+excerpt: Catatan tentang sistem dua tingat dan tetek bengeknya.
+---
+
+<b>Masa Bermula</b>
+
+Di zaman modern, pengangkatan ide tentang adanya kuantisasi energi cahaya dimulai dari Bapak Max Planck (1897-1899) ketika dia ingin menghadirkan model matematika untuk plot densitas energi dari radiasi <em>benda hitam</em> (benda panas yang dianggap ideal dimana benda tersebut menyerap semua cahaya dan tidak memantulkannya) terhadap frekuensi radiasinya, dimana densitas energi juga bergantung pada temperatur dari benda tersebut. Untuk mendapatkan plot densitas energi radiasi benda hitam, benda dipanaskan disebuah wadah yang dilubangi sehingga radiasinya bisa keluar yang kemudian diukur energinya. Bermula Bapak Planck menerima tantangan dari gurunya Tuan Kirchhoff, orang yang mendefinisikan masalah ini, dengan berangkat dari model Tuan Wien (1896) yang hanya bisa melayani plot densitas energi pada frekuensi tinggi. Model dari Tuan Wien mendorong Bapak Planck untuk melahirkan konstanta Planck yang pada masa itu bernilai $h = 6.89 \times 10^{-34} J \cdot s$. Dengan bantuan data dari Tuan Ruben, Bapak Planck bisa menurunkan model radiasi benda hitam miliknya yang cocok dengan semua titik di plot densitas energi, baik pada frekuensi rendah dan frekuensi tinggi. Selanjutnya Bapak Planck menyarankan, dengan bantuan trik matematika dari mekanika statistik yang dikembangkan oleh Tuan Boltzman, bahwa energi tidak kontinu namun diskret sebesar $h \nu$, dimana $\nu$ adalah frekuensi radiasi. 
+
+Pada tahun 1902 Tuan Lenard mempublikasikan hasil risetnya tentang efek fotoelektrik yang kontradiktif dengan pemahaman dari persamaan Tuan Maxwell yang mengatakan bahwa dengan intensitas yang lebih besar maka elektron harus dilontarkan dengan energi yang lebih besar. Namun, penelitian dari Tuan Lenard menemukan bahsa intensitas hanya mempengaruhi jumlah elektron bukan besarnya energi lontaran, sedangkan radiasi dengan panjang gelombang yang lebih pendek melontarkan elektron dengan energi yang lebih kecil. Tiga tahun berlalu, Bapak Einstein menyarankan dengan formal pada publikasinya untuk menimbang bahwa energi cahaya terkuantisasi yang dapat menyelesaikan masalah yang timbul pada eksperimen Tuan Lenard. Prediksi Bapak Einstein dikonfirmasi oleh Tuan Millikan pada publikasi bertahun 1916 tentang efek fotoelektrik dan diperkuat oleh Tuan Compton pada tahun 1922 dengan eksperimen yang menunjukkan bahwa cahaya berperangai seperti partikel melalui hamburan sinar X ketika bertumbuk dengan grafit. 
+
+Terinspirasi dari Tuan Planck dan Tuan Einstein yang mengkuantisasi kuantitas fisis yang ada di fisika klasik, Bapak Bohr mengemukakan teori kuantisasi momentum sudut dengan meminjam konstanta dari Tuan Planck. Dengan teori ini Bapak Bohr bisa menemukan ukuran dan energi yang dibutuhkan untuk mengionisasi hingga garis spektrum atom hidrogen. Teori kuantisasi Bapak Bohr dijelaskan oleh Tuan de Borlie yang menyarankan bahwa setiap partikel memiliki gelombang yang menuntun arah perginya. Namun, sebuah gelombang haruslah mengikuti persamaan gelombang, begitulah kata Tuan Debye. Mendengar perkataan Tuan Debye di kolokium yang dia hadiri, Bapak Schrodinger meluangkan waktunya untuk menjawab keresahan Tuan Debye, dan terjawablah sudah keresahaan itu dalam beberapa minggu kemudian. 
+
+Sejauh ini, teori kuantisasi hanyak berupa tebak-tebakan yang dapat menjelaskan observasi eksperimen. Dibutuhkanlah teori yang bisa menjadi dasar atas hasil-hasil dari teori kuantisasi yang lampau. Perjuangan untuk meraih itu haruslah terlepas dari rantai pemahaman klasik dan membutuhkan inovasi-inovasi yang menyala. Tahun 1925, datanglah Bapak Heisenberg dengan ide-ide pekatnya, mengganti kuantitas-kuantitas klasik dan mengemukakan kuantitas-kuantitas kuantum, terciptalah teori mekanika kuantum yang biasa disebut mekanika matriks yang sangat luas dipelajari disaat sekarang ini.
+
+<b>Postulat Mekanika Kuantum</b>
+
+Mengikuti saran dari Tuan Heisenberg untuk fokus kepada perhitungan untuk memprediksi kuantitas-kuantitas yang bisa dilihat disaat eksperimen, dibutuhkanlah postulat untuk menjadi batu pijakan yang bisa digunakan untuk meraih tujuan tersebut. Beberapa postulat itu sebagai berikut
+
+<em>State:</em> State dari sistem kuantum adalah objek untuk menyimpan semua informasi yang dibutuhkan untuk meprediksi kuatitas yang bisa dilihat disaat melakukan eksperimen. Untuk itu, dibutuhkan model matematika yang dapat mewakili informasi ini. Sebagai postulat, state merupakan sebuah elemen dari ruang vektor (vector space) yang telah disematkan hasil kali dalam (inner product) dimana ruang tersebut lengkap (complete) terhadap norma (norm) yang terbentuk dari hasil kali dalam. Ruang vektor ini disebut ruangnya Tuan Hilbert. Hasil kali dalam diperlukan untuk, salah satunya, mendapatkan suatu bilangan dari sebuah state yang dapat merepresentasikan state tersebut. Hasil kali dalam juga diperlukan untuk menghadirkan struktur dari ruang vektor, yang mana dapat menghadirkan geometri di ruang tersebut. Hasil kali dalam juga bisa menginduksi norma dimana limit dapat didefinisikan dan mesyaratkan ruang yang lengkap sehingga kasus limitasi yang terjadi di fenomena fisis dapat dimodelkan dengan ruang tersebut. Untuk memenuhi interpretasi kemungkinan (probabilistic) maka state harus ternormalisasi, dimana hasil kali dalam sebuah state dengan state itu sendiri harus bernilai satu:
+
+$$
+\braket{\psi|\psi} = 1.
+$$
+
+State atau elemen dari ruang vektor ini biasa ditulis menggunakan notasi yang disarankan oleh Tuan Dirac $\ket{\psi}$, dimana $\psi$ adalah label dari state itu sendiri. 
+
+<em>Observabel:</em> Observabel (observable) merupakan besaran fisis yang dapat diukur dalam sistem kuantum. Observabel diasumsikan sebagai operator Hermitian karena tuntutan dari nilai ekspektasi (expected value) dari sebuah observabel haruslah bilangan real, $\mathbb{R}$. Operator $\hat{A}$ disebut operator Hermitian jika memnuhi 
+
+$$
+\hat{A} = \hat{A}^\dagger,
+$$
+
+dimana $\hat{A}^\dagger$ merupakan operator adjungat (adjoint operator) yang didefinisikan melalui hasil kali dalam sebagai
+
+$$
+\braket{\phi|\hat{A} \psi} = \braket{\hat{A}^\dagger \phi|\psi}.
+$$ 
+
+Sehingga, dengan definisi ini dan asumsi Hermitian, didapat
+
+$$
+\begin{align*}
+\bra{a_i} \hat{A} \ket{a_i} &= \bra{a_i} \hat{A}^\dagger \ket{a_i}\\
+a_i &= a_i^*
+\end{align*}
+$$
+
+<em>Evolusi:</em> Evolusi dari state $\ket{\psi}$ dimodelkan melalui persamaan Tuan Schrodinger 
+
+$$
+\imath \hbar \frac{d}{dt} \ket{\psi} = \hat{H} \ket{\psi},
+$$
+
+dimana $\imath = \sqrt{-1}$, $\hbar = h/2\pi$ adalah konstanta Planck tereduksi, dan $\hat{H}$ adalah Hamiltonian yang merupakan operator dari energi dari sistem, yang memiliki sifat Hermitian. 
+
+<em>Pengukuran:</em> Dalam pengukuran observabel $\hat{A}$, yang bisa dilihat hanya nilai eigen dari $\hat{A}$, sesuai dengan persamaan nilai eigen
+
+$$
+\hat{A} \ket{a_i} = a_i \ket{a_i},
+$$
+
+dimana $a_i$ merupakan nilai eigen dan $\ket{a_i}$ adalah state eigen yang bertepatan dengan nilai eigen $a_i$.
+
+<b>Sistem Dua Tingkat</b>
+
+Dalam kasus sistem dua tingkat, semua state dapat dituliskan sebagai kombinasi linear dari state basis $\\{\ket{0}, \ket{1}\\}$ seperti
+
+$$
+\ket{\psi} = \alpha \ket{0} + \beta \ket{1},
+$$
+
+dimana $\alpha$ dan $\beta$ merupakan bilangan kompleks $\mathbb{C}$. Karena state berevolusi menggunakan persamaan Schrodinger dan bergantung pada operator energi $\hat{H}$ maka akan sangan membantu untuk mendeskripsikan state dalam kombinasi linear dari state eigen,$\\{ \ket{E_i} \\}$, dari $\hat{H}$. Karena sifat Hermitian dari $\hat{H}$ maka state eigen ini memiliki sifat ortonormal (orthonormal):
+
+$$
+\braket{E_i|E_j} = \delta_{ij},
+$$
+
+dimana $\delta_{ij}$ merupakan deltanya Tuan Kronecker yang bernilai $1$ jika $i=j$ dan bernilai $0$ jika $i \neq j$. 
+
+Sifat ini dapat diturunkan seperti:
+
+$$
+\begin{align*}
+\bra{E_i} \hat{A} \ket{E_j} &= \bra{E_i} \hat{A}^\dagger \ket{E_j} \\
+E_j \braket{E_i|E_j} &= E_i^* \braket{E_i|E_j} \\
+E_j \braket{E_i|E_j} &= E_i \braket{E_i|E_j} \\
+\braket{E_i|E_j} (E_j - E_i) &= 0,
+\end{align*}
+$$
+
+sehingga jika $i \neq j$ maka $\braket{E_i\|E_j}=0$, jika $i=j$ maka $\ket{E_i}$ selalu dapat dinormalisasi sehingga $\braket{E_i\|E_i}=1$.
+
+Untuk itu, untuk sistem dua tingkat, kita selalu bisa memilih state eigen dari operator energi sebagai basis:
+
+$$
+\begin{align*}
+\ket{0} &= \ket{E_0} \\
+\ket{1} &= \ket{E_1}.
+\end{align*}
+$$
+
+Dengan memakai sifat ortonormal dari basis yang telah dipilih maka kita dapat mengevaluasi:
+
+$$
+\begin{align*}
+\braket{0|\psi} &= \alpha \braket{0|0} + \beta \braket{0|1}\\
+&= \alpha \\
+\braket{1|\psi} &= \alpha \braket{1|0} + \beta \braket{1|1}\\
+&= \beta.
+\end{align*}
+$$
+
+Dari postulat normalisasi, kita bisa dapatkan
+
+$$
+\begin{align*}
+\braket{\psi|\psi} &= 1 \\
+\alpha^* \alpha \braket{0|0} + \alpha^* \beta \braket{0|1} + \beta^* \alpha \braket{1|0} + \beta^* \beta \braket{1|1} &= 1\\
+|\alpha|^2 + |\beta|^2 &= 1
+\end{align*}
+$$
+
+dengan memakai kembali sifat ortonormal dari state basis dan persamaan $\alpha^* \alpha = \|\alpha\|^2$, $\beta^* \beta = \|\beta\|^2$. Sehingga nilai $\|\alpha\|^2$ dan $\|\beta\|^2$ merepresentasikan kemungkinan. Secara lebih spesifik, $\|\alpha\|^2$ ($\|\beta\|^2$) adalah kemungkinan mendapatkan energi $E_0$ ($E_1$) ketika mengukur energi dari state $\ket{\psi}$. Sehingga bilangan $\braket{0\|\psi} = \alpha$ disebut sebagai amplitudo probabilitas (probability amplitude). Kita  juga bisa melihat bahwa:
+
+$$
+\begin{align*}
+\braket{0|\psi} &= \braket{\psi|0}^* \\
+\braket{1|\psi} &= \braket{\psi|1}^* .
+\end{align*}
+$$
+
+Dengan menggunakan persamaan Schrodinger terhadap state eigen dari $\hat{H}$ didapat:
+
+$$
+\begin{align*}
+\frac{d}{dt} \ket{i} &= -\frac{\imath}{\hbar} \hat{H} \ket{i} \\
+&= -\frac{\imath}{\hbar} E_i \ket{i}.
+\end{align*}
+$$
+
+Sehingga persamaan ini dapat diselesaikan dengan memilih $\ket{i(t)} = e^{- \imath \frac{E_i}{\hbar} t} \ket{i}$.
+Secara umum, evolusi dari state $\ket{\psi}$ terhadap $\hat{H}$ adalah
+
+$$
+\ket{\psi(t)} = \alpha e^{- \imath \frac{E_0}{\hbar} t}  \ket{0} + \beta e^{- \imath \frac{E_1}{\hbar} t}  \ket{1}.
+$$
+
+Secara lebih umum, evolusi dari state yang memenuhi persamaan Schrodinger dapat ditulis sebagai
+
+$$
+\ket{\psi(t)} = e^{- \imath \frac{\hat{H}}{\hbar} t} \ket{\psi(0)},
+$$
+
+dimana eksponensiasi terhadap operator $\hat{H}$ didefinisikan dari barisan Tuan Taylor 
+
+$$
+e^x = \sum_{n=0}^\infty \frac{x^n}{n!},
+$$
+
+sehingga 
+
+$$
+e^{- \imath \frac{\hat{H}}{\hbar} t} = \sum_{n=0}^\infty \frac{(- \imath \frac{\hat{H}}{\hbar} t)^n}{n!}.
+$$
+
+Ketika dilakukan aksi terhadap state eigen $\ket{E_i}$ didapat
+
+$$
+\begin{align*}
+e^{- \imath \frac{\hat{H}}{\hbar} t} \ket{E_i} &= \sum_{n=0}^\infty \frac{(- \imath \frac{\hat{H}}{\hbar} t)^n}{n!} \ket{E_i} \\
+&= \sum_{n=0}^\infty \frac{(- \imath \frac{1}{\hbar} t)^n}{n!} \hat{H}^{n-1} E_i \ket{E_i} \\
+&= \sum_{n=0}^\infty \frac{(- \imath \frac{1}{\hbar} t)^n}{n!} E_i^n \ket{E_i} \\
+&= \sum_{n=0}^\infty \frac{(- \imath \frac{E_i}{\hbar} t)^n}{n!} \ket{E_i} \\
+&= e^{- \imath \frac{E_i}{\hbar} t} \ket{E_i}.
+\end{align*}
+$$
+
+Sehingga secara umum dapat dilihat bahwa
+
+$$
+e^{- \imath \frac{\hat{H}}{\hbar} t} = e^{- \imath \frac{E_0}{\hbar} t} \ket{E_0}\bra{E_0} + e^{- \imath \frac{E_1}{\hbar} t} \ket{E_1}\bra{E_1}.
+$$
+
+Selanjutnya, dengan mengaksikan operator $e^{\imath \frac{\hat{H}}{\hbar} t}$ terhadap $e^{- \imath \frac{\hat{H}}{\hbar} t}$ didapat
+
+$$
+\begin{align*}
+e^{\imath \frac{\hat{H}}{\hbar} t} e^{ - \imath \frac{\hat{H}}{\hbar} t} &= 
+(e^{\imath \frac{E_0}{\hbar} t} \ket{E_0}\bra{E_0} + e^{\imath \frac{E_1}{\hbar} t} \ket{E_1}\bra{E_1})(e^{- \imath \frac{E_0}{\hbar} t} \ket{E_0}\bra{E_0} + e^{- \imath \frac{E_1}{\hbar} t} \ket{E_1}\bra{E_1}) \\
+&= e^{\imath \frac{E_0}{\hbar} t} e^{-\imath \frac{E_0}{\hbar} t} \ket{E_0}\braket{E_0|E_0}\bra{E_0} + e^{\imath \frac{E_0}{\hbar} t} e^{-\imath \frac{E_1}{\hbar} t} \ket{E_0}\braket{E_0|E_1}\bra{E_1} + e^{\imath \frac{E_1}{\hbar} t} e^{-\imath \frac{E_0}{\hbar} t} \ket{E_1}\braket{E_1|E_0}\bra{E_0} + e^{\imath \frac{E_1}{\hbar} t} e^{-\imath \frac{E_1}{\hbar} t} \ket{E_1}\braket{E_1|E_1}\bra{E_1} \\
+&= e^{\imath \frac{E_0}{\hbar} t} e^{-\imath \frac{E_0}{\hbar} t} \ket{E_0}\bra{E_0} + e^{\imath \frac{E_1}{\hbar} t} e^{-\imath \frac{E_1}{\hbar} t} \ket{E_1}\bra{E_1}\\
+&= e^{\imath \frac{E_0}{\hbar} t -\imath \frac{E_0}{\hbar} t} \ket{E_0}\bra{E_0} + e^{\imath \frac{E_1}{\hbar} t -\imath \frac{E_1}{\hbar} t} \ket{E_1}\bra{E_1}\\
+&= e^0 \ket{E_0}\bra{E_0} + e^0 \ket{E_1}\bra{E_1}\\
+&= \hat{I},
+\end{align*}
+$$
+
+dengan memakai aturan eksponen $a^x a^y = a^{x+y}$ jika $x+y = y+x$ dan sifat ortonormal dari basis $\\{\ket{E_0}, \ket{E_1}\\}$. Sehingga didapat $e^{\imath \frac{\hat{H}}{\hbar} t}$ sebgai invers dari $e^{-\imath \frac{\hat{H}}{\hbar} t}$. 
+
+Dengan sedikit konfirmasi dari definisi operator adjungat, dapat juga dilihat bahwa adjungat dari $e^{-\imath \frac{\hat{H}}{\hbar} t}$ sama dengan $e^{\imath \frac{\hat{H}}{\hbar} t}$ yang mana juga inversnya. Operator yang memenuhi ini disebut sebagai operator yang memiliki sifat unitari. Definisi formal sebuah operator $\hat{U}$ yang bersifat unitari adalah jika memenuhi persamaan
+
+$$
+\hat{U}^\dagger \hat{U} = \hat{U} \hat{U}^\dagger = \hat{I}.
+$$
+
+Syarat diatas dipenuhi oleh operator $e^{-\imath \frac{\hat{H}}{\hbar} t}$ yang merupakan efek dari asumsi bahwa operator $\hat{H}$ memiliki sifat Hermitian dan definisi dari eksponensiasi sebuah operator.
+
+
+Dapat juga dilihat bahwa evolusi dengan menggunakan operator $\hat{H}$ tidak mengubah kemungkinan mendapatkan energi $E_i$ karena evolusinya hanya menambahkan fasa kepada state eigen $\ket{E_i}$, sedangkan kemungkinan mendapatkan energi $E_i$ dihitung dengan kuadrat dari amplitudanya yang tidak bergantung pada fasa. Jika tidak ada perubahan kemungkinan mendapatkan energinya, maka nilai ekspektasi dari energi sistem juga tidak akan berubah. Fenomena ini juga bisa dilihat dengan menulis operator $\hat{H}$ seperti
+
+$$
+\hat{H} = E_0 \ket{0}\bra{0} + E_1 \ket{1}\bra{1},
+$$
+
+yang membawa state $\ket{0}$ ($\ket{1}$) kembali ke state $\ket{0}$ ($\ket{1}$) dengan proposi skalar $E_0$ ($E_1$). Sehingga, untuk membuat nilai ekspektasi energi dari sistem berubah, maka dibutuhkan operator yang dapat membawa state $\ket{0}$ ($\ket{1}$) ke state $\ket{1}$ ($\ket{0}$). Contohnya operator 
+
+$$
+\hat{H}_I = g \ket{0}\bra{1} + g^* \ket{1}\bra{0},
+$$
+
+dimana koefisiennya $g$ dan $g^*$ dipilih sebagai pasangan konjugasi sehingga $\hat{H}_I$ memiliki sifat Hermitian.
+
+Jika diasumsikan $g$ adalah bilangan real, maka $g=g^*$ sehingga aksi dari $\hat{H}_I$ terhadap state basis adalah
+
+$$
+\begin{align*}
+\hat{H}_I \ket{0} &= g \ket{1} \\
+\hat{H}_I \ket{1} &= g \ket{0},
+\end{align*}
+$$
+
+sehingga ketika dijumlahkan menjadi $\hat{H}_I \ket{0} + \hat{H}_I \ket{1} = g \ket{1} + g \ket{0}$. Jika dikelompokkan sukunya didapat $\hat{H}_I (\ket{0} + \ket{1}) = g (\ket{0} + \ket{1})$. Karena penjumlahan vektor bersifat komutatif, dimana $\ket{0} + \ket{1} = \ket{1} + \ket{0}$, maka diddapat $\ket{0} + \ket{1}$ adalah vektor eigen dari operator $\hat{H}_I$ dengan nilai eigen $g$. Dengan menormalisasi vektor $\ket{0} + \ket{1}$ didapat 
+
+$$
+\ket{+} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}),
+$$
+
+yang merupakan state eigen dari operator $\hat{H}_I$ dengan nilai eigen $g$. Dengan mengganti penjumlahan dengan pengurangan akan didapat state eigen yang lain:
+
+$$
+\ket{-} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1}),
+$$
+
+dengan nilai eigen $-g$.
+
+Dapat dilihat bahwa state $\\{ \ket{+}, \ket{-} \\}$ juga bisa dijadikan state basis yang ortonormal dan dapat dihubungan dengan basis $\\{ \ket{0}, \ket{1} \\}$ melalui
+
+$$
+\begin{align*}
+\ket{0} &= \frac{1}{\sqrt{2}} (\ket{+} + \ket{-})\\
+\ket{1} &= \frac{1}{\sqrt{2}} (\ket{+} - \ket{-}).
+\end{align*}
+$$
+
+Sehingga, evolusi dari state $\ket{\psi(0)} = \ket{0}$ menggunakan operator $\hat{H}_I$ dapat ditulis seperti
+
+$$
+\begin{align*}
+e^{- \imath \frac{\hat{H}_I}{\hbar} t} \ket{\psi(0)} &= e^{- \imath \frac{\hat{H}_I}{\hbar} t} \frac{1}{\sqrt{2}} (\ket{+} + \ket{-})\\
+&= \frac{1}{\sqrt{2}} (e^{- \imath \frac{\hat{H}_I}{\hbar} t} \ket{+} + e^{- \imath \frac{\hat{H}_I}{\hbar} t} \ket{-})\\
+&= \frac{1}{\sqrt{2}} (e^{- \imath \frac{g}{\hbar} t} \ket{+} + e^{- \imath \frac{-g}{\hbar} t} \ket{-})\\
+&= \frac{1}{\sqrt{2}} (e^{- \imath \frac{g}{\hbar} t} \ket{+} + e^{\imath \frac{g}{\hbar} t} \ket{-})\\
+&= \frac{1}{\sqrt{2}} (e^{- \imath \frac{g}{\hbar} t} \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) + e^{\imath \frac{g}{\hbar} t} \frac{1}{\sqrt{2}} (\ket{0} - \ket{1}))\\
+&= \frac{1}{2} ((e^{- \imath \frac{g}{\hbar} t} + e^{\imath \frac{g}{\hbar} t} ) \ket{0} + (e^{- \imath \frac{g}{\hbar} t}  - e^{\imath \frac{g}{\hbar} t} )\ket{1})\\
+&= \frac{1}{2}(2\cos(\frac{g}{\hbar} t) \ket{0} - 2 \imath \sin (\frac{g}{\hbar} t) \ket{1})\\
+&= \cos(\frac{g}{\hbar} t) \ket{0} - \imath \sin (\frac{g}{\hbar} t) \ket{1}.
+\end{align*}
+$$
+
+Sehingga, ketika mengukur energi dengan operator $\hat{H}$ didapat energi $E_0$ ($E_1$) dengan kemungkinan $\cos^2(\frac{g}{\hbar} t)$ ($\sin^2(\frac{g}{\hbar} t)$).
+
+Secara umum, sebuah operator $\hat{O}$ pada sistem dua tingkat dapat ditulis dalam koefisien matriksnya seperti
+
+$$
+\hat{O} = O_{00} \ket{0}\bra{0} + O_{01} \ket{0}\bra{1} + O_{10} \ket{1}\bra{0} + O_{11} \ket{1}\bra{1},
+$$
+
+dimana koefisien $O_{ij}$ untuk $i,j \in \\{0,1\\}$ adalah bilangan kompleks. Dengan memaksa operator $\hat{O}$ memiliki sifat Hermitian maka 
+
+$$
+\begin{align*}
+O_{00}, O_{11} &\in \mathbb{R} \\
+O_{01} &= O_{10}^*
+\end{align*}
+$$
+
+Koefisien diagonal $O_{00}, O_{11}$ dapat dilihat sebagai ruang vektor bilangan real dua dimensi sehingga dapat ditulis menggunakan kombinasi linear
+
+$$
+\begin{align*}
+O_{00} &= o_0 + o_\mathrm{z}\\
+O\_{11} &= o_0 - o_\mathrm{z}
+\end{align*}
+$$
+
+Sehingga dalam notasi matriks, koefisien diagonal ini dapat ditulis sebagai
+
+$$
+\begin{align*}
+O_{00} \ket{0}\bra{0} + O_{11} \ket{1}\bra{1} &= (o_0 + o_\mathrm{z}) \ket{0}\bra{0} + (o_0 - o_\mathrm{z}) \ket{1}\bra{1} \\
+&= o_0 (\ket{0}\bra{0} + \ket{1}\bra{1}) + o_\mathrm{z} (\ket{0}\bra{0} - \ket{1}\bra{1})\\
+&= o_0 \hat{I} + o_\mathrm{z} \hat{\sigma}\_\mathrm{z}, 
+\end{align*}
+$$
+
+dimana, $\hat{I} = \ket{0}\bra{0} + \ket{1}\bra{1}$ dan $\hat{\sigma}\_\mathrm{z} = \ket{0}\bra{0} - \ket{1}\bra{1}$.
+
+Adapun koefisien luar-diagonal $O_{01}$ dapat ditulis menggunakan komposisi dari bagian real dan imajinari dari bilangan kompleks seperti:
+
+$$
+\begin{align*}
+O_{01} &= o_\mathrm{x} - \imath o_\mathrm{y}\\
+O_{10} &= o_\mathrm{x} + \imath o_\mathrm{y},
+\end{align*}
+$$
+
+sehingga dalam notasi matriks koefisien luar-diagonal dapat ditulis seperti:
+
+$$
+\begin{align*}
+O_{01} \ket{0}\bra{1} + O_{10} \ket{1}\bra{0} &= (o_\mathrm{x} - \imath o_\mathrm{y}) \ket{0}\bra{1} + (o_\mathrm{x} + \imath o_\mathrm{y}) \ket{1}\bra{0} \\
+&= o_\mathrm{x} (\ket{0}\bra{1} + \ket{1}\bra{0}) + o_\mathrm{y} (-\imath \ket{0}\bra{1} + \imath \ket{1}\bra{0}) \\
+&= o_\mathrm{x} \hat{\sigma}\_\mathrm{x} + o_\mathrm{y} \hat{\sigma}\_\mathrm{y},
+\end{align*}
+$$
+
+dimana $\hat{\sigma}\_\mathrm{x} = \ket{0}\bra{1} + \ket{1}\bra{0}$ dan $\hat{\sigma}\_\mathrm{y} = -\imath \ket{0}\bra{1} + \imath \ket{1}\bra{0}$.
+
+Sehingga operator Hermitian $\hat{O}$ dapat ditulis seperti 
+
+$$
+\hat{O} = o_0 \hat{I} + o_\mathrm{x} \hat{\sigma}\_\mathrm{x} + o_\mathrm{y} \hat{\sigma}\_\mathrm{y}  + o_\mathrm{z} \hat{\sigma}\_\mathrm{z}
+$$
+
+Operator $\hat{I}$ merupakan operator identitas karena 
+
+$$
+\begin{align*}
+\hat{I} \ket{\psi} &= (\ket{0}\bra{0} + \ket{1}\bra{1}) (\alpha \ket{0} + \beta \ket{1}) \\
+&= \alpha (\ket{0} \braket{0|0} + \ket{1} \braket{1|0}) + \beta (\ket{0} \braket{0|1} + \ket{1} \braket{1|1})\\
+&= \alpha \ket{0} + \beta \ket{1} \\
+&= \ket{\psi}.
+\end{align*}
+$$
+
+Operator $\hat{\sigma}_\mathrm{x}, \hat{\sigma}\_\mathrm{y}, \hat{\sigma}\_\mathrm{z}$ merupakan operator Tuan Pauli.
+
+Dengan notasi vektor, penulisan operator Hermitian dapat ditulis dalam notasi yang lebih kompak:
+
+$$
+\hat{O} = o_0 \hat{I} + \M{o} \cdot \hat{\M{\sigma}},
+$$
+
+dimana $\M{o} \cdot \hat{\M{\sigma}}$ adalah perkalian skalar dari vektor Pauli $\M{o}$ dan vektor operator Pauli $\hat{\M{\sigma}}$
+
+$$
+\begin{align*}
+\M{o} &= (o_\mathrm{x}, o_\mathrm{y}, o_\mathrm{z})\\
+\hat{\M{\sigma}} &= (\hat{\sigma}_\mathrm{x}, \hat{\sigma}\_\mathrm{y}, \hat{\sigma}\_\mathrm{z}).
+\end{align*}
+$$
+
+Operator Pauli memiliki beberapa sifat yang sangat berguna untuk diingat. Diantaranya adalah, jika operator Pauli diterapkan dua kali berturut-turut, maka akan menghasilkan operator identitas:
+
+$$
+\hat{\sigma}_\mathrm{v} \hat{\sigma}\_\mathrm{v} = \hat{I},
+$$
+
+dimana $\mathrm{v} \in \\{\mathrm{x}, \mathrm{y}, \mathrm{z}\\}$, yang mana sangat mudah diverifikasi melalui representasi matriksnya. Ini menyatakan bahwa operator Pauli mempunyai dirinya sendiri sebagai invers:
+
+$$
+\hat{\sigma}_\mathrm{v}^{-1} = \hat{\sigma}\_\mathrm{v}. 
+$$
+
+Selain itu, operator Pauli memiliki jejak (trace) bernilai $0$ dimana jejak dari sebuah operator $\hat{O}$ untuk sistem dua tingkat didefinisikan sebagai
+
+$$
+\mathrm{tr} (\hat{O}) = \bra{b_0} \hat{O} \ket{b_0} + \bra{b_1} \hat{O} \ket{b_1},
+$$
+
+dimana $\\{\ket{b_0}, \ket{b_1}\\}$ adalah basis yang ortonormal. Dengan mengambil basis $\\{ \ket{0}, \ket{1}\\}$ maka sangat mudah dilihat bahwa 
+
+$$
+\mathrm{tr}(\hat{\sigma}_\mathrm{v}) = 0.
+$$
+
+Terlebih, operator Pauli merupakan operator Hermitian, sehingga state eigennya dapat dijadikan sebagai basis yang ortonormal, sehingga jejak matriks nya juga menjadi penjumlahan dari nilai eigen operator tersebut. Karena operator Pauli memiliki invers, sehingga tidak mungkin ada nilai eigen yang bernilai $0$. Karena operator Pauli hanya bisa memiliki dua nilai eigen, sehingga dengan penjumlahan nilai eigen yang dipaksa menjadi $0$ menghasilkan nilai eigen yang satu $\lambda_0$ menjadi negatifnya nilai eigen yang lainnya $\lambda_1$
+
+$$
+\lambda_0 = -\lambda_1.
+$$
+
+Untuk operator Pauli $\hat{\sigma}_\mathrm{z}$ sangat mudah dilihat bahwa $\lambda_0 = 1$. Dengan penurunan nilai eigen untuk Hamiltonian $\hat{H}_I$ di kasus $g= g^*$ dan menyetel $g=1$ juga didapat $\lambda_0$ untuk $\hat{\sigma}\_\mathrm{x}$ juga bernilai $1$. Ternyata ini juga berlaku untuk operator Pauli $\hat{\sigma}\_\mathrm{y}$ dimana $\lambda_0 = 1$ dengan state eigen
+
+$$
+\ket{+_y} = \frac{1}{\sqrt{2}} (\ket{0} + \imath \ket{1})
+$$
+
+dan $\lambda_1 = -1$ dengan state eigen
+
+$$
+\ket{-_y} = \frac{1}{\sqrt{2}} (\ket{0} - \imath \ket{1}).
+$$
+
+Operator Hermitian $\hat{O}$ juga dapat dijadikan Hamiltonian yang akan mengevolusikan state $\ket{\psi}$ seperti
+
+$$
+\ket{\psi(t)} = e^{-\imath \frac{\hat{O}}{\hbar} t} \ket{\psi}.
+$$
+
+Dengan dekomposisi operator Hermitian $\hat{O}$ maka eksponensiasinya dapat ditulis seperti
+
+$$
+e^{-\imath \frac{\hat{O}}{\hbar} t} = e^{-\imath \frac{o_0 \hat{I} + \M{o} \cdot \hat{\M{\sigma}}}{\hbar} t}.
+$$
+
+Karena $o_0 \hat{I} + \M{o} \cdot \hat{\M{\sigma}} = \M{o} \cdot \hat{\M{\sigma}} + o_0 \hat{I}$ yang disebabkan oleh operator identitas yang bisa berkomutasi (commute) dengan operator apapun, sehingga dapat ditulis
+
+$$
+e^{-\imath \frac{\hat{O}}{\hbar} t} = e^{-\imath \frac{o_0 \hat{I}}{\hbar} t} e^{-\imath \frac{\M{o} \cdot \hat{\M{\sigma}}}{\hbar} t}.
+$$
+
+yang mana eksponensiasi $e^{-\imath \frac{o_0 \hat{I}}{\hbar} t}$ hanya memberikan faktor fasa sebesar $e^{-\imath \frac{o_0}{\hbar} t}$.
+
+Dengan sifat linearitas operator jejak maka didapat jejak dari operator $\M{o} \cdot \hat{\M{\sigma}}$ bernilai $0$, sebagaimana
+
+$$
+\begin{align*}
+\mathrm{tr} (\M{o} \cdot \hat{\M{\sigma}}) &= \bra{b_0} o_\mathrm{x} \hat{\sigma}\_\mathrm{x} + o_\mathrm{y} \hat{\sigma}\_\mathrm{y}  + o_\mathrm{z} \hat{\sigma}\_\mathrm{z} \ket{b_0} + \bra{b_1} o_\mathrm{x} \hat{\sigma}\_\mathrm{x} + o_\mathrm{y} \hat{\sigma}\_\mathrm{y}  + o_\mathrm{z} \hat{\sigma}\_\mathrm{z} \ket{b_1}\\
+&= \bra{b_0} o_\mathrm{x} \hat{\sigma}\_\mathrm{x} \ket{b_0} + \bra{b_0} o_\mathrm{y} \hat{\sigma}\_\mathrm{y} \ket{b_0} + \bra{b_0} o_\mathrm{z} \hat{\sigma}\_\mathrm{z} \ket{b_0} + \bra{b_1} o_\mathrm{x} \hat{\sigma}\_\mathrm{x} \ket{b_1} + \bra{b_1} o_\mathrm{y} \hat{\sigma}\_\mathrm{y} \ket{b_1} + \bra{b_1} o_\mathrm{z} \hat{\sigma}\_\mathrm{z} \ket{b_1} \\
+&= o_\mathrm{x} \bra{b_0} \hat{\sigma}\_\mathrm{x} \ket{b_0} + o_\mathrm{y} \bra{b_0} \hat{\sigma}\_\mathrm{y} \ket{b_0} + o_\mathrm{z} \bra{b_0} \hat{\sigma}\_\mathrm{z} \ket{b_0} + o_\mathrm{x} \bra{b_1} \hat{\sigma}\_\mathrm{x} \ket{b_1} + o_\mathrm{y} \bra{b_1} \hat{\sigma}\_\mathrm{y} \ket{b_1} + o_\mathrm{z} \bra{b_1} \hat{\sigma}\_\mathrm{z} \ket{b_1} \\
+&= o_\mathrm{x} (\bra{b_0} \hat{\sigma}\_\mathrm{x} \ket{b_0} + \bra{b_1} \hat{\sigma}\_\mathrm{x} \ket{b_1}) + o_\mathrm{y} (\bra{b_0} \hat{\sigma}\_\mathrm{y} \ket{b_0} + \bra{b_1} \hat{\sigma}\_\mathrm{y} \ket{b_1}) + o_\mathrm{z} (\bra{b_0} \hat{\sigma}\_\mathrm{z} \ket{b_0} + \bra{b_1} \hat{\sigma}\_\mathrm{z} \ket{b_1}) \\
+&= o_\mathrm{x} \mathrm{tr} (\hat{\sigma}\_\mathrm{x}) + o_\mathrm{y} \mathrm{tr} (\hat{\sigma}\_\mathrm{y}) + o_\mathrm{z} \mathrm{tr} (\hat{\sigma}\_\mathrm{z}) \\
+&= o_\mathrm{x} \times 0 + o_\mathrm{y} \times 0 + o_\mathrm{z} \times 0\\
+&= 0.
+\end{align*}
+$$
+
+Sehingga operator $\M{o} \cdot \hat{\M{\sigma}}$ memiliki dekomposisi
+
+$$
+\begin{align*}
+\M{o} \cdot \hat{\M{\sigma}} &= \lambda_0 \ket{\lambda_0}\bra{\lambda_0} + \lambda_1 \ket{\lambda_1}\bra{\lambda_1}\\
+&= \lambda_0 \ket{\lambda_0}\bra{\lambda_0} - \lambda_0 \ket{\lambda_1}\bra{\lambda_1}.
+\end{align*}
+$$
+
+Sehingga ketika dilakukan eksponensiasi menjadi
+
+$$
+\begin{align*}
+e^{-\imath \frac{\M{o} \cdot \hat{\M{\sigma}}}{\hbar} t} &= e^{-\imath \frac{\lambda_0 \ket{\lambda_0}\bra{\lambda_0} - \lambda_0 \ket{\lambda_1}\bra{\lambda_1}}{\hbar} t}\\
+&= e^{-\imath \frac{\lambda_0}{\hbar} t} \ket{\lambda_0}\bra{\lambda_0} + e^{-\imath \frac{- \lambda_0 }{\hbar} t} \ket{\lambda_1}\bra{\lambda_1} \\
+&= e^{-\imath \frac{\lambda_0}{\hbar} t} \ket{\lambda_0}\bra{\lambda_0} + e^{\imath \frac{\lambda_0 }{\hbar} t} \ket{\lambda_1}\bra{\lambda_1} \\
+&= (\cos(\frac{\lambda_0}{\hbar} t) - \imath \sin(\frac{\lambda_0}{\hbar} t)) \ket{\lambda_0}\bra{\lambda_0} + (\cos(\frac{\lambda_0}{\hbar} t) + \imath \sin(\frac{\lambda_0}{\hbar} t)) \ket{\lambda_1}\bra{\lambda_1} \\
+&= \cos(\frac{\lambda_0}{\hbar} t) (\ket{\lambda_0}\bra{\lambda_0} + \ket{\lambda_1}\bra{\lambda_1}) - \imath \sin(\frac{\lambda_0}{\hbar} t) (\ket{\lambda_0}\bra{\lambda_0} - \ket{\lambda_1}\bra{\lambda_1}) \\
+&= \cos(\frac{\lambda_0}{\hbar} t) \hat{I} - \imath \sin(\frac{\lambda_0}{\hbar} t) \frac{\M{o} \cdot \hat{\M{\sigma}}}{\lambda_0}.
+\end{align*}
+$$
+
+Dengan mengalikan dengan inversnya $e^{\imath \frac{\M{o} \cdot \hat{\M{\sigma}}}{\hbar} t}$ sehingga didapatlah informasi bahwa $\frac{\M{o} \cdot \hat{\M{\sigma}}}{\lambda_0} \frac{\M{o} \cdot \hat{\M{\sigma}}}{\lambda_0} = \hat{I}$ yang berarti operator $\frac{\M{o} \cdot \hat{\M{\sigma}}}{\lambda_0}$ memiliki invers berupa dirinya sendiri. Karena $\frac{\M{o} \cdot \hat{\M{\sigma}}}{\lambda_0}$ juga merupakan operator yang Hermitian, maka operator $\frac{\M{o} \cdot \hat{\M{\sigma}}}{\lambda_0}$ juga memiliki sifat unitari.
+
+Objek berupa $\ket{\varphi}\bra{\varphi}$ juga merupakan sebuah operator karena dapat beraksi terhadap state $\ket{\psi}$ mengasilkan $\braket{\varphi\|\psi}\ket{\varphi}$. Operator $\ket{\varphi}\bra{\varphi}$ juga memiliki sifat Hermitian, karena melakukan aksi terhadap $\ket{\psi}$ dan didapat hasil kali dalam dengan $\ket{\phi}$ berupa $\braket{\phi\|\varphi}\braket{\varphi\|\psi}$, dan bernilai sama dengan mengambil hasil kali dalam dari $\ket{\psi}$ dengan $\braket{\varphi\|\phi}\ket{\varphi}$ yaitu $\braket{\varphi\|\psi}\braket{\varphi\|\phi}^\*$ karena $\braket{\varphi\|\phi}^* = \braket{\phi\|\varphi}$.
+
+___
+Referensi:
+
+[1] https://www.youtube.com/playlist?list=PL_UV-wQj1lvVxch-RPQIUOHX88eeNGzVH
