@@ -2,7 +2,7 @@
 layout: article
 title: Apa itu Kubit (Qubit)?
 category: Foundations
-level: Fondasi
+level: Fundamental
 order: 1
 featured: true
 excerpt: Pengenalan singkat kondisi kuantum (quantum state), amplituda peluang (probability amplitude), kubit (qubit), dll.
