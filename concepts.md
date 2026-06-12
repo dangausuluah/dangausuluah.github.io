@@ -3,7 +3,7 @@ layout: default
 title: Concepts
 permalink: /concepts/
 ---
-
+ 
 <div class="section-title">
   <h1>Peta Konsep</h1>
 </div>
