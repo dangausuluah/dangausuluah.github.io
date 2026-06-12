@@ -6,46 +6,45 @@ permalink: /
 
 <section class="hero">
   <div class="hero-card">
-    <div class="eyebrow">Quantum Information Science</div>
+    <div class="eyebrow">DangauSuluah</div>
 
-    <h1>Notes on <strong>qubits</strong>, information, and quantum systems.</h1>
+    <h1>Pandangan<strong>abal-abal</strong>tentang sedikit hal.</h1>
 
     <p class="lead">
-      A curated collection of explanations, visual notes, tutorials, and references on quantum information science:
-      from basic qubits and measurement to entanglement, quantum channels, and quantum communication.
+      Kumpulan pandangan, catatan, tutorial, dll terhadap informasi kuantum.
     </p>
 
     <div class="hero-actions">
-      <a class="btn btn-primary" href="{{ '/contents/' | relative_url }}">Browse Contents</a>
-      <a class="btn btn-secondary" href="{{ '/concepts/' | relative_url }}">Explore Concepts</a>
+      <a class="btn btn-primary" href="{{ '/contents/' | relative_url }}">Jelajahi Konten</a>
+      <a class="btn btn-secondary" href="{{ '/concepts/' | relative_url }}">Telusuri Konsep</a>
     </div>
   </div>
 
   <aside class="side-card">
-    <h3>Site Focus</h3>
+    <h3>Topik Utama</h3>
 
     <div class="stats">
       <div class="stat">
-        <strong>Qubits</strong>
-        <span>States, gates, and measurement</span>
+        <strong>Kubit (Qubit)</strong>
+        <span>Kondisi (state), gerbang (gate), pengukuran (measurement)</span>
       </div>
 
       <div class="stat">
-        <strong>Entanglement</strong>
-        <span>Correlations beyond classical systems</span>
+        <strong>Keterikatan (Entanglement)</strong>
+        <span>Korelasi yang melampaui sistem klasik</span>
       </div>
 
       <div class="stat">
-        <strong>Channels</strong>
-        <span>Noise, decoherence, and communication</span>
+        <strong>Kanal (Channel)</strong>
+        <span>Noise, dekoherensi, dan komunikasi</span>
       </div>
     </div>
   </aside>
 </section>
 
 <div class="section-title">
-  <h2>Featured Content</h2>
-  <p>Click a preview to open the full content.</p>
+  <h2>Konten Pilihan</h2>
+  <p>Klik pratinjau untuk membuka konten lengkap.</p>
 </div>
 
 <div class="grid">
