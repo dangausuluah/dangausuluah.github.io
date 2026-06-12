@@ -27,12 +27,4 @@ permalink: /resources/
     <div class="content-meta">Tools</div>
   </div>
 
-  <div class="content-item">
-    <div>
-      <h3>Topik yang Akan Ditambahkan</h3>
-      <p>Visualisasi bola Bloch, demo rangkaian kuantum, contoh matriks densitas, dan simulasi kanal kuantum.</p>
-    </div>
-    <div class="content-meta">Rencana</div>
-  </div>
-
 </div>
