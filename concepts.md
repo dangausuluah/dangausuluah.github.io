@@ -6,7 +6,6 @@ permalink: /concepts/
 
 <div class="section-title">
   <h1>Peta Konsep</h1>
-  <p>Alur belajar terstruktur bagi pembaca yang baru mengenal sains informasi kuantum.</p>
 </div>
 
 <div class="content-list">
