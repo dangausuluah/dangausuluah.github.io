@@ -11,7 +11,7 @@ permalink: /
     <h1>Pandangan <strong>abal-abal</strong> tentang sedikit hal.</h1>
 
     <p class="lead">
-      Kumpulan pandangan, catatan, tutorial, dll terhadap informasi kuantum.
+      Kumpulan pandangan, catatan, tutorial, dll tentang informasi kuantum.
     </p>
 
     <div class="hero-actions">
