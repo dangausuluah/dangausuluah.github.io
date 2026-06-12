@@ -6,4 +6,8 @@ collections:
     output: true
     permalink: /contents/:name/
 
+  concepts:
+    output: true
+    permalink: /concepts/:name/
+
 markdown: kramdown
