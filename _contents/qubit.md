@@ -2,26 +2,25 @@
 layout: article
 title: What is a Qubit?
 category: Foundations
-level: Beginner
+level: Fondasi
 order: 1
 featured: true
-excerpt: A short introduction to quantum states, amplitudes, normalization, and the difference between bits and qubits.
+excerpt: Pengenalan singkat kondisi kuantum (quantum state), amplituda peluang (probability amplitude), kubit (qubit), dll.
 ---
 
-A qubit is the basic unit of quantum information. Unlike a classical bit, which has value 0 or 1, a qubit is represented by a quantum state.
+Kuantum bit (kubit; en: qubit) adalah unit informasi dasar sistem kuantum. Berbeda dengan bit klasik yang hanya memiliki nilai 0 atau 1, kubit bisa berada dalam keadaan superposisi antara kondisi (en: state) 0 dan 1.
 
-A general pure qubit state is written as:
+Kondisi kubit dapat ditulis seperti:
 
 $$
-|\psi\rangle = \alpha |0\rangle + \beta |1\rangle
+|\psi\rangle = \alpha |0\rangle + \beta |1\rangle,
 $$
 
-Here, $\alpha$ and $\beta$ are complex amplitudes.
+Dimana, $\alpha$ dan $\beta$ adalah bilangan kompleks $\mathbb{C}$.
 
-The probabilities of measuring 0 or 1 are determined by the squared magnitudes of these amplitudes:
+Peluang untuk mendapatkan hasil pengukuran 0 atau 1 ditentukan oleh kuadrat dari magnituda dari amplituda peluang (en: probability amplitude):
 
-- $|\alpha|^2$ gives the probability of observing 0.
-- $|\beta|^2$ gives the probability of observing 1.
-- The normalization condition is $|\alpha|^2 + |\beta|^2 = 1$.
+- $\|\alpha\|^2$ adalah peluang untuk mendapatkan hasil 0.
+- $\|\beta\|^2$ adalah peluang untuk mendapatkan hasil 1.
+- Berlaku normalisasi untuk tetap konsisten dengan teori peluang, $|\alpha|^2 + |\beta|^2 = 1$.
 
-The important point is that a qubit is not simply “both 0 and 1.” It is a vector in a complex state space, and measurement extracts classical information from that state.
