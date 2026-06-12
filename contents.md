@@ -5,8 +5,8 @@ permalink: /contents/
 ---
 
 <div class="section-title">
-  <h1>List of Contents</h1>
-  <p>Organized notes, articles, and visual explanations on quantum information science.</p>
+  <h1>Daftar Konten</h1>
+  <p>Catatan, artikel, dan pandangan visual tentang informasi kuantum.</p>
 </div>
 
 <div class="content-list">
