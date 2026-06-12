@@ -7,7 +7,7 @@ order: 2
 date: 2026-06-12
 updated: 2026-06-12
 featured: true
-excerpt: Sedikit pembahasan mengawang tentang arah jalannya waktu.
+excerpt: Perbandingan dan persinggungan antara peluang klasik dan kuantum.
 ---
 
 Ada sebuah kotak. Kotak ini berisi bola hijau dan bola merah. Jika banyaknya bola hijau adalah satu dan banyaknya bola merah juga satu, maka perbandingan banyaknya bola hijau dengan banyaknya total bola adalah satu berbanding dua, biasa ditulis 1:2. Dalam bahasa matematika biasa ditulis banyak bolah hijau dibagi dengan jumlah banyak bola hijau dan banyak bola merah:
