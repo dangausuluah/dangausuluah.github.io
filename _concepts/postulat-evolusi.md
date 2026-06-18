@@ -13,7 +13,7 @@ excerpt: Postulat yang menyatakan bahwa evolusi sistem kuantum tertutup direpres
 
 Postulat evolusi (en: evolution postulate) menyatakan bahwa perubahan keadaan sistem kuantum tertutup direpresentasikan oleh operator uniter.
 
-Jika keadaan awal sistem adalah $|\psi(0)\rangle$, maka keadaan pada waktu $t$ dapat ditulis sebagai:
+Jika keadaan awal sistem adalah $\|\psi(0)\rangle$, maka keadaan pada waktu $t$ dapat ditulis sebagai:
 
 $$
 |\psi(t)\rangle = U(t)|\psi(0)\rangle.
