@@ -2,8 +2,11 @@
 layout: article
 title: Kuantum Bit (Kubit)
 category: Foundations
+subcategory: Postulat
 level: Fundamental
 order: 1
+date: 2026-06-18
+updated: 2026-06-18
 featured: false
 excerpt: Pengenalan singkat kondisi kuantum (quantum state), amplituda peluang (probability amplitude), kubit (qubit), dll.
 ---
