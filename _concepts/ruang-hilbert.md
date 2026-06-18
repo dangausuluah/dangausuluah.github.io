@@ -16,12 +16,12 @@ Ruang Hilbert (en: Hilbert space) adalah ruang matematis tempat keadaan kuantum 
 Jika $\|\psi\rangle$ dan $\|\phi\rangle$ adalah dua vektor keadaan, maka produk dalamnya ditulis sebagai:
 
 $$
-\langle \phi \| \psi \rangle.
+\langle \phi | \psi \rangle.
 $$
 
 Produk dalam digunakan untuk menghitung norma, amplitudo, ortogonalitas, dan peluang hasil pengukuran.
 
-Norma dari keadaan $|\psi\rangle$ diberikan oleh:
+Norma dari keadaan $\|\psi\rangle$ diberikan oleh:
 
 $$
 \| |\psi\rangle \|^2 = \langle \psi | \psi \rangle.
