@@ -1,0 +1,13 @@
+{% assign entry = site.data.glossary | where: "id", include.id | first %}
+
+{% if entry %}
+  <a
+    class="term"
+    href="{{ '/glosarium/' | relative_url }}#{{ entry.id }}"
+    title="{{ entry.en_term }} — {{ entry.definition }}"
+  >
+    {{ entry.id_term }}
+  </a>
+{% else %}
+  <span class="term term-missing">{{ include.id }}</span>
+{% endif %}
