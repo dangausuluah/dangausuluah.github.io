@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Apa itu Kubit (Qubit)?
+title: Kuantum Bit (Kubit)
 category: Foundations
 level: Fundamental
 order: 1
