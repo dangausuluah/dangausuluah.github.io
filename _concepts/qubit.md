@@ -10,7 +10,7 @@ updated: 2026-06-18
 featured: false
 excerpt: Pengenalan singkat kondisi kuantum (quantum state), amplituda peluang (probability amplitude), kubit (qubit), dll.
 ---
-
+ 
 Kuantum bit ({% include term.html id="qubit" %}) adalah unit informasi dasar sistem kuantum. Berbeda dengan bit klasik yang hanya memiliki nilai 0 atau 1, kubit bisa berada dalam keadaan superposisi antara kondisi (en: state) 0 dan 1.
 
 Kondisi kubit dapat ditulis seperti:
