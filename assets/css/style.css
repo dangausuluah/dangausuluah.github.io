@@ -401,6 +401,22 @@ footer {
   font-size: 0.92rem;
 }
 
+.term {
+  color: var(--yellow);
+  border-bottom: 1px dotted rgba(251, 195, 6, 0.65);
+  font-weight: 700;
+  cursor: help;
+}
+
+.term:hover {
+  color: var(--text);
+  border-bottom-color: var(--red);
+}
+
+.term-missing {
+  color: var(--red);
+}
+
 @media (max-width: 850px) {
   .nav {
     align-items: flex-start;
