@@ -417,6 +417,33 @@ footer {
   color: var(--red);
 }
 
+.glossary-item {
+  scroll-margin-top: 100px;
+}
+
+.glossary-meta {
+  display: grid;
+  gap: 4px;
+  text-align: right;
+}
+
+.glossary-meta span {
+  color: var(--yellow);
+  font-weight: 800;
+}
+
+.glossary-meta small {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+@media (max-width: 850px) {
+  .glossary-meta {
+    text-align: left;
+  }
+}
+
 @media (max-width: 850px) {
   .nav {
     align-items: flex-start;
