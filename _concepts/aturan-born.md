@@ -13,7 +13,7 @@ excerpt: Aturan yang menghubungkan amplitudo keadaan kuantum dengan probabilitas
 
 Aturan Born (en: Born rule) adalah aturan yang menghubungkan amplitudo kuantum dengan probabilitas hasil pengukuran.
 
-Jika keadaan kuantum ditulis dalam basis $\{|i\rangle\}$ sebagai:
+Jika keadaan kuantum ditulis dalam basis $\{\|i\rangle\}$ sebagai:
 
 $$
 |\psi\rangle = \sum_i \alpha_i |i\rangle,
@@ -39,8 +39,8 @@ $$
 
 maka:
 
-- $|\alpha|^2$ adalah peluang memperoleh hasil 0.
-- $|\beta|^2$ adalah peluang memperoleh hasil 1.
-- $|\alpha|^2 + |\beta|^2 = 1$.
+- $\|\alpha\|^2$ adalah peluang memperoleh hasil 0.
+- $\|\beta\|^2$ adalah peluang memperoleh hasil 1.
+- $\|\alpha\|^2 + \|\beta\|^2 = 1$.
 
 Aturan Born adalah salah satu jembatan utama antara representasi matematis keadaan kuantum dan hasil pengukuran yang tampak sebagai data klasik.
