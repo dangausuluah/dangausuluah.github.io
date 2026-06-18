@@ -1,0 +1,647 @@
+- id: quantum-information-science
+  id_term: sains informasi kuantum
+  en_term: quantum information science
+  category: Umum
+  definition: Bidang yang mempelajari informasi yang direpresentasikan, diproses, dan dikomunikasikan menggunakan sistem kuantum.
+
+- id: quantum-system
+  id_term: sistem kuantum
+  en_term: quantum system
+  category: Umum
+  definition: Sistem fisik yang perilakunya dijelaskan oleh mekanika kuantum.
+
+- id: qubit
+  id_term: kubit
+  en_term: qubit
+  category: Fondasi
+  definition: Unit dasar informasi kuantum yang direpresentasikan oleh keadaan dalam ruang Hilbert dua dimensi.
+
+- id: classical-bit
+  id_term: bit klasik
+  en_term: classical bit
+  category: Fondasi
+  definition: Unit informasi klasik yang hanya dapat bernilai 0 atau 1.
+
+- id: quantum-state
+  id_term: keadaan kuantum
+  en_term: quantum state
+  category: Fondasi
+  definition: Representasi matematis dari kondisi suatu sistem kuantum.
+
+- id: pure-state
+  id_term: keadaan murni
+  en_term: pure state
+  category: Fondasi
+  definition: Keadaan kuantum yang dapat direpresentasikan oleh satu vektor keadaan.
+
+- id: mixed-state
+  id_term: keadaan campuran
+  en_term: mixed state
+  category: Fondasi
+  definition: Keadaan kuantum yang merepresentasikan campuran statistik dari beberapa keadaan murni.
+
+- id: state-vector
+  id_term: vektor keadaan
+  en_term: state vector
+  category: Fondasi
+  definition: Vektor dalam ruang Hilbert yang merepresentasikan keadaan murni suatu sistem kuantum.
+
+- id: hilbert-space
+  id_term: ruang Hilbert
+  en_term: Hilbert space
+  category: Fondasi
+  definition: Ruang vektor kompleks dengan produk dalam yang digunakan untuk merepresentasikan keadaan kuantum.
+
+- id: basis
+  id_term: basis
+  en_term: basis
+  category: Fondasi
+  definition: Sekumpulan vektor acuan yang digunakan untuk merepresentasikan keadaan dalam ruang vektor.
+
+- id: computational-basis
+  id_term: basis komputasi
+  en_term: computational basis
+  category: Fondasi
+  definition: Basis standar untuk kubit, biasanya ditulis sebagai |0⟩ dan |1⟩.
+
+- id: superposition
+  id_term: superposisi
+  en_term: superposition
+  category: Fondasi
+  definition: Keadaan kuantum yang merupakan kombinasi linear dari beberapa keadaan basis.
+
+- id: probability-amplitude
+  id_term: amplituda peluang
+  en_term: probability amplitude
+  category: Fondasi
+  definition: Bilangan kompleks yang kuadrat magnitudanya menentukan peluang hasil pengukuran.
+
+- id: normalization
+  id_term: normalisasi
+  en_term: normalization
+  category: Fondasi
+  definition: Syarat bahwa total peluang seluruh kemungkinan hasil harus bernilai satu.
+
+- id: inner-product
+  id_term: produk dalam
+  en_term: inner product
+  category: Fondasi
+  definition: Operasi matematis yang mengukur hubungan antara dua vektor dalam ruang Hilbert.
+
+- id: norm
+  id_term: norma
+  en_term: norm
+  category: Fondasi
+  definition: Ukuran panjang suatu vektor keadaan.
+
+- id: orthogonal
+  id_term: ortogonal
+  en_term: orthogonal
+  category: Fondasi
+  definition: Hubungan antara dua vektor yang produk dalamnya bernilai nol.
+
+- id: global-phase
+  id_term: fase global
+  en_term: global phase
+  category: Fondasi
+  definition: Faktor fase yang mengalikan seluruh keadaan dan tidak mengubah hasil pengukuran.
+
+- id: relative-phase
+  id_term: fase relatif
+  en_term: relative phase
+  category: Fondasi
+  definition: Perbedaan fase antar komponen keadaan yang dapat memengaruhi interferensi dan hasil pengukuran.
+
+- id: bloch-sphere
+  id_term: bola Bloch
+  en_term: Bloch sphere
+  category: Fondasi
+  definition: Representasi geometris keadaan satu kubit sebagai titik pada permukaan bola.
+
+- id: bra
+  id_term: bra
+  en_term: bra
+  category: Notasi
+  definition: Notasi vektor dual dalam bentuk ⟨ψ|.
+
+- id: ket
+  id_term: ket
+  en_term: ket
+  category: Notasi
+  definition: Notasi vektor keadaan dalam bentuk |ψ⟩.
+
+- id: bra-ket-notation
+  id_term: notasi bra-ket
+  en_term: bra-ket notation
+  category: Notasi
+  definition: Notasi Dirac yang digunakan untuk menulis vektor keadaan dan produk dalam.
+
+- id: operator
+  id_term: operator
+  en_term: operator
+  category: Operasi
+  definition: Objek matematis yang bekerja pada keadaan kuantum dan mengubahnya menjadi keadaan lain.
+
+- id: linear-operator
+  id_term: operator linear
+  en_term: linear operator
+  category: Operasi
+  definition: Operator yang memenuhi sifat linear terhadap kombinasi vektor.
+
+- id: hermitian-operator
+  id_term: operator Hermitian
+  en_term: Hermitian operator
+  category: Operasi
+  definition: Operator yang sama dengan adjoint-nya dan biasanya merepresentasikan observabel.
+
+- id: unitary-operator
+  id_term: operator uniter
+  en_term: unitary operator
+  category: Operasi
+  definition: Operator yang mempertahankan norma keadaan kuantum.
+
+- id: unitary-evolution
+  id_term: evolusi uniter
+  en_term: unitary evolution
+  category: Operasi
+  definition: Perubahan keadaan kuantum tertutup yang direpresentasikan oleh operator uniter.
+
+- id: quantum-gate
+  id_term: gerbang kuantum
+  en_term: quantum gate
+  category: Operasi
+  definition: Operasi uniter yang digunakan untuk memanipulasi keadaan kubit dalam rangkaian kuantum.
+
+- id: quantum-circuit
+  id_term: rangkaian kuantum
+  en_term: quantum circuit
+  category: Operasi
+  definition: Susunan gerbang kuantum dan pengukuran yang memproses informasi kuantum.
+
+- id: pauli-gates
+  id_term: gerbang Pauli
+  en_term: Pauli gates
+  category: Operasi
+  definition: Keluarga gerbang X, Y, dan Z yang merupakan operasi dasar pada satu kubit.
+
+- id: pauli-x
+  id_term: gerbang Pauli-X
+  en_term: Pauli-X gate
+  category: Operasi
+  definition: Gerbang yang menukar keadaan |0⟩ dan |1⟩.
+
+- id: pauli-y
+  id_term: gerbang Pauli-Y
+  en_term: Pauli-Y gate
+  category: Operasi
+  definition: Gerbang Pauli yang mengubah keadaan kubit dengan perubahan bit dan fase kompleks.
+
+- id: pauli-z
+  id_term: gerbang Pauli-Z
+  en_term: Pauli-Z gate
+  category: Operasi
+  definition: Gerbang yang memberikan perubahan fase pada keadaan |1⟩.
+
+- id: hadamard-gate
+  id_term: gerbang Hadamard
+  en_term: Hadamard gate
+  category: Operasi
+  definition: Gerbang yang mengubah basis komputasi menjadi superposisi seimbang.
+
+- id: phase-gate
+  id_term: gerbang fase
+  en_term: phase gate
+  category: Operasi
+  definition: Gerbang yang mengubah fase relatif komponen keadaan kubit.
+
+- id: rotation-gate
+  id_term: gerbang rotasi
+  en_term: rotation gate
+  category: Operasi
+  definition: Gerbang yang merepresentasikan rotasi keadaan kubit pada bola Bloch.
+
+- id: controlled-gate
+  id_term: gerbang terkontrol
+  en_term: controlled gate
+  category: Operasi
+  definition: Gerbang yang bekerja pada suatu kubit bergantung pada keadaan kubit kontrol.
+
+- id: cnot-gate
+  id_term: gerbang CNOT
+  en_term: CNOT gate
+  category: Operasi
+  definition: Gerbang dua kubit yang membalik kubit target jika kubit kontrol bernilai 1.
+
+- id: measurement
+  id_term: pengukuran
+  en_term: measurement
+  category: Pengukuran
+  definition: Proses memperoleh informasi dari keadaan kuantum dalam bentuk hasil klasik.
+
+- id: quantum-measurement
+  id_term: pengukuran kuantum
+  en_term: quantum measurement
+  category: Pengukuran
+  definition: Proses yang menghubungkan keadaan kuantum dengan hasil pengamatan klasik.
+
+- id: born-rule
+  id_term: aturan Born
+  en_term: Born rule
+  category: Pengukuran
+  definition: Aturan yang menyatakan bahwa peluang hasil pengukuran diperoleh dari kuadrat magnituda amplituda.
+
+- id: observable
+  id_term: observabel
+  en_term: observable
+  category: Pengukuran
+  definition: Besaran fisik yang dapat diukur dan direpresentasikan oleh operator Hermitian.
+
+- id: eigenvalue
+  id_term: nilai eigen
+  en_term: eigenvalue
+  category: Pengukuran
+  definition: Nilai yang dapat muncul sebagai hasil pengukuran observabel tertentu.
+
+- id: eigenvector
+  id_term: vektor eigen
+  en_term: eigenvector
+  category: Pengukuran
+  definition: Vektor yang arahnya tidak berubah ketika dikenai operator tertentu.
+
+- id: projector
+  id_term: proyektor
+  en_term: projector
+  category: Pengukuran
+  definition: Operator yang memproyeksikan keadaan ke subruang tertentu.
+
+- id: projective-measurement
+  id_term: pengukuran projektif
+  en_term: projective measurement
+  category: Pengukuran
+  definition: Pengukuran yang direpresentasikan oleh sekumpulan proyektor ortogonal.
+
+- id: pvm
+  id_term: PVM
+  en_term: projection-valued measure
+  category: Pengukuran
+  definition: Kerangka pengukuran projektif yang menggunakan operator proyeksi.
+
+- id: povm
+  id_term: POVM
+  en_term: positive operator-valued measure
+  category: Pengukuran
+  definition: Kerangka pengukuran umum yang memperluas pengukuran projektif.
+
+- id: state-collapse
+  id_term: kolaps keadaan
+  en_term: state collapse
+  category: Pengukuran
+  definition: Pembaruan keadaan kuantum setelah hasil pengukuran diperoleh.
+
+- id: expectation-value
+  id_term: nilai harapan
+  en_term: expectation value
+  category: Pengukuran
+  definition: Nilai rata-rata hasil pengukuran suatu observabel pada keadaan tertentu.
+
+- id: composite-system
+  id_term: sistem komposit
+  en_term: composite system
+  category: Sistem Komposit
+  definition: Sistem kuantum gabungan yang terdiri dari dua atau lebih subsistem.
+
+- id: tensor-product
+  id_term: produk tensor
+  en_term: tensor product
+  category: Sistem Komposit
+  definition: Operasi matematis untuk membentuk ruang keadaan sistem gabungan.
+
+- id: product-state
+  id_term: keadaan produk
+  en_term: product state
+  category: Sistem Komposit
+  definition: Keadaan sistem gabungan yang dapat ditulis sebagai produk tensor keadaan subsistem.
+
+- id: separable-state
+  id_term: keadaan separabel
+  en_term: separable state
+  category: Sistem Komposit
+  definition: Keadaan gabungan yang tidak memiliki keterikatan kuantum.
+
+- id: entanglement
+  id_term: keterikatan
+  en_term: entanglement
+  category: Sistem Komposit
+  definition: Korelasi kuantum nonklasik pada sistem gabungan.
+
+- id: entangled-state
+  id_term: keadaan terikat
+  en_term: entangled state
+  category: Sistem Komposit
+  definition: Keadaan sistem gabungan yang tidak dapat ditulis sebagai produk keadaan subsistem.
+
+- id: bell-state
+  id_term: keadaan Bell
+  en_term: Bell state
+  category: Sistem Komposit
+  definition: Keadaan dua kubit yang terikat maksimal.
+
+- id: reduced-state
+  id_term: keadaan tereduksi
+  en_term: reduced state
+  category: Sistem Komposit
+  definition: Keadaan suatu subsistem yang diperoleh dari keadaan sistem gabungan.
+
+- id: partial-trace
+  id_term: trace parsial
+  en_term: partial trace
+  category: Sistem Komposit
+  definition: Operasi untuk memperoleh keadaan subsistem dari keadaan sistem gabungan.
+
+- id: density-matrix
+  id_term: matriks densitas
+  en_term: density matrix
+  category: Informasi Kuantum
+  definition: Representasi keadaan kuantum yang mencakup keadaan murni dan campuran.
+
+- id: density-operator
+  id_term: operator densitas
+  en_term: density operator
+  category: Informasi Kuantum
+  definition: Operator positif dengan trace satu yang merepresentasikan keadaan kuantum umum.
+
+- id: trace
+  id_term: trace
+  en_term: trace
+  category: Informasi Kuantum
+  definition: Jumlah elemen diagonal suatu matriks atau operator.
+
+- id: purity
+  id_term: kemurnian
+  en_term: purity
+  category: Informasi Kuantum
+  definition: Ukuran seberapa dekat suatu keadaan dengan keadaan murni.
+
+- id: fidelity
+  id_term: fidelitas
+  en_term: fidelity
+  category: Informasi Kuantum
+  definition: Ukuran kedekatan antara dua keadaan kuantum.
+
+- id: trace-distance
+  id_term: jarak trace
+  en_term: trace distance
+  category: Informasi Kuantum
+  definition: Ukuran keterbedaan antara dua keadaan kuantum.
+
+- id: von-neumann-entropy
+  id_term: entropi von Neumann
+  en_term: von Neumann entropy
+  category: Informasi Kuantum
+  definition: Ukuran ketidakpastian atau campuran suatu keadaan kuantum.
+
+- id: quantum-entropy
+  id_term: entropi kuantum
+  en_term: quantum entropy
+  category: Informasi Kuantum
+  definition: Ukuran informasi atau ketidakpastian dalam sistem kuantum.
+
+- id: mutual-information
+  id_term: informasi mutual
+  en_term: mutual information
+  category: Informasi Kuantum
+  definition: Ukuran korelasi total antara dua sistem.
+
+- id: quantum-mutual-information
+  id_term: informasi mutual kuantum
+  en_term: quantum mutual information
+  category: Informasi Kuantum
+  definition: Ukuran korelasi total, klasik dan kuantum, antara dua sistem kuantum.
+
+- id: decoherence
+  id_term: dekoherensi
+  en_term: decoherence
+  category: Noise dan Kanal
+  definition: Hilangnya koherensi kuantum akibat interaksi dengan lingkungan.
+
+- id: quantum-noise
+  id_term: noise kuantum
+  en_term: quantum noise
+  category: Noise dan Kanal
+  definition: Gangguan yang memengaruhi keadaan kuantum dan dapat merusak informasi.
+
+- id: open-quantum-system
+  id_term: sistem kuantum terbuka
+  en_term: open quantum system
+  category: Noise dan Kanal
+  definition: Sistem kuantum yang berinteraksi dengan lingkungan.
+
+- id: quantum-channel
+  id_term: kanal kuantum
+  en_term: quantum channel
+  category: Noise dan Kanal
+  definition: Model matematis untuk perubahan keadaan kuantum akibat proses fisik, noise, atau kehilangan.
+
+- id: kraus-operator
+  id_term: operator Kraus
+  en_term: Kraus operator
+  category: Noise dan Kanal
+  definition: Operator yang digunakan untuk merepresentasikan kanal kuantum.
+
+- id: depolarizing-channel
+  id_term: kanal depolarisasi
+  en_term: depolarizing channel
+  category: Noise dan Kanal
+  definition: Kanal yang mencampur keadaan kuantum dengan keadaan acak.
+
+- id: bit-flip-channel
+  id_term: kanal bit-flip
+  en_term: bit-flip channel
+  category: Noise dan Kanal
+  definition: Kanal noise yang membalik keadaan |0⟩ dan |1⟩ dengan peluang tertentu.
+
+- id: phase-flip-channel
+  id_term: kanal phase-flip
+  en_term: phase-flip channel
+  category: Noise dan Kanal
+  definition: Kanal noise yang mengubah fase relatif keadaan kubit.
+
+- id: amplitude-damping
+  id_term: amplitude damping
+  en_term: amplitude damping
+  category: Noise dan Kanal
+  definition: Model kehilangan energi dari keadaan tereksitasi ke keadaan dasar.
+
+- id: phase-damping
+  id_term: phase damping
+  en_term: phase damping
+  category: Noise dan Kanal
+  definition: Model hilangnya koherensi fase tanpa kehilangan energi.
+
+- id: erasure-channel
+  id_term: kanal erasure
+  en_term: erasure channel
+  category: Noise dan Kanal
+  definition: Kanal yang mengganti keadaan dengan simbol kehilangan yang diketahui.
+
+- id: bosonic-channel
+  id_term: kanal bosonik
+  en_term: bosonic channel
+  category: Noise dan Kanal
+  definition: Kanal kuantum yang menggunakan mode bosonik seperti cahaya atau foton.
+
+- id: quantum-communication
+  id_term: komunikasi kuantum
+  en_term: quantum communication
+  category: Protokol
+  definition: Pengiriman informasi menggunakan sistem atau prinsip kuantum.
+
+- id: quantum-teleportation
+  id_term: teleportasi kuantum
+  en_term: quantum teleportation
+  category: Protokol
+  definition: Protokol untuk memindahkan keadaan kuantum menggunakan keterikatan dan komunikasi klasik.
+
+- id: superdense-coding
+  id_term: superdense coding
+  en_term: superdense coding
+  category: Protokol
+  definition: Protokol yang menggunakan keterikatan untuk mengirim dua bit klasik melalui satu kubit.
+
+- id: quantum-key-distribution
+  id_term: distribusi kunci kuantum
+  en_term: quantum key distribution
+  category: Protokol
+  definition: Protokol distribusi kunci kriptografi yang memanfaatkan prinsip kuantum.
+
+- id: qkd
+  id_term: QKD
+  en_term: quantum key distribution
+  category: Protokol
+  definition: Singkatan dari quantum key distribution atau distribusi kunci kuantum.
+
+- id: bb84
+  id_term: BB84
+  en_term: BB84 protocol
+  category: Protokol
+  definition: Protokol distribusi kunci kuantum awal yang menggunakan keadaan kuantum nonortogonal.
+
+- id: e91
+  id_term: E91
+  en_term: E91 protocol
+  category: Protokol
+  definition: Protokol distribusi kunci kuantum berbasis keterikatan.
+
+- id: quantum-computing
+  id_term: komputasi kuantum
+  en_term: quantum computing
+  category: Komputasi Kuantum
+  definition: Pemrosesan informasi menggunakan prinsip dan sistem kuantum.
+
+- id: quantum-algorithm
+  id_term: algoritma kuantum
+  en_term: quantum algorithm
+  category: Komputasi Kuantum
+  definition: Algoritma yang dirancang untuk dijalankan pada komputer kuantum.
+
+- id: quantum-register
+  id_term: register kuantum
+  en_term: quantum register
+  category: Komputasi Kuantum
+  definition: Sekumpulan kubit yang digunakan bersama dalam komputasi kuantum.
+
+- id: quantum-parallelism
+  id_term: paralelisme kuantum
+  en_term: quantum parallelism
+  category: Komputasi Kuantum
+  definition: Kemampuan operasi kuantum untuk bekerja pada superposisi keadaan secara simultan.
+
+- id: interference
+  id_term: interferensi
+  en_term: interference
+  category: Komputasi Kuantum
+  definition: Fenomena penguatan atau pelemahan amplituda akibat kombinasi fase.
+
+- id: quantum-fourier-transform
+  id_term: transformasi Fourier kuantum
+  en_term: quantum Fourier transform
+  category: Komputasi Kuantum
+  definition: Transformasi uniter yang menjadi komponen penting dalam beberapa algoritma kuantum.
+
+- id: quantum-error-correction
+  id_term: koreksi kesalahan kuantum
+  en_term: quantum error correction
+  category: Koreksi Kesalahan
+  definition: Metode untuk melindungi informasi kuantum dari noise dan dekoherensi.
+
+- id: physical-qubit
+  id_term: kubit fisik
+  en_term: physical qubit
+  category: Koreksi Kesalahan
+  definition: Kubit nyata yang diimplementasikan dalam perangkat fisik dan rentan terhadap noise.
+
+- id: logical-qubit
+  id_term: kubit logis
+  en_term: logical qubit
+  category: Koreksi Kesalahan
+  definition: Kubit terlindungi yang dibangun dari beberapa kubit fisik melalui kode koreksi kesalahan.
+
+- id: stabilizer
+  id_term: stabilizer
+  en_term: stabilizer
+  category: Koreksi Kesalahan
+  definition: Operator yang digunakan untuk mendefinisikan dan mendeteksi kesalahan dalam kode kuantum tertentu.
+
+- id: syndrome
+  id_term: sindrom
+  en_term: syndrome
+  category: Koreksi Kesalahan
+  definition: Informasi hasil pengukuran yang digunakan untuk mengidentifikasi jenis kesalahan tanpa membaca keadaan kuantum secara langsung.
+
+- id: no-cloning-theorem
+  id_term: teorema no-cloning
+  en_term: no-cloning theorem
+  category: Teorema
+  definition: Teorema yang menyatakan bahwa keadaan kuantum umum yang tidak diketahui tidak dapat disalin secara sempurna.
+
+- id: uncertainty-principle
+  id_term: prinsip ketidakpastian
+  en_term: uncertainty principle
+  category: Teorema
+  definition: Prinsip yang menyatakan adanya batas fundamental dalam ketelitian bersama pengukuran observabel tertentu.
+
+- id: bell-inequality
+  id_term: ketaksamaan Bell
+  en_term: Bell inequality
+  category: Teorema
+  definition: Ketaksamaan yang digunakan untuk menguji perbedaan antara teori lokal klasik dan prediksi kuantum.
+
+- id: nonlocality
+  id_term: nonlokalitas
+  en_term: nonlocality
+  category: Teorema
+  definition: Sifat korelasi kuantum yang tidak dapat dijelaskan oleh model lokal klasik tertentu.
+
+- id: quantum-advantage
+  id_term: keunggulan kuantum
+  en_term: quantum advantage
+  category: Umum
+  definition: Kondisi ketika perangkat kuantum menyelesaikan tugas tertentu lebih baik daripada pendekatan klasik terbaik yang tersedia.
+
+- id: quantum-supremacy
+  id_term: supremasi kuantum
+  en_term: quantum supremacy
+  category: Umum
+  definition: Demonstrasi bahwa perangkat kuantum dapat melakukan tugas tertentu yang sangat sulit ditiru oleh komputer klasik.
+
+- id: quantum-resource
+  id_term: sumber daya kuantum
+  en_term: quantum resource
+  category: Umum
+  definition: Sifat atau objek kuantum seperti keterikatan, koherensi, atau nonlokalitas yang dapat dimanfaatkan untuk tugas informasi.
+
+- id: coherence
+  id_term: koherensi
+  en_term: coherence
+  category: Informasi Kuantum
+  definition: Kemampuan keadaan kuantum mempertahankan hubungan fase antar komponen superposisi.
