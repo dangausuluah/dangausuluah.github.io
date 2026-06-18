@@ -19,7 +19,7 @@ $$
 U^\dagger U = UU^\dagger = I.
 $$
 
-Jika keadaan awal adalah $|\psi\rangle$, maka setelah evolusi uniter keadaan menjadi:
+Jika keadaan awal adalah $\|\psi\rangle$, maka setelah evolusi uniter keadaan menjadi:
 
 $$
 |\psi'\rangle = U|\psi\rangle.
