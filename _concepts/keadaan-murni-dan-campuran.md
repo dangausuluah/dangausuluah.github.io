@@ -25,7 +25,7 @@ $$
 
 Keadaan campuran (en: mixed state) muncul ketika sistem tidak berada dalam satu keadaan murni tertentu, tetapi dalam campuran statistik dari beberapa kemungkinan keadaan.
 
-Jika keadaan $|\psi_k\rangle$ muncul dengan peluang $p_k$, maka operator densitasnya adalah:
+Jika keadaan $\|\psi_k\rangle$ muncul dengan peluang $p_k$, maka operator densitasnya adalah:
 
 $$
 \rho = \sum_k p_k |\psi_k\rangle\langle\psi_k|.
