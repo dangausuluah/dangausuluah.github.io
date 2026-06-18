@@ -13,10 +13,10 @@ excerpt: Ruang vektor kompleks tempat keadaan kuantum direpresentasikan.
 
 Ruang Hilbert (en: Hilbert space) adalah ruang matematis tempat keadaan kuantum direpresentasikan. Secara sederhana, ruang Hilbert adalah ruang vektor kompleks yang dilengkapi dengan produk dalam (en: inner product).
 
-Jika $|\psi\rangle$ dan $|\phi\rangle$ adalah dua vektor keadaan, maka produk dalamnya ditulis sebagai:
+Jika $\|\psi\rangle$ dan $\|\phi\rangle$ adalah dua vektor keadaan, maka produk dalamnya ditulis sebagai:
 
 $$
-\langle \phi | \psi \rangle.
+\langle \phi \| \psi \rangle.
 $$
 
 Produk dalam digunakan untuk menghitung norma, amplitudo, ortogonalitas, dan peluang hasil pengukuran.
