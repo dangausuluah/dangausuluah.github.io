@@ -9,17 +9,17 @@ permalink: /glosarium/
   <p>Peta istilah Indonesia–Inggris untuk konsep utama dalam sains informasi kuantum.</p>
 </div>
 
-<div class="glossary-list">
+<div class="content-list glossary-list">
   {% assign terms = site.data.glossary | sort: "id_term" %}
 
   {% for term in terms %}
-    <div class="glossary-item" id="{{ term.id }}">
+    <div class="content-item glossary-item" id="{{ term.id }}">
       <div>
         <h3>{{ term.id_term }}</h3>
         <p>{{ term.definition }}</p>
       </div>
 
-      <div class="glossary-meta">
+      <div class="content-meta glossary-meta">
         <span>{{ term.en_term }}</span>
         <small>{{ term.category }}</small>
       </div>
