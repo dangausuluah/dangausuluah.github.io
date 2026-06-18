@@ -13,7 +13,7 @@ excerpt: Perubahan keadaan kuantum setelah suatu hasil pengukuran diperoleh.
 
 Kolaps keadaan (en: state collapse) adalah aturan pembaruan keadaan kuantum setelah hasil pengukuran diperoleh.
 
-Misalkan pengukuran projektif dilakukan dengan proyektor $P_m$. Jika hasil pengukuran adalah $m$, maka keadaan awal $|\psi\rangle$ berubah menjadi:
+Misalkan pengukuran projektif dilakukan dengan proyektor $P_m$. Jika hasil pengukuran adalah $m$, maka keadaan awal $\|\psi\rangle$ berubah menjadi:
 
 $$
 |\psi_m\rangle =
