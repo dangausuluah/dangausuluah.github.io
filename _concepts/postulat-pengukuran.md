@@ -13,7 +13,7 @@ excerpt: Postulat yang menjelaskan bagaimana informasi klasik diperoleh dari kea
 
 Postulat pengukuran (en: measurement postulate) menjelaskan bagaimana informasi klasik diperoleh dari keadaan kuantum.
 
-Sebelum pengukuran, sistem kuantum direpresentasikan oleh keadaan $|\psi\rangle$. Setelah pengukuran, hanya satu hasil klasik yang diperoleh.
+Sebelum pengukuran, sistem kuantum direpresentasikan oleh keadaan $\|\psi\rangle$. Setelah pengukuran, hanya satu hasil klasik yang diperoleh.
 
 Dalam bentuk umum, pengukuran dapat direpresentasikan oleh sekumpulan operator pengukuran $\{M_m\}$, dengan $m$ menyatakan kemungkinan hasil pengukuran.
 
