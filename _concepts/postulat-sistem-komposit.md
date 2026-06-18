@@ -19,7 +19,7 @@ $$
 \mathcal{H}_{AB} = \mathcal{H}_A \otimes \mathcal{H}_B.
 $$
 
-Jika sistem $A$ berada pada keadaan $|\psi_A\rangle$ dan sistem $B$ berada pada keadaan $|\psi_B\rangle$, maka keadaan gabungannya dapat ditulis sebagai:
+Jika sistem $A$ berada pada keadaan $\|\psi_A\rangle$ dan sistem $B$ berada pada keadaan $\|\psi_B\rangle$, maka keadaan gabungannya dapat ditulis sebagai:
 
 $$
 |\psi_{AB}\rangle =
