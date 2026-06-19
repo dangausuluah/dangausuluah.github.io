@@ -2,45 +2,22 @@
 layout: default
 ---
 
-<article class="article">
-  <div class="article-kicker">
-    {{ page.category }}{% if page.level %} / {{ page.level }}{% endif %}
-  </div>
+<div class="article-shell">
+  <article class="article">
+    <div class="article-kicker">
+      {{ page.category }}{% if page.level %} / {{ page.level }}{% endif %}
+    </div>
 
-  <h1>{{ page.title }}</h1>
+    <h1>{{ page.title }}</h1>
 
-  {% if page.excerpt %}
-    <p class="article-excerpt">{{ page.excerpt }}</p>
-  {% endif %}
+    {% if page.excerpt %}
+      <p class="article-excerpt">{{ page.excerpt }}</p>
+    {% endif %}
 
-  <div class="article-body">
-    {{ content }}
-  </div>
+    <div class="article-body">
+      {{ content }}
+    </div>
+  </article>
 
-  {% if page.related_concepts %}
-    <section class="related-concepts">
-      <h2>Konsep Terkait</h2>
-
-      <div class="related-list">
-        {% for related_id in page.related_concepts %}
-          {% assign concept = site.concepts | where: "concept_id", related_id | first %}
-          {% assign glossary_term = site.data.glossary | where: "id", related_id | first %}
-
-          {% if concept %}
-            <a class="related-item" href="{{ concept.url | relative_url }}">
-              <strong>{{ concept.title }}</strong>
-              {% if concept.excerpt %}
-                <span>{{ concept.excerpt }}</span>
-              {% endif %}
-            </a>
-          {% elsif glossary_term %}
-            <a class="related-item" href="{{ '/glosarium/' | relative_url }}#{{ glossary_term.id }}">
-              <strong>{{ glossary_term.id_term }}</strong>
-              <span>{{ glossary_term.definition }}</span>
-            </a>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </section>
-  {% endif %}
-</article>
+  {% include related-concepts.html %}
+</div>
