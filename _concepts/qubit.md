@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Kuantum Bit (Kubit)
+concept_id: qubit
 category: Foundations
 subcategory: Postulat
 level: Fundamental
