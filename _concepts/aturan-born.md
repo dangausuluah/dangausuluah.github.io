@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Aturan Born
+concept_id: born-rule
 category: Foundations
 subcategory: Postulat
 level: Fundamental
@@ -9,6 +10,9 @@ date: 2026-06-18
 updated: 2026-06-18
 featured: false
 excerpt: Aturan yang menghubungkan amplitudo keadaan kuantum dengan probabilitas hasil pengukuran.
+related_concepts:
+  - quantum-state
+  - probability-amplitude
 ---
 
 Aturan Born (en: Born rule) adalah aturan yang menghubungkan amplitudo kuantum dengan probabilitas hasil pengukuran.
