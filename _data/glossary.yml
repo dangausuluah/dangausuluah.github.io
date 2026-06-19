@@ -250,7 +250,7 @@
   en_term: Born rule
   category: Pengukuran
   definition: Aturan yang menyatakan bahwa peluang hasil pengukuran diperoleh dari kuadrat magnituda amplituda.
-  concept_id: qubit
+  concept_id: born-rule
 
 - id: observable
   id_term: observabel
