@@ -463,3 +463,59 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+.inline-link {
+  display: inline-flex;
+  margin-top: 10px;
+  color: var(--yellow);
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+
+.inline-link:hover {
+  color: var(--text);
+}
+
+.related-concepts {
+  margin-top: 46px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.related-concepts h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: var(--yellow);
+}
+
+.related-list {
+  display: grid;
+  gap: 12px;
+}
+
+.related-item {
+  display: block;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  border-radius: 18px;
+  padding: 18px;
+  transition: 0.2s ease;
+}
+
+.related-item:hover {
+  border-color: var(--yellow);
+  background: rgba(255,255,255,0.075);
+  transform: translateX(3px);
+}
+
+.related-item strong {
+  display: block;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.related-item span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
