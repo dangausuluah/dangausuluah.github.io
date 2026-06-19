@@ -15,6 +15,7 @@
   en_term: qubit
   category: Fondasi
   definition: Unit dasar informasi kuantum yang direpresentasikan oleh keadaan dalam ruang Hilbert dua dimensi.
+  concept_id: qubit
 
 - id: classical-bit
   id_term: bit klasik
