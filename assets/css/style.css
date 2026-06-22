@@ -766,3 +766,20 @@ footer {
     font-size: 18px;
   }
 }
+
+.bs-path-t,
+.bs-path-r {
+  transition: opacity 0.2s ease, stroke-width 0.2s ease;
+}
+
+.bs-photon {
+  fill: #ffffff;
+  filter: drop-shadow(0 0 8px #ffffff);
+  transition: opacity 0.2s ease;
+}
+
+.bs-detector.active rect {
+  stroke: var(--yellow);
+  fill: rgba(251, 195, 6, 0.18);
+  filter: drop-shadow(0 0 12px #FBC306);
+}
