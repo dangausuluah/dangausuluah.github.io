@@ -12,42 +12,40 @@
   <div class="bs-demo-panel">
     <svg class="bs-svg" viewBox="0 0 900 440" role="img" aria-label="Demo beam splitter satu foton">
       <!-- Source -->
-      <text x="55" y="205" class="bs-label">S</text>
-      <line x1="90" y1="200" x2="310" y2="200" class="bs-path bs-path-input" />
-
+      <text x="38" y="226" class="bs-label">S</text>
+      <line x1="65" y1="220" x2="280" y2="220" class="bs-path bs-path-input" />
+    
       <!-- Beam splitter -->
       <g class="bs-cube">
-        <rect x="310" y="150" width="100" height="100" rx="6" />
-        <line x1="310" y1="250" x2="410" y2="150" />
+        <rect x="280" y="170" width="100" height="100" rx="6" />
+        <line x1="280" y1="270" x2="380" y2="170" />
       </g>
-      <text x="318" y="135" class="bs-label">BS</text>
-
+      <text x="288" y="158" class="bs-label">BS</text>
+    
       <!-- Transmitted path -->
-      <line x1="410" y1="200" x2="750" y2="200" class="bs-path bs-path-t" />
-      <text x="555" y="178" class="bs-label-yellow">T: diteruskan</text>
-
+      <!-- Path length from BS to detector = 320 -->
+      <line x1="380" y1="220" x2="700" y2="220" class="bs-path bs-path-t" data-path-t />
+      <text x="515" y="200" class="bs-label-yellow">T: diteruskan</text>
+    
       <!-- Reflected path -->
-      <line x1="360" y1="150" x2="360" y2="55" class="bs-path bs-path-r" />
-      <line x1="360" y1="55" x2="750" y2="55" class="bs-path bs-path-r" />
-      <text x="470" y="40" class="bs-label-red">R: dipantulkan</text>
-
+      <!-- Path length from BS to detector = 100 + 220 = 320 -->
+      <line x1="330" y1="170" x2="330" y2="70" class="bs-path bs-path-r" data-path-r />
+      <line x1="330" y1="70" x2="550" y2="70" class="bs-path bs-path-r" data-path-r />
+      <text x="430" y="50" class="bs-label-red">R: dipantulkan</text>
+    
       <!-- Detectors -->
       <g class="bs-detector bs-detector-t" data-detector="T">
-        <rect x="750" y="168" width="70" height="64" rx="12" />
-        <text x="785" y="207" text-anchor="middle">Dₜ</text>
+        <rect x="700" y="190" width="86" height="60" rx="12" />
+        <text x="743" y="228" text-anchor="middle">Dₜ</text>
       </g>
-
+    
       <g class="bs-detector bs-detector-r" data-detector="R">
-        <rect x="750" y="23" width="70" height="64" rx="12" />
-        <text x="785" y="62" text-anchor="middle">Dᵣ</text>
+        <rect x="550" y="40" width="86" height="60" rx="12" />
+        <text x="593" y="78" text-anchor="middle">Dᵣ</text>
       </g>
-
-      <!-- Photon dot -->
-      <circle class="bs-photon" data-photon cx="90" cy="200" r="9" />
-
-      <!-- Temporary state glow -->
-      <circle class="bs-ghost bs-ghost-t" data-ghost-t cx="410" cy="200" r="6" />
-      <circle class="bs-ghost bs-ghost-r" data-ghost-r cx="360" cy="150" r="6" />
+    
+      <!-- Photon -->
+      <circle class="bs-photon" data-photon cx="65" cy="220" r="8" />
     </svg>
 
     <div class="bs-controls">
