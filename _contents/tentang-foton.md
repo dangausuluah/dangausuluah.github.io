@@ -44,4 +44,8 @@ harus digunakan teori kuantum untuk bisa mendapatkan jawabannya.
 
 Entah dimana pula foton mendapat Ajian *Kage Bunshin*, tapi foton dapat mengaktifkan mode gelombangnya ketika diperlukan; 
 sehingga dia dapat diteruskan dan dipantulkan dalam waktu yang bersamaan tanpa terbelah saat melewati beam splitter. 
-Kalau mengikuti doktrin teori kuantum, foton yang diteruskan biasa dilambangkan dengan $\|\mathrm{T}\rangle$.
+Kalau mengikuti doktrin teori kuantum, foton yang diteruskan biasa dilambangkan dengan $\|\mathrm{T}\rangle$ (dibaca "ket T"), foton yang dipantulkan biasa dilambangkan dengan $\|\mathrm{P}\rangle$ (dibaca "ket P"). Sehingga, foton yang melewati beam splitter 50:50 ditulis seperti,
+
+$$
+\frac{1}{\sqrt} |\mathrm{T}\rangle + \frac{1}{\sqrt} |\mathrm{P}\rangle.
+$$
