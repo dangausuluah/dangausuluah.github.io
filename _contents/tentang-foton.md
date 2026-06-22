@@ -44,4 +44,4 @@ harus digunakan teori kuantum untuk bisa mendapatkan jawabannya.
 
 Entah dimana pula foton mendapat Ajian *Kage Bunshin*, tapi foton dapat mengaktifkan mode gelombangnya ketika diperlukan; 
 sehingga dia dapat diteruskan dan dipantulkan dalam waktu yang bersamaan tanpa terbelah saat melewati beam splitter. 
-Kalau mengikuti doktrin teori kuantum, foton yang 
+Kalau mengikuti doktrin teori kuantum, foton yang diteruskan biasa dilambangkan dengan $\|\mathrm{T}\rangle$.
