@@ -49,3 +49,5 @@ Kalau mengikuti doktrin teori kuantum, foton yang diteruskan biasa dilambangkan 
 $$
 \frac{1}{\sqrt{2}} |\mathrm{T}\rangle + \frac{1}{\sqrt{2}} |\mathrm{P}\rangle.
 $$
+
+{% include path-qubit-graphic.html T="92" R="8" ratio="50:50" %}
