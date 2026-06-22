@@ -50,4 +50,4 @@ $$
 \frac{1}{\sqrt{2}} |\mathrm{T}\rangle + \frac{1}{\sqrt{2}} |\mathrm{P}\rangle.
 $$
 
-{% include single-beam-splitter-demo.html %}
+
