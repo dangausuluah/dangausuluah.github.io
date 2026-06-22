@@ -1,0 +1,105 @@
+<div class="bs-demo" data-bs-demo>
+  <div class="bs-demo-header">
+    <div>
+      <h2>Beam Splitter Satu Foton</h2>
+      <p>
+        Geser rasio beam splitter, lalu kirim satu foton. Detektor yang menyala
+        dipilih berdasarkan peluang transmisi dan refleksi.
+      </p>
+    </div>
+  </div>
+
+  <div class="bs-demo-panel">
+    <svg class="bs-svg" viewBox="0 0 900 440" role="img" aria-label="Demo beam splitter satu foton">
+      <!-- Source -->
+      <text x="55" y="205" class="bs-label">S</text>
+      <line x1="90" y1="200" x2="310" y2="200" class="bs-path bs-path-input" />
+
+      <!-- Beam splitter -->
+      <g class="bs-cube">
+        <rect x="310" y="150" width="100" height="100" rx="6" />
+        <line x1="310" y1="250" x2="410" y2="150" />
+      </g>
+      <text x="318" y="135" class="bs-label">BS</text>
+
+      <!-- Transmitted path -->
+      <line x1="410" y1="200" x2="750" y2="200" class="bs-path bs-path-t" />
+      <text x="555" y="178" class="bs-label-yellow">T: diteruskan</text>
+
+      <!-- Reflected path -->
+      <line x1="360" y1="150" x2="360" y2="55" class="bs-path bs-path-r" />
+      <line x1="360" y1="55" x2="750" y2="55" class="bs-path bs-path-r" />
+      <text x="470" y="40" class="bs-label-red">R: dipantulkan</text>
+
+      <!-- Detectors -->
+      <g class="bs-detector bs-detector-t" data-detector="T">
+        <rect x="750" y="168" width="70" height="64" rx="12" />
+        <text x="785" y="207" text-anchor="middle">Dₜ</text>
+      </g>
+
+      <g class="bs-detector bs-detector-r" data-detector="R">
+        <rect x="750" y="23" width="70" height="64" rx="12" />
+        <text x="785" y="62" text-anchor="middle">Dᵣ</text>
+      </g>
+
+      <!-- Photon dot -->
+      <circle class="bs-photon" data-photon cx="90" cy="200" r="9" />
+
+      <!-- Temporary state glow -->
+      <circle class="bs-ghost bs-ghost-t" data-ghost-t cx="410" cy="200" r="6" />
+      <circle class="bs-ghost bs-ghost-r" data-ghost-r cx="360" cy="150" r="6" />
+    </svg>
+
+    <div class="bs-controls">
+      <label class="bs-slider-label">
+        <span>Transmitansi, T</span>
+        <strong><span data-t-value>50</span>%</strong>
+      </label>
+
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value="50"
+        step="1"
+        class="bs-slider"
+        data-t-slider
+      />
+
+      <div class="bs-prob-grid">
+        <div>
+          <span>Peluang diteruskan</span>
+          <strong data-p-t>50%</strong>
+        </div>
+        <div>
+          <span>Peluang dipantulkan</span>
+          <strong data-p-r>50%</strong>
+        </div>
+      </div>
+
+      <div class="bs-buttons">
+        <button type="button" data-animate-one>Animasi 1 foton</button>
+        <button type="button" data-run-many>Ukur 100 foton</button>
+        <button type="button" data-reset>Reset</button>
+      </div>
+
+      <div class="bs-counts">
+        <div>
+          <span>Detektor T</span>
+          <strong data-count-t>0</strong>
+        </div>
+        <div>
+          <span>Detektor R</span>
+          <strong data-count-r>0</strong>
+        </div>
+      </div>
+
+      <p class="bs-explain" data-result>
+        Satu foton akan terdeteksi pada salah satu detektor. Setelah banyak percobaan,
+        jumlah klik akan mendekati peluang T dan R.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="{{ '/assets/js/single-beam-splitter-demo.js' | relative_url }}" defer></script>
