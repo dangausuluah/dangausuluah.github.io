@@ -783,3 +783,77 @@ footer {
   fill: rgba(251, 195, 6, 0.18);
   filter: drop-shadow(0 0 12px #FBC306);
 }
+
+.bs-svg-sketch {
+  background: #1a1a1a;
+}
+
+.bs-label-sketch {
+  fill: #f2f2f2;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.bs-source-dot {
+  fill: #ffffff;
+  filter: drop-shadow(0 0 6px #ffffff);
+}
+
+.bs-cube-sketch rect {
+  fill: rgba(255,255,255,0.03);
+  stroke: rgba(255,255,255,0.85);
+  stroke-width: 2.5;
+}
+
+.bs-cube-sketch line {
+  stroke: rgba(255,255,255,0.8);
+  stroke-width: 2.2;
+}
+
+.bs-path {
+  fill: none;
+  stroke-linecap: round;
+  transition: opacity 0.2s ease, stroke-width 0.2s ease;
+}
+
+.bs-path-input {
+  stroke: #e8e8e8;
+  stroke-width: 4;
+  opacity: 0.85;
+}
+
+.bs-path-t {
+  stroke: #FBC306;
+  stroke-width: 5;
+  filter: drop-shadow(0 0 6px #FBC306);
+}
+
+.bs-path-r {
+  stroke: #EA0003;
+  stroke-width: 5;
+  filter: drop-shadow(0 0 6px #EA0003);
+}
+
+.bs-detector path {
+  fill: rgba(255,255,255,0.04);
+  stroke: rgba(255,255,255,0.85);
+  stroke-width: 2;
+}
+
+.bs-detector text {
+  fill: #ffffff;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.bs-detector.active path {
+  stroke: var(--yellow);
+  fill: rgba(251, 195, 6, 0.16);
+  filter: drop-shadow(0 0 12px #FBC306);
+}
+
+.bs-photon {
+  fill: #ffffff;
+  filter: drop-shadow(0 0 8px #ffffff);
+  transition: opacity 0.2s ease;
+}
