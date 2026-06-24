@@ -10,51 +10,63 @@
   </div>
 
   <div class="bs-demo-panel">
-    <svg class="bs-svg bs-svg-sketch" viewBox="0 0 900 440" role="img" aria-label="Demo beam splitter satu foton">
-      <!-- Input label -->
-      <text x="70" y="330" class="bs-label-sketch">Input</text>
+    <svg class="bs-svg bs-svg-sketch" viewBox="0 0 780 360" role="img" aria-label="Demo beam splitter satu foton">
+      <!-- Source -->
+      <circle cx="70" cy="270" r="7" class="bs-source-dot" />
+      <text x="42" y="302" class="bs-label-sketch small">Input</text>
     
       <!-- Input path -->
-      <line x1="120" y1="300" x2="300" y2="220" class="bs-path bs-path-input" />
-    
-      <!-- Source marker -->
-      <circle cx="120" cy="300" r="7" class="bs-source-dot" />
+      <line x1="70" y1="270" x2="300" y2="180" class="bs-path bs-path-input" />
     
       <!-- Beam splitter -->
       <g class="bs-cube-sketch">
-        <rect x="300" y="170" width="90" height="90" />
-        <line x1="300" y1="170" x2="390" y2="260" />
-        <line x1="300" y1="260" x2="390" y2="170" />
-        <line x1="300" y1="215" x2="390" y2="215" />
-        <line x1="345" y1="170" x2="345" y2="260" />
+        <rect x="260" y="140" width="80" height="80" />
+        <line x1="260" y1="140" x2="340" y2="220" />
+        <line x1="260" y1="220" x2="340" y2="140" />
+        <line x1="260" y1="180" x2="340" y2="180" />
+        <line x1="300" y1="140" x2="300" y2="220" />
       </g>
-      <text x="315" y="155" class="bs-label-sketch">BS</text>
     
-      <!-- Upper output path -->
-      <line x1="345" y1="170" x2="530" y2="105" class="bs-path bs-path-r" data-path-r />
-      <line x1="530" y1="105" x2="700" y2="105" class="bs-path bs-path-r" data-path-r />
+      <text x="260" y="122" class="bs-label-sketch">BS</text>
     
-      <!-- Lower output path -->
-      <line x1="390" y1="215" x2="560" y2="285" class="bs-path bs-path-t" data-path-t />
-      <line x1="560" y1="285" x2="700" y2="285" class="bs-path bs-path-t" data-path-t />
+      <!-- Upper reflected path -->
+      <line
+        x1="300"
+        y1="180"
+        x2="625"
+        y2="95"
+        class="bs-path bs-path-r"
+        data-path-r
+      />
     
-      <!-- Output labels -->
-      <text x="500" y="84" class="bs-label-red">R: dipantulkan</text>
-      <text x="500" y="323" class="bs-label-yellow">T: diteruskan</text>
+      <!-- Lower transmitted path -->
+      <line
+        x1="300"
+        y1="180"
+        x2="625"
+        y2="265"
+        class="bs-path bs-path-t"
+        data-path-t
+      />
     
-      <!-- Detectors -->
+      <!-- Labels -->
+      <text x="435" y="82" class="bs-label-red">R: dipantulkan</text>
+      <text x="435" y="300" class="bs-label-yellow">T: diteruskan</text>
+    
+      <!-- Detector D0 -->
       <g class="bs-detector bs-detector-r" data-detector="R">
-        <path d="M700,82 L745,82 Q768,82 780,105 Q768,128 745,128 L700,128 Z" />
-        <text x="734" y="111" text-anchor="middle">D0</text>
+        <rect x="625" y="70" width="92" height="50" rx="15" />
+        <text x="671" y="102" text-anchor="middle">D0</text>
       </g>
     
+      <!-- Detector D1 -->
       <g class="bs-detector bs-detector-t" data-detector="T">
-        <path d="M700,262 L745,262 Q768,262 780,285 Q768,308 745,308 L700,308 Z" />
-        <text x="734" y="291" text-anchor="middle">D1</text>
+        <rect x="625" y="240" width="92" height="50" rx="15" />
+        <text x="671" y="272" text-anchor="middle">D1</text>
       </g>
     
       <!-- Photon -->
-      <circle class="bs-photon" data-photon cx="120" cy="300" r="8" />
+      <circle class="bs-photon" data-photon cx="70" cy="270" r="8" />
     </svg>
     <div class="bs-controls">
       <label class="bs-slider-label">
