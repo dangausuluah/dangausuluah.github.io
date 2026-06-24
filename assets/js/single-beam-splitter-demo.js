@@ -132,13 +132,14 @@ function initSingleBeamSplitterDemos() {
       const detector = sampleDetector();
 
       resultEl.textContent = "Foton bergerak menuju beam splitter...";
-      setPhoton(65, 220, true);
+      setPhoton(120, 300, true);
 
       const pathToBS = [
-        { x: 65, y: 220 },
-        { x: 180, y: 220 },
-        { x: 280, y: 220 },
-        { x: 330, y: 220 },
+        { x: 120, y: 300 },
+        { x: 200, y: 265 },
+        { x: 260, y: 238 },
+        { x: 320, y: 225 },
+        { x: 345, y: 215 }
       ];
 
       animatePhotonAlong(pathToBS, 700, () => {
@@ -146,19 +147,20 @@ function initSingleBeamSplitterDemos() {
 
         setTimeout(() => {
           let finalPath;
+
           if (detector === "T") {
             finalPath = [
-              { x: 330, y: 220 },
-              { x: 380, y: 220 },
-              { x: 520, y: 220 },
-              { x: 700, y: 220 },
+              { x: 345, y: 215 },
+              { x: 430, y: 240 },
+              { x: 560, y: 285 },
+              { x: 700, y: 285 }
             ];
           } else {
             finalPath = [
-              { x: 330, y: 220 },
-              { x: 330, y: 170 },
-              { x: 330, y: 70 },
-              { x: 550, y: 70 },
+              { x: 345, y: 215 },
+              { x: 345, y: 170 },
+              { x: 530, y: 105 },
+              { x: 700, y: 105 }
             ];
           }
 
@@ -171,11 +173,11 @@ function initSingleBeamSplitterDemos() {
 
             resultEl.textContent =
               detector === "T"
-                ? `Klik di detektor T. Peluang teoritis: T = ${T}%, R = ${R}%.`
-                : `Klik di detektor R. Peluang teoritis: T = ${T}%, R = ${R}%.`;
+                ? `Klik di D1. Peluang teoritis: T = ${T}%, R = ${R}%.`
+                : `Klik di D0. Peluang teoritis: T = ${T}%, R = ${R}%.`;
 
             setTimeout(() => {
-              setPhoton(65, 220, true);
+              setPhoton(120, 300, true);
               isAnimating = false;
               animateBtn.disabled = false;
               manyBtn.disabled = false;
@@ -198,7 +200,7 @@ function initSingleBeamSplitterDemos() {
       const percentR = total > 0 ? Math.round((countR / total) * 100) : 0;
 
       resultEl.textContent =
-        `Setelah ${total} percobaan: T ≈ ${percentT}%, R ≈ ${percentR}%. ` +
+        `Setelah ${total} percobaan: D1 ≈ ${percentT}%, D0 ≈ ${percentR}%. ` +
         `Jika percobaan diperbanyak, hasil akan mendekati Born rule.`;
     }
 
@@ -211,7 +213,7 @@ function initSingleBeamSplitterDemos() {
         "Satu foton akan terdeteksi pada salah satu detektor. Setelah banyak percobaan, jumlah klik akan mendekati peluang T dan R.";
       detectorT.classList.remove("active");
       detectorR.classList.remove("active");
-      setPhoton(65, 220, true);
+      setPhoton(120, 300, true);
       updateBeamVisuals();
     }
 
