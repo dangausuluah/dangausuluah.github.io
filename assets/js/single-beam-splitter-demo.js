@@ -135,11 +135,10 @@ function initSingleBeamSplitterDemos() {
       setPhoton(120, 300, true);
 
       const pathToBS = [
-        { x: 120, y: 300 },
-        { x: 200, y: 265 },
-        { x: 260, y: 238 },
-        { x: 320, y: 225 },
-        { x: 345, y: 215 }
+        { x: 70, y: 270 },
+        { x: 160, y: 235 },
+        { x: 230, y: 207 },
+        { x: 300, y: 180 }
       ];
 
       animatePhotonAlong(pathToBS, 700, () => {
@@ -150,20 +149,19 @@ function initSingleBeamSplitterDemos() {
 
           if (detector === "T") {
             finalPath = [
-              { x: 345, y: 215 },
-              { x: 430, y: 240 },
-              { x: 560, y: 285 },
-              { x: 700, y: 285 }
+              { x: 300, y: 180 },
+              { x: 420, y: 212 },
+              { x: 520, y: 238 },
+              { x: 625, y: 265 }
             ];
           } else {
             finalPath = [
-              { x: 345, y: 215 },
-              { x: 345, y: 170 },
-              { x: 530, y: 105 },
-              { x: 700, y: 105 }
+              { x: 300, y: 180 },
+              { x: 420, y: 148 },
+              { x: 520, y: 122 },
+              { x: 625, y: 95 }
             ];
           }
-
           animatePhotonAlong(finalPath, 900, () => {
             addCount(detector);
             flashDetector(detector);
@@ -177,7 +175,7 @@ function initSingleBeamSplitterDemos() {
                 : `Klik di D0. Peluang teoritis: T = ${T}%, R = ${R}%.`;
 
             setTimeout(() => {
-              setPhoton(120, 300, true);
+              setPhoton(70, 270, true);
               isAnimating = false;
               animateBtn.disabled = false;
               manyBtn.disabled = false;
