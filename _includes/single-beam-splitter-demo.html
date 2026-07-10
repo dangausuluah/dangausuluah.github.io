@@ -298,31 +298,17 @@
   <div class="sbs-panel">
     <div class="sbs-stage">
       <svg class="sbs-svg" viewBox="0 0 820 420" role="img" aria-label="Beam splitter dengan dua detektor">
-        <defs>
-          <marker id="sbs-arrow-white" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L7,3.5 L0,7 Z" fill="#ffffff"></path>
-          </marker>
+        <!-- Source -->
+        <circle cx="70" cy="290" r="7" class="sbs-source-dot"></circle>
+        <text x="38" y="326" class="sbs-label-small">Input</text>
 
-          <marker id="sbs-arrow-yellow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L7,3.5 L0,7 Z" fill="#FBC306"></path>
-          </marker>
-
-          <marker id="sbs-arrow-red" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L7,3.5 L0,7 Z" fill="#EA0003"></path>
-          </marker>
-        </defs>
-
-        <!-- Source and input -->
-        <circle cx="70" cy="300" r="7" class="sbs-source-dot"></circle>
-        <text x="39" y="336" class="sbs-label-small">Input</text>
-
+        <!-- Input path aligned to BS midpoint -->
         <line
           x1="70"
-          y1="300"
+          y1="290"
           x2="245"
-          y2="300"
+          y2="290"
           class="sbs-path sbs-input-path"
-          marker-end="url(#sbs-arrow-white)"
         ></line>
 
         <!-- Beam splitter -->
@@ -333,48 +319,47 @@
           <line x1="245" y1="290" x2="335" y2="290"></line>
           <line x1="290" y1="245" x2="290" y2="335"></line>
         </g>
-        <text x="260" y="232" class="sbs-label">BS</text>
+        <text x="261" y="232" class="sbs-label">BS</text>
 
-        <!-- Reflected path: upward to D0 -->
+        <!-- Equal-length arms -->
+        <!-- Vertical arm: 172 px -->
         <line
           x1="290"
           y1="245"
           x2="290"
-          y2="112"
+          y2="73"
           class="sbs-path sbs-path-r"
           data-path-r
-          marker-end="url(#sbs-arrow-red)"
         ></line>
 
-        <!-- Transmitted path: right to D1 -->
+        <!-- Horizontal arm: 172 px -->
         <line
           x1="335"
           y1="290"
-          x2="610"
+          x2="507"
           y2="290"
           class="sbs-path sbs-path-t"
           data-path-t
-          marker-end="url(#sbs-arrow-yellow)"
         ></line>
 
         <!-- Labels -->
-        <text x="315" y="176" class="sbs-label-red">R: dipantulkan</text>
-        <text x="432" y="323" class="sbs-label-yellow">T: diteruskan</text>
+        <text x="315" y="170" class="sbs-label-red">R: dipantulkan</text>
+        <text x="390" y="323" class="sbs-label-yellow">T: diteruskan</text>
 
         <!-- Detector D0 -->
         <g class="sbs-detector" data-detector="R">
-          <rect x="245" y="52" width="90" height="46" rx="13"></rect>
-          <text x="290" y="81" text-anchor="middle">D0</text>
+          <rect x="245" y="27" width="90" height="46" rx="13"></rect>
+          <text x="290" y="56" text-anchor="middle">D0</text>
         </g>
 
         <!-- Detector D1 -->
         <g class="sbs-detector" data-detector="T">
-          <rect x="620" y="267" width="90" height="46" rx="13"></rect>
-          <text x="665" y="296" text-anchor="middle">D1</text>
+          <rect x="507" y="267" width="90" height="46" rx="13"></rect>
+          <text x="552" y="296" text-anchor="middle">D1</text>
         </g>
 
         <!-- Photon -->
-        <circle class="sbs-photon" data-photon cx="70" cy="300" r="8"></circle>
+        <circle class="sbs-photon" data-photon cx="70" cy="290" r="8"></circle>
       </svg>
     </div>
 
@@ -597,13 +582,14 @@
           const detector = sampleDetector();
 
           resultEl.textContent = "Foton bergerak menuju beam splitter...";
-          setPhoton(70, 300, true);
+          setPhoton(70, 290, true);
 
           const pathToBS = [
-            { x: 70, y: 300 },
-            { x: 140, y: 300 },
-            { x: 210, y: 300 },
-            { x: 290, y: 300 }
+            { x: 70, y: 290 },
+            { x: 140, y: 290 },
+            { x: 210, y: 290 },
+            { x: 245, y: 290 },
+            { x: 290, y: 290 }
           ];
 
           animatePhotonAlong(pathToBS, 750, function () {
@@ -615,17 +601,17 @@
 
               if (detector === "T") {
                 finalPath = [
-                  { x: 290, y: 300 },
+                  { x: 290, y: 290 },
                   { x: 335, y: 290 },
-                  { x: 470, y: 290 },
-                  { x: 620, y: 290 }
+                  { x: 420, y: 290 },
+                  { x: 507, y: 290 }
                 ];
               } else {
                 finalPath = [
-                  { x: 290, y: 300 },
+                  { x: 290, y: 290 },
                   { x: 290, y: 245 },
-                  { x: 290, y: 180 },
-                  { x: 290, y: 112 }
+                  { x: 290, y: 170 },
+                  { x: 290, y: 73 }
                 ];
               }
 
@@ -645,7 +631,7 @@
                 }
 
                 setTimeout(function () {
-                  setPhoton(70, 300, true);
+                  setPhoton(70, 290, true);
                   isAnimating = false;
                   animateBtn.disabled = false;
                   manyBtn.disabled = false;
@@ -681,7 +667,7 @@
           detectorT.classList.remove("active");
           detectorR.classList.remove("active");
 
-          setPhoton(70, 300, true);
+          setPhoton(70, 290, true);
 
           resultEl.textContent =
             "Satu foton akan terdeteksi pada salah satu detektor. Setelah banyak percobaan, jumlah klik akan mendekati peluang T dan R.";
