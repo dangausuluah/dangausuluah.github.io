@@ -1,0 +1,890 @@
+{% assign initial_T = include.T | default: "50" %}
+{% assign initial_N = include.N | default: "10" %}
+
+<div class="sbs-demo classical-mode" data-single-bs-demo>
+  <style>
+    .sbs-demo {
+      margin: 34px 0;
+      padding: 24px;
+      border: 1px solid var(--border, rgba(255,255,255,0.14));
+      border-radius: 28px;
+      background: rgba(255,255,255,0.035);
+    }
+
+    .sbs-header {
+      margin-bottom: 20px;
+    }
+
+    .sbs-header h2 {
+      margin: 0 0 8px;
+      color: var(--yellow, #FBC306);
+      font-size: 1.45rem;
+      font-weight: 900;
+    }
+
+    .sbs-header p {
+      margin: 0;
+      color: var(--muted, #bdbdbd);
+      line-height: 1.6;
+      max-width: 900px;
+    }
+
+    .sbs-stage {
+      border: 1px solid var(--border, rgba(255,255,255,0.14));
+      border-radius: 24px;
+      background: #050505;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .sbs-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .sbs-label {
+      fill: #ffffff;
+      font-size: 28px;
+      font-weight: 900;
+      font-family: Arial, sans-serif;
+    }
+
+    .sbs-label-small {
+      fill: #ffffff;
+      font-size: 21px;
+      font-weight: 800;
+      font-family: Arial, sans-serif;
+    }
+
+    .sbs-label-red {
+      fill: #EA0003;
+      font-size: 21px;
+      font-weight: 900;
+      font-family: Arial, sans-serif;
+    }
+
+    .sbs-label-yellow {
+      fill: #FBC306;
+      font-size: 21px;
+      font-weight: 900;
+      font-family: Arial, sans-serif;
+    }
+
+    .sbs-path {
+      fill: none;
+      stroke-linecap: round;
+      transition: opacity 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
+    }
+
+    /* Optical beams are white. Red/yellow are only path-label annotations. */
+    .sbs-input-path,
+    .sbs-path-t,
+    .sbs-path-r {
+      stroke: #ffffff;
+      stroke-width: 3;
+      opacity: 0.28;
+      filter: none;
+    }
+
+    .sbs-input-path {
+      opacity: 0.45;
+    }
+
+    /*
+      Classical-light mode:
+      - input beam is the maximum reference
+      - transmitted/reflected beams never exceed the input beam
+      - glow is white, same as the source
+    */
+    .sbs-demo.classical-mode .sbs-input-path {
+      opacity: 1;
+      stroke-width: 7;
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.72));
+    }
+
+    .sbs-demo.classical-mode .sbs-path-t,
+    .sbs-demo.classical-mode .sbs-path-r {
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.72));
+    }
+
+    .sbs-source rect {
+      fill: rgba(255,255,255,0.055);
+      stroke: rgba(255,255,255,0.9);
+      stroke-width: 2.5;
+    }
+
+    .sbs-source text {
+      fill: #ffffff;
+      font-size: 26px;
+      font-weight: 900;
+      font-family: Arial, sans-serif;
+    }
+
+    .sbs-source.active rect,
+    .sbs-demo.classical-mode .sbs-source rect {
+      stroke: #ffffff;
+      fill: rgba(255,255,255,0.16);
+      filter: drop-shadow(0 0 12px rgba(255,255,255,0.86));
+    }
+
+    .sbs-source.active text,
+    .sbs-demo.classical-mode .sbs-source text {
+      fill: #FBC306;
+    }
+
+    .sbs-beam-splitter rect {
+      fill: rgba(255,255,255,0.045);
+      stroke: rgba(255,255,255,0.9);
+      stroke-width: 3;
+    }
+
+    .sbs-beam-splitter line {
+      stroke: rgba(255,255,255,0.82);
+      stroke-width: 2.2;
+    }
+
+    .sbs-detector rect {
+      fill: rgba(255,255,255,0.055);
+      stroke: rgba(255,255,255,0.86);
+      stroke-width: 2.5;
+    }
+
+    .sbs-detector text {
+      fill: #ffffff;
+      font-size: 25px;
+      font-weight: 900;
+      font-family: Arial, sans-serif;
+    }
+
+    .sbs-detector.active rect {
+      stroke: var(--yellow, #FBC306);
+      fill: rgba(251,195,6,0.18);
+      filter: drop-shadow(0 0 12px #FBC306);
+    }
+
+    .sbs-control-state-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 14px;
+      margin-bottom: 14px;
+      align-items: stretch;
+    }
+
+    .sbs-control-box,
+    .sbs-state-box {
+      border: 1px solid var(--border, rgba(255,255,255,0.14));
+      border-radius: 18px;
+      padding: 13px 15px;
+      background: rgba(255,255,255,0.045);
+    }
+
+    .sbs-control-box {
+      display: grid;
+      align-content: center;
+      min-height: 76px;
+    }
+
+    .sbs-slider-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      color: var(--text, #ffffff);
+      font-weight: 900;
+      margin-bottom: 9px;
+    }
+
+    .sbs-slider-head strong {
+      color: var(--yellow, #FBC306);
+      font-size: 1.05rem;
+    }
+
+    .sbs-slider {
+      width: 100%;
+      accent-color: #FBC306;
+    }
+
+    .sbs-state-box {
+      border-color: rgba(251,195,6,0.35);
+      background: rgba(251,195,6,0.06);
+      display: grid;
+      align-content: center;
+      min-height: 76px;
+    }
+
+    .sbs-state-box span {
+      display: block;
+      color: var(--muted, #bdbdbd);
+      font-size: 0.82rem;
+      margin-bottom: 8px;
+    }
+
+    .sbs-state-box code {
+      display: block;
+      color: #ffffff;
+      font-size: 0.96rem;
+      line-height: 1.55;
+      white-space: normal;
+      font-family: "Consolas", "Courier New", monospace;
+      background: rgba(255,255,255,0.075);
+      border-radius: 8px;
+      padding: 6px 9px;
+    }
+
+    .sbs-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .sbs-photon-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border, rgba(255,255,255,0.14));
+      border-radius: 999px;
+      padding: 8px 10px 8px 14px;
+      background: rgba(255,255,255,0.045);
+    }
+
+    .sbs-photon-control label {
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+
+    .sbs-number-input {
+      width: 78px;
+      box-sizing: border-box;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: rgba(255,255,255,0.07);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.96rem;
+      text-align: center;
+    }
+
+    .sbs-buttons {
+      display: contents;
+    }
+
+    .sbs-buttons button {
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 16px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .sbs-buttons button:hover {
+      transform: translateY(-2px);
+    }
+
+    .sbs-buttons button:disabled,
+    .sbs-number-input:disabled,
+    .sbs-slider:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .sbs-buttons button[data-send-n] {
+      background: var(--red, #EA0003);
+      color: #ffffff;
+    }
+
+    .sbs-buttons button[data-classical-mode] {
+      background: var(--yellow, #FBC306);
+      color: #050505;
+    }
+
+    .sbs-buttons button[data-reset] {
+      background: rgba(255,255,255,0.13);
+      color: #ffffff;
+    }
+
+    .sbs-card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .sbs-card {
+      border: 1px solid var(--border, rgba(255,255,255,0.14));
+      border-radius: 18px;
+      padding: 12px 13px;
+      background: rgba(255,255,255,0.045);
+    }
+
+    .sbs-card span {
+      display: block;
+      color: var(--muted, #bdbdbd);
+      font-size: 0.78rem;
+      margin-bottom: 7px;
+      line-height: 1.35;
+    }
+
+    .sbs-card strong {
+      display: block;
+      color: var(--text, #ffffff);
+      font-size: 1.12rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .sbs-card small {
+      display: block;
+      color: var(--muted, #bdbdbd);
+      font-size: 0.74rem;
+      line-height: 1.35;
+    }
+
+    .sbs-status {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 13px 15px;
+      background: rgba(255,255,255,0.035);
+      color: var(--muted, #bdbdbd);
+      line-height: 1.55;
+      font-size: 0.92rem;
+      margin-bottom: 16px;
+    }
+
+    .sbs-status strong {
+      color: #ffffff;
+      font-weight: 900;
+    }
+
+    .sbs-caption {
+      padding: 18px 20px;
+      border: 1px solid rgba(251,195,6,0.22);
+      border-radius: 22px;
+      background: rgba(251,195,6,0.045);
+      color: var(--muted, #bdbdbd);
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
+    .sbs-caption strong {
+      color: #FBC306;
+      font-weight: 900;
+    }
+
+    .sbs-caption code {
+      color: #ffffff;
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 0.95em;
+      background: rgba(255,255,255,0.08);
+      border-radius: 7px;
+      padding: 1px 6px;
+    }
+
+    @media (max-width: 920px) {
+      .sbs-control-state-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sbs-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .sbs-label {
+        font-size: 24px;
+      }
+
+      .sbs-label-red,
+      .sbs-label-yellow {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .sbs-demo {
+        padding: 18px;
+      }
+
+      .sbs-card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sbs-action-row {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .sbs-photon-control {
+        justify-content: space-between;
+        border-radius: 18px;
+      }
+
+      .sbs-buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .sbs-buttons button {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <div class="sbs-header">
+    <h2>Beam Splitter Satu Foton</h2>
+    <p>
+      Atur transmitansi beam splitter, pilih jumlah foton, lalu jalankan pengiriman foton diskret atau tampilkan cahaya klasik.
+    </p>
+  </div>
+
+  <div class="sbs-stage">
+    <svg class="sbs-svg" viewBox="0 0 1000 600" role="img" aria-label="Beam splitter dengan sumber dan dua detektor">
+      <!-- Source -->
+      <g class="sbs-source" data-source>
+        <rect x="70" y="392" width="110" height="66" rx="18"></rect>
+        <text x="125" y="434" text-anchor="middle">S</text>
+      </g>
+      <text x="82" y="494" class="sbs-label-small">Input</text>
+
+      <!-- Input path aligned to beam-splitter midpoint -->
+      <line
+        x1="180"
+        y1="425"
+        x2="430"
+        y2="425"
+        class="sbs-path sbs-input-path"
+        data-input-path
+      ></line>
+
+      <!-- Beam splitter -->
+      <g class="sbs-beam-splitter">
+        <rect x="430" y="360" width="130" height="130"></rect>
+        <line x1="430" y1="490" x2="560" y2="360"></line>
+        <line x1="430" y1="360" x2="560" y2="490"></line>
+        <line x1="430" y1="425" x2="560" y2="425"></line>
+        <line x1="495" y1="360" x2="495" y2="490"></line>
+      </g>
+      <text x="463" y="340" class="sbs-label">BS</text>
+
+      <!-- Equal-length output arms: 230 px each -->
+      <line
+        x1="495"
+        y1="360"
+        x2="495"
+        y2="130"
+        class="sbs-path sbs-path-r"
+        data-path-r
+      ></line>
+
+      <line
+        x1="560"
+        y1="425"
+        x2="790"
+        y2="425"
+        class="sbs-path sbs-path-t"
+        data-path-t
+      ></line>
+
+      <!-- Path labels -->
+      <text x="530" y="235" class="sbs-label-red">R: dipantulkan</text>
+      <text x="635" y="468" class="sbs-label-yellow">T: diteruskan</text>
+
+      <!-- Detector D0: elongated along vertical path -->
+      <g class="sbs-detector" data-detector="R">
+        <rect x="460" y="10" width="70" height="120" rx="18"></rect>
+        <text x="495" y="78" text-anchor="middle">D0</text>
+      </g>
+
+      <!-- Detector D1: elongated along horizontal path -->
+      <g class="sbs-detector" data-detector="T">
+        <rect x="790" y="392" width="140" height="66" rx="18"></rect>
+        <text x="860" y="434" text-anchor="middle">D1</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="sbs-control-state-grid">
+    <div class="sbs-control-box">
+      <div class="sbs-slider-head">
+        <span>Transmitansi, T</span>
+        <strong><span data-t-value>{{ initial_T }}</span>%</strong>
+      </div>
+
+      <input
+        class="sbs-slider"
+        type="range"
+        min="0"
+        max="100"
+        step="1"
+        value="{{ initial_T }}"
+        data-t-slider
+      />
+    </div>
+
+    <div class="sbs-state-box">
+      <span>Keadaan setelah beam splitter</span>
+      <code data-state-text>|ψ⟩ = √0.50 |T⟩ + √0.50 |R⟩</code>
+    </div>
+  </div>
+
+  <div class="sbs-action-row">
+    <div class="sbs-photon-control">
+      <label for="sbs-photon-number">Jumlah foton</label>
+      <input
+        id="sbs-photon-number"
+        class="sbs-number-input"
+        type="number"
+        min="1"
+        max="100"
+        step="1"
+        value="{{ initial_N }}"
+        data-photon-number
+      />
+    </div>
+
+    <div class="sbs-buttons">
+      <button type="button" data-send-n>Kirim N foton</button>
+      <button type="button" data-classical-mode>Matikan cahaya klasik</button>
+      <button type="button" data-reset>Reset</button>
+    </div>
+  </div>
+
+  <div class="sbs-card-grid">
+    <div class="sbs-card">
+      <span>Peluang diteruskan</span>
+      <strong data-p-t>{{ initial_T }}%</strong>
+      <small data-amp-t>amplituda: √0.50 = 0.707</small>
+    </div>
+
+    <div class="sbs-card">
+      <span>Peluang dipantulkan</span>
+      <strong data-p-r>50%</strong>
+      <small data-amp-r>amplituda: √0.50 = 0.707</small>
+    </div>
+
+    <div class="sbs-card">
+      <span>Detektor D1</span>
+      <strong data-count-t>0 klik</strong>
+      <small data-obs-t>0% dari 0 foton</small>
+    </div>
+
+    <div class="sbs-card">
+      <span>Detektor D0</span>
+      <strong data-count-r>0 klik</strong>
+      <small data-obs-r>0% dari 0 foton</small>
+    </div>
+  </div>
+
+  <div class="sbs-status" data-status>
+    <strong>Status eksperimen:</strong>
+    Mode cahaya klasik aktif. Terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.
+  </div>
+
+  <div class="sbs-caption">
+    <strong>Eksperimen.</strong>
+    Sumber <code>S</code> mengirim cahaya menuju beam splitter <code>BS</code>.
+    Beam splitter memiliki transmitansi <code>T</code> dan reflektansi <code>R = 1 − T</code>.
+    Pada mode <strong>Kirim N foton</strong>, foton dikirim berurutan: setiap foton hanya menghasilkan satu klik,
+    baik di <code>D1</code> maupun <code>D0</code>. Setelah banyak pengiriman, rasio klik di kedua detektor
+    mendekati peluang <code>T</code> dan <code>R</code>. Mode <strong>cahaya klasik</strong> hanya menampilkan
+    intensitas rata-rata pada kedua jalur, bukan simulasi klik foton tunggal.
+  </div>
+
+  <script>
+    (function () {
+      function initSingleBeamSplitterDemo(demo) {
+        if (demo.dataset.initialized === "true") return;
+        demo.dataset.initialized = "true";
+
+        const slider = demo.querySelector("[data-t-slider]");
+        const photonNumberInput = demo.querySelector("[data-photon-number]");
+
+        const tValue = demo.querySelector("[data-t-value]");
+        const pT = demo.querySelector("[data-p-t]");
+        const pR = demo.querySelector("[data-p-r]");
+        const ampT = demo.querySelector("[data-amp-t]");
+        const ampR = demo.querySelector("[data-amp-r]");
+        const stateText = demo.querySelector("[data-state-text]");
+        const countTEl = demo.querySelector("[data-count-t]");
+        const countREl = demo.querySelector("[data-count-r]");
+        const obsTEl = demo.querySelector("[data-obs-t]");
+        const obsREl = demo.querySelector("[data-obs-r]");
+        const statusEl = demo.querySelector("[data-status]");
+
+        const source = demo.querySelector("[data-source]");
+        const detectorT = demo.querySelector('[data-detector="T"]');
+        const detectorR = demo.querySelector('[data-detector="R"]');
+        const pathT = demo.querySelector("[data-path-t]");
+        const pathR = demo.querySelector("[data-path-r]");
+
+        const sendBtn = demo.querySelector("[data-send-n]");
+        const classicalBtn = demo.querySelector("[data-classical-mode]");
+        const resetBtn = demo.querySelector("[data-reset]");
+
+        let countT = 0;
+        let countR = 0;
+        let isRunning = false;
+        let classicalMode = true;
+
+        function getT() {
+          return Number(slider.value) / 100;
+        }
+
+        function getR() {
+          return 1 - getT();
+        }
+
+        function percent(x) {
+          return `${Math.round(x * 100)}%`;
+        }
+
+        function probText(x) {
+          return x.toFixed(2);
+        }
+
+        function ampText(x) {
+          return Math.sqrt(x).toFixed(3);
+        }
+
+        function clampPhotonNumber(value) {
+          const n = Math.round(Number(value));
+
+          if (!Number.isFinite(n)) return 1;
+          if (n < 1) return 1;
+          if (n > 100) return 100;
+
+          return n;
+        }
+
+        function updateDetectorCards() {
+          const total = countT + countR;
+          const observedT = total > 0 ? Math.round((countT / total) * 100) : 0;
+          const observedR = total > 0 ? Math.round((countR / total) * 100) : 0;
+
+          countTEl.textContent = `${countT} klik`;
+          countREl.textContent = `${countR} klik`;
+
+          obsTEl.textContent = `${observedT}% dari ${total} foton`;
+          obsREl.textContent = `${observedR}% dari ${total} foton`;
+        }
+
+        function clearCounts() {
+          countT = 0;
+          countR = 0;
+          updateDetectorCards();
+        }
+
+        function updateDisplay() {
+          const T = getT();
+          const R = getR();
+
+          tValue.textContent = Math.round(T * 100);
+          pT.textContent = percent(T);
+          pR.textContent = percent(R);
+
+          ampT.textContent = `amplituda: √${probText(T)} = ${ampText(T)}`;
+          ampR.textContent = `amplituda: √${probText(R)} = ${ampText(R)}`;
+
+          stateText.textContent =
+            `|ψ⟩ = √${probText(T)} |T⟩ + √${probText(R)} |R⟩`;
+
+          if (classicalMode) {
+            pathT.style.opacity = String(0.08 + 0.92 * T);
+            pathR.style.opacity = String(0.08 + 0.92 * R);
+            pathT.style.strokeWidth = `${2 + 5 * T}px`;
+            pathR.style.strokeWidth = `${2 + 5 * R}px`;
+          } else {
+            pathT.style.opacity = "0.28";
+            pathR.style.opacity = "0.28";
+            pathT.style.strokeWidth = "3px";
+            pathR.style.strokeWidth = "3px";
+          }
+        }
+
+        function sampleDetector() {
+          return Math.random() < getT() ? "T" : "R";
+        }
+
+        function delay(ms) {
+          return new Promise(function (resolve) {
+            setTimeout(resolve, ms);
+          });
+        }
+
+        function clearEventFlash() {
+          source.classList.remove("active");
+          detectorT.classList.remove("active");
+          detectorR.classList.remove("active");
+        }
+
+        function setControlsDisabled(disabled) {
+          sendBtn.disabled = disabled;
+          classicalBtn.disabled = disabled;
+          resetBtn.disabled = disabled;
+          slider.disabled = disabled;
+          photonNumberInput.disabled = disabled;
+        }
+
+        function turnOffClassicalMode() {
+          classicalMode = false;
+          demo.classList.remove("classical-mode");
+          classicalBtn.textContent = "Tampilkan cahaya klasik";
+          updateDisplay();
+        }
+
+        function addCount(detector) {
+          if (detector === "T") {
+            countT += 1;
+          } else {
+            countR += 1;
+          }
+
+          updateDetectorCards();
+        }
+
+        function observedText() {
+          const total = countT + countR;
+          const observedT = total > 0 ? Math.round((countT / total) * 100) : 0;
+          const observedR = total > 0 ? Math.round((countR / total) * 100) : 0;
+
+          return `Total klik: ${total}. D1 = ${observedT}%, D0 = ${observedR}%.`;
+        }
+
+        async function sendOnePhotonInSequence(index, totalToSend) {
+          const detector = sampleDetector();
+          const T = Math.round(getT() * 100);
+          const R = 100 - T;
+
+          clearEventFlash();
+
+          source.classList.add("active");
+          statusEl.innerHTML =
+            `<strong>Status eksperimen:</strong> Mengirim foton ${index} dari ${totalToSend}. Mode cahaya klasik dimatikan.`;
+
+          await delay(260);
+
+          source.classList.remove("active");
+
+          await delay(120);
+
+          if (detector === "T") {
+            detectorT.classList.add("active");
+            addCount("T");
+            statusEl.innerHTML =
+              `<strong>Status eksperimen:</strong> Foton ${index}/${totalToSend}: klik di D1. Peluang teoritis: T = ${T}%, R = ${R}%.`;
+          } else {
+            detectorR.classList.add("active");
+            addCount("R");
+            statusEl.innerHTML =
+              `<strong>Status eksperimen:</strong> Foton ${index}/${totalToSend}: klik di D0. Peluang teoritis: T = ${T}%, R = ${R}%.`;
+          }
+
+          await delay(420);
+
+          detectorT.classList.remove("active");
+          detectorR.classList.remove("active");
+
+          await delay(120);
+        }
+
+        async function sendNPhotons() {
+          if (isRunning) return;
+
+          const totalToSend = clampPhotonNumber(photonNumberInput.value);
+          photonNumberInput.value = totalToSend;
+
+          turnOffClassicalMode();
+
+          isRunning = true;
+          setControlsDisabled(true);
+          clearEventFlash();
+
+          for (let i = 1; i <= totalToSend; i += 1) {
+            await sendOnePhotonInSequence(i, totalToSend);
+          }
+
+          clearEventFlash();
+
+          statusEl.innerHTML =
+            `<strong>Status eksperimen:</strong> Selesai mengirim ${totalToSend} foton secara berurutan. ${observedText()} ` +
+            `Jika jumlah foton diperbesar, rasio klik akan makin mendekati peluang teoritis.`;
+
+          setControlsDisabled(false);
+          isRunning = false;
+        }
+
+        function toggleClassicalMode() {
+          if (isRunning) return;
+
+          classicalMode = !classicalMode;
+          demo.classList.toggle("classical-mode", classicalMode);
+
+          classicalBtn.textContent = classicalMode ? "Matikan cahaya klasik" : "Tampilkan cahaya klasik";
+
+          if (classicalMode) {
+            statusEl.innerHTML =
+              `<strong>Status eksperimen:</strong> Mode cahaya klasik aktif. Terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.`;
+          } else {
+            statusEl.innerHTML =
+              `<strong>Status eksperimen:</strong> Mode cahaya klasik dimatikan. Mode ini tidak menampilkan berkas kontinu.`;
+          }
+
+          clearEventFlash();
+          updateDisplay();
+        }
+
+        function reset() {
+          clearCounts();
+          classicalMode = true;
+
+          demo.classList.add("classical-mode");
+          classicalBtn.textContent = "Matikan cahaya klasik";
+          clearEventFlash();
+
+          statusEl.innerHTML =
+            `<strong>Status eksperimen:</strong> Mode cahaya klasik aktif. Terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.`;
+
+          updateDisplay();
+        }
+
+        slider.addEventListener("input", function () {
+          updateDisplay();
+
+          if (countT + countR > 0) {
+            clearCounts();
+            statusEl.innerHTML =
+              `<strong>Status eksperimen:</strong> Transmitansi diubah. Hitungan detektor direset agar tidak mencampur data dari pengaturan berbeda.`;
+          }
+        });
+
+        photonNumberInput.addEventListener("change", function () {
+          photonNumberInput.value = clampPhotonNumber(photonNumberInput.value);
+        });
+
+        sendBtn.addEventListener("click", sendNPhotons);
+        classicalBtn.addEventListener("click", toggleClassicalMode);
+        resetBtn.addEventListener("click", reset);
+
+        updateDisplay();
+        reset();
+      }
+
+      function boot() {
+        document.querySelectorAll("[data-single-bs-demo]").forEach(initSingleBeamSplitterDemo);
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", boot);
+      } else {
+        boot();
+      }
+    })();
+  </script>
+</div>
