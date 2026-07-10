@@ -79,7 +79,7 @@
     .sbs-path {
       fill: none;
       stroke-linecap: round;
-      transition: opacity 0.2s ease, stroke-width 0.2s ease;
+      transition: opacity 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
     }
 
     .sbs-input-path {
@@ -87,6 +87,11 @@
       stroke-width: 4;
       opacity: 0.85;
       filter: drop-shadow(0 0 5px rgba(255,255,255,0.45));
+    }
+
+    .sbs-input-path.active {
+      stroke-width: 6;
+      filter: drop-shadow(0 0 12px #ffffff);
     }
 
     .sbs-path-t {
@@ -101,14 +106,35 @@
       filter: drop-shadow(0 0 7px #EA0003);
     }
 
-    .sbs-source-dot,
-    .sbs-photon {
-      fill: #ffffff;
-      filter: drop-shadow(0 0 8px #ffffff);
+    .sbs-path-t.active {
+      filter: drop-shadow(0 0 16px #FBC306);
     }
 
-    .sbs-photon {
-      transition: opacity 0.2s ease;
+    .sbs-path-r.active {
+      filter: drop-shadow(0 0 16px #EA0003);
+    }
+
+    .sbs-source rect {
+      fill: rgba(255,255,255,0.055);
+      stroke: rgba(255,255,255,0.88);
+      stroke-width: 2;
+    }
+
+    .sbs-source text {
+      fill: #ffffff;
+      font-size: 20px;
+      font-weight: 900;
+      font-family: Arial, sans-serif;
+    }
+
+    .sbs-source.active rect {
+      stroke: #ffffff;
+      fill: rgba(255,255,255,0.16);
+      filter: drop-shadow(0 0 14px #ffffff);
+    }
+
+    .sbs-source.active text {
+      fill: #FBC306;
     }
 
     .sbs-beam-splitter rect {
@@ -249,14 +275,9 @@
       transform: none;
     }
 
-    .sbs-buttons button[data-animate-one] {
+    .sbs-buttons button[data-send-one] {
       background: var(--red, #EA0003);
       color: #ffffff;
-    }
-
-    .sbs-buttons button[data-run-many] {
-      background: var(--yellow, #FBC306);
-      color: #050505;
     }
 
     .sbs-buttons button[data-reset] {
@@ -290,25 +311,29 @@
   <div class="sbs-header">
     <h2>Beam Splitter Satu Foton</h2>
     <p>
-      Geser nilai transmitansi. Jalur kuning menunjukkan peluang foton diteruskan,
-      sedangkan jalur merah menunjukkan peluang foton dipantulkan.
+      Geser nilai transmitansi. Setiap klik mengirim satu foton dari sumber.
+      Salah satu detektor akan berbunyi sesuai peluang T dan R.
     </p>
   </div>
 
   <div class="sbs-panel">
     <div class="sbs-stage">
-      <svg class="sbs-svg" viewBox="0 0 820 420" role="img" aria-label="Beam splitter dengan dua detektor">
-        <!-- Source -->
-        <circle cx="70" cy="290" r="7" class="sbs-source-dot"></circle>
-        <text x="38" y="326" class="sbs-label-small">Input</text>
+      <svg class="sbs-svg" viewBox="0 0 820 420" role="img" aria-label="Beam splitter dengan sumber dan dua detektor">
+        <!-- Source object -->
+        <g class="sbs-source" data-source>
+          <rect x="42" y="267" width="72" height="46" rx="14"></rect>
+          <text x="78" y="296" text-anchor="middle">S</text>
+        </g>
+        <text x="48" y="340" class="sbs-label-small">Input</text>
 
-        <!-- Input path aligned to BS midpoint -->
+        <!-- Input path aligned with BS midpoint -->
         <line
-          x1="70"
+          x1="114"
           y1="290"
           x2="245"
           y2="290"
           class="sbs-path sbs-input-path"
+          data-input-path
         ></line>
 
         <!-- Beam splitter -->
@@ -321,45 +346,42 @@
         </g>
         <text x="261" y="232" class="sbs-label">BS</text>
 
-        <!-- Equal-length arms -->
-        <!-- Vertical arm: 172 px -->
+        <!-- Equal-length output arms -->
+        <!-- Reflected vertical arm: 120 px from BS to detector -->
         <line
           x1="290"
           y1="245"
           x2="290"
-          y2="73"
+          y2="125"
           class="sbs-path sbs-path-r"
           data-path-r
         ></line>
 
-        <!-- Horizontal arm: 172 px -->
+        <!-- Transmitted horizontal arm: 120 px from BS to detector -->
         <line
           x1="335"
           y1="290"
-          x2="507"
+          x2="455"
           y2="290"
           class="sbs-path sbs-path-t"
           data-path-t
         ></line>
 
         <!-- Labels -->
-        <text x="315" y="170" class="sbs-label-red">R: dipantulkan</text>
-        <text x="390" y="323" class="sbs-label-yellow">T: diteruskan</text>
+        <text x="315" y="178" class="sbs-label-red">R: dipantulkan</text>
+        <text x="365" y="323" class="sbs-label-yellow">T: diteruskan</text>
 
-        <!-- Detector D0 -->
+        <!-- Detector D0: elongated in y direction -->
         <g class="sbs-detector" data-detector="R">
-          <rect x="245" y="27" width="90" height="46" rx="13"></rect>
-          <text x="290" y="56" text-anchor="middle">D0</text>
+          <rect x="267" y="35" width="46" height="90" rx="13"></rect>
+          <text x="290" y="86" text-anchor="middle">D0</text>
         </g>
 
-        <!-- Detector D1 -->
+        <!-- Detector D1: elongated in x direction -->
         <g class="sbs-detector" data-detector="T">
-          <rect x="507" y="267" width="90" height="46" rx="13"></rect>
-          <text x="552" y="296" text-anchor="middle">D1</text>
+          <rect x="455" y="267" width="90" height="46" rx="13"></rect>
+          <text x="500" y="296" text-anchor="middle">D1</text>
         </g>
-
-        <!-- Photon -->
-        <circle class="sbs-photon" data-photon cx="70" cy="290" r="8"></circle>
       </svg>
     </div>
 
@@ -401,8 +423,7 @@
       </div>
 
       <div class="sbs-buttons">
-        <button type="button" data-animate-one>Animasi 1 foton</button>
-        <button type="button" data-run-many>Ukur 100 foton</button>
+        <button type="button" data-send-one>Kirim 1 foton</button>
         <button type="button" data-reset>Reset</button>
       </div>
 
@@ -421,8 +442,7 @@
       </div>
 
       <p class="sbs-result" data-result>
-        Satu foton akan terdeteksi pada salah satu detektor. Setelah banyak percobaan,
-        jumlah klik akan mendekati peluang T dan R.
+        Klik “Kirim 1 foton”. Sumber akan menyala, lalu salah satu detektor mencatat satu klik.
       </p>
     </div>
   </div>
@@ -443,19 +463,20 @@
         const countTEl = demo.querySelector("[data-count-t]");
         const countREl = demo.querySelector("[data-count-r]");
         const resultEl = demo.querySelector("[data-result]");
-        const photon = demo.querySelector("[data-photon]");
+
+        const source = demo.querySelector("[data-source]");
+        const inputPath = demo.querySelector("[data-input-path]");
         const detectorT = demo.querySelector('[data-detector="T"]');
         const detectorR = demo.querySelector('[data-detector="R"]');
         const pathT = demo.querySelector("[data-path-t]");
         const pathR = demo.querySelector("[data-path-r]");
 
-        const animateBtn = demo.querySelector("[data-animate-one]");
-        const manyBtn = demo.querySelector("[data-run-many]");
+        const sendBtn = demo.querySelector("[data-send-one]");
         const resetBtn = demo.querySelector("[data-reset]");
 
         let countT = 0;
         let countR = 0;
-        let isAnimating = false;
+        let isRunning = false;
 
         function getT() {
           return Number(slider.value) / 100;
@@ -475,12 +496,6 @@
 
         function ampText(x) {
           return Math.sqrt(x).toFixed(3);
-        }
-
-        function setPhoton(x, y, visible) {
-          photon.setAttribute("cx", x);
-          photon.setAttribute("cy", y);
-          photon.style.opacity = visible ? "1" : "0";
         }
 
         function updateDisplay() {
@@ -514,6 +529,15 @@
           return Math.random() < getT() ? "T" : "R";
         }
 
+        function clearActive() {
+          source.classList.remove("active");
+          inputPath.classList.remove("active");
+          pathT.classList.remove("active");
+          pathR.classList.remove("active");
+          detectorT.classList.remove("active");
+          detectorR.classList.remove("active");
+        }
+
         function addCount(detector) {
           if (detector === "T") {
             countT += 1;
@@ -525,136 +549,50 @@
           countREl.textContent = countR;
         }
 
-        function flashDetector(detector) {
-          const el = detector === "T" ? detectorT : detectorR;
-          el.classList.add("active");
+        function sendOnePhoton() {
+          if (isRunning) return;
 
-          setTimeout(function () {
-            el.classList.remove("active");
-          }, 650);
-        }
-
-        function interpolate(p0, p1, u) {
-          return {
-            x: p0.x + (p1.x - p0.x) * u,
-            y: p0.y + (p1.y - p0.y) * u
-          };
-        }
-
-        function positionAt(points, t) {
-          const segments = points.length - 1;
-          const scaled = t * segments;
-          const index = Math.min(Math.floor(scaled), segments - 1);
-          const localT = scaled - index;
-
-          return interpolate(points[index], points[index + 1], localT);
-        }
-
-        function animatePhotonAlong(points, duration, done) {
-          const start = performance.now();
-
-          function step(now) {
-            const t = Math.min((now - start) / duration, 1);
-            const pos = positionAt(points, t);
-
-            setPhoton(pos.x, pos.y, true);
-
-            if (t < 1) {
-              requestAnimationFrame(step);
-            } else {
-              done();
-            }
-          }
-
-          requestAnimationFrame(step);
-        }
-
-        function animateOnePhoton() {
-          if (isAnimating) return;
-
-          isAnimating = true;
-          animateBtn.disabled = true;
-          manyBtn.disabled = true;
-
-          detectorT.classList.remove("active");
-          detectorR.classList.remove("active");
+          isRunning = true;
+          sendBtn.disabled = true;
+          clearActive();
 
           const detector = sampleDetector();
+          const T = Math.round(getT() * 100);
+          const R = 100 - T;
 
-          resultEl.textContent = "Foton bergerak menuju beam splitter...";
-          setPhoton(70, 290, true);
+          resultEl.textContent = "Sumber menyala dan satu foton dikirim ke beam splitter.";
 
-          const pathToBS = [
-            { x: 70, y: 290 },
-            { x: 140, y: 290 },
-            { x: 210, y: 290 },
-            { x: 245, y: 290 },
-            { x: 290, y: 290 }
-          ];
+          source.classList.add("active");
+          inputPath.classList.add("active");
 
-          animatePhotonAlong(pathToBS, 750, function () {
-            resultEl.textContent =
-              "Di beam splitter, peluang hasil ditentukan oleh amplituda pada jalur T dan R.";
+          setTimeout(function () {
+            inputPath.classList.remove("active");
 
-            setTimeout(function () {
-              let finalPath;
+            if (detector === "T") {
+              pathT.classList.add("active");
+              detectorT.classList.add("active");
+              addCount("T");
+              resultEl.textContent =
+                `Klik di D1. Peluang teoritis: T = ${T}%, R = ${R}%.`;
+            } else {
+              pathR.classList.add("active");
+              detectorR.classList.add("active");
+              addCount("R");
+              resultEl.textContent =
+                `Klik di D0. Peluang teoritis: T = ${T}%, R = ${R}%.`;
+            }
+          }, 450);
 
-              if (detector === "T") {
-                finalPath = [
-                  { x: 290, y: 290 },
-                  { x: 335, y: 290 },
-                  { x: 420, y: 290 },
-                  { x: 507, y: 290 }
-                ];
-              } else {
-                finalPath = [
-                  { x: 290, y: 290 },
-                  { x: 290, y: 245 },
-                  { x: 290, y: 170 },
-                  { x: 290, y: 73 }
-                ];
-              }
+          setTimeout(function () {
+            source.classList.remove("active");
+            pathT.classList.remove("active");
+            pathR.classList.remove("active");
+            detectorT.classList.remove("active");
+            detectorR.classList.remove("active");
 
-              animatePhotonAlong(finalPath, 900, function () {
-                addCount(detector);
-                flashDetector(detector);
-
-                const T = Math.round(getT() * 100);
-                const R = 100 - T;
-
-                if (detector === "T") {
-                  resultEl.textContent =
-                    `Klik di D1. Peluang teoritis: T = ${T}%, R = ${R}%.`;
-                } else {
-                  resultEl.textContent =
-                    `Klik di D0. Peluang teoritis: T = ${T}%, R = ${R}%.`;
-                }
-
-                setTimeout(function () {
-                  setPhoton(70, 290, true);
-                  isAnimating = false;
-                  animateBtn.disabled = false;
-                  manyBtn.disabled = false;
-                }, 450);
-              });
-            }, 300);
-          });
-        }
-
-        function runMany(n) {
-          if (isAnimating) return;
-
-          for (let i = 0; i < n; i += 1) {
-            addCount(sampleDetector());
-          }
-
-          const total = countT + countR;
-          const observedT = total > 0 ? Math.round((countT / total) * 100) : 0;
-          const observedR = total > 0 ? Math.round((countR / total) * 100) : 0;
-
-          resultEl.textContent =
-            `Setelah ${total} percobaan: D1 ≈ ${observedT}%, D0 ≈ ${observedR}%. ` +
-            `Jika jumlah percobaan diperbanyak, hasil statistik akan makin mendekati peluang teoritis.`;
+            sendBtn.disabled = false;
+            isRunning = false;
+          }, 1150);
         }
 
         function reset() {
@@ -664,22 +602,16 @@
           countTEl.textContent = "0";
           countREl.textContent = "0";
 
-          detectorT.classList.remove("active");
-          detectorR.classList.remove("active");
-
-          setPhoton(70, 290, true);
+          clearActive();
 
           resultEl.textContent =
-            "Satu foton akan terdeteksi pada salah satu detektor. Setelah banyak percobaan, jumlah klik akan mendekati peluang T dan R.";
+            "Klik “Kirim 1 foton”. Sumber akan menyala, lalu salah satu detektor mencatat satu klik.";
 
           updateDisplay();
         }
 
         slider.addEventListener("input", updateDisplay);
-        animateBtn.addEventListener("click", animateOnePhoton);
-        manyBtn.addEventListener("click", function () {
-          runMany(100);
-        });
+        sendBtn.addEventListener("click", sendOnePhoton);
         resetBtn.addEventListener("click", reset);
 
         updateDisplay();
