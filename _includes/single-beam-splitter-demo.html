@@ -33,7 +33,12 @@
       display: grid;
       grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.75fr);
       gap: 24px;
-      align-items: center;
+      align-items: start;
+    }
+
+    .sbs-left-column {
+      display: grid;
+      gap: 16px;
     }
 
     .sbs-stage {
@@ -83,41 +88,30 @@
       transition: opacity 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
     }
 
-    /* Default guide-line state: no physical beam glow. */
-    .sbs-input-path {
+    /* All optical paths are white. Red/yellow are only annotation colors. */
+    .sbs-input-path,
+    .sbs-path-t,
+    .sbs-path-r {
       stroke: #ffffff;
       stroke-width: 3;
+      opacity: 0.28;
+      filter: none;
+    }
+
+    .sbs-input-path {
       opacity: 0.45;
-      filter: none;
     }
 
-    .sbs-path-t {
-      stroke: #FBC306;
-      stroke-width: 3;
-      opacity: 0.28;
-      filter: none;
-    }
-
-    .sbs-path-r {
-      stroke: #EA0003;
-      stroke-width: 3;
-      opacity: 0.28;
-      filter: none;
-    }
-
-    /* Classical-light mode: glowing paths indicate average optical intensity. */
+    /* Classical-light mode: white glow represents average optical intensity. */
     .sbs-demo.classical-mode .sbs-input-path {
       opacity: 0.9;
       stroke-width: 5;
       filter: drop-shadow(0 0 10px rgba(255,255,255,0.75));
     }
 
-    .sbs-demo.classical-mode .sbs-path-t {
-      filter: drop-shadow(0 0 9px #FBC306);
-    }
-
+    .sbs-demo.classical-mode .sbs-path-t,
     .sbs-demo.classical-mode .sbs-path-r {
-      filter: drop-shadow(0 0 9px #EA0003);
+      filter: drop-shadow(0 0 9px rgba(255,255,255,0.78));
     }
 
     .sbs-source rect {
@@ -341,7 +335,6 @@
     }
 
     .sbs-caption {
-      margin-top: 22px;
       padding: 18px 20px;
       border: 1px solid rgba(251,195,6,0.22);
       border-radius: 22px;
@@ -360,6 +353,9 @@
       color: #ffffff;
       font-family: "Consolas", "Courier New", monospace;
       font-size: 0.95em;
+      background: rgba(255,255,255,0.08);
+      border-radius: 7px;
+      padding: 1px 6px;
     }
 
     @media (max-width: 920px) {
@@ -386,63 +382,75 @@
   </div>
 
   <div class="sbs-panel">
-    <div class="sbs-stage">
-      <svg class="sbs-svg" viewBox="0 0 820 420" role="img" aria-label="Beam splitter dengan sumber dan dua detektor">
-        <g class="sbs-source" data-source>
-          <rect x="42" y="267" width="72" height="46" rx="14"></rect>
-          <text x="78" y="296" text-anchor="middle">S</text>
-        </g>
-        <text x="48" y="340" class="sbs-label-small">Input</text>
+    <div class="sbs-left-column">
+      <div class="sbs-stage">
+        <svg class="sbs-svg" viewBox="0 0 820 420" role="img" aria-label="Beam splitter dengan sumber dan dua detektor">
+          <g class="sbs-source" data-source>
+            <rect x="42" y="267" width="72" height="46" rx="14"></rect>
+            <text x="78" y="296" text-anchor="middle">S</text>
+          </g>
+          <text x="48" y="340" class="sbs-label-small">Input</text>
 
-        <line
-          x1="114"
-          y1="290"
-          x2="245"
-          y2="290"
-          class="sbs-path sbs-input-path"
-          data-input-path
-        ></line>
+          <line
+            x1="114"
+            y1="290"
+            x2="245"
+            y2="290"
+            class="sbs-path sbs-input-path"
+            data-input-path
+          ></line>
 
-        <g class="sbs-beam-splitter">
-          <rect x="245" y="245" width="90" height="90"></rect>
-          <line x1="245" y1="335" x2="335" y2="245"></line>
-          <line x1="245" y1="245" x2="335" y2="335"></line>
-          <line x1="245" y1="290" x2="335" y2="290"></line>
-          <line x1="290" y1="245" x2="290" y2="335"></line>
-        </g>
-        <text x="261" y="232" class="sbs-label">BS</text>
+          <g class="sbs-beam-splitter">
+            <rect x="245" y="245" width="90" height="90"></rect>
+            <line x1="245" y1="335" x2="335" y2="245"></line>
+            <line x1="245" y1="245" x2="335" y2="335"></line>
+            <line x1="245" y1="290" x2="335" y2="290"></line>
+            <line x1="290" y1="245" x2="290" y2="335"></line>
+          </g>
+          <text x="261" y="232" class="sbs-label">BS</text>
 
-        <line
-          x1="290"
-          y1="245"
-          x2="290"
-          y2="125"
-          class="sbs-path sbs-path-r"
-          data-path-r
-        ></line>
+          <line
+            x1="290"
+            y1="245"
+            x2="290"
+            y2="125"
+            class="sbs-path sbs-path-r"
+            data-path-r
+          ></line>
 
-        <line
-          x1="335"
-          y1="290"
-          x2="455"
-          y2="290"
-          class="sbs-path sbs-path-t"
-          data-path-t
-        ></line>
+          <line
+            x1="335"
+            y1="290"
+            x2="455"
+            y2="290"
+            class="sbs-path sbs-path-t"
+            data-path-t
+          ></line>
 
-        <text x="315" y="178" class="sbs-label-red">R: dipantulkan</text>
-        <text x="365" y="323" class="sbs-label-yellow">T: diteruskan</text>
+          <text x="315" y="178" class="sbs-label-red">R: dipantulkan</text>
+          <text x="365" y="323" class="sbs-label-yellow">T: diteruskan</text>
 
-        <g class="sbs-detector" data-detector="R">
-          <rect x="267" y="35" width="46" height="90" rx="13"></rect>
-          <text x="290" y="86" text-anchor="middle">D0</text>
-        </g>
+          <g class="sbs-detector" data-detector="R">
+            <rect x="267" y="35" width="46" height="90" rx="13"></rect>
+            <text x="290" y="86" text-anchor="middle">D0</text>
+          </g>
 
-        <g class="sbs-detector" data-detector="T">
-          <rect x="455" y="267" width="90" height="46" rx="13"></rect>
-          <text x="500" y="296" text-anchor="middle">D1</text>
-        </g>
-      </svg>
+          <g class="sbs-detector" data-detector="T">
+            <rect x="455" y="267" width="90" height="46" rx="13"></rect>
+            <text x="500" y="296" text-anchor="middle">D1</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="sbs-caption">
+        <strong>Eksperimen.</strong>
+        Sumber <code>S</code> mengirim cahaya menuju beam splitter <code>BS</code>.
+        Beam splitter memiliki transmitansi <code>T</code> dan reflektansi <code>R = 1 − T</code>.
+        Pada mode <strong>Kirim N foton</strong>, foton dikirim berurutan: setiap foton hanya menghasilkan satu klik,
+        baik di <code>D1</code> maupun <code>D0</code>. Setelah banyak pengiriman, rasio klik di kedua detektor
+        mendekati peluang <code>T</code> dan <code>R</code>. Mode <strong>cahaya klasik</strong> hanya menampilkan
+        intensitas rata-rata pada kedua jalur, bukan simulasi klik foton tunggal.
+      </div>
     </div>
 
     <div class="sbs-controls">
@@ -523,16 +531,6 @@
         Mode cahaya klasik aktif: terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.
       </p>
     </div>
-  </div>
-
-  <div class="sbs-caption">
-    <strong>Eksperimen.</strong>
-    Sumber <code>S</code> mengirim cahaya menuju beam splitter <code>BS</code>.
-    Beam splitter memiliki transmitansi <code>T</code> dan reflektansi <code>R = 1 − T</code>.
-    Pada mode <strong>Kirim N foton</strong>, foton dikirim berurutan: setiap foton hanya menghasilkan satu klik,
-    baik di <code>D1</code> maupun <code>D0</code>. Setelah banyak pengiriman, rasio klik di kedua detektor
-    mendekati peluang <code>T</code> dan <code>R</code>. Mode <strong>cahaya klasik</strong> hanya menampilkan
-    intensitas rata-rata pada kedua jalur, bukan simulasi klik foton tunggal.
   </div>
 
   <script>
