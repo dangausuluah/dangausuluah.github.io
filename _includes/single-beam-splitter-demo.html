@@ -26,7 +26,7 @@
       margin: 0;
       color: var(--muted, #bdbdbd);
       line-height: 1.6;
-      max-width: 900px;
+      max-width: 920px;
     }
 
     .sbs-stage {
@@ -59,16 +59,18 @@
 
     .sbs-label-red {
       fill: #EA0003;
-      font-size: 21px;
+      font-size: 19px;
       font-weight: 900;
       font-family: Arial, sans-serif;
+      opacity: 0.92;
     }
 
     .sbs-label-yellow {
       fill: #FBC306;
-      font-size: 21px;
+      font-size: 19px;
       font-weight: 900;
       font-family: Arial, sans-serif;
+      opacity: 0.92;
     }
 
     .sbs-path {
@@ -77,28 +79,22 @@
       transition: opacity 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
     }
 
-    /* Optical beams are white. Red/yellow are only annotations. */
     .sbs-input-path,
     .sbs-path-t,
     .sbs-path-r {
       stroke: #ffffff;
       stroke-width: 3;
-      opacity: 0.28;
+      opacity: 0.32;
       filter: none;
     }
 
     .sbs-input-path {
-      opacity: 0.45;
+      opacity: 0.55;
     }
 
-    /*
-      Classical-light mode:
-      input is the maximum reference.
-      output paths never appear brighter/thicker than the input.
-    */
     .sbs-demo.classical-mode .sbs-input-path {
       opacity: 1;
-      stroke-width: 7;
+      stroke-width: 8;
       filter: drop-shadow(0 0 8px rgba(255,255,255,0.72));
     }
 
@@ -168,29 +164,26 @@
       height: 100%;
       border: 1px solid rgba(255,255,255,0.16);
       border-radius: 16px;
-      background: rgba(7,7,7,0.82);
-      padding: 12px;
+      background: rgba(7,7,7,0.84);
+      padding: 14px;
       color: #ffffff;
       font-family: Arial, sans-serif;
-    }
-
-    .sbs-local-panel.compact {
-      padding: 10px;
     }
 
     .sbs-local-title {
       color: #FBC306;
       font-weight: 900;
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.2;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .sbs-local-row {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
     }
 
     .sbs-local-row:last-child {
@@ -200,30 +193,30 @@
     .sbs-local-label {
       color: #ffffff;
       font-weight: 900;
-      font-size: 13px;
+      font-size: 14px;
       white-space: nowrap;
     }
 
     .sbs-local-input {
-      width: 64px;
+      width: 72px;
       box-sizing: border-box;
       border: 1px solid rgba(255,255,255,0.2);
       border-radius: 999px;
-      padding: 8px 9px;
+      padding: 9px 10px;
       background: rgba(255,255,255,0.08);
       color: #ffffff;
       font-weight: 900;
       text-align: center;
-      font-size: 13px;
+      font-size: 14px;
     }
 
     .sbs-local-button {
       border: 0;
       border-radius: 999px;
-      padding: 8px 11px;
+      padding: 9px 13px;
       font-weight: 900;
       cursor: pointer;
-      font-size: 12px;
+      font-size: 13px;
       line-height: 1.1;
       transition: 0.18s ease;
       white-space: nowrap;
@@ -262,8 +255,8 @@
       height: 100%;
       border: 1px solid rgba(251,195,6,0.28);
       border-radius: 16px;
-      background: rgba(7,7,7,0.82);
-      padding: 11px 13px;
+      background: rgba(7,7,7,0.84);
+      padding: 12px 14px;
       color: #ffffff;
       font-family: Arial, sans-serif;
     }
@@ -293,8 +286,8 @@
       height: 100%;
       border: 1px solid rgba(255,255,255,0.16);
       border-radius: 16px;
-      background: rgba(7,7,7,0.82);
-      padding: 11px 12px;
+      background: rgba(7,7,7,0.84);
+      padding: 12px 13px;
       color: #ffffff;
       font-family: Arial, sans-serif;
     }
@@ -309,13 +302,13 @@
     .sbs-detector-badge .count {
       color: #ffffff;
       font-weight: 900;
-      font-size: 18px;
+      font-size: 20px;
       line-height: 1.2;
       margin-bottom: 3px;
     }
 
     .sbs-detector-badge .obs {
-      color: rgba(255,255,255,0.68);
+      color: rgba(255,255,255,0.70);
       font-size: 12px;
       line-height: 1.25;
     }
@@ -445,15 +438,8 @@
 
   <div class="sbs-stage">
     <svg class="sbs-svg" viewBox="0 0 1100 690" role="img" aria-label="Beam splitter dengan kontrol lokal dan dua detektor">
-      <!-- Source -->
-      <g class="sbs-source" data-source>
-        <rect x="80" y="408" width="115" height="70" rx="18"></rect>
-        <text x="137.5" y="452" text-anchor="middle">S</text>
-      </g>
-      <text x="95" y="515" class="sbs-label-small">Sumber</text>
-
-      <!-- Source local controls -->
-      <foreignObject x="50" y="535" width="300" height="125">
+      <!-- Source control above source -->
+      <foreignObject x="38" y="42" width="330" height="120">
         <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-local-panel">
           <div class="sbs-local-title">Kontrol sumber</div>
 
@@ -478,28 +464,35 @@
         </div>
       </foreignObject>
 
+      <!-- Source -->
+      <g class="sbs-source" data-source>
+        <rect x="86" y="294" width="118" height="72" rx="18"></rect>
+        <text x="145" y="340" text-anchor="middle">S</text>
+      </g>
+      <text x="102" y="402" class="sbs-label-small">Sumber</text>
+
       <!-- Input path -->
       <line
-        x1="195"
-        y1="443"
-        x2="455"
-        y2="443"
+        x1="204"
+        y1="330"
+        x2="470"
+        y2="330"
         class="sbs-path sbs-input-path"
         data-input-path
       ></line>
 
       <!-- Beam splitter -->
       <g class="sbs-beam-splitter">
-        <rect x="455" y="378" width="130" height="130"></rect>
-        <line x1="455" y1="508" x2="585" y2="378"></line>
-        <line x1="455" y1="378" x2="585" y2="508"></line>
-        <line x1="455" y1="443" x2="585" y2="443"></line>
-        <line x1="520" y1="378" x2="520" y2="508"></line>
+        <rect x="470" y="260" width="140" height="140"></rect>
+        <line x1="470" y1="400" x2="610" y2="260"></line>
+        <line x1="470" y1="260" x2="610" y2="400"></line>
+        <line x1="470" y1="330" x2="610" y2="330"></line>
+        <line x1="540" y1="260" x2="540" y2="400"></line>
       </g>
-      <text x="488" y="358" class="sbs-label">BS</text>
+      <text x="505" y="242" class="sbs-label">BS</text>
 
-      <!-- Beam splitter local control -->
-      <foreignObject x="410" y="530" width="270" height="86">
+      <!-- Beam splitter control -->
+      <foreignObject x="415" y="480" width="290" height="88">
         <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-bs-control">
           <div class="sbs-bs-head">
             <span>Transmitansi, T</span>
@@ -518,37 +511,37 @@
         </div>
       </foreignObject>
 
-      <!-- Equal-length output arms -->
+      <!-- Output arms -->
       <line
-        x1="520"
-        y1="378"
-        x2="520"
-        y2="140"
+        x1="540"
+        y1="260"
+        x2="540"
+        y2="126"
         class="sbs-path sbs-path-r"
         data-path-r
       ></line>
 
       <line
-        x1="585"
-        y1="443"
-        x2="823"
-        y2="443"
+        x1="610"
+        y1="330"
+        x2="830"
+        y2="330"
         class="sbs-path sbs-path-t"
         data-path-t
       ></line>
 
       <!-- Path labels -->
-      <text x="555" y="245" class="sbs-label-red">R: dipantulkan</text>
-      <text x="655" y="486" class="sbs-label-yellow">T: diteruskan</text>
+      <text x="575" y="205" class="sbs-label-red">R: dipantulkan</text>
+      <text x="650" y="372" class="sbs-label-yellow">T: diteruskan</text>
 
       <!-- Detector D0 -->
       <g class="sbs-detector" data-detector="R">
-        <rect x="482" y="20" width="76" height="120" rx="18"></rect>
-        <text x="520" y="88" text-anchor="middle">D0</text>
+        <rect x="502" y="26" width="76" height="100" rx="18"></rect>
+        <text x="540" y="84" text-anchor="middle">D0</text>
       </g>
 
-      <!-- D0 count badge -->
-      <foreignObject x="580" y="42" width="205" height="88">
+      <!-- D0 count beside D0 -->
+      <foreignObject x="594" y="36" width="225" height="86">
         <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-detector-badge">
           <div class="name">Detektor D0</div>
           <div class="count" data-count-r>0 klik</div>
@@ -556,20 +549,20 @@
         </div>
       </foreignObject>
 
-      <!-- Detector D1 -->
-      <g class="sbs-detector" data-detector="T">
-        <rect x="823" y="410" width="150" height="66" rx="18"></rect>
-        <text x="898" y="452" text-anchor="middle">D1</text>
-      </g>
-
-      <!-- D1 count badge -->
-      <foreignObject x="825" y="500" width="220" height="88">
+      <!-- D1 count above D1 -->
+      <foreignObject x="790" y="196" width="230" height="88">
         <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-detector-badge">
           <div class="name">Detektor D1</div>
           <div class="count" data-count-t>0 klik</div>
           <div class="obs" data-obs-t>0% dari 0 foton</div>
         </div>
       </foreignObject>
+
+      <!-- Detector D1 -->
+      <g class="sbs-detector" data-detector="T">
+        <rect x="830" y="297" width="150" height="66" rx="18"></rect>
+        <text x="905" y="339" text-anchor="middle">D1</text>
+      </g>
     </svg>
   </div>
 
@@ -706,13 +699,13 @@
             `|ψ⟩ = √${probText(T)} |T⟩ + √${probText(R)} |R⟩`;
 
           if (classicalMode) {
-            pathT.style.opacity = String(0.08 + 0.92 * T);
-            pathR.style.opacity = String(0.08 + 0.92 * R);
-            pathT.style.strokeWidth = `${2 + 5 * T}px`;
-            pathR.style.strokeWidth = `${2 + 5 * R}px`;
+            pathT.style.opacity = String(0.12 + 0.88 * T);
+            pathR.style.opacity = String(0.12 + 0.88 * R);
+            pathT.style.strokeWidth = `${2.5 + 4.5 * T}px`;
+            pathR.style.strokeWidth = `${2.5 + 4.5 * R}px`;
           } else {
-            pathT.style.opacity = "0.28";
-            pathR.style.opacity = "0.28";
+            pathT.style.opacity = "0.32";
+            pathR.style.opacity = "0.32";
             pathT.style.strokeWidth = "3px";
             pathR.style.strokeWidth = "3px";
           }
