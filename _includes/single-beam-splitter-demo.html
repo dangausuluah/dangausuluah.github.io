@@ -34,7 +34,7 @@
       border-radius: 24px;
       background: #050505;
       overflow: hidden;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .sbs-svg {
@@ -77,7 +77,7 @@
       transition: opacity 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
     }
 
-    /* Optical paths are white. Red/yellow are only annotation colors. */
+    /* Optical beams are white. Red/yellow are only path-label annotations. */
     .sbs-input-path,
     .sbs-path-t,
     .sbs-path-r {
@@ -93,9 +93,9 @@
 
     /*
       Classical-light mode:
-      - input beam is the reference maximum
-      - output beam opacity/width never exceeds the input beam
-      - glow is white, same optical color as the source
+      - input beam is the maximum reference
+      - transmitted/reflected beams never exceed the input beam
+      - glow is white, same as the source
     */
     .sbs-demo.classical-mode .sbs-input-path {
       opacity: 1;
@@ -163,18 +163,26 @@
       filter: drop-shadow(0 0 12px #FBC306);
     }
 
-    .sbs-parameter-grid {
+    .sbs-control-state-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(220px, 0.7fr);
-      gap: 16px;
-      margin-bottom: 16px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 14px;
+      margin-bottom: 14px;
+      align-items: stretch;
     }
 
-    .sbs-parameter-box {
+    .sbs-control-box,
+    .sbs-state-box {
       border: 1px solid var(--border, rgba(255,255,255,0.14));
-      border-radius: 20px;
-      padding: 14px 16px;
+      border-radius: 18px;
+      padding: 13px 15px;
       background: rgba(255,255,255,0.045);
+    }
+
+    .sbs-control-box {
+      display: grid;
+      align-content: center;
+      min-height: 76px;
     }
 
     .sbs-slider-head {
@@ -184,7 +192,7 @@
       gap: 14px;
       color: var(--text, #ffffff);
       font-weight: 900;
-      margin-bottom: 10px;
+      margin-bottom: 9px;
     }
 
     .sbs-slider-head strong {
@@ -197,44 +205,73 @@
       accent-color: #FBC306;
     }
 
-    .sbs-number-row {
+    .sbs-state-box {
+      border-color: rgba(251,195,6,0.35);
+      background: rgba(251,195,6,0.06);
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 96px;
-      gap: 12px;
-      align-items: center;
+      align-content: center;
+      min-height: 76px;
     }
 
-    .sbs-number-label {
-      color: var(--text, #ffffff);
-      font-weight: 900;
-      line-height: 1.35;
-    }
-
-    .sbs-number-label small {
+    .sbs-state-box span {
       display: block;
-      margin-top: 4px;
       color: var(--muted, #bdbdbd);
-      font-weight: 700;
-      font-size: 0.76rem;
+      font-size: 0.82rem;
+      margin-bottom: 8px;
+    }
+
+    .sbs-state-box code {
+      display: block;
+      color: #ffffff;
+      font-size: 0.96rem;
+      line-height: 1.55;
+      white-space: normal;
+      font-family: "Consolas", "Courier New", monospace;
+      background: rgba(255,255,255,0.075);
+      border-radius: 8px;
+      padding: 6px 9px;
+    }
+
+    .sbs-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .sbs-photon-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border, rgba(255,255,255,0.14));
+      border-radius: 999px;
+      padding: 8px 10px 8px 14px;
+      background: rgba(255,255,255,0.045);
+    }
+
+    .sbs-photon-control label {
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.92rem;
+      white-space: nowrap;
     }
 
     .sbs-number-input {
-      width: 100%;
+      width: 78px;
       box-sizing: border-box;
       border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 14px;
-      padding: 10px 12px;
+      border-radius: 999px;
+      padding: 9px 12px;
       background: rgba(255,255,255,0.07);
       color: #ffffff;
       font-weight: 900;
-      font-size: 1rem;
+      font-size: 0.96rem;
+      text-align: center;
     }
 
     .sbs-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 16px;
+      display: contents;
     }
 
     .sbs-buttons button {
@@ -271,30 +308,6 @@
     .sbs-buttons button[data-reset] {
       background: rgba(255,255,255,0.13);
       color: #ffffff;
-    }
-
-    .sbs-state-box {
-      border: 1px solid rgba(251,195,6,0.35);
-      border-radius: 18px;
-      padding: 14px 16px;
-      background: rgba(251,195,6,0.06);
-      margin-bottom: 14px;
-    }
-
-    .sbs-state-box span {
-      display: block;
-      color: var(--muted, #bdbdbd);
-      font-size: 0.84rem;
-      margin-bottom: 8px;
-    }
-
-    .sbs-state-box code {
-      display: block;
-      color: #ffffff;
-      font-size: 1rem;
-      line-height: 1.6;
-      white-space: normal;
-      font-family: "Consolas", "Courier New", monospace;
     }
 
     .sbs-card-grid {
@@ -375,7 +388,7 @@
     }
 
     @media (max-width: 920px) {
-      .sbs-parameter-grid {
+      .sbs-control-state-grid {
         grid-template-columns: 1fr;
       }
 
@@ -400,6 +413,22 @@
 
       .sbs-card-grid {
         grid-template-columns: 1fr;
+      }
+
+      .sbs-action-row {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .sbs-photon-control {
+        justify-content: space-between;
+        border-radius: 18px;
+      }
+
+      .sbs-buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
       }
 
       .sbs-buttons button {
@@ -481,8 +510,8 @@
     </svg>
   </div>
 
-  <div class="sbs-parameter-grid">
-    <div class="sbs-parameter-box">
+  <div class="sbs-control-state-grid">
+    <div class="sbs-control-box">
       <div class="sbs-slider-head">
         <span>Transmitansi, T</span>
         <strong><span data-t-value>{{ initial_T }}</span>%</strong>
@@ -499,35 +528,32 @@
       />
     </div>
 
-    <div class="sbs-parameter-box">
-      <div class="sbs-number-row">
-        <div class="sbs-number-label">
-          Jumlah foton
-          <small>Dikirim berurutan, satu per satu. Maksimum 100.</small>
-        </div>
-
-        <input
-          class="sbs-number-input"
-          type="number"
-          min="1"
-          max="100"
-          step="1"
-          value="{{ initial_N }}"
-          data-photon-number
-        />
-      </div>
+    <div class="sbs-state-box">
+      <span>Keadaan setelah beam splitter</span>
+      <code data-state-text>|ψ⟩ = √0.50 |T⟩ + √0.50 |R⟩</code>
     </div>
   </div>
 
-  <div class="sbs-buttons">
-    <button type="button" data-send-n>Kirim N foton</button>
-    <button type="button" data-classical-mode>Matikan cahaya klasik</button>
-    <button type="button" data-reset>Reset</button>
-  </div>
+  <div class="sbs-action-row">
+    <div class="sbs-photon-control">
+      <label for="sbs-photon-number">Jumlah foton</label>
+      <input
+        id="sbs-photon-number"
+        class="sbs-number-input"
+        type="number"
+        min="1"
+        max="100"
+        step="1"
+        value="{{ initial_N }}"
+        data-photon-number
+      />
+    </div>
 
-  <div class="sbs-state-box">
-    <span>Keadaan setelah beam splitter</span>
-    <code data-state-text>|ψ⟩ = √0.50 |T⟩ + √0.50 |R⟩</code>
+    <div class="sbs-buttons">
+      <button type="button" data-send-n>Kirim N foton</button>
+      <button type="button" data-classical-mode>Matikan cahaya klasik</button>
+      <button type="button" data-reset>Reset</button>
+    </div>
   </div>
 
   <div class="sbs-card-grid">
@@ -670,10 +696,6 @@
             `|ψ⟩ = √${probText(T)} |T⟩ + √${probText(R)} |R⟩`;
 
           if (classicalMode) {
-            /*
-              Input beam is the maximum reference.
-              Output beam intensity is scaled by T or R and never exceeds input.
-            */
             pathT.style.opacity = String(0.08 + 0.92 * T);
             pathR.style.opacity = String(0.08 + 0.92 * R);
             pathT.style.strokeWidth = `${2 + 5 * T}px`;
