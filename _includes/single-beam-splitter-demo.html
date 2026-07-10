@@ -12,7 +12,7 @@
     }
 
     .sbs-header {
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .sbs-header h2 {
@@ -26,19 +26,7 @@
       margin: 0;
       color: var(--muted, #bdbdbd);
       line-height: 1.6;
-      max-width: 850px;
-    }
-
-    .sbs-panel {
-      display: grid;
-      grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.75fr);
-      gap: 24px;
-      align-items: start;
-    }
-
-    .sbs-left-column {
-      display: grid;
-      gap: 16px;
+      max-width: 900px;
     }
 
     .sbs-stage {
@@ -46,6 +34,7 @@
       border-radius: 24px;
       background: #050505;
       overflow: hidden;
+      margin-bottom: 18px;
     }
 
     .sbs-svg {
@@ -56,28 +45,28 @@
 
     .sbs-label {
       fill: #ffffff;
-      font-size: 22px;
+      font-size: 28px;
       font-weight: 900;
       font-family: Arial, sans-serif;
     }
 
     .sbs-label-small {
       fill: #ffffff;
-      font-size: 17px;
+      font-size: 21px;
       font-weight: 800;
       font-family: Arial, sans-serif;
     }
 
     .sbs-label-red {
       fill: #EA0003;
-      font-size: 17px;
+      font-size: 21px;
       font-weight: 900;
       font-family: Arial, sans-serif;
     }
 
     .sbs-label-yellow {
       fill: #FBC306;
-      font-size: 17px;
+      font-size: 21px;
       font-weight: 900;
       font-family: Arial, sans-serif;
     }
@@ -88,7 +77,7 @@
       transition: opacity 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
     }
 
-    /* All optical paths are white. Red/yellow are only annotation colors. */
+    /* Optical paths are white. Red/yellow are only annotation colors. */
     .sbs-input-path,
     .sbs-path-t,
     .sbs-path-r {
@@ -102,27 +91,32 @@
       opacity: 0.45;
     }
 
-    /* Classical-light mode: white glow represents average optical intensity. */
+    /*
+      Classical-light mode:
+      - input beam is the reference maximum
+      - output beam opacity/width never exceeds the input beam
+      - glow is white, same optical color as the source
+    */
     .sbs-demo.classical-mode .sbs-input-path {
-      opacity: 0.9;
-      stroke-width: 5;
-      filter: drop-shadow(0 0 10px rgba(255,255,255,0.75));
+      opacity: 1;
+      stroke-width: 7;
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.72));
     }
 
     .sbs-demo.classical-mode .sbs-path-t,
     .sbs-demo.classical-mode .sbs-path-r {
-      filter: drop-shadow(0 0 9px rgba(255,255,255,0.78));
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.72));
     }
 
     .sbs-source rect {
       fill: rgba(255,255,255,0.055);
-      stroke: rgba(255,255,255,0.88);
-      stroke-width: 2;
+      stroke: rgba(255,255,255,0.9);
+      stroke-width: 2.5;
     }
 
     .sbs-source text {
       fill: #ffffff;
-      font-size: 20px;
+      font-size: 26px;
       font-weight: 900;
       font-family: Arial, sans-serif;
     }
@@ -131,7 +125,7 @@
     .sbs-demo.classical-mode .sbs-source rect {
       stroke: #ffffff;
       fill: rgba(255,255,255,0.16);
-      filter: drop-shadow(0 0 14px #ffffff);
+      filter: drop-shadow(0 0 12px rgba(255,255,255,0.86));
     }
 
     .sbs-source.active text,
@@ -141,24 +135,24 @@
 
     .sbs-beam-splitter rect {
       fill: rgba(255,255,255,0.045);
-      stroke: rgba(255,255,255,0.88);
-      stroke-width: 2.5;
+      stroke: rgba(255,255,255,0.9);
+      stroke-width: 3;
     }
 
     .sbs-beam-splitter line {
       stroke: rgba(255,255,255,0.82);
-      stroke-width: 2;
+      stroke-width: 2.2;
     }
 
     .sbs-detector rect {
       fill: rgba(255,255,255,0.055);
-      stroke: rgba(255,255,255,0.85);
-      stroke-width: 2;
+      stroke: rgba(255,255,255,0.86);
+      stroke-width: 2.5;
     }
 
     .sbs-detector text {
       fill: #ffffff;
-      font-size: 20px;
+      font-size: 25px;
       font-weight: 900;
       font-family: Arial, sans-serif;
     }
@@ -169,9 +163,18 @@
       filter: drop-shadow(0 0 12px #FBC306);
     }
 
-    .sbs-controls {
+    .sbs-parameter-grid {
       display: grid;
-      gap: 18px;
+      grid-template-columns: minmax(0, 1.3fr) minmax(220px, 0.7fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .sbs-parameter-box {
+      border: 1px solid var(--border, rgba(255,255,255,0.14));
+      border-radius: 20px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.045);
     }
 
     .sbs-slider-head {
@@ -181,6 +184,7 @@
       gap: 14px;
       color: var(--text, #ffffff);
       font-weight: 900;
+      margin-bottom: 10px;
     }
 
     .sbs-slider-head strong {
@@ -195,7 +199,7 @@
 
     .sbs-number-row {
       display: grid;
-      grid-template-columns: 1fr 112px;
+      grid-template-columns: minmax(0, 1fr) 96px;
       gap: 12px;
       align-items: center;
     }
@@ -211,7 +215,7 @@
       margin-top: 4px;
       color: var(--muted, #bdbdbd);
       font-weight: 700;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
     }
 
     .sbs-number-input {
@@ -226,75 +230,17 @@
       font-size: 1rem;
     }
 
-    .sbs-card-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .sbs-card {
-      border: 1px solid var(--border, rgba(255,255,255,0.14));
-      border-radius: 18px;
-      padding: 14px;
-      background: rgba(255,255,255,0.045);
-    }
-
-    .sbs-card span {
-      display: block;
-      color: var(--muted, #bdbdbd);
-      font-size: 0.84rem;
-      margin-bottom: 7px;
-      line-height: 1.35;
-    }
-
-    .sbs-card strong {
-      display: block;
-      color: var(--text, #ffffff);
-      font-size: 1.35rem;
-      font-weight: 900;
-      margin-bottom: 4px;
-    }
-
-    .sbs-card small {
-      display: block;
-      color: var(--muted, #bdbdbd);
-      font-size: 0.78rem;
-      line-height: 1.35;
-    }
-
-    .sbs-state-box {
-      border: 1px solid rgba(251,195,6,0.35);
-      border-radius: 18px;
-      padding: 14px;
-      background: rgba(251,195,6,0.06);
-    }
-
-    .sbs-state-box span {
-      display: block;
-      color: var(--muted, #bdbdbd);
-      font-size: 0.84rem;
-      margin-bottom: 8px;
-    }
-
-    .sbs-state-box code {
-      display: block;
-      color: #ffffff;
-      font-size: 1rem;
-      line-height: 1.6;
-      white-space: normal;
-      font-family: "Consolas", "Courier New", monospace;
-    }
-
     .sbs-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-bottom: 16px;
     }
 
     .sbs-buttons button {
       border: 0;
       border-radius: 999px;
-      padding: 11px 15px;
+      padding: 11px 16px;
       font-weight: 900;
       cursor: pointer;
       transition: 0.2s ease;
@@ -327,11 +273,81 @@
       color: #ffffff;
     }
 
-    .sbs-result {
+    .sbs-state-box {
+      border: 1px solid rgba(251,195,6,0.35);
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: rgba(251,195,6,0.06);
+      margin-bottom: 14px;
+    }
+
+    .sbs-state-box span {
+      display: block;
+      color: var(--muted, #bdbdbd);
+      font-size: 0.84rem;
+      margin-bottom: 8px;
+    }
+
+    .sbs-state-box code {
+      display: block;
+      color: #ffffff;
+      font-size: 1rem;
+      line-height: 1.6;
+      white-space: normal;
+      font-family: "Consolas", "Courier New", monospace;
+    }
+
+    .sbs-card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .sbs-card {
+      border: 1px solid var(--border, rgba(255,255,255,0.14));
+      border-radius: 18px;
+      padding: 12px 13px;
+      background: rgba(255,255,255,0.045);
+    }
+
+    .sbs-card span {
+      display: block;
+      color: var(--muted, #bdbdbd);
+      font-size: 0.78rem;
+      margin-bottom: 7px;
+      line-height: 1.35;
+    }
+
+    .sbs-card strong {
+      display: block;
+      color: var(--text, #ffffff);
+      font-size: 1.12rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .sbs-card small {
+      display: block;
+      color: var(--muted, #bdbdbd);
+      font-size: 0.74rem;
+      line-height: 1.35;
+    }
+
+    .sbs-status {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 13px 15px;
+      background: rgba(255,255,255,0.035);
       color: var(--muted, #bdbdbd);
       line-height: 1.55;
-      font-size: 0.94rem;
-      margin: 0;
+      font-size: 0.92rem;
+      margin-bottom: 16px;
+    }
+
+    .sbs-status strong {
+      color: #ffffff;
+      font-weight: 900;
     }
 
     .sbs-caption {
@@ -359,17 +375,35 @@
     }
 
     @media (max-width: 920px) {
-      .sbs-panel {
+      .sbs-parameter-grid {
         grid-template-columns: 1fr;
       }
 
+      .sbs-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .sbs-label {
-        font-size: 19px;
+        font-size: 24px;
       }
 
       .sbs-label-red,
       .sbs-label-yellow {
-        font-size: 15px;
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .sbs-demo {
+        padding: 18px;
+      }
+
+      .sbs-card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sbs-buttons button {
+        width: 100%;
       }
     }
   </style>
@@ -377,100 +411,95 @@
   <div class="sbs-header">
     <h2>Beam Splitter Satu Foton</h2>
     <p>
-      Atur transmitansi beam splitter, lalu bandingkan mode cahaya klasik dengan pengiriman foton diskret satu per satu.
+      Atur transmitansi beam splitter, pilih jumlah foton, lalu jalankan pengiriman foton diskret atau tampilkan cahaya klasik.
     </p>
   </div>
 
-  <div class="sbs-panel">
-    <div class="sbs-left-column">
-      <div class="sbs-stage">
-        <svg class="sbs-svg" viewBox="0 0 820 420" role="img" aria-label="Beam splitter dengan sumber dan dua detektor">
-          <g class="sbs-source" data-source>
-            <rect x="42" y="267" width="72" height="46" rx="14"></rect>
-            <text x="78" y="296" text-anchor="middle">S</text>
-          </g>
-          <text x="48" y="340" class="sbs-label-small">Input</text>
+  <div class="sbs-stage">
+    <svg class="sbs-svg" viewBox="0 0 1000 600" role="img" aria-label="Beam splitter dengan sumber dan dua detektor">
+      <!-- Source -->
+      <g class="sbs-source" data-source>
+        <rect x="70" y="392" width="110" height="66" rx="18"></rect>
+        <text x="125" y="434" text-anchor="middle">S</text>
+      </g>
+      <text x="82" y="494" class="sbs-label-small">Input</text>
 
-          <line
-            x1="114"
-            y1="290"
-            x2="245"
-            y2="290"
-            class="sbs-path sbs-input-path"
-            data-input-path
-          ></line>
+      <!-- Input path aligned to beam-splitter midpoint -->
+      <line
+        x1="180"
+        y1="425"
+        x2="430"
+        y2="425"
+        class="sbs-path sbs-input-path"
+        data-input-path
+      ></line>
 
-          <g class="sbs-beam-splitter">
-            <rect x="245" y="245" width="90" height="90"></rect>
-            <line x1="245" y1="335" x2="335" y2="245"></line>
-            <line x1="245" y1="245" x2="335" y2="335"></line>
-            <line x1="245" y1="290" x2="335" y2="290"></line>
-            <line x1="290" y1="245" x2="290" y2="335"></line>
-          </g>
-          <text x="261" y="232" class="sbs-label">BS</text>
+      <!-- Beam splitter -->
+      <g class="sbs-beam-splitter">
+        <rect x="430" y="360" width="130" height="130"></rect>
+        <line x1="430" y1="490" x2="560" y2="360"></line>
+        <line x1="430" y1="360" x2="560" y2="490"></line>
+        <line x1="430" y1="425" x2="560" y2="425"></line>
+        <line x1="495" y1="360" x2="495" y2="490"></line>
+      </g>
+      <text x="463" y="340" class="sbs-label">BS</text>
 
-          <line
-            x1="290"
-            y1="245"
-            x2="290"
-            y2="125"
-            class="sbs-path sbs-path-r"
-            data-path-r
-          ></line>
+      <!-- Equal-length output arms: 230 px each -->
+      <line
+        x1="495"
+        y1="360"
+        x2="495"
+        y2="130"
+        class="sbs-path sbs-path-r"
+        data-path-r
+      ></line>
 
-          <line
-            x1="335"
-            y1="290"
-            x2="455"
-            y2="290"
-            class="sbs-path sbs-path-t"
-            data-path-t
-          ></line>
+      <line
+        x1="560"
+        y1="425"
+        x2="790"
+        y2="425"
+        class="sbs-path sbs-path-t"
+        data-path-t
+      ></line>
 
-          <text x="315" y="178" class="sbs-label-red">R: dipantulkan</text>
-          <text x="365" y="323" class="sbs-label-yellow">T: diteruskan</text>
+      <!-- Path labels -->
+      <text x="530" y="235" class="sbs-label-red">R: dipantulkan</text>
+      <text x="635" y="468" class="sbs-label-yellow">T: diteruskan</text>
 
-          <g class="sbs-detector" data-detector="R">
-            <rect x="267" y="35" width="46" height="90" rx="13"></rect>
-            <text x="290" y="86" text-anchor="middle">D0</text>
-          </g>
+      <!-- Detector D0: elongated along vertical path -->
+      <g class="sbs-detector" data-detector="R">
+        <rect x="460" y="10" width="70" height="120" rx="18"></rect>
+        <text x="495" y="78" text-anchor="middle">D0</text>
+      </g>
 
-          <g class="sbs-detector" data-detector="T">
-            <rect x="455" y="267" width="90" height="46" rx="13"></rect>
-            <text x="500" y="296" text-anchor="middle">D1</text>
-          </g>
-        </svg>
+      <!-- Detector D1: elongated along horizontal path -->
+      <g class="sbs-detector" data-detector="T">
+        <rect x="790" y="392" width="140" height="66" rx="18"></rect>
+        <text x="860" y="434" text-anchor="middle">D1</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="sbs-parameter-grid">
+    <div class="sbs-parameter-box">
+      <div class="sbs-slider-head">
+        <span>Transmitansi, T</span>
+        <strong><span data-t-value>{{ initial_T }}</span>%</strong>
       </div>
 
-      <div class="sbs-caption">
-        <strong>Eksperimen.</strong>
-        Sumber <code>S</code> mengirim cahaya menuju beam splitter <code>BS</code>.
-        Beam splitter memiliki transmitansi <code>T</code> dan reflektansi <code>R = 1 − T</code>.
-        Pada mode <strong>Kirim N foton</strong>, foton dikirim berurutan: setiap foton hanya menghasilkan satu klik,
-        baik di <code>D1</code> maupun <code>D0</code>. Setelah banyak pengiriman, rasio klik di kedua detektor
-        mendekati peluang <code>T</code> dan <code>R</code>. Mode <strong>cahaya klasik</strong> hanya menampilkan
-        intensitas rata-rata pada kedua jalur, bukan simulasi klik foton tunggal.
-      </div>
+      <input
+        class="sbs-slider"
+        type="range"
+        min="0"
+        max="100"
+        step="1"
+        value="{{ initial_T }}"
+        data-t-slider
+      />
     </div>
 
-    <div class="sbs-controls">
-      <div>
-        <div class="sbs-slider-head">
-          <span>Transmitansi, T</span>
-          <strong><span data-t-value>{{ initial_T }}</span>%</strong>
-        </div>
-
-        <input
-          class="sbs-slider"
-          type="range"
-          min="0"
-          max="100"
-          step="1"
-          value="{{ initial_T }}"
-          data-t-slider
-        />
-      </div>
-
+    <div class="sbs-parameter-box">
       <div class="sbs-number-row">
         <div class="sbs-number-label">
           Jumlah foton
@@ -487,50 +516,59 @@
           data-photon-number
         />
       </div>
-
-      <div class="sbs-card-grid">
-        <div class="sbs-card">
-          <span>Peluang diteruskan</span>
-          <strong data-p-t>{{ initial_T }}%</strong>
-          <small data-amp-t>amplituda: √0.50 = 0.707</small>
-        </div>
-
-        <div class="sbs-card">
-          <span>Peluang dipantulkan</span>
-          <strong data-p-r>50%</strong>
-          <small data-amp-r>amplituda: √0.50 = 0.707</small>
-        </div>
-      </div>
-
-      <div class="sbs-state-box">
-        <span>Keadaan setelah beam splitter</span>
-        <code data-state-text>|ψ⟩ = √0.50 |T⟩ + √0.50 |R⟩</code>
-      </div>
-
-      <div class="sbs-buttons">
-        <button type="button" data-send-n>Kirim N foton</button>
-        <button type="button" data-classical-mode>Matikan cahaya klasik</button>
-        <button type="button" data-reset>Reset</button>
-      </div>
-
-      <div class="sbs-card-grid">
-        <div class="sbs-card">
-          <span>Detektor D1</span>
-          <strong data-count-t>0</strong>
-          <small>jalur diteruskan</small>
-        </div>
-
-        <div class="sbs-card">
-          <span>Detektor D0</span>
-          <strong data-count-r>0</strong>
-          <small>jalur dipantulkan</small>
-        </div>
-      </div>
-
-      <p class="sbs-result" data-result>
-        Mode cahaya klasik aktif: terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.
-      </p>
     </div>
+  </div>
+
+  <div class="sbs-buttons">
+    <button type="button" data-send-n>Kirim N foton</button>
+    <button type="button" data-classical-mode>Matikan cahaya klasik</button>
+    <button type="button" data-reset>Reset</button>
+  </div>
+
+  <div class="sbs-state-box">
+    <span>Keadaan setelah beam splitter</span>
+    <code data-state-text>|ψ⟩ = √0.50 |T⟩ + √0.50 |R⟩</code>
+  </div>
+
+  <div class="sbs-card-grid">
+    <div class="sbs-card">
+      <span>Peluang diteruskan</span>
+      <strong data-p-t>{{ initial_T }}%</strong>
+      <small data-amp-t>amplituda: √0.50 = 0.707</small>
+    </div>
+
+    <div class="sbs-card">
+      <span>Peluang dipantulkan</span>
+      <strong data-p-r>50%</strong>
+      <small data-amp-r>amplituda: √0.50 = 0.707</small>
+    </div>
+
+    <div class="sbs-card">
+      <span>Detektor D1</span>
+      <strong data-count-t>0 klik</strong>
+      <small data-obs-t>0% dari 0 foton</small>
+    </div>
+
+    <div class="sbs-card">
+      <span>Detektor D0</span>
+      <strong data-count-r>0 klik</strong>
+      <small data-obs-r>0% dari 0 foton</small>
+    </div>
+  </div>
+
+  <div class="sbs-status" data-status>
+    <strong>Status eksperimen:</strong>
+    Mode cahaya klasik aktif. Terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.
+  </div>
+
+  <div class="sbs-caption">
+    <strong>Eksperimen.</strong>
+    Sumber <code>S</code> mengirim cahaya menuju beam splitter <code>BS</code>.
+    Beam splitter memiliki transmitansi <code>T</code> dan reflektansi <code>R = 1 − T</code>.
+    Pada mode <strong>Kirim N foton</strong>, foton dikirim berurutan: setiap foton hanya menghasilkan satu klik,
+    baik di <code>D1</code> maupun <code>D0</code>. Setelah banyak pengiriman, rasio klik di kedua detektor
+    mendekati peluang <code>T</code> dan <code>R</code>. Mode <strong>cahaya klasik</strong> hanya menampilkan
+    intensitas rata-rata pada kedua jalur, bukan simulasi klik foton tunggal.
   </div>
 
   <script>
@@ -550,7 +588,9 @@
         const stateText = demo.querySelector("[data-state-text]");
         const countTEl = demo.querySelector("[data-count-t]");
         const countREl = demo.querySelector("[data-count-r]");
-        const resultEl = demo.querySelector("[data-result]");
+        const obsTEl = demo.querySelector("[data-obs-t]");
+        const obsREl = demo.querySelector("[data-obs-r]");
+        const statusEl = demo.querySelector("[data-status]");
 
         const source = demo.querySelector("[data-source]");
         const detectorT = demo.querySelector('[data-detector="T"]');
@@ -597,6 +637,24 @@
           return n;
         }
 
+        function updateDetectorCards() {
+          const total = countT + countR;
+          const observedT = total > 0 ? Math.round((countT / total) * 100) : 0;
+          const observedR = total > 0 ? Math.round((countR / total) * 100) : 0;
+
+          countTEl.textContent = `${countT} klik`;
+          countREl.textContent = `${countR} klik`;
+
+          obsTEl.textContent = `${observedT}% dari ${total} foton`;
+          obsREl.textContent = `${observedR}% dari ${total} foton`;
+        }
+
+        function clearCounts() {
+          countT = 0;
+          countR = 0;
+          updateDetectorCards();
+        }
+
         function updateDisplay() {
           const T = getT();
           const R = getR();
@@ -612,10 +670,14 @@
             `|ψ⟩ = √${probText(T)} |T⟩ + √${probText(R)} |R⟩`;
 
           if (classicalMode) {
+            /*
+              Input beam is the maximum reference.
+              Output beam intensity is scaled by T or R and never exceeds input.
+            */
             pathT.style.opacity = String(0.08 + 0.92 * T);
             pathR.style.opacity = String(0.08 + 0.92 * R);
-            pathT.style.strokeWidth = `${2 + 6 * T}px`;
-            pathR.style.strokeWidth = `${2 + 6 * R}px`;
+            pathT.style.strokeWidth = `${2 + 5 * T}px`;
+            pathR.style.strokeWidth = `${2 + 5 * R}px`;
           } else {
             pathT.style.opacity = "0.28";
             pathR.style.opacity = "0.28";
@@ -662,8 +724,7 @@
             countR += 1;
           }
 
-          countTEl.textContent = countT;
-          countREl.textContent = countR;
+          updateDetectorCards();
         }
 
         function observedText() {
@@ -682,8 +743,8 @@
           clearEventFlash();
 
           source.classList.add("active");
-          resultEl.textContent =
-            `Mengirim foton ${index} dari ${totalToSend}. Mode cahaya klasik dimatikan.`;
+          statusEl.innerHTML =
+            `<strong>Status eksperimen:</strong> Mengirim foton ${index} dari ${totalToSend}. Mode cahaya klasik dimatikan.`;
 
           await delay(260);
 
@@ -694,13 +755,13 @@
           if (detector === "T") {
             detectorT.classList.add("active");
             addCount("T");
-            resultEl.textContent =
-              `Foton ${index}/${totalToSend}: klik di D1. Peluang teoritis: T = ${T}%, R = ${R}%.`;
+            statusEl.innerHTML =
+              `<strong>Status eksperimen:</strong> Foton ${index}/${totalToSend}: klik di D1. Peluang teoritis: T = ${T}%, R = ${R}%.`;
           } else {
             detectorR.classList.add("active");
             addCount("R");
-            resultEl.textContent =
-              `Foton ${index}/${totalToSend}: klik di D0. Peluang teoritis: T = ${T}%, R = ${R}%.`;
+            statusEl.innerHTML =
+              `<strong>Status eksperimen:</strong> Foton ${index}/${totalToSend}: klik di D0. Peluang teoritis: T = ${T}%, R = ${R}%.`;
           }
 
           await delay(420);
@@ -729,8 +790,8 @@
 
           clearEventFlash();
 
-          resultEl.textContent =
-            `Selesai mengirim ${totalToSend} foton secara berurutan. ${observedText()} ` +
+          statusEl.innerHTML =
+            `<strong>Status eksperimen:</strong> Selesai mengirim ${totalToSend} foton secara berurutan. ${observedText()} ` +
             `Jika jumlah foton diperbesar, rasio klik akan makin mendekati peluang teoritis.`;
 
           setControlsDisabled(false);
@@ -746,11 +807,11 @@
           classicalBtn.textContent = classicalMode ? "Matikan cahaya klasik" : "Tampilkan cahaya klasik";
 
           if (classicalMode) {
-            resultEl.textContent =
-              "Mode cahaya klasik aktif: terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.";
+            statusEl.innerHTML =
+              `<strong>Status eksperimen:</strong> Mode cahaya klasik aktif. Terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.`;
           } else {
-            resultEl.textContent =
-              "Mode cahaya klasik dimatikan. Mode ini tidak menampilkan berkas kontinu.";
+            statusEl.innerHTML =
+              `<strong>Status eksperimen:</strong> Mode cahaya klasik dimatikan. Mode ini tidak menampilkan berkas kontinu.`;
           }
 
           clearEventFlash();
@@ -758,24 +819,28 @@
         }
 
         function reset() {
-          countT = 0;
-          countR = 0;
+          clearCounts();
           classicalMode = true;
-
-          countTEl.textContent = "0";
-          countREl.textContent = "0";
 
           demo.classList.add("classical-mode");
           classicalBtn.textContent = "Matikan cahaya klasik";
           clearEventFlash();
 
-          resultEl.textContent =
-            "Mode cahaya klasik aktif: terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.";
+          statusEl.innerHTML =
+            `<strong>Status eksperimen:</strong> Mode cahaya klasik aktif. Terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.`;
 
           updateDisplay();
         }
 
-        slider.addEventListener("input", updateDisplay);
+        slider.addEventListener("input", function () {
+          updateDisplay();
+
+          if (countT + countR > 0) {
+            clearCounts();
+            statusEl.innerHTML =
+              `<strong>Status eksperimen:</strong> Transmitansi diubah. Hitungan detektor direset agar tidak mencampur data dari pengaturan berbeda.`;
+          }
+        });
 
         photonNumberInput.addEventListener("change", function () {
           photonNumberInput.value = clampPhotonNumber(photonNumberInput.value);
