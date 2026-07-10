@@ -1,0 +1,42 @@
+<div class="optics-demo">
+  <svg viewBox="0 0 900 420" class="optics-svg" role="img" aria-label="Single beam splitter with two detectors">
+
+    <!-- Input beam -->
+    <line x1="40" y1="300" x2="260" y2="300" class="path input-path" />
+    <polygon points="260,300 230,285 230,295 190,295 190,305 230,305 230,315" class="arrow-head input-arrow"></polygon>
+
+    <!-- Beam splitter -->
+    <g class="beam-splitter" transform="translate(260,250)">
+      <rect x="0" y="0" width="90" height="90"></rect>
+      <line x1="0" y1="90" x2="90" y2="0"></line>
+    </g>
+
+    <!-- Label -->
+    <text x="238" y="370" class="label main-label">Beamsplitter</text>
+
+    <!-- Reflected path (up) -->
+    <line x1="305" y1="250" x2="305" y2="90" class="path reflected-path" />
+    <polygon points="305,90 290,120 300,120 300,160 310,160 310,120 320,120" class="arrow-head reflected-arrow"></polygon>
+
+    <!-- Detector D0 -->
+    <g class="detector" transform="translate(270,20)">
+      <ellipse cx="35" cy="18" rx="35" ry="18"></ellipse>
+      <rect x="0" y="18" width="70" height="26" rx="8"></rect>
+      <path d="M0,31 Q35,54 70,31"></path>
+    </g>
+    <text x="290" y="78" class="label detector-label">D0</text>
+
+    <!-- Transmitted path (right) -->
+    <line x1="350" y1="295" x2="650" y2="295" class="path transmitted-path" />
+    <polygon points="650,295 620,280 620,290 580,290 580,300 620,300 620,310" class="arrow-head transmitted-arrow"></polygon>
+
+    <!-- Detector D1 -->
+    <g class="detector" transform="translate(690,260) rotate(90 35 31)">
+      <ellipse cx="35" cy="18" rx="35" ry="18"></ellipse>
+      <rect x="0" y="18" width="70" height="26" rx="8"></rect>
+      <path d="M0,31 Q35,54 70,31"></path>
+    </g>
+    <text x="665" y="345" class="label detector-label">D1</text>
+
+  </svg>
+</div>
