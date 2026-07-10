@@ -437,9 +437,9 @@
   </div>
 
   <div class="sbs-stage">
-    <svg class="sbs-svg" viewBox="0 0 1100 690" role="img" aria-label="Beam splitter dengan kontrol lokal dan dua detektor">
-      <!-- Source control above source -->
-      <foreignObject x="38" y="42" width="330" height="120">
+    <svg class="sbs-svg" viewBox="0 0 1100 540" role="img" aria-label="Beam splitter dengan kontrol lokal dan dua detektor">
+      <!-- Source control: closer to source and wider than previous version -->
+      <foreignObject x="34" y="138" width="400" height="126">
         <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-local-panel">
           <div class="sbs-local-title">Kontrol sumber</div>
 
@@ -466,33 +466,33 @@
 
       <!-- Source -->
       <g class="sbs-source" data-source>
-        <rect x="86" y="294" width="118" height="72" rx="18"></rect>
-        <text x="145" y="340" text-anchor="middle">S</text>
+        <rect x="88" y="302" width="122" height="74" rx="18"></rect>
+        <text x="149" y="349" text-anchor="middle">S</text>
       </g>
-      <text x="102" y="402" class="sbs-label-small">Sumber</text>
+      <text x="105" y="414" class="sbs-label-small">Sumber</text>
 
       <!-- Input path -->
       <line
-        x1="204"
-        y1="330"
+        x1="210"
+        y1="339"
         x2="470"
-        y2="330"
+        y2="339"
         class="sbs-path sbs-input-path"
         data-input-path
       ></line>
 
       <!-- Beam splitter -->
       <g class="sbs-beam-splitter">
-        <rect x="470" y="260" width="140" height="140"></rect>
-        <line x1="470" y1="400" x2="610" y2="260"></line>
-        <line x1="470" y1="260" x2="610" y2="400"></line>
-        <line x1="470" y1="330" x2="610" y2="330"></line>
-        <line x1="540" y1="260" x2="540" y2="400"></line>
+        <rect x="470" y="269" width="140" height="140"></rect>
+        <line x1="470" y1="409" x2="610" y2="269"></line>
+        <line x1="470" y1="269" x2="610" y2="409"></line>
+        <line x1="470" y1="339" x2="610" y2="339"></line>
+        <line x1="540" y1="269" x2="540" y2="409"></line>
       </g>
-      <text x="505" y="242" class="sbs-label">BS</text>
+      <text x="505" y="251" class="sbs-label">BS</text>
 
-      <!-- Beam splitter control -->
-      <foreignObject x="415" y="480" width="290" height="88">
+      <!-- Beam splitter control: closer to BS and bottom-cropped for compactness -->
+      <foreignObject x="410" y="427" width="300" height="88">
         <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-bs-control">
           <div class="sbs-bs-head">
             <span>Transmitansi, T</span>
@@ -511,37 +511,37 @@
         </div>
       </foreignObject>
 
-      <!-- Output arms -->
+      <!-- Output arms: visually compact; unequal length is acceptable here because paths are not recombined -->
       <line
         x1="540"
-        y1="260"
+        y1="269"
         x2="540"
-        y2="126"
+        y2="158"
         class="sbs-path sbs-path-r"
         data-path-r
       ></line>
 
       <line
         x1="610"
-        y1="330"
-        x2="830"
-        y2="330"
+        y1="339"
+        x2="765"
+        y2="339"
         class="sbs-path sbs-path-t"
         data-path-t
       ></line>
 
       <!-- Path labels -->
-      <text x="575" y="205" class="sbs-label-red">R: dipantulkan</text>
-      <text x="650" y="372" class="sbs-label-yellow">T: diteruskan</text>
+      <text x="575" y="228" class="sbs-label-red">R: dipantulkan</text>
+      <text x="650" y="380" class="sbs-label-yellow">T: diteruskan</text>
 
       <!-- Detector D0 -->
       <g class="sbs-detector" data-detector="R">
-        <rect x="502" y="26" width="76" height="100" rx="18"></rect>
-        <text x="540" y="84" text-anchor="middle">D0</text>
+        <rect x="502" y="50" width="76" height="108" rx="18"></rect>
+        <text x="540" y="112" text-anchor="middle">D0</text>
       </g>
 
       <!-- D0 count beside D0 -->
-      <foreignObject x="594" y="36" width="225" height="86">
+      <foreignObject x="594" y="62" width="225" height="88">
         <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-detector-badge">
           <div class="name">Detektor D0</div>
           <div class="count" data-count-r>0 klik</div>
@@ -550,7 +550,7 @@
       </foreignObject>
 
       <!-- D1 count above D1 -->
-      <foreignObject x="790" y="196" width="230" height="88">
+      <foreignObject x="745" y="204" width="230" height="88">
         <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-detector-badge">
           <div class="name">Detektor D1</div>
           <div class="count" data-count-t>0 klik</div>
@@ -560,8 +560,8 @@
 
       <!-- Detector D1 -->
       <g class="sbs-detector" data-detector="T">
-        <rect x="830" y="297" width="150" height="66" rx="18"></rect>
-        <text x="905" y="339" text-anchor="middle">D1</text>
+        <rect x="765" y="306" width="150" height="66" rx="18"></rect>
+        <text x="840" y="348" text-anchor="middle">D1</text>
       </g>
     </svg>
   </div>
