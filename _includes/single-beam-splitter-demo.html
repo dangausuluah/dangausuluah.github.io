@@ -12,7 +12,7 @@
     }
 
     .sbs-header {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .sbs-header h2 {
@@ -34,7 +34,7 @@
       border-radius: 24px;
       background: #050505;
       overflow: hidden;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .sbs-svg {
@@ -77,7 +77,7 @@
       transition: opacity 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
     }
 
-    /* Optical beams are white. Red/yellow are only path-label annotations. */
+    /* Optical beams are white. Red/yellow are only annotations. */
     .sbs-input-path,
     .sbs-path-t,
     .sbs-path-r {
@@ -93,9 +93,8 @@
 
     /*
       Classical-light mode:
-      - input beam is the maximum reference
-      - transmitted/reflected beams never exceed the input beam
-      - glow is white, same as the source
+      input is the maximum reference.
+      output paths never appear brighter/thicker than the input.
     */
     .sbs-demo.classical-mode .sbs-input-path {
       opacity: 1;
@@ -163,54 +162,170 @@
       filter: drop-shadow(0 0 12px #FBC306);
     }
 
-    .sbs-control-state-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-      gap: 14px;
-      margin-bottom: 14px;
-      align-items: stretch;
+    .sbs-local-panel {
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 16px;
+      background: rgba(7,7,7,0.82);
+      padding: 12px;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
     }
 
-    .sbs-control-box,
-    .sbs-state-box {
-      border: 1px solid var(--border, rgba(255,255,255,0.14));
-      border-radius: 18px;
-      padding: 13px 15px;
-      background: rgba(255,255,255,0.045);
+    .sbs-local-panel.compact {
+      padding: 10px;
     }
 
-    .sbs-control-box {
-      display: grid;
-      align-content: center;
-      min-height: 76px;
+    .sbs-local-title {
+      color: #FBC306;
+      font-weight: 900;
+      font-size: 15px;
+      line-height: 1.2;
+      margin-bottom: 8px;
     }
 
-    .sbs-slider-head {
+    .sbs-local-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .sbs-local-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .sbs-local-label {
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .sbs-local-input {
+      width: 64px;
+      box-sizing: border-box;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+      padding: 8px 9px;
+      background: rgba(255,255,255,0.08);
+      color: #ffffff;
+      font-weight: 900;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .sbs-local-button {
+      border: 0;
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-weight: 900;
+      cursor: pointer;
+      font-size: 12px;
+      line-height: 1.1;
+      transition: 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .sbs-local-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .sbs-local-button:disabled,
+    .sbs-local-input:disabled,
+    .sbs-local-slider:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .sbs-local-button.send {
+      background: #EA0003;
+      color: #ffffff;
+    }
+
+    .sbs-local-button.classical {
+      background: #FBC306;
+      color: #050505;
+    }
+
+    .sbs-local-button.reset {
+      background: rgba(255,255,255,0.15);
+      color: #ffffff;
+    }
+
+    .sbs-bs-control {
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(251,195,6,0.28);
+      border-radius: 16px;
+      background: rgba(7,7,7,0.82);
+      padding: 11px 13px;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .sbs-bs-head {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 14px;
-      color: var(--text, #ffffff);
+      gap: 12px;
+      margin-bottom: 8px;
       font-weight: 900;
-      margin-bottom: 9px;
+      font-size: 14px;
     }
 
-    .sbs-slider-head strong {
-      color: var(--yellow, #FBC306);
-      font-size: 1.05rem;
+    .sbs-bs-head strong {
+      color: #FBC306;
     }
 
-    .sbs-slider {
+    .sbs-local-slider {
       width: 100%;
       accent-color: #FBC306;
     }
 
+    .sbs-detector-badge {
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 16px;
+      background: rgba(7,7,7,0.82);
+      padding: 11px 12px;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .sbs-detector-badge .name {
+      color: #FBC306;
+      font-weight: 900;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .sbs-detector-badge .count {
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 18px;
+      line-height: 1.2;
+      margin-bottom: 3px;
+    }
+
+    .sbs-detector-badge .obs {
+      color: rgba(255,255,255,0.68);
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
     .sbs-state-box {
-      border-color: rgba(251,195,6,0.35);
+      border: 1px solid rgba(251,195,6,0.35);
+      border-radius: 18px;
+      padding: 13px 15px;
       background: rgba(251,195,6,0.06);
-      display: grid;
-      align-content: center;
-      min-height: 76px;
+      margin-bottom: 14px;
     }
 
     .sbs-state-box span {
@@ -232,87 +347,9 @@
       padding: 6px 9px;
     }
 
-    .sbs-action-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .sbs-photon-control {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid var(--border, rgba(255,255,255,0.14));
-      border-radius: 999px;
-      padding: 8px 10px 8px 14px;
-      background: rgba(255,255,255,0.045);
-    }
-
-    .sbs-photon-control label {
-      color: #ffffff;
-      font-weight: 900;
-      font-size: 0.92rem;
-      white-space: nowrap;
-    }
-
-    .sbs-number-input {
-      width: 78px;
-      box-sizing: border-box;
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 999px;
-      padding: 9px 12px;
-      background: rgba(255,255,255,0.07);
-      color: #ffffff;
-      font-weight: 900;
-      font-size: 0.96rem;
-      text-align: center;
-    }
-
-    .sbs-buttons {
-      display: contents;
-    }
-
-    .sbs-buttons button {
-      border: 0;
-      border-radius: 999px;
-      padding: 11px 16px;
-      font-weight: 900;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .sbs-buttons button:hover {
-      transform: translateY(-2px);
-    }
-
-    .sbs-buttons button:disabled,
-    .sbs-number-input:disabled,
-    .sbs-slider:disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .sbs-buttons button[data-send-n] {
-      background: var(--red, #EA0003);
-      color: #ffffff;
-    }
-
-    .sbs-buttons button[data-classical-mode] {
-      background: var(--yellow, #FBC306);
-      color: #050505;
-    }
-
-    .sbs-buttons button[data-reset] {
-      background: rgba(255,255,255,0.13);
-      color: #ffffff;
-    }
-
     .sbs-card-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
       margin-bottom: 14px;
     }
@@ -387,26 +424,7 @@
       padding: 1px 6px;
     }
 
-    @media (max-width: 920px) {
-      .sbs-control-state-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .sbs-card-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .sbs-label {
-        font-size: 24px;
-      }
-
-      .sbs-label-red,
-      .sbs-label-yellow {
-        font-size: 18px;
-      }
-    }
-
-    @media (max-width: 560px) {
+    @media (max-width: 760px) {
       .sbs-demo {
         padding: 18px;
       }
@@ -414,146 +432,150 @@
       .sbs-card-grid {
         grid-template-columns: 1fr;
       }
-
-      .sbs-action-row {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .sbs-photon-control {
-        justify-content: space-between;
-        border-radius: 18px;
-      }
-
-      .sbs-buttons {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .sbs-buttons button {
-        width: 100%;
-      }
     }
   </style>
 
   <div class="sbs-header">
     <h2>Beam Splitter Satu Foton</h2>
     <p>
-      Atur transmitansi beam splitter, pilih jumlah foton, lalu jalankan pengiriman foton diskret atau tampilkan cahaya klasik.
+      Kontrol lokal diletakkan dekat komponen eksperimen: sumber mengirim foton, beam splitter mengatur transmitansi,
+      dan detektor mencatat klik.
     </p>
   </div>
 
   <div class="sbs-stage">
-    <svg class="sbs-svg" viewBox="0 0 1000 600" role="img" aria-label="Beam splitter dengan sumber dan dua detektor">
+    <svg class="sbs-svg" viewBox="0 0 1100 690" role="img" aria-label="Beam splitter dengan kontrol lokal dan dua detektor">
       <!-- Source -->
       <g class="sbs-source" data-source>
-        <rect x="70" y="392" width="110" height="66" rx="18"></rect>
-        <text x="125" y="434" text-anchor="middle">S</text>
+        <rect x="80" y="408" width="115" height="70" rx="18"></rect>
+        <text x="137.5" y="452" text-anchor="middle">S</text>
       </g>
-      <text x="82" y="494" class="sbs-label-small">Input</text>
+      <text x="95" y="515" class="sbs-label-small">Sumber</text>
 
-      <!-- Input path aligned to beam-splitter midpoint -->
+      <!-- Source local controls -->
+      <foreignObject x="50" y="535" width="300" height="125">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-local-panel">
+          <div class="sbs-local-title">Kontrol sumber</div>
+
+          <div class="sbs-local-row">
+            <span class="sbs-local-label">Jumlah foton</span>
+            <input
+              class="sbs-local-input"
+              type="number"
+              min="1"
+              max="100"
+              step="1"
+              value="{{ initial_N }}"
+              data-photon-number
+            />
+            <button type="button" class="sbs-local-button send" data-send-n>Kirim</button>
+          </div>
+
+          <div class="sbs-local-row">
+            <button type="button" class="sbs-local-button classical" data-classical-mode>Matikan cahaya klasik</button>
+            <button type="button" class="sbs-local-button reset" data-reset>Reset</button>
+          </div>
+        </div>
+      </foreignObject>
+
+      <!-- Input path -->
       <line
-        x1="180"
-        y1="425"
-        x2="430"
-        y2="425"
+        x1="195"
+        y1="443"
+        x2="455"
+        y2="443"
         class="sbs-path sbs-input-path"
         data-input-path
       ></line>
 
       <!-- Beam splitter -->
       <g class="sbs-beam-splitter">
-        <rect x="430" y="360" width="130" height="130"></rect>
-        <line x1="430" y1="490" x2="560" y2="360"></line>
-        <line x1="430" y1="360" x2="560" y2="490"></line>
-        <line x1="430" y1="425" x2="560" y2="425"></line>
-        <line x1="495" y1="360" x2="495" y2="490"></line>
+        <rect x="455" y="378" width="130" height="130"></rect>
+        <line x1="455" y1="508" x2="585" y2="378"></line>
+        <line x1="455" y1="378" x2="585" y2="508"></line>
+        <line x1="455" y1="443" x2="585" y2="443"></line>
+        <line x1="520" y1="378" x2="520" y2="508"></line>
       </g>
-      <text x="463" y="340" class="sbs-label">BS</text>
+      <text x="488" y="358" class="sbs-label">BS</text>
 
-      <!-- Equal-length output arms: 230 px each -->
+      <!-- Beam splitter local control -->
+      <foreignObject x="410" y="530" width="270" height="86">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-bs-control">
+          <div class="sbs-bs-head">
+            <span>Transmitansi, T</span>
+            <strong><span data-t-value>{{ initial_T }}</span>%</strong>
+          </div>
+
+          <input
+            class="sbs-local-slider"
+            type="range"
+            min="0"
+            max="100"
+            step="1"
+            value="{{ initial_T }}"
+            data-t-slider
+          />
+        </div>
+      </foreignObject>
+
+      <!-- Equal-length output arms -->
       <line
-        x1="495"
-        y1="360"
-        x2="495"
-        y2="130"
+        x1="520"
+        y1="378"
+        x2="520"
+        y2="140"
         class="sbs-path sbs-path-r"
         data-path-r
       ></line>
 
       <line
-        x1="560"
-        y1="425"
-        x2="790"
-        y2="425"
+        x1="585"
+        y1="443"
+        x2="823"
+        y2="443"
         class="sbs-path sbs-path-t"
         data-path-t
       ></line>
 
       <!-- Path labels -->
-      <text x="530" y="235" class="sbs-label-red">R: dipantulkan</text>
-      <text x="635" y="468" class="sbs-label-yellow">T: diteruskan</text>
+      <text x="555" y="245" class="sbs-label-red">R: dipantulkan</text>
+      <text x="655" y="486" class="sbs-label-yellow">T: diteruskan</text>
 
-      <!-- Detector D0: elongated along vertical path -->
+      <!-- Detector D0 -->
       <g class="sbs-detector" data-detector="R">
-        <rect x="460" y="10" width="70" height="120" rx="18"></rect>
-        <text x="495" y="78" text-anchor="middle">D0</text>
+        <rect x="482" y="20" width="76" height="120" rx="18"></rect>
+        <text x="520" y="88" text-anchor="middle">D0</text>
       </g>
 
-      <!-- Detector D1: elongated along horizontal path -->
+      <!-- D0 count badge -->
+      <foreignObject x="580" y="42" width="205" height="88">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-detector-badge">
+          <div class="name">Detektor D0</div>
+          <div class="count" data-count-r>0 klik</div>
+          <div class="obs" data-obs-r>0% dari 0 foton</div>
+        </div>
+      </foreignObject>
+
+      <!-- Detector D1 -->
       <g class="sbs-detector" data-detector="T">
-        <rect x="790" y="392" width="140" height="66" rx="18"></rect>
-        <text x="860" y="434" text-anchor="middle">D1</text>
+        <rect x="823" y="410" width="150" height="66" rx="18"></rect>
+        <text x="898" y="452" text-anchor="middle">D1</text>
       </g>
+
+      <!-- D1 count badge -->
+      <foreignObject x="825" y="500" width="220" height="88">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-detector-badge">
+          <div class="name">Detektor D1</div>
+          <div class="count" data-count-t>0 klik</div>
+          <div class="obs" data-obs-t>0% dari 0 foton</div>
+        </div>
+      </foreignObject>
     </svg>
   </div>
 
-  <div class="sbs-control-state-grid">
-    <div class="sbs-control-box">
-      <div class="sbs-slider-head">
-        <span>Transmitansi, T</span>
-        <strong><span data-t-value>{{ initial_T }}</span>%</strong>
-      </div>
-
-      <input
-        class="sbs-slider"
-        type="range"
-        min="0"
-        max="100"
-        step="1"
-        value="{{ initial_T }}"
-        data-t-slider
-      />
-    </div>
-
-    <div class="sbs-state-box">
-      <span>Keadaan setelah beam splitter</span>
-      <code data-state-text>|ψ⟩ = √0.50 |T⟩ + √0.50 |R⟩</code>
-    </div>
-  </div>
-
-  <div class="sbs-action-row">
-    <div class="sbs-photon-control">
-      <label for="sbs-photon-number">Jumlah foton</label>
-      <input
-        id="sbs-photon-number"
-        class="sbs-number-input"
-        type="number"
-        min="1"
-        max="100"
-        step="1"
-        value="{{ initial_N }}"
-        data-photon-number
-      />
-    </div>
-
-    <div class="sbs-buttons">
-      <button type="button" data-send-n>Kirim N foton</button>
-      <button type="button" data-classical-mode>Matikan cahaya klasik</button>
-      <button type="button" data-reset>Reset</button>
-    </div>
+  <div class="sbs-state-box">
+    <span>Keadaan setelah beam splitter</span>
+    <code data-state-text>|ψ⟩ = √0.50 |T⟩ + √0.50 |R⟩</code>
   </div>
 
   <div class="sbs-card-grid">
@@ -568,18 +590,6 @@
       <strong data-p-r>50%</strong>
       <small data-amp-r>amplituda: √0.50 = 0.707</small>
     </div>
-
-    <div class="sbs-card">
-      <span>Detektor D1</span>
-      <strong data-count-t>0 klik</strong>
-      <small data-obs-t>0% dari 0 foton</small>
-    </div>
-
-    <div class="sbs-card">
-      <span>Detektor D0</span>
-      <strong data-count-r>0 klik</strong>
-      <small data-obs-r>0% dari 0 foton</small>
-    </div>
   </div>
 
   <div class="sbs-status" data-status>
@@ -593,8 +603,8 @@
     Beam splitter memiliki transmitansi <code>T</code> dan reflektansi <code>R = 1 − T</code>.
     Pada mode <strong>Kirim N foton</strong>, foton dikirim berurutan: setiap foton hanya menghasilkan satu klik,
     baik di <code>D1</code> maupun <code>D0</code>. Setelah banyak pengiriman, rasio klik di kedua detektor
-    mendekati peluang <code>T</code> dan <code>R</code>. Mode <strong>cahaya klasik</strong> hanya menampilkan
-    intensitas rata-rata pada kedua jalur, bukan simulasi klik foton tunggal.
+    mendekati peluang <code>T</code> dan <code>R</code>. Mode <strong>cahaya klasik</strong> menjembatani pengalaman
+    sehari-hari dengan cahaya kontinu: ia hanya menampilkan intensitas rata-rata, bukan simulasi klik foton tunggal.
   </div>
 
   <script>
