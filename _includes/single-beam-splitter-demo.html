@@ -1,123 +1,714 @@
-<div class="bs-demo" data-bs-demo>
-  <div class="bs-demo-header">
-    <div>
-      <h2>Beam Splitter Satu Foton</h2>
-      <p>
-        Geser rasio beam splitter, lalu kirim satu foton. Detektor yang menyala
-        dipilih berdasarkan peluang transmisi dan refleksi.
-      </p>
-    </div>
+{% assign initial_T = include.T | default: "50" %}
+
+<div class="sbs-demo" data-single-bs-demo>
+  <style>
+    .sbs-demo {
+      margin: 34px 0;
+      padding: 24px;
+      border: 1px solid var(--border, rgba(255,255,255,0.14));
+      border-radius: 28px;
+      background: rgba(255,255,255,0.035);
+    }
+
+    .sbs-header {
+      margin-bottom: 22px;
+    }
+
+    .sbs-header h2 {
+      margin: 0 0 8px;
+      color: var(--yellow, #FBC306);
+      font-size: 1.45rem;
+      font-weight: 900;
+    }
+
+    .sbs-header p {
+      margin: 0;
+      color: var(--muted, #bdbdbd);
+      line-height: 1.6;
+      max-width: 780px;
+    }
+
+    .sbs-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.75fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .sbs-stage {
+      border: 1px solid var(--border, rgba(255,255,255,0.14));
+      border-radius: 24px;
+      background: #050505;
+      overflow: hidden;
+    }
+
+    .sbs-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .sbs-label {
+      fill: #ffffff;
+      font-size: 22px;
+      font-weight: 900;
+      font-family: Arial, sans-serif;
+    }
+
+    .sbs-label-small {
+      fill: #ffffff;
+      font-size: 17px;
+      font-weight: 800;
+      font-family: Arial, sans-serif;
+    }
+
+    .sbs-label-red {
+      fill: #EA0003;
+      font-size: 17px;
+      font-weight: 900;
+      font-family: Arial, sans-serif;
+    }
+
+    .sbs-label-yellow {
+      fill: #FBC306;
+      font-size: 17px;
+      font-weight: 900;
+      font-family: Arial, sans-serif;
+    }
+
+    .sbs-path {
+      fill: none;
+      stroke-linecap: round;
+      transition: opacity 0.2s ease, stroke-width 0.2s ease;
+    }
+
+    .sbs-input-path {
+      stroke: #ffffff;
+      stroke-width: 4;
+      opacity: 0.85;
+      filter: drop-shadow(0 0 5px rgba(255,255,255,0.45));
+    }
+
+    .sbs-path-t {
+      stroke: #FBC306;
+      stroke-width: 5;
+      filter: drop-shadow(0 0 7px #FBC306);
+    }
+
+    .sbs-path-r {
+      stroke: #EA0003;
+      stroke-width: 5;
+      filter: drop-shadow(0 0 7px #EA0003);
+    }
+
+    .sbs-source-dot,
+    .sbs-photon {
+      fill: #ffffff;
+      filter: drop-shadow(0 0 8px #ffffff);
+    }
+
+    .sbs-photon {
+      transition: opacity 0.2s ease;
+    }
+
+    .sbs-beam-splitter rect {
+      fill: rgba(255,255,255,0.045);
+      stroke: rgba(255,255,255,0.88);
+      stroke-width: 2.5;
+    }
+
+    .sbs-beam-splitter line {
+      stroke: rgba(255,255,255,0.82);
+      stroke-width: 2;
+    }
+
+    .sbs-detector rect {
+      fill: rgba(255,255,255,0.055);
+      stroke: rgba(255,255,255,0.85);
+      stroke-width: 2;
+    }
+
+    .sbs-detector text {
+      fill: #ffffff;
+      font-size: 20px;
+      font-weight: 900;
+      font-family: Arial, sans-serif;
+    }
+
+    .sbs-detector.active rect {
+      stroke: var(--yellow, #FBC306);
+      fill: rgba(251,195,6,0.18);
+      filter: drop-shadow(0 0 12px #FBC306);
+    }
+
+    .sbs-controls {
+      display: grid;
+      gap: 18px;
+    }
+
+    .sbs-slider-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      color: var(--text, #ffffff);
+      font-weight: 900;
+    }
+
+    .sbs-slider-head strong {
+      color: var(--yellow, #FBC306);
+      font-size: 1.05rem;
+    }
+
+    .sbs-slider {
+      width: 100%;
+      accent-color: #FBC306;
+    }
+
+    .sbs-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .sbs-card {
+      border: 1px solid var(--border, rgba(255,255,255,0.14));
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255,255,255,0.045);
+    }
+
+    .sbs-card span {
+      display: block;
+      color: var(--muted, #bdbdbd);
+      font-size: 0.84rem;
+      margin-bottom: 7px;
+      line-height: 1.35;
+    }
+
+    .sbs-card strong {
+      display: block;
+      color: var(--text, #ffffff);
+      font-size: 1.35rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .sbs-card small {
+      display: block;
+      color: var(--muted, #bdbdbd);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .sbs-state-box {
+      border: 1px solid rgba(251,195,6,0.35);
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(251,195,6,0.06);
+    }
+
+    .sbs-state-box span {
+      display: block;
+      color: var(--muted, #bdbdbd);
+      font-size: 0.84rem;
+      margin-bottom: 8px;
+    }
+
+    .sbs-state-box code {
+      display: block;
+      color: #ffffff;
+      font-size: 1rem;
+      line-height: 1.6;
+      white-space: normal;
+      font-family: "Consolas", "Courier New", monospace;
+    }
+
+    .sbs-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .sbs-buttons button {
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 15px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .sbs-buttons button:hover {
+      transform: translateY(-2px);
+    }
+
+    .sbs-buttons button:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .sbs-buttons button[data-animate-one] {
+      background: var(--red, #EA0003);
+      color: #ffffff;
+    }
+
+    .sbs-buttons button[data-run-many] {
+      background: var(--yellow, #FBC306);
+      color: #050505;
+    }
+
+    .sbs-buttons button[data-reset] {
+      background: rgba(255,255,255,0.13);
+      color: #ffffff;
+    }
+
+    .sbs-result {
+      color: var(--muted, #bdbdbd);
+      line-height: 1.55;
+      font-size: 0.94rem;
+      margin: 0;
+    }
+
+    @media (max-width: 920px) {
+      .sbs-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .sbs-label {
+        font-size: 19px;
+      }
+
+      .sbs-label-red,
+      .sbs-label-yellow {
+        font-size: 15px;
+      }
+    }
+  </style>
+
+  <div class="sbs-header">
+    <h2>Beam Splitter Satu Foton</h2>
+    <p>
+      Geser nilai transmitansi. Jalur kuning menunjukkan peluang foton diteruskan,
+      sedangkan jalur merah menunjukkan peluang foton dipantulkan.
+    </p>
   </div>
 
-  <div class="bs-demo-panel">
-    <svg class="bs-svg bs-svg-sketch" viewBox="0 0 780 360" role="img" aria-label="Demo beam splitter satu foton">
-      <!-- Source -->
-      <circle cx="70" cy="270" r="7" class="bs-source-dot" />
-      <text x="42" y="302" class="bs-label-sketch small">Input</text>
-    
-      <!-- Input path -->
-      <line x1="70" y1="270" x2="300" y2="180" class="bs-path bs-path-input" />
-    
-      <!-- Beam splitter -->
-      <g class="bs-cube-sketch">
-        <rect x="260" y="140" width="80" height="80" />
-        <line x1="260" y1="140" x2="340" y2="220" />
-        <line x1="260" y1="220" x2="340" y2="140" />
-        <line x1="260" y1="180" x2="340" y2="180" />
-        <line x1="300" y1="140" x2="300" y2="220" />
-      </g>
-    
-      <text x="260" y="122" class="bs-label-sketch">BS</text>
-    
-      <!-- Upper reflected path -->
-      <line
-        x1="300"
-        y1="180"
-        x2="625"
-        y2="95"
-        class="bs-path bs-path-r"
-        data-path-r
-      />
-    
-      <!-- Lower transmitted path -->
-      <line
-        x1="300"
-        y1="180"
-        x2="625"
-        y2="265"
-        class="bs-path bs-path-t"
-        data-path-t
-      />
-    
-      <!-- Labels -->
-      <text x="435" y="82" class="bs-label-red">R: dipantulkan</text>
-      <text x="435" y="300" class="bs-label-yellow">T: diteruskan</text>
-    
-      <!-- Detector D0 -->
-      <g class="bs-detector bs-detector-r" data-detector="R">
-        <rect x="625" y="70" width="92" height="50" rx="15" />
-        <text x="671" y="102" text-anchor="middle">D0</text>
-      </g>
-    
-      <!-- Detector D1 -->
-      <g class="bs-detector bs-detector-t" data-detector="T">
-        <rect x="625" y="240" width="92" height="50" rx="15" />
-        <text x="671" y="272" text-anchor="middle">D1</text>
-      </g>
-    
-      <!-- Photon -->
-      <circle class="bs-photon" data-photon cx="70" cy="270" r="8" />
-    </svg>
-    <div class="bs-controls">
-      <label class="bs-slider-label">
-        <span>Transmitansi, T</span>
-        <strong><span data-t-value>50</span>%</strong>
-      </label>
+  <div class="sbs-panel">
+    <div class="sbs-stage">
+      <svg class="sbs-svg" viewBox="0 0 820 420" role="img" aria-label="Beam splitter dengan dua detektor">
+        <defs>
+          <marker id="sbs-arrow-white" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#ffffff"></path>
+          </marker>
 
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value="50"
-        step="1"
-        class="bs-slider"
-        data-t-slider
-      />
+          <marker id="sbs-arrow-yellow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#FBC306"></path>
+          </marker>
 
-      <div class="bs-prob-grid">
-        <div>
-          <span>Peluang diteruskan</span>
-          <strong data-p-t>50%</strong>
+          <marker id="sbs-arrow-red" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#EA0003"></path>
+          </marker>
+        </defs>
+
+        <!-- Source and input -->
+        <circle cx="70" cy="300" r="7" class="sbs-source-dot"></circle>
+        <text x="39" y="336" class="sbs-label-small">Input</text>
+
+        <line
+          x1="70"
+          y1="300"
+          x2="245"
+          y2="300"
+          class="sbs-path sbs-input-path"
+          marker-end="url(#sbs-arrow-white)"
+        ></line>
+
+        <!-- Beam splitter -->
+        <g class="sbs-beam-splitter">
+          <rect x="245" y="245" width="90" height="90"></rect>
+          <line x1="245" y1="335" x2="335" y2="245"></line>
+          <line x1="245" y1="245" x2="335" y2="335"></line>
+          <line x1="245" y1="290" x2="335" y2="290"></line>
+          <line x1="290" y1="245" x2="290" y2="335"></line>
+        </g>
+        <text x="260" y="232" class="sbs-label">BS</text>
+
+        <!-- Reflected path: upward to D0 -->
+        <line
+          x1="290"
+          y1="245"
+          x2="290"
+          y2="112"
+          class="sbs-path sbs-path-r"
+          data-path-r
+          marker-end="url(#sbs-arrow-red)"
+        ></line>
+
+        <!-- Transmitted path: right to D1 -->
+        <line
+          x1="335"
+          y1="290"
+          x2="610"
+          y2="290"
+          class="sbs-path sbs-path-t"
+          data-path-t
+          marker-end="url(#sbs-arrow-yellow)"
+        ></line>
+
+        <!-- Labels -->
+        <text x="315" y="176" class="sbs-label-red">R: dipantulkan</text>
+        <text x="432" y="323" class="sbs-label-yellow">T: diteruskan</text>
+
+        <!-- Detector D0 -->
+        <g class="sbs-detector" data-detector="R">
+          <rect x="245" y="52" width="90" height="46" rx="13"></rect>
+          <text x="290" y="81" text-anchor="middle">D0</text>
+        </g>
+
+        <!-- Detector D1 -->
+        <g class="sbs-detector" data-detector="T">
+          <rect x="620" y="267" width="90" height="46" rx="13"></rect>
+          <text x="665" y="296" text-anchor="middle">D1</text>
+        </g>
+
+        <!-- Photon -->
+        <circle class="sbs-photon" data-photon cx="70" cy="300" r="8"></circle>
+      </svg>
+    </div>
+
+    <div class="sbs-controls">
+      <div>
+        <div class="sbs-slider-head">
+          <span>Transmitansi, T</span>
+          <strong><span data-t-value>{{ initial_T }}</span>%</strong>
         </div>
-        <div>
+
+        <input
+          class="sbs-slider"
+          type="range"
+          min="0"
+          max="100"
+          step="1"
+          value="{{ initial_T }}"
+          data-t-slider
+        />
+      </div>
+
+      <div class="sbs-card-grid">
+        <div class="sbs-card">
+          <span>Peluang diteruskan</span>
+          <strong data-p-t>{{ initial_T }}%</strong>
+          <small data-amp-t>amplituda: √0.50 = 0.707</small>
+        </div>
+
+        <div class="sbs-card">
           <span>Peluang dipantulkan</span>
           <strong data-p-r>50%</strong>
+          <small data-amp-r>amplituda: √0.50 = 0.707</small>
         </div>
       </div>
 
-      <div class="bs-buttons">
+      <div class="sbs-state-box">
+        <span>Keadaan setelah beam splitter</span>
+        <code data-state-text>|ψ⟩ = √0.50 |T⟩ + √0.50 |R⟩</code>
+      </div>
+
+      <div class="sbs-buttons">
         <button type="button" data-animate-one>Animasi 1 foton</button>
         <button type="button" data-run-many>Ukur 100 foton</button>
         <button type="button" data-reset>Reset</button>
       </div>
 
-      <div class="bs-counts">
-        <div>
-          <span>Detektor T</span>
+      <div class="sbs-card-grid">
+        <div class="sbs-card">
+          <span>Detektor D1</span>
           <strong data-count-t>0</strong>
+          <small>jalur diteruskan</small>
         </div>
-        <div>
-          <span>Detektor R</span>
+
+        <div class="sbs-card">
+          <span>Detektor D0</span>
           <strong data-count-r>0</strong>
+          <small>jalur dipantulkan</small>
         </div>
       </div>
 
-      <p class="bs-explain" data-result>
+      <p class="sbs-result" data-result>
         Satu foton akan terdeteksi pada salah satu detektor. Setelah banyak percobaan,
         jumlah klik akan mendekati peluang T dan R.
       </p>
     </div>
   </div>
-</div>
 
-<script src="{{ '/assets/js/single-beam-splitter-demo.js' | relative_url }}" defer></script>
+  <script>
+    (function () {
+      function initSingleBeamSplitterDemo(demo) {
+        if (demo.dataset.initialized === "true") return;
+        demo.dataset.initialized = "true";
+
+        const slider = demo.querySelector("[data-t-slider]");
+        const tValue = demo.querySelector("[data-t-value]");
+        const pT = demo.querySelector("[data-p-t]");
+        const pR = demo.querySelector("[data-p-r]");
+        const ampT = demo.querySelector("[data-amp-t]");
+        const ampR = demo.querySelector("[data-amp-r]");
+        const stateText = demo.querySelector("[data-state-text]");
+        const countTEl = demo.querySelector("[data-count-t]");
+        const countREl = demo.querySelector("[data-count-r]");
+        const resultEl = demo.querySelector("[data-result]");
+        const photon = demo.querySelector("[data-photon]");
+        const detectorT = demo.querySelector('[data-detector="T"]');
+        const detectorR = demo.querySelector('[data-detector="R"]');
+        const pathT = demo.querySelector("[data-path-t]");
+        const pathR = demo.querySelector("[data-path-r]");
+
+        const animateBtn = demo.querySelector("[data-animate-one]");
+        const manyBtn = demo.querySelector("[data-run-many]");
+        const resetBtn = demo.querySelector("[data-reset]");
+
+        let countT = 0;
+        let countR = 0;
+        let isAnimating = false;
+
+        function getT() {
+          return Number(slider.value) / 100;
+        }
+
+        function getR() {
+          return 1 - getT();
+        }
+
+        function percent(x) {
+          return `${Math.round(x * 100)}%`;
+        }
+
+        function probText(x) {
+          return x.toFixed(2);
+        }
+
+        function ampText(x) {
+          return Math.sqrt(x).toFixed(3);
+        }
+
+        function setPhoton(x, y, visible) {
+          photon.setAttribute("cx", x);
+          photon.setAttribute("cy", y);
+          photon.style.opacity = visible ? "1" : "0";
+        }
+
+        function updateDisplay() {
+          const T = getT();
+          const R = getR();
+
+          tValue.textContent = Math.round(T * 100);
+          pT.textContent = percent(T);
+          pR.textContent = percent(R);
+
+          ampT.textContent = `amplituda: √${probText(T)} = ${ampText(T)}`;
+          ampR.textContent = `amplituda: √${probText(R)} = ${ampText(R)}`;
+
+          stateText.textContent =
+            `|ψ⟩ = √${probText(T)} |T⟩ + √${probText(R)} |R⟩`;
+
+          const tOpacity = 0.08 + 0.92 * T;
+          const rOpacity = 0.08 + 0.92 * R;
+
+          const tWidth = 2 + 6 * T;
+          const rWidth = 2 + 6 * R;
+
+          pathT.style.opacity = String(tOpacity);
+          pathT.style.strokeWidth = `${tWidth}px`;
+
+          pathR.style.opacity = String(rOpacity);
+          pathR.style.strokeWidth = `${rWidth}px`;
+        }
+
+        function sampleDetector() {
+          return Math.random() < getT() ? "T" : "R";
+        }
+
+        function addCount(detector) {
+          if (detector === "T") {
+            countT += 1;
+          } else {
+            countR += 1;
+          }
+
+          countTEl.textContent = countT;
+          countREl.textContent = countR;
+        }
+
+        function flashDetector(detector) {
+          const el = detector === "T" ? detectorT : detectorR;
+          el.classList.add("active");
+
+          setTimeout(function () {
+            el.classList.remove("active");
+          }, 650);
+        }
+
+        function interpolate(p0, p1, u) {
+          return {
+            x: p0.x + (p1.x - p0.x) * u,
+            y: p0.y + (p1.y - p0.y) * u
+          };
+        }
+
+        function positionAt(points, t) {
+          const segments = points.length - 1;
+          const scaled = t * segments;
+          const index = Math.min(Math.floor(scaled), segments - 1);
+          const localT = scaled - index;
+
+          return interpolate(points[index], points[index + 1], localT);
+        }
+
+        function animatePhotonAlong(points, duration, done) {
+          const start = performance.now();
+
+          function step(now) {
+            const t = Math.min((now - start) / duration, 1);
+            const pos = positionAt(points, t);
+
+            setPhoton(pos.x, pos.y, true);
+
+            if (t < 1) {
+              requestAnimationFrame(step);
+            } else {
+              done();
+            }
+          }
+
+          requestAnimationFrame(step);
+        }
+
+        function animateOnePhoton() {
+          if (isAnimating) return;
+
+          isAnimating = true;
+          animateBtn.disabled = true;
+          manyBtn.disabled = true;
+
+          detectorT.classList.remove("active");
+          detectorR.classList.remove("active");
+
+          const detector = sampleDetector();
+
+          resultEl.textContent = "Foton bergerak menuju beam splitter...";
+          setPhoton(70, 300, true);
+
+          const pathToBS = [
+            { x: 70, y: 300 },
+            { x: 140, y: 300 },
+            { x: 210, y: 300 },
+            { x: 290, y: 300 }
+          ];
+
+          animatePhotonAlong(pathToBS, 750, function () {
+            resultEl.textContent =
+              "Di beam splitter, peluang hasil ditentukan oleh amplituda pada jalur T dan R.";
+
+            setTimeout(function () {
+              let finalPath;
+
+              if (detector === "T") {
+                finalPath = [
+                  { x: 290, y: 300 },
+                  { x: 335, y: 290 },
+                  { x: 470, y: 290 },
+                  { x: 620, y: 290 }
+                ];
+              } else {
+                finalPath = [
+                  { x: 290, y: 300 },
+                  { x: 290, y: 245 },
+                  { x: 290, y: 180 },
+                  { x: 290, y: 112 }
+                ];
+              }
+
+              animatePhotonAlong(finalPath, 900, function () {
+                addCount(detector);
+                flashDetector(detector);
+
+                const T = Math.round(getT() * 100);
+                const R = 100 - T;
+
+                if (detector === "T") {
+                  resultEl.textContent =
+                    `Klik di D1. Peluang teoritis: T = ${T}%, R = ${R}%.`;
+                } else {
+                  resultEl.textContent =
+                    `Klik di D0. Peluang teoritis: T = ${T}%, R = ${R}%.`;
+                }
+
+                setTimeout(function () {
+                  setPhoton(70, 300, true);
+                  isAnimating = false;
+                  animateBtn.disabled = false;
+                  manyBtn.disabled = false;
+                }, 450);
+              });
+            }, 300);
+          });
+        }
+
+        function runMany(n) {
+          if (isAnimating) return;
+
+          for (let i = 0; i < n; i += 1) {
+            addCount(sampleDetector());
+          }
+
+          const total = countT + countR;
+          const observedT = total > 0 ? Math.round((countT / total) * 100) : 0;
+          const observedR = total > 0 ? Math.round((countR / total) * 100) : 0;
+
+          resultEl.textContent =
+            `Setelah ${total} percobaan: D1 ≈ ${observedT}%, D0 ≈ ${observedR}%. ` +
+            `Jika jumlah percobaan diperbanyak, hasil statistik akan makin mendekati peluang teoritis.`;
+        }
+
+        function reset() {
+          countT = 0;
+          countR = 0;
+
+          countTEl.textContent = "0";
+          countREl.textContent = "0";
+
+          detectorT.classList.remove("active");
+          detectorR.classList.remove("active");
+
+          setPhoton(70, 300, true);
+
+          resultEl.textContent =
+            "Satu foton akan terdeteksi pada salah satu detektor. Setelah banyak percobaan, jumlah klik akan mendekati peluang T dan R.";
+
+          updateDisplay();
+        }
+
+        slider.addEventListener("input", updateDisplay);
+        animateBtn.addEventListener("click", animateOnePhoton);
+        manyBtn.addEventListener("click", function () {
+          runMany(100);
+        });
+        resetBtn.addEventListener("click", reset);
+
+        updateDisplay();
+        reset();
+      }
+
+      function boot() {
+        document.querySelectorAll("[data-single-bs-demo]").forEach(initSingleBeamSplitterDemo);
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", boot);
+      } else {
+        boot();
+      }
+    })();
+  </script>
+</div>
