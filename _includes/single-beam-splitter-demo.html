@@ -1,6 +1,7 @@
 {% assign initial_T = include.T | default: "50" %}
+{% assign initial_N = include.N | default: "10" %}
 
-<div class="sbs-demo many-mode" data-single-bs-demo>
+<div class="sbs-demo classical-mode" data-single-bs-demo>
   <style>
     .sbs-demo {
       margin: 34px 0;
@@ -25,7 +26,7 @@
       margin: 0;
       color: var(--muted, #bdbdbd);
       line-height: 1.6;
-      max-width: 820px;
+      max-width: 850px;
     }
 
     .sbs-panel {
@@ -82,6 +83,7 @@
       transition: opacity 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
     }
 
+    /* Default guide-line state: no physical beam glow. */
     .sbs-input-path {
       stroke: #ffffff;
       stroke-width: 3;
@@ -103,17 +105,18 @@
       filter: none;
     }
 
-    .sbs-demo.many-mode .sbs-input-path {
+    /* Classical-light mode: glowing paths indicate average optical intensity. */
+    .sbs-demo.classical-mode .sbs-input-path {
       opacity: 0.9;
       stroke-width: 5;
       filter: drop-shadow(0 0 10px rgba(255,255,255,0.75));
     }
 
-    .sbs-demo.many-mode .sbs-path-t {
+    .sbs-demo.classical-mode .sbs-path-t {
       filter: drop-shadow(0 0 9px #FBC306);
     }
 
-    .sbs-demo.many-mode .sbs-path-r {
+    .sbs-demo.classical-mode .sbs-path-r {
       filter: drop-shadow(0 0 9px #EA0003);
     }
 
@@ -131,14 +134,14 @@
     }
 
     .sbs-source.active rect,
-    .sbs-demo.many-mode .sbs-source rect {
+    .sbs-demo.classical-mode .sbs-source rect {
       stroke: #ffffff;
       fill: rgba(255,255,255,0.16);
       filter: drop-shadow(0 0 14px #ffffff);
     }
 
     .sbs-source.active text,
-    .sbs-demo.many-mode .sbs-source text {
+    .sbs-demo.classical-mode .sbs-source text {
       fill: #FBC306;
     }
 
@@ -194,6 +197,39 @@
     .sbs-slider {
       width: 100%;
       accent-color: #FBC306;
+    }
+
+    .sbs-number-row {
+      display: grid;
+      grid-template-columns: 1fr 112px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .sbs-number-label {
+      color: var(--text, #ffffff);
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .sbs-number-label small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted, #bdbdbd);
+      font-weight: 700;
+      font-size: 0.78rem;
+    }
+
+    .sbs-number-input {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 14px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.07);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 1rem;
     }
 
     .sbs-card-grid {
@@ -274,18 +310,20 @@
       transform: translateY(-2px);
     }
 
-    .sbs-buttons button:disabled {
+    .sbs-buttons button:disabled,
+    .sbs-number-input:disabled,
+    .sbs-slider:disabled {
       opacity: 0.45;
       cursor: not-allowed;
       transform: none;
     }
 
-    .sbs-buttons button[data-send-one] {
+    .sbs-buttons button[data-send-n] {
       background: var(--red, #EA0003);
       color: #ffffff;
     }
 
-    .sbs-buttons button[data-many-mode] {
+    .sbs-buttons button[data-classical-mode] {
       background: var(--yellow, #FBC306);
       color: #050505;
     }
@@ -300,6 +338,28 @@
       line-height: 1.55;
       font-size: 0.94rem;
       margin: 0;
+    }
+
+    .sbs-caption {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border: 1px solid rgba(251,195,6,0.22);
+      border-radius: 22px;
+      background: rgba(251,195,6,0.045);
+      color: var(--muted, #bdbdbd);
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
+    .sbs-caption strong {
+      color: #FBC306;
+      font-weight: 900;
+    }
+
+    .sbs-caption code {
+      color: #ffffff;
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 0.95em;
     }
 
     @media (max-width: 920px) {
@@ -321,8 +381,7 @@
   <div class="sbs-header">
     <h2>Beam Splitter Satu Foton</h2>
     <p>
-      Secara default, diagram menampilkan mode banyak foton sehingga intensitas pada jalur T dan R terlihat.
-      Jika “Kirim 1 foton” ditekan, mode banyak foton otomatis dimatikan.
+      Atur transmitansi beam splitter, lalu bandingkan mode cahaya klasik dengan pengiriman foton diskret satu per satu.
     </p>
   </div>
 
@@ -404,6 +463,23 @@
         />
       </div>
 
+      <div class="sbs-number-row">
+        <div class="sbs-number-label">
+          Jumlah foton
+          <small>Dikirim berurutan, satu per satu. Maksimum 100.</small>
+        </div>
+
+        <input
+          class="sbs-number-input"
+          type="number"
+          min="1"
+          max="100"
+          step="1"
+          value="{{ initial_N }}"
+          data-photon-number
+        />
+      </div>
+
       <div class="sbs-card-grid">
         <div class="sbs-card">
           <span>Peluang diteruskan</span>
@@ -424,8 +500,8 @@
       </div>
 
       <div class="sbs-buttons">
-        <button type="button" data-send-one>Kirim 1 foton</button>
-        <button type="button" data-many-mode>Matikan banyak foton</button>
+        <button type="button" data-send-n>Kirim N foton</button>
+        <button type="button" data-classical-mode>Matikan cahaya klasik</button>
         <button type="button" data-reset>Reset</button>
       </div>
 
@@ -444,9 +520,19 @@
       </div>
 
       <p class="sbs-result" data-result>
-        Mode banyak foton aktif: cahaya pada jalur T dan R menunjukkan intensitas rata-rata sesuai peluang.
+        Mode cahaya klasik aktif: terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.
       </p>
     </div>
+  </div>
+
+  <div class="sbs-caption">
+    <strong>Eksperimen.</strong>
+    Sumber <code>S</code> mengirim cahaya menuju beam splitter <code>BS</code>.
+    Beam splitter memiliki transmitansi <code>T</code> dan reflektansi <code>R = 1 − T</code>.
+    Pada mode <strong>Kirim N foton</strong>, foton dikirim berurutan: setiap foton hanya menghasilkan satu klik,
+    baik di <code>D1</code> maupun <code>D0</code>. Setelah banyak pengiriman, rasio klik di kedua detektor
+    mendekati peluang <code>T</code> dan <code>R</code>. Mode <strong>cahaya klasik</strong> hanya menampilkan
+    intensitas rata-rata pada kedua jalur, bukan simulasi klik foton tunggal.
   </div>
 
   <script>
@@ -456,6 +542,8 @@
         demo.dataset.initialized = "true";
 
         const slider = demo.querySelector("[data-t-slider]");
+        const photonNumberInput = demo.querySelector("[data-photon-number]");
+
         const tValue = demo.querySelector("[data-t-value]");
         const pT = demo.querySelector("[data-p-t]");
         const pR = demo.querySelector("[data-p-r]");
@@ -472,14 +560,14 @@
         const pathT = demo.querySelector("[data-path-t]");
         const pathR = demo.querySelector("[data-path-r]");
 
-        const sendBtn = demo.querySelector("[data-send-one]");
-        const manyBtn = demo.querySelector("[data-many-mode]");
+        const sendBtn = demo.querySelector("[data-send-n]");
+        const classicalBtn = demo.querySelector("[data-classical-mode]");
         const resetBtn = demo.querySelector("[data-reset]");
 
         let countT = 0;
         let countR = 0;
         let isRunning = false;
-        let manyMode = true;
+        let classicalMode = true;
 
         function getT() {
           return Number(slider.value) / 100;
@@ -501,6 +589,16 @@
           return Math.sqrt(x).toFixed(3);
         }
 
+        function clampPhotonNumber(value) {
+          const n = Math.round(Number(value));
+
+          if (!Number.isFinite(n)) return 1;
+          if (n < 1) return 1;
+          if (n > 100) return 100;
+
+          return n;
+        }
+
         function updateDisplay() {
           const T = getT();
           const R = getR();
@@ -515,7 +613,7 @@
           stateText.textContent =
             `|ψ⟩ = √${probText(T)} |T⟩ + √${probText(R)} |R⟩`;
 
-          if (manyMode) {
+          if (classicalMode) {
             pathT.style.opacity = String(0.08 + 0.92 * T);
             pathR.style.opacity = String(0.08 + 0.92 * R);
             pathT.style.strokeWidth = `${2 + 6 * T}px`;
@@ -532,16 +630,30 @@
           return Math.random() < getT() ? "T" : "R";
         }
 
+        function delay(ms) {
+          return new Promise(function (resolve) {
+            setTimeout(resolve, ms);
+          });
+        }
+
         function clearEventFlash() {
           source.classList.remove("active");
           detectorT.classList.remove("active");
           detectorR.classList.remove("active");
         }
 
-        function turnOffManyMode() {
-          manyMode = false;
-          demo.classList.remove("many-mode");
-          manyBtn.textContent = "Tampilkan banyak foton";
+        function setControlsDisabled(disabled) {
+          sendBtn.disabled = disabled;
+          classicalBtn.disabled = disabled;
+          resetBtn.disabled = disabled;
+          slider.disabled = disabled;
+          photonNumberInput.disabled = disabled;
+        }
+
+        function turnOffClassicalMode() {
+          classicalMode = false;
+          demo.classList.remove("classical-mode");
+          classicalBtn.textContent = "Tampilkan cahaya klasik";
           updateDisplay();
         }
 
@@ -556,82 +668,123 @@
           countREl.textContent = countR;
         }
 
-        function sendOnePhoton() {
-          if (isRunning) return;
+        function observedText() {
+          const total = countT + countR;
+          const observedT = total > 0 ? Math.round((countT / total) * 100) : 0;
+          const observedR = total > 0 ? Math.round((countR / total) * 100) : 0;
 
-          turnOffManyMode();
+          return `Total klik: ${total}. D1 = ${observedT}%, D0 = ${observedR}%.`;
+        }
 
-          isRunning = true;
-          sendBtn.disabled = true;
-          clearEventFlash();
-
+        async function sendOnePhotonInSequence(index, totalToSend) {
           const detector = sampleDetector();
           const T = Math.round(getT() * 100);
           const R = 100 - T;
 
+          clearEventFlash();
+
           source.classList.add("active");
           resultEl.textContent =
-            "Sumber mengirim satu foton. Mode banyak foton otomatis dimatikan agar tidak tampak seperti berkas kontinu.";
+            `Mengirim foton ${index} dari ${totalToSend}. Mode cahaya klasik dimatikan.`;
 
-          setTimeout(function () {
-            if (detector === "T") {
-              detectorT.classList.add("active");
-              addCount("T");
-              resultEl.textContent =
-                `Satu klik di D1. Peluang teoritis: T = ${T}%, R = ${R}%.`;
-            } else {
-              detectorR.classList.add("active");
-              addCount("R");
-              resultEl.textContent =
-                `Satu klik di D0. Peluang teoritis: T = ${T}%, R = ${R}%.`;
-            }
-          }, 450);
+          await delay(260);
 
-          setTimeout(function () {
-            clearEventFlash();
-            sendBtn.disabled = false;
-            isRunning = false;
-          }, 1150);
-        }
+          source.classList.remove("active");
 
-        function toggleManyMode() {
-          manyMode = !manyMode;
-          demo.classList.toggle("many-mode", manyMode);
+          await delay(120);
 
-          manyBtn.textContent = manyMode ? "Matikan banyak foton" : "Tampilkan banyak foton";
-
-          if (manyMode) {
+          if (detector === "T") {
+            detectorT.classList.add("active");
+            addCount("T");
             resultEl.textContent =
-              "Mode banyak foton aktif: cahaya pada jalur T dan R menunjukkan intensitas rata-rata sesuai peluang.";
+              `Foton ${index}/${totalToSend}: klik di D1. Peluang teoritis: T = ${T}%, R = ${R}%.`;
           } else {
+            detectorR.classList.add("active");
+            addCount("R");
             resultEl.textContent =
-              "Mode banyak foton dimatikan. Pada mode satu foton, yang ditampilkan hanya klik detektor.";
+              `Foton ${index}/${totalToSend}: klik di D0. Peluang teoritis: T = ${T}%, R = ${R}%.`;
           }
 
+          await delay(420);
+
+          detectorT.classList.remove("active");
+          detectorR.classList.remove("active");
+
+          await delay(120);
+        }
+
+        async function sendNPhotons() {
+          if (isRunning) return;
+
+          const totalToSend = clampPhotonNumber(photonNumberInput.value);
+          photonNumberInput.value = totalToSend;
+
+          turnOffClassicalMode();
+
+          isRunning = true;
+          setControlsDisabled(true);
+          clearEventFlash();
+
+          for (let i = 1; i <= totalToSend; i += 1) {
+            await sendOnePhotonInSequence(i, totalToSend);
+          }
+
+          clearEventFlash();
+
+          resultEl.textContent =
+            `Selesai mengirim ${totalToSend} foton secara berurutan. ${observedText()} ` +
+            `Jika jumlah foton diperbesar, rasio klik akan makin mendekati peluang teoritis.`;
+
+          setControlsDisabled(false);
+          isRunning = false;
+        }
+
+        function toggleClassicalMode() {
+          if (isRunning) return;
+
+          classicalMode = !classicalMode;
+          demo.classList.toggle("classical-mode", classicalMode);
+
+          classicalBtn.textContent = classicalMode ? "Matikan cahaya klasik" : "Tampilkan cahaya klasik";
+
+          if (classicalMode) {
+            resultEl.textContent =
+              "Mode cahaya klasik aktif: terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.";
+          } else {
+            resultEl.textContent =
+              "Mode cahaya klasik dimatikan. Mode ini tidak menampilkan berkas kontinu.";
+          }
+
+          clearEventFlash();
           updateDisplay();
         }
 
         function reset() {
           countT = 0;
           countR = 0;
-          manyMode = true;
+          classicalMode = true;
 
           countTEl.textContent = "0";
           countREl.textContent = "0";
 
-          demo.classList.add("many-mode");
-          manyBtn.textContent = "Matikan banyak foton";
+          demo.classList.add("classical-mode");
+          classicalBtn.textContent = "Matikan cahaya klasik";
           clearEventFlash();
 
           resultEl.textContent =
-            "Mode banyak foton aktif: cahaya pada jalur T dan R menunjukkan intensitas rata-rata sesuai peluang.";
+            "Mode cahaya klasik aktif: terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.";
 
           updateDisplay();
         }
 
         slider.addEventListener("input", updateDisplay);
-        sendBtn.addEventListener("click", sendOnePhoton);
-        manyBtn.addEventListener("click", toggleManyMode);
+
+        photonNumberInput.addEventListener("change", function () {
+          photonNumberInput.value = clampPhotonNumber(photonNumberInput.value);
+        });
+
+        sendBtn.addEventListener("click", sendNPhotons);
+        classicalBtn.addEventListener("click", toggleClassicalMode);
         resetBtn.addEventListener("click", reset);
 
         updateDisplay();
