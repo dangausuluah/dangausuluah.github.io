@@ -1,6 +1,6 @@
 {% assign initial_T = include.T | default: "50" %}
 
-<div class="sbs-demo" data-single-bs-demo>
+<div class="sbs-demo many-mode" data-single-bs-demo>
   <style>
     .sbs-demo {
       margin: 34px 0;
@@ -25,7 +25,7 @@
       margin: 0;
       color: var(--muted, #bdbdbd);
       line-height: 1.6;
-      max-width: 780px;
+      max-width: 820px;
     }
 
     .sbs-panel {
@@ -84,34 +84,37 @@
 
     .sbs-input-path {
       stroke: #ffffff;
-      stroke-width: 4;
-      opacity: 0.85;
-      filter: drop-shadow(0 0 5px rgba(255,255,255,0.45));
-    }
-
-    .sbs-input-path.active {
-      stroke-width: 6;
-      filter: drop-shadow(0 0 12px #ffffff);
+      stroke-width: 3;
+      opacity: 0.45;
+      filter: none;
     }
 
     .sbs-path-t {
       stroke: #FBC306;
-      stroke-width: 5;
-      filter: drop-shadow(0 0 7px #FBC306);
+      stroke-width: 3;
+      opacity: 0.28;
+      filter: none;
     }
 
     .sbs-path-r {
       stroke: #EA0003;
+      stroke-width: 3;
+      opacity: 0.28;
+      filter: none;
+    }
+
+    .sbs-demo.many-mode .sbs-input-path {
+      opacity: 0.9;
       stroke-width: 5;
-      filter: drop-shadow(0 0 7px #EA0003);
+      filter: drop-shadow(0 0 10px rgba(255,255,255,0.75));
     }
 
-    .sbs-path-t.active {
-      filter: drop-shadow(0 0 16px #FBC306);
+    .sbs-demo.many-mode .sbs-path-t {
+      filter: drop-shadow(0 0 9px #FBC306);
     }
 
-    .sbs-path-r.active {
-      filter: drop-shadow(0 0 16px #EA0003);
+    .sbs-demo.many-mode .sbs-path-r {
+      filter: drop-shadow(0 0 9px #EA0003);
     }
 
     .sbs-source rect {
@@ -127,13 +130,15 @@
       font-family: Arial, sans-serif;
     }
 
-    .sbs-source.active rect {
+    .sbs-source.active rect,
+    .sbs-demo.many-mode .sbs-source rect {
       stroke: #ffffff;
       fill: rgba(255,255,255,0.16);
       filter: drop-shadow(0 0 14px #ffffff);
     }
 
-    .sbs-source.active text {
+    .sbs-source.active text,
+    .sbs-demo.many-mode .sbs-source text {
       fill: #FBC306;
     }
 
@@ -280,6 +285,11 @@
       color: #ffffff;
     }
 
+    .sbs-buttons button[data-many-mode] {
+      background: var(--yellow, #FBC306);
+      color: #050505;
+    }
+
     .sbs-buttons button[data-reset] {
       background: rgba(255,255,255,0.13);
       color: #ffffff;
@@ -311,22 +321,20 @@
   <div class="sbs-header">
     <h2>Beam Splitter Satu Foton</h2>
     <p>
-      Geser nilai transmitansi. Setiap klik mengirim satu foton dari sumber.
-      Salah satu detektor akan berbunyi sesuai peluang T dan R.
+      Secara default, diagram menampilkan mode banyak foton sehingga intensitas pada jalur T dan R terlihat.
+      Jika “Kirim 1 foton” ditekan, mode banyak foton otomatis dimatikan.
     </p>
   </div>
 
   <div class="sbs-panel">
     <div class="sbs-stage">
       <svg class="sbs-svg" viewBox="0 0 820 420" role="img" aria-label="Beam splitter dengan sumber dan dua detektor">
-        <!-- Source object -->
         <g class="sbs-source" data-source>
           <rect x="42" y="267" width="72" height="46" rx="14"></rect>
           <text x="78" y="296" text-anchor="middle">S</text>
         </g>
         <text x="48" y="340" class="sbs-label-small">Input</text>
 
-        <!-- Input path aligned with BS midpoint -->
         <line
           x1="114"
           y1="290"
@@ -336,7 +344,6 @@
           data-input-path
         ></line>
 
-        <!-- Beam splitter -->
         <g class="sbs-beam-splitter">
           <rect x="245" y="245" width="90" height="90"></rect>
           <line x1="245" y1="335" x2="335" y2="245"></line>
@@ -346,8 +353,6 @@
         </g>
         <text x="261" y="232" class="sbs-label">BS</text>
 
-        <!-- Equal-length output arms -->
-        <!-- Reflected vertical arm: 120 px from BS to detector -->
         <line
           x1="290"
           y1="245"
@@ -357,7 +362,6 @@
           data-path-r
         ></line>
 
-        <!-- Transmitted horizontal arm: 120 px from BS to detector -->
         <line
           x1="335"
           y1="290"
@@ -367,17 +371,14 @@
           data-path-t
         ></line>
 
-        <!-- Labels -->
         <text x="315" y="178" class="sbs-label-red">R: dipantulkan</text>
         <text x="365" y="323" class="sbs-label-yellow">T: diteruskan</text>
 
-        <!-- Detector D0: elongated in y direction -->
         <g class="sbs-detector" data-detector="R">
           <rect x="267" y="35" width="46" height="90" rx="13"></rect>
           <text x="290" y="86" text-anchor="middle">D0</text>
         </g>
 
-        <!-- Detector D1: elongated in x direction -->
         <g class="sbs-detector" data-detector="T">
           <rect x="455" y="267" width="90" height="46" rx="13"></rect>
           <text x="500" y="296" text-anchor="middle">D1</text>
@@ -424,6 +425,7 @@
 
       <div class="sbs-buttons">
         <button type="button" data-send-one>Kirim 1 foton</button>
+        <button type="button" data-many-mode>Matikan banyak foton</button>
         <button type="button" data-reset>Reset</button>
       </div>
 
@@ -442,7 +444,7 @@
       </div>
 
       <p class="sbs-result" data-result>
-        Klik “Kirim 1 foton”. Sumber akan menyala, lalu salah satu detektor mencatat satu klik.
+        Mode banyak foton aktif: cahaya pada jalur T dan R menunjukkan intensitas rata-rata sesuai peluang.
       </p>
     </div>
   </div>
@@ -465,18 +467,19 @@
         const resultEl = demo.querySelector("[data-result]");
 
         const source = demo.querySelector("[data-source]");
-        const inputPath = demo.querySelector("[data-input-path]");
         const detectorT = demo.querySelector('[data-detector="T"]');
         const detectorR = demo.querySelector('[data-detector="R"]');
         const pathT = demo.querySelector("[data-path-t]");
         const pathR = demo.querySelector("[data-path-r]");
 
         const sendBtn = demo.querySelector("[data-send-one]");
+        const manyBtn = demo.querySelector("[data-many-mode]");
         const resetBtn = demo.querySelector("[data-reset]");
 
         let countT = 0;
         let countR = 0;
         let isRunning = false;
+        let manyMode = true;
 
         function getT() {
           return Number(slider.value) / 100;
@@ -512,30 +515,34 @@
           stateText.textContent =
             `|ψ⟩ = √${probText(T)} |T⟩ + √${probText(R)} |R⟩`;
 
-          const tOpacity = 0.08 + 0.92 * T;
-          const rOpacity = 0.08 + 0.92 * R;
-
-          const tWidth = 2 + 6 * T;
-          const rWidth = 2 + 6 * R;
-
-          pathT.style.opacity = String(tOpacity);
-          pathT.style.strokeWidth = `${tWidth}px`;
-
-          pathR.style.opacity = String(rOpacity);
-          pathR.style.strokeWidth = `${rWidth}px`;
+          if (manyMode) {
+            pathT.style.opacity = String(0.08 + 0.92 * T);
+            pathR.style.opacity = String(0.08 + 0.92 * R);
+            pathT.style.strokeWidth = `${2 + 6 * T}px`;
+            pathR.style.strokeWidth = `${2 + 6 * R}px`;
+          } else {
+            pathT.style.opacity = "0.28";
+            pathR.style.opacity = "0.28";
+            pathT.style.strokeWidth = "3px";
+            pathR.style.strokeWidth = "3px";
+          }
         }
 
         function sampleDetector() {
           return Math.random() < getT() ? "T" : "R";
         }
 
-        function clearActive() {
+        function clearEventFlash() {
           source.classList.remove("active");
-          inputPath.classList.remove("active");
-          pathT.classList.remove("active");
-          pathR.classList.remove("active");
           detectorT.classList.remove("active");
           detectorR.classList.remove("active");
+        }
+
+        function turnOffManyMode() {
+          manyMode = false;
+          demo.classList.remove("many-mode");
+          manyBtn.textContent = "Tampilkan banyak foton";
+          updateDisplay();
         }
 
         function addCount(detector) {
@@ -552,66 +559,79 @@
         function sendOnePhoton() {
           if (isRunning) return;
 
+          turnOffManyMode();
+
           isRunning = true;
           sendBtn.disabled = true;
-          clearActive();
+          clearEventFlash();
 
           const detector = sampleDetector();
           const T = Math.round(getT() * 100);
           const R = 100 - T;
 
-          resultEl.textContent = "Sumber menyala dan satu foton dikirim ke beam splitter.";
-
           source.classList.add("active");
-          inputPath.classList.add("active");
+          resultEl.textContent =
+            "Sumber mengirim satu foton. Mode banyak foton otomatis dimatikan agar tidak tampak seperti berkas kontinu.";
 
           setTimeout(function () {
-            inputPath.classList.remove("active");
-
             if (detector === "T") {
-              pathT.classList.add("active");
               detectorT.classList.add("active");
               addCount("T");
               resultEl.textContent =
-                `Klik di D1. Peluang teoritis: T = ${T}%, R = ${R}%.`;
+                `Satu klik di D1. Peluang teoritis: T = ${T}%, R = ${R}%.`;
             } else {
-              pathR.classList.add("active");
               detectorR.classList.add("active");
               addCount("R");
               resultEl.textContent =
-                `Klik di D0. Peluang teoritis: T = ${T}%, R = ${R}%.`;
+                `Satu klik di D0. Peluang teoritis: T = ${T}%, R = ${R}%.`;
             }
           }, 450);
 
           setTimeout(function () {
-            source.classList.remove("active");
-            pathT.classList.remove("active");
-            pathR.classList.remove("active");
-            detectorT.classList.remove("active");
-            detectorR.classList.remove("active");
-
+            clearEventFlash();
             sendBtn.disabled = false;
             isRunning = false;
           }, 1150);
         }
 
+        function toggleManyMode() {
+          manyMode = !manyMode;
+          demo.classList.toggle("many-mode", manyMode);
+
+          manyBtn.textContent = manyMode ? "Matikan banyak foton" : "Tampilkan banyak foton";
+
+          if (manyMode) {
+            resultEl.textContent =
+              "Mode banyak foton aktif: cahaya pada jalur T dan R menunjukkan intensitas rata-rata sesuai peluang.";
+          } else {
+            resultEl.textContent =
+              "Mode banyak foton dimatikan. Pada mode satu foton, yang ditampilkan hanya klik detektor.";
+          }
+
+          updateDisplay();
+        }
+
         function reset() {
           countT = 0;
           countR = 0;
+          manyMode = true;
 
           countTEl.textContent = "0";
           countREl.textContent = "0";
 
-          clearActive();
+          demo.classList.add("many-mode");
+          manyBtn.textContent = "Matikan banyak foton";
+          clearEventFlash();
 
           resultEl.textContent =
-            "Klik “Kirim 1 foton”. Sumber akan menyala, lalu salah satu detektor mencatat satu klik.";
+            "Mode banyak foton aktif: cahaya pada jalur T dan R menunjukkan intensitas rata-rata sesuai peluang.";
 
           updateDisplay();
         }
 
         slider.addEventListener("input", updateDisplay);
         sendBtn.addEventListener("click", sendOnePhoton);
+        manyBtn.addEventListener("click", toggleManyMode);
         resetBtn.addEventListener("click", reset);
 
         updateDisplay();
