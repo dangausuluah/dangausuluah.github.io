@@ -94,7 +94,7 @@
     }
 
     .sbs-demo.classical-mode .sbs-path-t,
-    .sbs-demo.classical-mode .sbs-path-r {
+    .sbs-demo.classical-mode .sbs-path-p {
       filter: drop-shadow(0 0 8px rgba(255,255,255,0.72));
     }
 
@@ -127,11 +127,6 @@
       fill: rgba(255,255,255,0.045);
       stroke: rgba(255,255,255,0.9);
       stroke-width: 3;
-    }
-
-    .sbs-beam-splitter line {
-      stroke: rgba(255,255,255,0.82);
-      stroke-width: 2.2;
     }
 
     .sbs-detector rect {
@@ -462,10 +457,6 @@
       <!-- Beam splitter -->
       <g class="sbs-beam-splitter">
         <rect x="470" y="269" width="140" height="140"></rect>
-        <line x1="470" y1="409" x2="610" y2="269"></line>
-        <line x1="470" y1="269" x2="610" y2="409"></line>
-        <line x1="470" y1="339" x2="610" y2="339"></line>
-        <line x1="540" y1="269" x2="540" y2="409"></line>
       </g>
       <text x="518" y="347" class="sbs-label">BS</text>
 
@@ -495,8 +486,8 @@
         y1="269"
         x2="540"
         y2="158"
-        class="sbs-path sbs-path-r"
-        data-path-r
+        class="sbs-path sbs-path-p"
+        data-path-p
       ></line>
 
       <line
@@ -509,11 +500,11 @@
       ></line>
 
       <!-- Path labels -->
-      <text x="550" y="228" class="sbs-label-red">R: dipantulkan</text>
+      <text x="550" y="228" class="sbs-label-red">P: dipantulkan</text>
       <text x="620" y="370" class="sbs-label-yellow">T: diteruskan</text>
 
       <!-- Detector D0 -->
-      <g class="sbs-detector" data-detector="R">
+      <g class="sbs-detector" data-detector="P">
         <rect x="502" y="50" width="76" height="108" rx="18"></rect>
         <text x="540" y="113" text-anchor="middle">D0</text>
       </g>
@@ -522,8 +513,8 @@
       <foreignObject x="594" y="62" width="160" height="88">
         <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-detector-badge">
           <div class="name">Detektor D0</div>
-          <div class="count" data-count-r>0 klik</div>
-          <div class="obs" data-obs-r>0% dari 0 foton</div>
+          <div class="count" data-count-p>0 klik</div>
+          <div class="obs" data-obs-p>0% dari 0 foton</div>
         </div>
       </foreignObject>
 
@@ -546,7 +537,7 @@
 
   <div class="sbs-state-box">
     <span>Keadaan setelah beam splitter</span>
-    <code data-state-text>|ψ⟩ = √0.50 |T⟩ + √0.50 |R⟩</code>
+    <code data-state-text>|ψ⟩ = √0.50 |T⟩ + √0.50 |P⟩</code>
   </div>
 
   <div class="sbs-card-grid">
@@ -558,23 +549,23 @@
 
     <div class="sbs-card">
       <span>Peluang dipantulkan</span>
-      <strong data-p-r>50%</strong>
-      <small data-amp-r>amplituda: √0.50 = 0.707</small>
+      <strong data-p-p>50%</strong>
+      <small data-amp-p>amplituda: √0.50 = 0.707</small>
     </div>
   </div>
 
   <div class="sbs-status" data-status>
     <strong>Status eksperimen:</strong>
-    Mode cahaya klasik aktif. Terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.
+    Mode cahaya klasik aktif. Terang jalur T dan P menunjukkan intensitas rata-rata sesuai transmitansi dan peluang pantul.
   </div>
 
   <div class="sbs-caption">
     <strong>Eksperimen.</strong>
     Sumber <code>S</code> mengirim cahaya menuju beam splitter <code>BS</code>.
-    Beam splitter memiliki transmitansi <code>T</code> dan reflektansi <code>R = 1 − T</code>.
+    Beam splitter memiliki transmitansi <code>T</code> dan peluang pantul <code>P = 1 − T</code>.
     Pada mode <strong>Kirim N foton</strong>, foton dikirim berurutan: setiap foton hanya menghasilkan satu klik,
     baik di <code>D1</code> maupun <code>D0</code>. Setelah banyak pengiriman, rasio klik di kedua detektor
-    mendekati peluang <code>T</code> dan <code>R</code>. Mode <strong>cahaya klasik</strong> menjembatani pengalaman
+    mendekati peluang <code>T</code> dan <code>P</code>. Mode <strong>cahaya klasik</strong> menjembatani pengalaman
     sehari-hari dengan cahaya kontinu: ia hanya menampilkan intensitas rata-rata, bukan simulasi klik foton tunggal.
   </div>
 
@@ -589,28 +580,28 @@
 
         const tValue = demo.querySelector("[data-t-value]");
         const pT = demo.querySelector("[data-p-t]");
-        const pR = demo.querySelector("[data-p-r]");
+        const pP = demo.querySelector("[data-p-p]");
         const ampT = demo.querySelector("[data-amp-t]");
-        const ampR = demo.querySelector("[data-amp-r]");
+        const ampP = demo.querySelector("[data-amp-p]");
         const stateText = demo.querySelector("[data-state-text]");
         const countTEl = demo.querySelector("[data-count-t]");
-        const countREl = demo.querySelector("[data-count-r]");
+        const countPEl = demo.querySelector("[data-count-p]");
         const obsTEl = demo.querySelector("[data-obs-t]");
-        const obsREl = demo.querySelector("[data-obs-r]");
+        const obsPEl = demo.querySelector("[data-obs-p]");
         const statusEl = demo.querySelector("[data-status]");
 
         const source = demo.querySelector("[data-source]");
         const detectorT = demo.querySelector('[data-detector="T"]');
-        const detectorR = demo.querySelector('[data-detector="R"]');
+        const detectorP = demo.querySelector('[data-detector="P"]');
         const pathT = demo.querySelector("[data-path-t]");
-        const pathR = demo.querySelector("[data-path-r]");
+        const pathP = demo.querySelector("[data-path-p]");
 
         const sendBtn = demo.querySelector("[data-send-n]");
         const classicalBtn = demo.querySelector("[data-classical-mode]");
         const resetBtn = demo.querySelector("[data-reset]");
 
         let countT = 0;
-        let countR = 0;
+        let countP = 0;
         let isRunning = false;
         let classicalMode = true;
 
@@ -618,7 +609,7 @@
           return Number(slider.value) / 100;
         }
 
-        function getR() {
+        function getP() {
           return 1 - getT();
         }
 
@@ -645,52 +636,52 @@
         }
 
         function updateDetectorCards() {
-          const total = countT + countR;
+          const total = countT + countP;
           const observedT = total > 0 ? Math.round((countT / total) * 100) : 0;
-          const observedR = total > 0 ? Math.round((countR / total) * 100) : 0;
+          const observedP = total > 0 ? Math.round((countP / total) * 100) : 0;
 
           countTEl.textContent = `${countT} klik`;
-          countREl.textContent = `${countR} klik`;
+          countPEl.textContent = `${countP} klik`;
 
           obsTEl.textContent = `${observedT}% dari ${total} foton`;
-          obsREl.textContent = `${observedR}% dari ${total} foton`;
+          obsPEl.textContent = `${observedP}% dari ${total} foton`;
         }
 
         function clearCounts() {
           countT = 0;
-          countR = 0;
+          countP = 0;
           updateDetectorCards();
         }
 
         function updateDisplay() {
           const T = getT();
-          const R = getR();
+          const P = getP();
 
           tValue.textContent = Math.round(T * 100);
           pT.textContent = percent(T);
-          pR.textContent = percent(R);
+          pP.textContent = percent(P);
 
           ampT.textContent = `amplituda: √${probText(T)} = ${ampText(T)}`;
-          ampR.textContent = `amplituda: √${probText(R)} = ${ampText(R)}`;
+          ampP.textContent = `amplituda: √${probText(P)} = ${ampText(P)}`;
 
           stateText.textContent =
-            `|ψ⟩ = √${probText(T)} |T⟩ + √${probText(R)} |R⟩`;
+            `|ψ⟩ = √${probText(T)} |T⟩ + √${probText(P)} |P⟩`;
 
           if (classicalMode) {
             pathT.style.opacity = String(0.12 + 0.88 * T);
-            pathR.style.opacity = String(0.12 + 0.88 * R);
+            pathP.style.opacity = String(0.12 + 0.88 * P);
             pathT.style.strokeWidth = `${2.5 + 4.5 * T}px`;
-            pathR.style.strokeWidth = `${2.5 + 4.5 * R}px`;
+            pathP.style.strokeWidth = `${2.5 + 4.5 * P}px`;
           } else {
             pathT.style.opacity = "0.32";
-            pathR.style.opacity = "0.32";
+            pathP.style.opacity = "0.32";
             pathT.style.strokeWidth = "3px";
-            pathR.style.strokeWidth = "3px";
+            pathP.style.strokeWidth = "3px";
           }
         }
 
         function sampleDetector() {
-          return Math.random() < getT() ? "T" : "R";
+          return Math.random() < getT() ? "T" : "P";
         }
 
         function delay(ms) {
@@ -702,7 +693,7 @@
         function clearEventFlash() {
           source.classList.remove("active");
           detectorT.classList.remove("active");
-          detectorR.classList.remove("active");
+          detectorP.classList.remove("active");
         }
 
         function setControlsDisabled(disabled) {
@@ -724,24 +715,24 @@
           if (detector === "T") {
             countT += 1;
           } else {
-            countR += 1;
+            countP += 1;
           }
 
           updateDetectorCards();
         }
 
         function observedText() {
-          const total = countT + countR;
+          const total = countT + countP;
           const observedT = total > 0 ? Math.round((countT / total) * 100) : 0;
-          const observedR = total > 0 ? Math.round((countR / total) * 100) : 0;
+          const observedP = total > 0 ? Math.round((countP / total) * 100) : 0;
 
-          return `Total klik: ${total}. D1 = ${observedT}%, D0 = ${observedR}%.`;
+          return `Total klik: ${total}. D1 = ${observedT}%, D0 = ${observedP}%.`;
         }
 
         async function sendOnePhotonInSequence(index, totalToSend) {
           const detector = sampleDetector();
           const T = Math.round(getT() * 100);
-          const R = 100 - T;
+          const P = 100 - T;
 
           clearEventFlash();
 
@@ -759,18 +750,18 @@
             detectorT.classList.add("active");
             addCount("T");
             statusEl.innerHTML =
-              `<strong>Status eksperimen:</strong> Foton ${index}/${totalToSend}: klik di D1. Peluang teoritis: T = ${T}%, R = ${R}%.`;
+              `<strong>Status eksperimen:</strong> Foton ${index}/${totalToSend}: klik di D1. Peluang teoritis: T = ${T}%, P = ${P}%.`;
           } else {
-            detectorR.classList.add("active");
-            addCount("R");
+            detectorP.classList.add("active");
+            addCount("P");
             statusEl.innerHTML =
-              `<strong>Status eksperimen:</strong> Foton ${index}/${totalToSend}: klik di D0. Peluang teoritis: T = ${T}%, R = ${R}%.`;
+              `<strong>Status eksperimen:</strong> Foton ${index}/${totalToSend}: klik di D0. Peluang teoritis: T = ${T}%, P = ${P}%.`;
           }
 
           await delay(420);
 
           detectorT.classList.remove("active");
-          detectorR.classList.remove("active");
+          detectorP.classList.remove("active");
 
           await delay(120);
         }
@@ -811,7 +802,7 @@
 
           if (classicalMode) {
             statusEl.innerHTML =
-              `<strong>Status eksperimen:</strong> Mode cahaya klasik aktif. Terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.`;
+              `<strong>Status eksperimen:</strong> Mode cahaya klasik aktif. Terang jalur T dan P menunjukkan intensitas rata-rata sesuai transmitansi dan peluang pantul.`;
           } else {
             statusEl.innerHTML =
               `<strong>Status eksperimen:</strong> Mode cahaya klasik dimatikan. Mode ini tidak menampilkan berkas kontinu.`;
@@ -830,7 +821,7 @@
           clearEventFlash();
 
           statusEl.innerHTML =
-            `<strong>Status eksperimen:</strong> Mode cahaya klasik aktif. Terang jalur T dan R menunjukkan intensitas rata-rata sesuai transmitansi dan reflektansi.`;
+            `<strong>Status eksperimen:</strong> Mode cahaya klasik aktif. Terang jalur T dan P menunjukkan intensitas rata-rata sesuai transmitansi dan peluang pantul.`;
 
           updateDisplay();
         }
@@ -838,7 +829,7 @@
         slider.addEventListener("input", function () {
           updateDisplay();
 
-          if (countT + countR > 0) {
+          if (countT + countP > 0) {
             clearCounts();
             statusEl.innerHTML =
               `<strong>Status eksperimen:</strong> Transmitansi diubah. Hitungan detektor direset agar tidak mencampur data dari pengaturan berbeda.`;
