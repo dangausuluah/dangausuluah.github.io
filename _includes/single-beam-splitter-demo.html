@@ -75,17 +75,12 @@
 
     .sbs-path {
       fill: none;
-      stroke-linecap: round;
-      transition: opacity 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
-    }
-
-    .sbs-input-path,
-    .sbs-path-t,
-    .sbs-path-r {
       stroke: #ffffff;
       stroke-width: 3;
       opacity: 0.32;
+      stroke-linecap: round;
       filter: none;
+      transition: opacity 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
     }
 
     .sbs-input-path {
@@ -158,7 +153,9 @@
       filter: drop-shadow(0 0 12px #FBC306);
     }
 
-    .sbs-local-panel {
+    .sbs-local-panel,
+    .sbs-bs-control,
+    .sbs-detector-badge {
       box-sizing: border-box;
       width: 100%;
       height: 100%;
@@ -168,6 +165,11 @@
       padding: 14px;
       color: #ffffff;
       font-family: Arial, sans-serif;
+    }
+
+    .sbs-bs-control {
+      border-color: rgba(251,195,6,0.28);
+      padding: 12px 14px;
     }
 
     .sbs-local-title {
@@ -249,18 +251,6 @@
       color: #ffffff;
     }
 
-    .sbs-bs-control {
-      box-sizing: border-box;
-      width: 100%;
-      height: 100%;
-      border: 1px solid rgba(251,195,6,0.28);
-      border-radius: 16px;
-      background: rgba(7,7,7,0.84);
-      padding: 12px 14px;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
-    }
-
     .sbs-bs-head {
       display: flex;
       justify-content: space-between;
@@ -278,18 +268,6 @@
     .sbs-local-slider {
       width: 100%;
       accent-color: #FBC306;
-    }
-
-    .sbs-detector-badge {
-      box-sizing: border-box;
-      width: 100%;
-      height: 100%;
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 16px;
-      background: rgba(7,7,7,0.84);
-      padding: 12px 13px;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
     }
 
     .sbs-detector-badge .name {
@@ -401,6 +379,7 @@
       color: var(--muted, #bdbdbd);
       line-height: 1.65;
       font-size: 0.95rem;
+      margin-bottom: 18px;
     }
 
     .sbs-caption strong {
@@ -417,12 +396,121 @@
       padding: 1px 6px;
     }
 
+    .sbs-tuner {
+      border: 1px dashed rgba(251,195,6,0.45);
+      border-radius: 22px;
+      padding: 16px;
+      background: rgba(251,195,6,0.035);
+      margin-top: 18px;
+    }
+
+    .sbs-tuner-head {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .sbs-tuner-head strong {
+      color: #FBC306;
+      font-size: 1rem;
+    }
+
+    .sbs-tuner-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .sbs-tuner button {
+      border: 0;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 900;
+      cursor: pointer;
+      background: rgba(255,255,255,0.13);
+      color: #ffffff;
+    }
+
+    .sbs-tuner button[data-copy-layout] {
+      background: #FBC306;
+      color: #050505;
+    }
+
+    .sbs-layout-editor {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .sbs-layout-group {
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255,255,255,0.035);
+    }
+
+    .sbs-layout-group h4 {
+      margin: 0 0 10px;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    .sbs-layout-fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .sbs-layout-field label {
+      display: block;
+      color: var(--muted, #bdbdbd);
+      font-size: 0.72rem;
+      margin-bottom: 4px;
+    }
+
+    .sbs-layout-field input {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 10px;
+      padding: 7px 8px;
+      background: rgba(0,0,0,0.25);
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .sbs-layout-output {
+      width: 100%;
+      min-height: 160px;
+      box-sizing: border-box;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(0,0,0,0.3);
+      color: #ffffff;
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      resize: vertical;
+    }
+
+    @media (max-width: 980px) {
+      .sbs-layout-editor {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     @media (max-width: 760px) {
       .sbs-demo {
         padding: 18px;
       }
 
-      .sbs-card-grid {
+      .sbs-card-grid,
+      .sbs-layout-editor {
         grid-template-columns: 1fr;
       }
     }
@@ -431,15 +519,14 @@
   <div class="sbs-header">
     <h2>Beam Splitter Satu Foton</h2>
     <p>
-      Kontrol lokal diletakkan dekat komponen eksperimen: sumber mengirim foton, beam splitter mengatur transmitansi,
-      dan detektor mencatat klik.
+      Tuning mode aktif. Atur posisi dan ukuran komponen melalui panel di bawah, lalu salin Layout JSON.
     </p>
   </div>
 
   <div class="sbs-stage">
-    <svg class="sbs-svg" viewBox="0 0 1100 540" role="img" aria-label="Beam splitter dengan kontrol lokal dan dua detektor">
-      <!-- Source control: closer to source and wider than previous version -->
-      <foreignObject x="34" y="138" width="400" height="126">
+    <svg class="sbs-svg" data-sbs-svg viewBox="0 0 1100 540" role="img" aria-label="Beam splitter dengan kontrol lokal dan dua detektor">
+      <!-- Source control -->
+      <foreignObject data-box="sourceControl">
         <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-local-panel">
           <div class="sbs-local-title">Kontrol sumber</div>
 
@@ -466,33 +553,26 @@
 
       <!-- Source -->
       <g class="sbs-source" data-source>
-        <rect x="88" y="302" width="122" height="74" rx="18"></rect>
-        <text x="149" y="349" text-anchor="middle">S</text>
+        <rect data-source-rect></rect>
+        <text data-source-text text-anchor="middle">S</text>
       </g>
-      <text x="105" y="414" class="sbs-label-small">Sumber</text>
+      <text class="sbs-label-small" data-source-label>Sumber</text>
 
       <!-- Input path -->
-      <line
-        x1="210"
-        y1="339"
-        x2="470"
-        y2="339"
-        class="sbs-path sbs-input-path"
-        data-input-path
-      ></line>
+      <line class="sbs-path sbs-input-path" data-input-path></line>
 
       <!-- Beam splitter -->
       <g class="sbs-beam-splitter">
-        <rect x="470" y="269" width="140" height="140"></rect>
-        <line x1="470" y1="409" x2="610" y2="269"></line>
-        <line x1="470" y1="269" x2="610" y2="409"></line>
-        <line x1="470" y1="339" x2="610" y2="339"></line>
-        <line x1="540" y1="269" x2="540" y2="409"></line>
+        <rect data-bs-rect></rect>
+        <line data-bs-line="diag1"></line>
+        <line data-bs-line="diag2"></line>
+        <line data-bs-line="h"></line>
+        <line data-bs-line="v"></line>
       </g>
-      <text x="505" y="251" class="sbs-label">BS</text>
+      <text class="sbs-label" data-bs-label>BS</text>
 
-      <!-- Beam splitter control: closer to BS and bottom-cropped for compactness -->
-      <foreignObject x="410" y="427" width="300" height="88">
+      <!-- Beam splitter control -->
+      <foreignObject data-box="bsControl">
         <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-bs-control">
           <div class="sbs-bs-head">
             <span>Transmitansi, T</span>
@@ -511,37 +591,22 @@
         </div>
       </foreignObject>
 
-      <!-- Output arms: visually compact; unequal length is acceptable here because paths are not recombined -->
-      <line
-        x1="540"
-        y1="269"
-        x2="540"
-        y2="158"
-        class="sbs-path sbs-path-r"
-        data-path-r
-      ></line>
-
-      <line
-        x1="610"
-        y1="339"
-        x2="765"
-        y2="339"
-        class="sbs-path sbs-path-t"
-        data-path-t
-      ></line>
+      <!-- Output paths -->
+      <line class="sbs-path sbs-path-r" data-path-r></line>
+      <line class="sbs-path sbs-path-t" data-path-t></line>
 
       <!-- Path labels -->
-      <text x="575" y="228" class="sbs-label-red">R: dipantulkan</text>
-      <text x="650" y="380" class="sbs-label-yellow">T: diteruskan</text>
+      <text class="sbs-label-red" data-label-r>R: dipantulkan</text>
+      <text class="sbs-label-yellow" data-label-t>T: diteruskan</text>
 
       <!-- Detector D0 -->
       <g class="sbs-detector" data-detector="R">
-        <rect x="502" y="50" width="76" height="108" rx="18"></rect>
-        <text x="540" y="112" text-anchor="middle">D0</text>
+        <rect data-d0-rect></rect>
+        <text data-d0-text text-anchor="middle">D0</text>
       </g>
 
-      <!-- D0 count beside D0 -->
-      <foreignObject x="594" y="62" width="225" height="88">
+      <!-- D0 badge -->
+      <foreignObject data-box="badgeD0">
         <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-detector-badge">
           <div class="name">Detektor D0</div>
           <div class="count" data-count-r>0 klik</div>
@@ -549,8 +614,8 @@
         </div>
       </foreignObject>
 
-      <!-- D1 count above D1 -->
-      <foreignObject x="745" y="204" width="230" height="88">
+      <!-- D1 badge -->
+      <foreignObject data-box="badgeD1">
         <div xmlns="http://www.w3.org/1999/xhtml" class="sbs-detector-badge">
           <div class="name">Detektor D1</div>
           <div class="count" data-count-t>0 klik</div>
@@ -560,8 +625,8 @@
 
       <!-- Detector D1 -->
       <g class="sbs-detector" data-detector="T">
-        <rect x="765" y="306" width="150" height="66" rx="18"></rect>
-        <text x="840" y="348" text-anchor="middle">D1</text>
+        <rect data-d1-rect></rect>
+        <text data-d1-text text-anchor="middle">D1</text>
       </g>
     </svg>
   </div>
@@ -600,12 +665,74 @@
     sehari-hari dengan cahaya kontinu: ia hanya menampilkan intensitas rata-rata, bukan simulasi klik foton tunggal.
   </div>
 
+  <div class="sbs-tuner">
+    <div class="sbs-tuner-head">
+      <strong>Layout tuning panel</strong>
+      <div class="sbs-tuner-buttons">
+        <button type="button" data-copy-layout>Copy Layout JSON</button>
+        <button type="button" data-save-layout>Save to browser</button>
+        <button type="button" data-reset-layout>Reset layout</button>
+      </div>
+    </div>
+
+    <div class="sbs-layout-editor" data-layout-editor></div>
+
+    <textarea class="sbs-layout-output" data-layout-output readonly></textarea>
+  </div>
+
   <script>
     (function () {
       function initSingleBeamSplitterDemo(demo) {
         if (demo.dataset.initialized === "true") return;
         demo.dataset.initialized = "true";
 
+        const storageKey = "sbs-layout-tuning-v1";
+
+        const defaultLayout = {
+          canvas: { w: 1100, h: 540 },
+
+          sourceControl: { x: 34, y: 138, w: 400, h: 126 },
+          source: { x: 88, y: 302, w: 122, h: 74, rx: 18 },
+          sourceLabel: { x: 105, y: 414 },
+
+          beamSplitter: { x: 470, y: 269, size: 140 },
+          bsLabel: { x: 505, y: 251 },
+          bsControl: { x: 410, y: 427, w: 300, h: 88 },
+
+          detectorD0: { x: 502, y: 50, w: 76, h: 108, rx: 18 },
+          badgeD0: { x: 594, y: 62, w: 225, h: 88 },
+
+          detectorD1: { x: 765, y: 306, w: 150, h: 66, rx: 18 },
+          badgeD1: { x: 745, y: 204, w: 230, h: 88 },
+
+          labelR: { x: 575, y: 228 },
+          labelT: { x: 650, y: 380 }
+        };
+
+        let layout = loadSavedLayout() || structuredClone(defaultLayout);
+
+        const layoutGroups = [
+          { key: "canvas", title: "Canvas", fields: ["w", "h"] },
+
+          { key: "sourceControl", title: "Source control", fields: ["x", "y", "w", "h"] },
+          { key: "source", title: "Source S", fields: ["x", "y", "w", "h", "rx"] },
+          { key: "sourceLabel", title: "Source label", fields: ["x", "y"] },
+
+          { key: "beamSplitter", title: "Beam splitter", fields: ["x", "y", "size"] },
+          { key: "bsLabel", title: "BS label", fields: ["x", "y"] },
+          { key: "bsControl", title: "BS control", fields: ["x", "y", "w", "h"] },
+
+          { key: "detectorD0", title: "Detector D0", fields: ["x", "y", "w", "h", "rx"] },
+          { key: "badgeD0", title: "D0 badge", fields: ["x", "y", "w", "h"] },
+
+          { key: "detectorD1", title: "Detector D1", fields: ["x", "y", "w", "h", "rx"] },
+          { key: "badgeD1", title: "D1 badge", fields: ["x", "y", "w", "h"] },
+
+          { key: "labelR", title: "R label", fields: ["x", "y"] },
+          { key: "labelT", title: "T label", fields: ["x", "y"] }
+        ];
+
+        const svg = demo.querySelector("[data-sbs-svg]");
         const slider = demo.querySelector("[data-t-slider]");
         const photonNumberInput = demo.querySelector("[data-photon-number]");
 
@@ -631,10 +758,259 @@
         const classicalBtn = demo.querySelector("[data-classical-mode]");
         const resetBtn = demo.querySelector("[data-reset]");
 
+        const layoutEditor = demo.querySelector("[data-layout-editor]");
+        const layoutOutput = demo.querySelector("[data-layout-output]");
+        const copyLayoutBtn = demo.querySelector("[data-copy-layout]");
+        const saveLayoutBtn = demo.querySelector("[data-save-layout]");
+        const resetLayoutBtn = demo.querySelector("[data-reset-layout]");
+
         let countT = 0;
         let countR = 0;
         let isRunning = false;
         let classicalMode = true;
+
+        function loadSavedLayout() {
+          try {
+            const raw = localStorage.getItem(storageKey);
+            return raw ? JSON.parse(raw) : null;
+          } catch (error) {
+            return null;
+          }
+        }
+
+        function writeLayoutOutput() {
+          layoutOutput.value = JSON.stringify(layout, null, 2);
+        }
+
+        function setAttrs(el, attrs) {
+          Object.entries(attrs).forEach(function ([key, value]) {
+            el.setAttribute(key, value);
+          });
+        }
+
+        function applyBox(key) {
+          const box = layout[key];
+          const el = demo.querySelector(`[data-box="${key}"]`);
+
+          if (!box || !el) return;
+
+          setAttrs(el, {
+            x: box.x,
+            y: box.y,
+            width: box.w,
+            height: box.h
+          });
+        }
+
+        function applyLayout() {
+          const c = layout.canvas;
+          const s = layout.source;
+          const b = layout.beamSplitter;
+          const d0 = layout.detectorD0;
+          const d1 = layout.detectorD1;
+
+          svg.setAttribute("viewBox", `0 0 ${c.w} ${c.h}`);
+
+          applyBox("sourceControl");
+          applyBox("bsControl");
+          applyBox("badgeD0");
+          applyBox("badgeD1");
+
+          const sourceRect = demo.querySelector("[data-source-rect]");
+          const sourceText = demo.querySelector("[data-source-text]");
+          const sourceLabel = demo.querySelector("[data-source-label]");
+
+          setAttrs(sourceRect, {
+            x: s.x,
+            y: s.y,
+            width: s.w,
+            height: s.h,
+            rx: s.rx
+          });
+
+          setAttrs(sourceText, {
+            x: s.x + s.w / 2,
+            y: s.y + s.h * 0.64
+          });
+
+          setAttrs(sourceLabel, {
+            x: layout.sourceLabel.x,
+            y: layout.sourceLabel.y
+          });
+
+          const bsRect = demo.querySelector("[data-bs-rect]");
+          const diag1 = demo.querySelector('[data-bs-line="diag1"]');
+          const diag2 = demo.querySelector('[data-bs-line="diag2"]');
+          const hLine = demo.querySelector('[data-bs-line="h"]');
+          const vLine = demo.querySelector('[data-bs-line="v"]');
+          const bsLabel = demo.querySelector("[data-bs-label]");
+
+          setAttrs(bsRect, {
+            x: b.x,
+            y: b.y,
+            width: b.size,
+            height: b.size
+          });
+
+          setAttrs(diag1, {
+            x1: b.x,
+            y1: b.y + b.size,
+            x2: b.x + b.size,
+            y2: b.y
+          });
+
+          setAttrs(diag2, {
+            x1: b.x,
+            y1: b.y,
+            x2: b.x + b.size,
+            y2: b.y + b.size
+          });
+
+          setAttrs(hLine, {
+            x1: b.x,
+            y1: b.y + b.size / 2,
+            x2: b.x + b.size,
+            y2: b.y + b.size / 2
+          });
+
+          setAttrs(vLine, {
+            x1: b.x + b.size / 2,
+            y1: b.y,
+            x2: b.x + b.size / 2,
+            y2: b.y + b.size
+          });
+
+          setAttrs(bsLabel, {
+            x: layout.bsLabel.x,
+            y: layout.bsLabel.y
+          });
+
+          const inputPath = demo.querySelector("[data-input-path]");
+
+          setAttrs(inputPath, {
+            x1: s.x + s.w,
+            y1: s.y + s.h / 2,
+            x2: b.x,
+            y2: b.y + b.size / 2
+          });
+
+          setAttrs(pathR, {
+            x1: b.x + b.size / 2,
+            y1: b.y,
+            x2: d0.x + d0.w / 2,
+            y2: d0.y + d0.h
+          });
+
+          setAttrs(pathT, {
+            x1: b.x + b.size,
+            y1: b.y + b.size / 2,
+            x2: d1.x,
+            y2: d1.y + d1.h / 2
+          });
+
+          const labelR = demo.querySelector("[data-label-r]");
+          const labelT = demo.querySelector("[data-label-t]");
+
+          setAttrs(labelR, {
+            x: layout.labelR.x,
+            y: layout.labelR.y
+          });
+
+          setAttrs(labelT, {
+            x: layout.labelT.x,
+            y: layout.labelT.y
+          });
+
+          const d0Rect = demo.querySelector("[data-d0-rect]");
+          const d0Text = demo.querySelector("[data-d0-text]");
+          const d1Rect = demo.querySelector("[data-d1-rect]");
+          const d1Text = demo.querySelector("[data-d1-text]");
+
+          setAttrs(d0Rect, {
+            x: d0.x,
+            y: d0.y,
+            width: d0.w,
+            height: d0.h,
+            rx: d0.rx
+          });
+
+          setAttrs(d0Text, {
+            x: d0.x + d0.w / 2,
+            y: d0.y + d0.h * 0.58
+          });
+
+          setAttrs(d1Rect, {
+            x: d1.x,
+            y: d1.y,
+            width: d1.w,
+            height: d1.h,
+            rx: d1.rx
+          });
+
+          setAttrs(d1Text, {
+            x: d1.x + d1.w / 2,
+            y: d1.y + d1.h * 0.64
+          });
+
+          writeLayoutOutput();
+        }
+
+        function buildLayoutEditor() {
+          layoutEditor.innerHTML = "";
+
+          layoutGroups.forEach(function (group) {
+            const groupEl = document.createElement("div");
+            groupEl.className = "sbs-layout-group";
+
+            const title = document.createElement("h4");
+            title.textContent = group.title;
+            groupEl.appendChild(title);
+
+            const fields = document.createElement("div");
+            fields.className = "sbs-layout-fields";
+
+            group.fields.forEach(function (field) {
+              const wrapper = document.createElement("div");
+              wrapper.className = "sbs-layout-field";
+
+              const label = document.createElement("label");
+              label.textContent = field;
+
+              const input = document.createElement("input");
+              input.type = "number";
+              input.step = "1";
+              input.value = layout[group.key][field];
+              input.dataset.layoutKey = group.key;
+              input.dataset.layoutField = field;
+
+              input.addEventListener("input", function () {
+                const key = input.dataset.layoutKey;
+                const f = input.dataset.layoutField;
+                const value = Number(input.value);
+
+                if (!Number.isFinite(value)) return;
+
+                layout[key][f] = value;
+                applyLayout();
+              });
+
+              wrapper.appendChild(label);
+              wrapper.appendChild(input);
+              fields.appendChild(wrapper);
+            });
+
+            groupEl.appendChild(fields);
+            layoutEditor.appendChild(groupEl);
+          });
+        }
+
+        function refreshEditorValues() {
+          layoutEditor.querySelectorAll("input[data-layout-key]").forEach(function (input) {
+            const key = input.dataset.layoutKey;
+            const field = input.dataset.layoutField;
+            input.value = layout[key][field];
+          });
+        }
 
         function getT() {
           return Number(slider.value) / 100;
@@ -875,6 +1251,38 @@
         classicalBtn.addEventListener("click", toggleClassicalMode);
         resetBtn.addEventListener("click", reset);
 
+        copyLayoutBtn.addEventListener("click", async function () {
+          const json = JSON.stringify(layout, null, 2);
+
+          try {
+            await navigator.clipboard.writeText(json);
+            copyLayoutBtn.textContent = "Copied";
+            setTimeout(function () {
+              copyLayoutBtn.textContent = "Copy Layout JSON";
+            }, 1200);
+          } catch (error) {
+            layoutOutput.focus();
+            layoutOutput.select();
+          }
+        });
+
+        saveLayoutBtn.addEventListener("click", function () {
+          localStorage.setItem(storageKey, JSON.stringify(layout));
+          saveLayoutBtn.textContent = "Saved";
+          setTimeout(function () {
+            saveLayoutBtn.textContent = "Save to browser";
+          }, 1200);
+        });
+
+        resetLayoutBtn.addEventListener("click", function () {
+          layout = structuredClone(defaultLayout);
+          localStorage.removeItem(storageKey);
+          refreshEditorValues();
+          applyLayout();
+        });
+
+        buildLayoutEditor();
+        applyLayout();
         updateDisplay();
         reset();
       }
