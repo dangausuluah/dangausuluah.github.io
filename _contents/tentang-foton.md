@@ -51,3 +51,4 @@ $$
 $$
 
 
+{% include single-beam-splitter-demo.html T="50" N="10" %}
